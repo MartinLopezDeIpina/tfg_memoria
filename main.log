@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  24 MAR 2025 23:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  27 MAR 2025 00:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1047,16 +1047,18 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 <figures/atencion_poc.png, id=135, 602.7318pt x 380.8629pt>
 File: figures/atencion_poc.png Graphic file (type png)
 <use figures/atencion_poc.png>
-Package pdftex.def Info: figures/atencion_poc.png  used on input line 38.
+Package pdftex.def Info: figures/atencion_poc.png  used on input line 39.
 (pdftex.def)             Requested size: 266.19202pt x 168.20782pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 39.
+(Font)              scaled to size 10.0pt on input line 40.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 39.
-)
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
- [4]
+(Font)              scaled to size 10.0pt on input line 40.
+
+Underfull \vbox (badness 1127) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 48.
+LaTeX Info: Redefining \% on input line 48.
+ [4])
 LaTeX Info: Redefining \. on input line 150.
 LaTeX Info: Redefining \% on input line 150.
  [5 <./figures/atencion_poc.png (PNG copy)>] [6
@@ -1097,22 +1099,22 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 385FB5913DCEAE04EA750DB5EDE1622E;1690.
+(rerunfilecheck)             Checksum: 728DCC29E66B091CFFA1ED4121964BFC;1738.
 Package rerunfilecheck Info: File `main.brf' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24212 strings out of 474222
- 409815 string characters out of 5748733
+ 24213 strings out of 474222
+ 409830 string characters out of 5748733
  1934975 words of memory out of 5000000
- 45844 multiletter control sequences out of 15000+600000
- 661555 words of font info for 201 fonts, out of 8000000 for 9000
+ 45845 multiletter control sequences out of 15000+600000
+ 661436 words of font info for 200 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  91i,11n,133p,1001b,570s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb>
-Output written on main.pdf (21 pages, 867978 bytes).
+Output written on main.pdf (21 pages, 869603 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
+ 199 PDF objects out of 1000 (max. 8388607)
+ 38 named destinations out of 1000 (max. 500000)
  65131 words of extra memory for PDF output out of 74296 (max. 10000000)
 
