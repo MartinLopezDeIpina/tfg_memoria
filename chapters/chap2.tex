@@ -1,9 +1,10 @@
 Resumen de diferentes partes: 
 
-- Ajuste de agentes -> LoRa? 
+- Ajuste de agentes -> LoRa? -> comentar lo de los agentes instruct.
 - El protocolo MCP
 - El estado del arte en arquitecturas de agentes LLM y sistemas RAG
-- El estado del arte en agentes integrados a proyectos software
+- 
+- El estado del arte en agentes integrados a proyectos software + contexto de onboarding ~quizás en la introducción.
 - Redes neuronales?
 
 2. Agentes LLM (Fundamentos y funcionamiento básico)
@@ -17,6 +18,8 @@ Resumen de diferentes partes:
 
 Los agentes de Inteligencia Artificial son programas informáticos que implementan modelos computacionales avanzados para ejecutar diversas funciones específicas del contexto en el que se aplican. Tras siete décadas y media de investigación, los esfuerzos en el campo se han focalizado en agentes basados en Grandes Modelos de Lenguaje (LLM). 
 
+Estos agentes, en esencia, constituyen sistemas informáticos que utilizan dichos modelos como núcleo operativo para la resolución de problemas. Para ello, les suministran los datos de entrada pertinentes, interpretan sus respuestas y transforman estas salidas en acciones concretas que permiten alcanzar los resultados deseados.
+
 \subsection{Modelos LLM}
 
 Los modelos de lenguaje (LM) constituyen sistemas computacionales especializados en el procesamiento del lenguaje natural. Entre estos, destacan los grandes modelos de lenguaje, diseñados para acometer tareas  como la clasificación y generación de contenido lingüístico. Su fundamento técnico reside en redes neuronales que implementan la arquitectura Transformer [Attention is All You Need]. Para comprender el funcionamiento de dicha arquitectura, resulta imprescindible asimilar previamente conceptos como la tokenización y las representaciones vectoriales del lenguaje.
@@ -25,7 +28,7 @@ Los modelos de lenguaje (LM) constituyen sistemas computacionales especializados
 Los tokens constituyen la unidad mínima de texto que el modelo puede procesar. Dado que operan sobre estructuras matemáticas, requieren transformar el lenguaje natural en representaciones matriciales. Para lograr esta conversión, el texto se segmenta en dichas unidades mínimas, que pueden corresponder a caracteres individuales, fragmentos de texto o palabras completas. El conjunto íntegro de estas unidades reconocibles por el modelo configura su vocabulario. 
 
 \paragraph{Representaciones vectoriales}
-Constituyen vectores numéricos de dimensionalidad fija que codifican la semántica inherente a cada token. Estos vectores pueden comprender desde 768 dimensiones en arquitecturas como BERT-base hasta superar las 16.000 dimensiones en los modelos más avanzados del estado del arte, capturando conceptos semánticos en profundidad. Dichas representaciones se adquieren mediante procesos de aprendizaje durante la fase de entrenamiento del modelo. Por ejemplo, una dimensión específica podría especializarse en representar conceptos abstractos. En este contexto, la representación vectorial del token ``animal`` presentaría un valor más elevado en dicha dimensión que la correspondiente al término ``gato``, reflejando su mayor grado de abstracción conceptual.
+Constituyen vectores numéricos de dimensionalidad fija que codifican la semántica inherente a cada token. Estos vectores pueden comprender desde 768 dimensiones en arquitecturas como BERT-base hasta superar las 16.000 dimensiones en los modelos más avanzados del estado del arte, capturando conceptos semánticos en profundidad. Por ejemplo, una dimensión específica podría especializarse en representar conceptos abstractos. En este contexto, la representación vectorial del token ``animal`` presentaría un valor más elevado en dicha dimensión que la correspondiente al término ``gato``, reflejando su mayor grado de abstracción conceptual.
 
 \subsubsection{Arquitectura Transformer}
 Esta arquitectura emplea el mecanismo de ``atención`` para enriquecer la comprensión textual del modelo. El proceso transforma inicialmente la representación de las palabras de entrada incorporando información contextual mediante múltiples capas de atención, que consisten en operaciones matriciales que transfieren información semántica entre palabras. 
@@ -44,12 +47,27 @@ La figura \ref{fig:atencion_gato} ilustra un ejemplo simplificado del cómputo d
 En implementaciones prácticas, el mecanismo de atención que opera entre un token origen y un token destino se computa mediante operaciones matriciales que involucran tanto las representaciones vectoriales de ambos tokens como las matrices de atención, componentes de los parámetros aprendidos del modelo. Durante el proceso de entrenamiento, estas matrices de atención adquieren la capacidad de capturar fenómenos lingüísticos; por ejemplo, una matriz específica podría especializarse en cuantificar la connotación negativa que un token origen proyecta sobre un token destino.
 
 \subsection{Interacción con herramientas externas}
-Los agentes LLM tienen la capacidad de interactuar con múltiples herramientas como búsquedas en internet, interacciones con bases de datos, interacción con la interfaz de usuario, entre otras. A bajo nivel, un LLM no genera más que tokens de texto, por lo que la integración de herramientas se implementa mediante el uso de palabras clave que el modelo puede generar. Se le indica en el texto de entrada el esquema de la fucnión a utilizar, y de decidir utilizarla, el modelo generará el texto correspondiente a la función. Posteriormente se realizará una búsqeuda de expresiones regulares sobre la respuesta para obtener los datos necesarios para la ejecución de la función. 
+Los agentes LLM poseen la capacidad de interactuar con diversas herramientas como búsquedas web, bases de datos o interfaces de usuario. Fundamentalmente, un LLM solo genera tokens de texto, por lo que la integración de herramientas se implementa mediante palabras clave que el modelo puede producir. Para ello, en el texto de entrada se especifica el esquema de la función a utilizar y, si decide emplearla, el modelo generará el texto correspondiente. Posteriormente, se procesa la respuesta para extraer llamadas a funciones si las hubiese.
 
-La interacción con herramientas suele ser alternante. El modelo debe decidir si necesita utilizar una función, y en caso afirmativo, la salida de esta función se utilizará como entrada para el modelo. 
+La interacción con herramientas es típicamente alternante. El modelo evalúa si requiere una función y, en caso afirmativo, la salida de esta se utilizará como entrada para el modelo. La figura \ref{fig:herramientas} ilustra el esquema de un agente con acceso a una API del clima. Como el modelo carece de información climática en tiempo real, se le indica en el prompt la posibilidad de invocar esta función. Al incluir la llamada en su texto de salida, se ejecuta la función y su respuesta se transmite al modelo para generar el resultado final.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1\linewidth]{figures/herramienta.png}
+  \caption{Ejemplo de interacción de un modelo LLM con una herramienta externa.}
+  \label{fig:herramientas}
+\end{figure}
 
 \subsection{Abstraciones en frameworks}
-comentar lo de que se suele usar siempre una estructura conversacional, y que por eso suelen estar siempre ajustados para esta estructura, por lo que funcionan mejor así.
+Aunque los agentes LLM son una tecnología relativamente emergente, ya existen frameworks que facilitan su implementación. Estos frameworks, como LangChain o LangGraph, proporcionan abstracciones de alto nivel para la creación de agentes LLM, permitiendo a los desarrolladores reutilizar funcionalidades comunes en la mayoría de sistemas de este tipo. 
+
+Las funcionalidades más comunes que estos frameworks ofrecen son: 
+\begin{itemize}
+  \item {\textbf{Gestión de modelos:}} La ejecución de modelos require una comprensión profunda del modelo utilizado. Cada modelo utiliza su propio tokenizador, y está diseñado para utilizar un esquema de entrada y salida concreto. Los frameworks simplifican esta tarea, implementando una interfaz que permite a los desarrolladores utilizar diferentes modelos sin tener que preocuparse por los detalles de implementación. 
+  \item {\textbf{Interacción conversacional:}} La interacción con los modelos se realiza mediante un esquema conversacional, donde el modelo recibe un texto de entrada y genera una respuesta. Se van concatenando las respuestas y las entradas para mantenerel contexto de la conversación, de forma que la segunda pregunta contenga todos los mensajes anteriores.
+  \item {\textbf{Uso de herramientas externas:}} Los frameworks permiten la integración de herramientas al modelo directamente desde código, facilitando la interacción con sistemas externos.
+  \item {\textbf{Interacción entre agentes:}} Los agentes pueden interactuar entre sí, permitiendo la creación de sistemas más complejos. Por ejemplo, un agente puede invocar a otro para realizar una tarea específica. Muchos frameworks definen sistemas que definen cómo se comunican los agentes entre sí. 
+\end{itemize}
 
 
 
