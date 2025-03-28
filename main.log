@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  28 MAR 2025 00:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  28 MAR 2025 23:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -939,7 +939,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 LaTeX Info: Redefining \. on input line 85.
 LaTeX Info: Redefining \% on input line 85.
  (./config/cover_informatika.tex
-<config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg, id=51, 897.3525pt x 199.2243pt>
+<config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg, id=55, 897.3525pt x 199.2243pt>
 File: config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg Graphic file (type jpg)
 <use config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg>
 Package pdftex.def Info: config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg  used on input line 8.
@@ -1044,7 +1044,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
  [3
 
 ]
-<figures/atencion_poc.png, id=137, 602.7318pt x 380.8629pt>
+<figures/atencion_poc.png, id=144, 602.7318pt x 380.8629pt>
 File: figures/atencion_poc.png Graphic file (type png)
 <use figures/atencion_poc.png>
 Package pdftex.def Info: figures/atencion_poc.png  used on input line 42.
@@ -1056,32 +1056,42 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 LaTeX Info: Redefining \. on input line 48.
 LaTeX Info: Redefining \% on input line 48.
  [4]
-<figures/herramienta.png, id=146, 552.1428pt x 151.767pt>
+<figures/herramienta.png, id=153, 552.1428pt x 151.767pt>
 File: figures/herramienta.png Graphic file (type png)
 <use figures/herramienta.png>
 Package pdftex.def Info: figures/herramienta.png  used on input line 56.
 (pdftex.def)             Requested size: 409.53003pt x 112.56981pt.
-LaTeX Info: Redefining \. on input line 63.
-LaTeX Info: Redefining \% on input line 63.
- [5 <./figures/atencion_poc.png (PNG copy)> <./figures/herramienta.png (PNG copy)>])
+LaTeX Info: Redefining \. on input line 65.
+LaTeX Info: Redefining \% on input line 65.
+ [5 <./figures/atencion_poc.png (PNG copy)> <./figures/herramienta.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
+ [6]
+<figures/mcp.png, id=163, 758.1123pt x 275.3487pt>
+File: figures/mcp.png Graphic file (type png)
+<use figures/mcp.png>
+Package pdftex.def Info: figures/mcp.png  used on input line 80.
+(pdftex.def)             Requested size: 409.53003pt x 148.74489pt.
+)
 LaTeX Info: Redefining \. on input line 150.
 LaTeX Info: Redefining \% on input line 150.
- [6] (./chapters/appendix.tex) (./main.bbl (./main.brf)
+ [7 <./figures/mcp.png (PNG copy)>] [8
+
+] (./chapters/appendix.tex) (./main.bbl (./main.brf)
 \tf@brf=\write5
 \openout5 = `main.brf'.
 
- [7
+ [9
 
 
-
-] [8
+] [10
 
 ]
 bibitemlist
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [9]
+) [11]
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1103,22 +1113,22 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 728DCC29E66B091CFFA1ED4121964BFC;1738.
+(rerunfilecheck)             Checksum: A576535B7E27F7F4540C04ED3B8CBE2C;1909.
 Package rerunfilecheck Info: File `main.brf' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24250 strings out of 474222
- 410729 string characters out of 5748733
+ 24271 strings out of 474222
+ 411136 string characters out of 5748733
  1934975 words of memory out of 5000000
- 45859 multiletter control sequences out of 15000+600000
- 663442 words of font info for 215 fonts, out of 8000000 for 9000
+ 45869 multiletter control sequences out of 15000+600000
+ 664099 words of font info for 220 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  91i,11n,133p,1001b,570s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb>
-Output written on main.pdf (21 pages, 923825 bytes).
+Output written on main.pdf (23 pages, 1006624 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
- 39 named destinations out of 1000 (max. 500000)
- 65136 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 221 PDF objects out of 1000 (max. 8388607)
+ 43 named destinations out of 1000 (max. 500000)
+ 65149 words of extra memory for PDF output out of 74296 (max. 10000000)
 

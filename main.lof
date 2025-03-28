@@ -3,4 +3,5 @@
 \addvspace {10pt}
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Ejemplo simplificado de cómputo de atención para la frase \textquotedbl El gato duerme\textquotedbl }}{5}{figure.2.1}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Ejemplo de interacción de un modelo LLM con una herramienta externa.}}{5}{figure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Esquema de funcionamiento del Model Context Protocol.}}{7}{figure.2.3}%
 \addvspace {10pt}

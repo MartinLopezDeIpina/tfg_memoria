@@ -49,7 +49,7 @@ En implementaciones prácticas, el mecanismo de atención que opera entre un tok
 \subsection{Interacción con herramientas externas}
 Los agentes LLM poseen la capacidad de interactuar con diversas herramientas como búsquedas web, bases de datos o interfaces de usuario. Fundamentalmente, un LLM solo genera tokens de texto, por lo que la integración de herramientas se implementa mediante palabras clave que el modelo puede producir. Para ello, en el texto de entrada se especifica el esquema de la función a utilizar y, si decide emplearla, el modelo generará el texto correspondiente. Posteriormente, se procesa la respuesta para extraer llamadas a funciones si las hubiese.
 
-La interacción con herramientas es típicamente alternante. El modelo evalúa si requiere una función y, en caso afirmativo, la salida de esta se utilizará como entrada para el modelo. La figura \ref{fig:herramientas} ilustra el esquema de un agente con acceso a una API del clima. Como el modelo carece de información climática en tiempo real, se le indica en el prompt la posibilidad de invocar esta función. Al incluir la llamada en su texto de salida, se ejecuta la función y su respuesta se transmite al modelo para generar el resultado final.
+La interacción con herramientas es típicamente alternante. Tras realizar la llamada a la herramienta, la salida de esta se utilizará como entrada para el siguiente mensaje del modelo. La figura \ref{fig:herramientas} ilustra el esquema de un agente con acceso a una API del clima. Como el modelo carece de información climática en tiempo real, se le indica en el prompt la posibilidad de invocar esta función. Al incluir la llamada en su texto de salida, se ejecuta la función y su respuesta se transmite al modelo para generar el resultado final.
 
 \begin{figure}
   \centering
@@ -59,22 +59,32 @@ La interacción con herramientas es típicamente alternante. El modelo evalúa s
 \end{figure}
 
 \subsection{Abstraciones en frameworks}
-Aunque los agentes LLM son una tecnología relativamente emergente, ya existen frameworks que facilitan su implementación. Estos frameworks, como LangChain o LangGraph, proporcionan abstracciones de alto nivel para la creación de agentes LLM, permitiendo a los desarrolladores reutilizar funcionalidades comunes en la mayoría de sistemas de este tipo. 
-
-Las funcionalidades más comunes que estos frameworks ofrecen son: 
+Aunque los agentes LLM son una tecnología de reciente surgimiento, ya se han desarrollado frameworks que estandarizan su implementación. Estas estructuras de trabajo, como LangChain o LangGraph, ofrecen abstracciones de alto nivel reutilizar funcionalidades comunes presentes en la mayoría de sistemas de agentes.
+Las funcionalidades principales que estos frameworks proporcionan son:
 \begin{itemize}
-  \item {\textbf{Gestión de modelos:}} La ejecución de modelos require una comprensión profunda del modelo utilizado. Cada modelo utiliza su propio tokenizador, y está diseñado para utilizar un esquema de entrada y salida concreto. Los frameworks simplifican esta tarea, implementando una interfaz que permite a los desarrolladores utilizar diferentes modelos sin tener que preocuparse por los detalles de implementación. 
-  \item {\textbf{Interacción conversacional:}} La interacción con los modelos se realiza mediante un esquema conversacional, donde el modelo recibe un texto de entrada y genera una respuesta. Se van concatenando las respuestas y las entradas para mantenerel contexto de la conversación, de forma que la segunda pregunta contenga todos los mensajes anteriores.
-  \item {\textbf{Uso de herramientas externas:}} Los frameworks permiten la integración de herramientas al modelo directamente desde código, facilitando la interacción con sistemas externos.
-  \item {\textbf{Interacción entre agentes:}} Los agentes pueden interactuar entre sí, permitiendo la creación de sistemas más complejos. Por ejemplo, un agente puede invocar a otro para realizar una tarea específica. Muchos frameworks definen sistemas que definen cómo se comunican los agentes entre sí. 
+\item {\textbf{Gestión de modelos:}} La ejecución de modelos LLM requiere una comprensión profunda del modelo empleado. Cada LLM utiliza su propio tokenizador y está configurado para funcionar con un esquema específico de entrada y salida. Los frameworks simplifican esta complejidad, implementando una interfaz unificada que permite a los desarrolladores utilizar diversos modelos sin necesidad de profundizar en los detalles técnicos de su implementación.
+\item {\textbf{Interacción conversacional:}} La comunicación con los modelos se efectúa mediante un esquema conversacional, donde el modelo recibe un texto de entrada y genera una respuesta correspondiente. Las respuestas y entradas se concatenan secuencialmente para preservar el contexto de la conversación, de manera que cada consulta subsiguiente incorpora todos los intercambios precedentes.
+  \item {\textbf{Uso de herramientas externas:}} El desarrollador únicamente debe especificar la función que desea incorporar, toda la compljeidad de la interacción se abstrae en el framework.
+\item {\textbf{Interacción entre agentes:}} Los agentes pueden establecer comunicación entre sí, permitiendo la construcción de sistemas con mayor complejidad. Numerosos frameworks establecen protocolos que definen las modalidades de comunicación entre los distintos agentes.
 \end{itemize}
 
+\section{Model Context Protocol}
+todo: referencias a las docs.
 
+El Model Context Protocol (MCP) es un protocolo de comunicación desarrollado por Anthropic que estandariza las interacciones entre agentes LLM y herramientas. El objetivo es que diferentes aplicaciones puedan ofrecer herramientas para que agentes externos las utilicen sin necesidad de conocer los detalles de su implementación. Esta arquitectura puede conceptualizarse de manera análoga al modelo OSI, donde el MCP operaría en un nivel de abstracción inferior a los frameworks, proporcionando así una capa de interoperabilidad.
 
+La figura \ref{fig:mcp} ilustra el esquema operativo del protocolo. En este contexto, los desarrolladores de Jira y GitHub han implementado un servidor MCP que proporciona las herramientas disponibles al cliente MCP. Este servidor realiza la traducción de las interacciones necesarias con las API de Jira y GitHub, permitiendo que el agente LLM únicamente requiera conocer el esquema funcional que debe utilizar. Por su parte, el cliente MCP se encarga de administrar la comunicación con los diferentes servidores, facilitando que el agente acceda directamente a las herramientas disponibles.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=1\linewidth]{figures/mcp.png}
+  \caption{Esquema de funcionamiento del Model Context Protocol.}
+  \label{fig:mcp}
+\end{figure}
 
-
-
-
+El protocolo ofrece dos modos de operación para la comunicación entre cliente y servidor: 
+\begin{itemize}
+  \item{\textbf{Comunicación SSE: }}
+\end{itemize}
 
 
