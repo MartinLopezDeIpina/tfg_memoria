@@ -82,9 +82,21 @@ La figura \ref{fig:mcp} ilustra el esquema operativo del protocolo. En este cont
   \label{fig:mcp}
 \end{figure}
 
-El protocolo ofrece dos modos de operación para la comunicación entre cliente y servidor: 
+
+El protocolo presenta dos modos de operación para establecer la comunicación entre cliente y servidor:
 \begin{itemize}
-  \item{\textbf{Comunicación SSE: }}
+\item{\textbf{Comunicación SSE: } El protocolo Server-Sent Events (SSE) establece un canal de comunicación unidireccional sobre HTTP desde el servidor hacia el cliente. Constituye el estándar para la transmisión secuencial de tokens en las interfaces de programación de aplicaciones LLM, al proporcionar actualizaciones en tiempo real. En el protocolo MCP, el cliente efectúa solicitudes para la ejecución de herramientas en el servidor mediante HTTP, a lo que el servidor puede responder mediante eventos SSE con capacidad de transmisión continua.}
+\item{\textbf{Comunicación STDIO: } El protocolo de entrada y salida estándar (STDIO) facilita la comunicación bidireccional entre cliente y servidor a nivel de proceso en el sistema operativo. Este mecanismo permite que ambos componentes intercambien información a través de los canales estándar del sistema, utilizando el formato JSON. Si bien es posible implementar su ejecución remota mediante integración con protocolos como SSH, su diseño está orientado principalmente a entornos locales. Adicionalmente, al limitarse a la comunicación entre dos procesos, restringe la conexión a un único cliente por servidor.}
 \end{itemize}
+La aplicación de escritorio claude-desktop de Anthropic constituye un reflejo del potencial del protocolo. Esta plataforma ofrece la posibilidad de interactuar con servidores preconfigurados mediante una configuración mínima. Implementando el protocolo STDIO, la aplicación ejecuta los servidores indicados a través del gestor de paquetes UV o Docker. Estos servidores son distribuidos por terceros. Al incorporar un cliente MCP en la aplicación, consigue integrar las herramientas disponibles en la interfaz de chat con los modelos de Anthropic.
 
+\section{Estado del arte en arquitecturas de agentes LLM}
 
+La comunidad científica ha desarrollado diferentes arquitecturas de agentes para sacar el máximo provecho al rendimiento de los modelos disponibles. Es de destacar la arquitectura RAG, la cual se enfoca en mejorar el punto débil inherente a los modelos LLM, la recuperación de información actualizada. Por otro lado, se han realizado diversos esfuerzos en investigar diferentes arquitecturas de comunicación, estrategias de planning o sistemas de memoria, entre otros.
+
+\subsection{Arquitectura RAG}
+Los modelos LLM sufren de estar limitados a la información con la que fueron entrenados. Aunque son capaces de generalizar conceptos profundos, no pueden acceder a información específica como la documentación del proyecto en el que se está asistiendo. Para resolver esta limitación, la arquitectura RAG (Retrieval-Augmented Generation) propone introducir información recuperada de una base de datos a la entrada del modelo. 
+
+Para ello,  
+
+La figura \ref{fig:rag} ilustra el esquema de funcionamiento de la arquitectura.  
