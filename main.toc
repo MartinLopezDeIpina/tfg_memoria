@@ -7,13 +7,14 @@
 \contentsline {chapter}{\chapternumberline {2}Antecedentes}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Agentes LLM}{3}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Modelos LLM}{3}{subsection.2.1.1}%
-\contentsline {paragraph}{Tokens}{4}{section*.7}%
+\contentsline {paragraph}{Tokens}{3}{section*.7}%
 \contentsline {paragraph}{Representaciones vectoriales}{4}{section*.8}%
-\contentsline {subsubsection}{\numberline {2.1.1.1}Arquitectura Transformer}{4}{subsubsection.2.1.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Interacción con herramientas externas}{5}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Abstraciones en frameworks}{6}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Model Context Protocol}{6}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Estado del arte en arquitecturas de agentes LLM}{8}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Arquitectura RAG}{8}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.1.2}Interacción con herramientas externas}{4}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Abstraciones en frameworks}{5}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Model Context Protocol}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Estado del arte en arquitecturas de agentes LLM}{7}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Arquitectura RAG}{7}{subsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.1.1}Estrategias RAG avanzadas}{7}{subsubsection.2.3.1.1}%
+\contentsline {subsection}{\numberline {2.3.2}Arquitecturas de interacción entre agentes}{7}{subsection.2.3.2}%
 \contentsline {chapter}{Eranskina / apéndice}{9}{appendix*.9}%
 \contentsline {chapter}{Bibliografía}{11}{appendix*.10}%

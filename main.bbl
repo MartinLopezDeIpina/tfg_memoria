@@ -1,3 +1,11 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{zhu_retrieving_2021}
+Fengbin Zhu, Wenqiang Lei, Chao Wang, Jianming Zheng, Soujanya Poria, and Tat-Seng Chua.
+\newblock Retrieving and reading: A comprehensive survey on open-domain question answering.
+
+\bibitem{gao_retrieval-augmented_2024}
+Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yi~Dai, Jiawei Sun, Meng Wang, and Haofen Wang.
+\newblock Retrieval-augmented generation for large language models: A survey.
 
 \end{thebibliography}

@@ -16,17 +16,35 @@ Resumen de diferentes partes:
 
 \section{Agentes LLM}
 
-Los agentes de Inteligencia Artificial son programas informáticos que implementan modelos computacionales para ejecutar diversas funciones específicas del contexto en el que se aplican. Tras siete décadas y media de investigación, los esfuerzos en el campo se han focalizado en agentes basados en Grandes Modelos de Lenguaje (LLM). 
+Los agentes de Inteligencia Artificial son programas informáticos que implementan modelos computacionales avanzados para ejecutar diversas funciones específicas del contexto en el que se aplican. Tras siete décadas y media de investigación, los esfuerzos en el campo se han focalizado en agentes basados en Grandes Modelos de Lenguaje (LLM). 
+
+Estos agentes, en esencia, constituyen sistemas informáticos que utilizan dichos modelos como núcleo operativo para la resolución de problemas. Para ello, les suministran los datos de entrada pertinentes, interpretan sus respuestas y transforman estas salidas en acciones concretas que permiten alcanzar los resultados deseados.
 
 \subsection{Modelos LLM}
 
-Los LLM son redes neuronales especializadas en el procesamiento del lenguaje natural basados en la arquitectura Transformer. Esta arquitectura se fundamenta en el mecanismo de atención, el cual transforma la representación del texto para incorporar información contextual de manera eficiente. Este enfoque ha resultado revolucionario debido a su capacidad para escalar su efectividad en relación directa con los recursos computacionales empleados.
+Los modelos de lenguaje (LM) constituyen sistemas computacionales especializados en el procesamiento del lenguaje natural. Entre estos, destacan los grandes modelos de lenguaje, diseñados para acometer tareas  como la clasificación y generación de contenido lingüístico. Su fundamento técnico reside en redes neuronales que implementan la arquitectura Transformer [Attention is All You Need]. Para comprender el funcionamiento de dicha arquitectura, resulta imprescindible asimilar previamente conceptos como la tokenización y las representaciones vectoriales del lenguaje.
 
 \paragraph{Tokens}
 Los tokens constituyen la unidad mínima de texto que el modelo puede procesar. Dado que operan sobre estructuras matemáticas, requieren transformar el lenguaje natural en representaciones matriciales. Para lograr esta conversión, el texto se segmenta en dichas unidades mínimas, que pueden corresponder a caracteres individuales, fragmentos de texto o palabras completas. El conjunto íntegro de estas unidades reconocibles por el modelo configura su vocabulario. 
 
 \paragraph{Representaciones vectoriales}
 Constituyen vectores numéricos de dimensionalidad fija que codifican la semántica inherente a cada token. Estos vectores pueden comprender desde 768 dimensiones en arquitecturas como BERT-base hasta superar las 16.000 dimensiones en los modelos más avanzados del estado del arte, capturando conceptos semánticos en profundidad. Por ejemplo, una dimensión específica podría especializarse en representar conceptos abstractos. En este contexto, la representación vectorial del token ``animal`` presentaría un valor más elevado en dicha dimensión que la correspondiente al término ``gato``, reflejando su mayor grado de abstracción conceptual.
+
+\subsubsection{Arquitectura Transformer}
+Esta arquitectura emplea el mecanismo de ``atención`` para enriquecer la comprensión textual del modelo. El proceso transforma inicialmente la representación de las palabras de entrada incorporando información contextual mediante múltiples capas de atención, que consisten en operaciones matriciales que transfieren información semántica entre palabras. 
+
+Los agentes LLM utilizan predominantemente modelos decodificadores autorregresivos (GPT, Claude-Sonnet, Llama), optimizados para la generación secuencial de texto. Su característica distintiva es la aplicación de atención únicamente sobre tokens precedentes, permitiendo que el modelo compute la influencia de tokens anteriores sobre el actual sin modificar representaciones previas.
+
+La figura \ref{fig:atencion_gato} ilustra un ejemplo simplificado del cómputo de atención para la frase ``El gato duerme``. Al generar la siguiente palabra, el modelo presta atención diferenciada a elementos previos, considerando más relevante que el gato esté durmiendo que su color. Así, calcula la probabilidad del siguiente token considerando todo el vocabulario disponible. Es importante destacar que, debido a la naturaleza autorregresiva, la influencia de un token posterior como ``negro`` no se aplica a tokens anteriores como ``gato``.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.65\linewidth]{figures/atencion_poc.png}
+    \caption{Ejemplo simplificado de cómputo de atención para la frase \textquotedbl El gato duerme\textquotedbl}
+    \label{fig:atencion_gato}
+\end{figure}
+
+En implementaciones prácticas, el mecanismo de atención que opera entre un token origen y un token destino se computa mediante operaciones matriciales que involucran tanto las representaciones vectoriales de ambos tokens como las matrices de atención, componentes de los parámetros aprendidos del modelo. Durante el proceso de entrenamiento, estas matrices de atención adquieren la capacidad de capturar fenómenos lingüísticos; por ejemplo, una matriz específica podría especializarse en cuantificar la connotación negativa que un token origen proyecta sobre un token destino.
 
 \subsection{Interacción con herramientas externas}
 Los agentes LLM poseen la capacidad de interactuar con diversas herramientas como búsquedas web, bases de datos o interfaces de usuario. Fundamentalmente, un LLM solo genera tokens de texto, por lo que la integración de herramientas se implementa mediante palabras clave que el modelo puede producir. Para ello, en el texto de entrada se especifica el esquema de la función a utilizar y, si decide emplearla, el modelo generará el texto correspondiente. Posteriormente, se procesa la respuesta para extraer llamadas a funciones si las hubiese.
@@ -77,22 +95,8 @@ La aplicación de escritorio claude-desktop de Anthropic constituye un reflejo d
 La comunidad científica ha desarrollado diferentes arquitecturas de agentes para sacar el máximo provecho al rendimiento de los modelos disponibles. Es de destacar la arquitectura RAG, la cual se enfoca en mejorar el punto débil inherente a los modelos LLM, la recuperación de información actualizada. Por otro lado, se han realizado diversos esfuerzos en investigar diferentes arquitecturas de comunicación, estrategias de planning o sistemas de memoria, entre otros.
 
 \subsection{Arquitectura RAG}
-Los modelos LLM poseen un conocimiento restringido a los datos con los que fueron entrenados. Para superar esta limitación, la arquitectura RAG (Retrieval-Augmented Generation) complementa la generación del LLM mediante la recuperación de información relevante desde repositorios de conocimiento externos. La figura x ilustra un ejemplo de su funcionamiento.
+Los modelos LLM sufren de estar limitados a la información con la que fueron entrenados. Aunque son capaces de generalizar conceptos profundos, no pueden acceder a información específica como la documentación del proyecto en el que se está asistiendo. Para resolver esta limitación, la arquitectura RAG (Retrieval-Augmented Generation) propone introducir información recuperada de una base de datos a la entrada del modelo. 
 
-La recuperación de documentos relevantes se implementa mediante diversas estrategias: expresiones regulares, búsqueda de trigramas [ref], palabras clave, entre otras. No obstante, el enfoque predominante consiste en la indexación vectorial. En este método, los documentos se transforman en vectores, generalmente mediante LLMs especializados en codificación, denominados Embedders. Al representar los documentos en un espacio vectorial, es posible recuperar aquellos semánticamente más pertinentes mediante la comparación del vector de consulta con los vectores de los documentos indexados, utilizando métricas como la distancia coseno.
+Para ello,  
 
-\subsubsection{Estrategias RAG avanzadas}
-La mejora del rendimiento de la arquitectura RAG ha sido objeto de extensa investigación \cite{zhu_retrieving_2021}\cite{gao_retrieval-augmented_2024}. A continuación, se presentan algunas de las estrategias más relevantes:
-
-\subsection{Arquitecturas de interacción entre agentes}
-La interacción entre agentes LLM es también un campo de investigación activo. A continuación, se presentan algunas de las arquitecturas más relevantes:
-
-
-
-
-
-
-
-
-
-
+La figura \ref{fig:rag} ilustra el esquema de funcionamiento de la arquitectura.  
