@@ -396,6 +396,9 @@ INPUT main.brf
 INPUT ./main.brf
 INPUT ./main.brf
 OUTPUT main.brf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTI-tlf-t1.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTI-tlf-t1.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTI-tlf-t1--base.tfm
 OUTPUT main.toc
 OUTPUT main.lof
 OUTPUT main.lot

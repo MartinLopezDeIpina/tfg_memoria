@@ -8,4 +8,21 @@ Fengbin Zhu, Wenqiang Lei, Chao Wang, Jianming Zheng, Soujanya Poria, and Tat-Se
 Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yi~Dai, Jiawei Sun, Meng Wang, and Haofen Wang.
 \newblock Retrieval-augmented generation for large language models: A survey.
 
+\bibitem{yu_generate_2023}
+Wenhao Yu, Dan Iter, Shuohang Wang, Yichong Xu, Mingxuan Ju, Soumya Sanyal, Chenguang Zhu, Michael Zeng, and Meng Jiang.
+\newblock Generate rather than retrieve: Large language models are strong context generators.
+
+\bibitem{sun_recitation-augmented_2023}
+Zhiqing Sun, Xuezhi Wang, Yi~Tay, Yiming Yang, and Denny Zhou.
+\newblock Recitation-augmented language models.
+
+\bibitem{gao_precise_2023}
+Luyu Gao, Xueguang Ma, Jimmy Lin, and Jamie Callan.
+\newblock Precise zero-shot dense retrieval without relevance labels.
+\newblock In {\em Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)}, pages 1762--1777. Association for Computational Linguistics.
+
+\bibitem{cheng_lift_nodate}
+Xin Cheng, Di~Luo, Xiuying Chen, Lemao Liu, Dongyan Zhao, and Rui Yan.
+\newblock Lift yourself up: Retrieval-augmented text generation with self-memory.
+
 \end{thebibliography}
