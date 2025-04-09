@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{zhu_retrieving_2021}
 Fengbin Zhu, Wenqiang Lei, Chao Wang, Jianming Zheng, Soujanya Poria, and Tat-Seng Chua.
@@ -24,5 +24,99 @@ Luyu Gao, Xueguang Ma, Jimmy Lin, and Jamie Callan.
 \bibitem{cheng_lift_nodate}
 Xin Cheng, Di~Luo, Xiuying Chen, Lemao Liu, Dongyan Zhao, and Rui Yan.
 \newblock Lift yourself up: Retrieval-augmented text generation with self-memory.
+
+\bibitem{cho_improving_2023-1}
+Sukmin Cho, Jeongyeon Seo, Soyeong Jeong, and Jong~C. Park.
+\newblock Improving zero-shot reader by reducing distractions from irrelevant documents in open-domain question answering.
+
+\bibitem{yoran_answering_2024}
+Ori Yoran, Tomer Wolfson, Ben Bogin, Uri Katz, Daniel Deutch, and Jonathan Berant.
+\newblock Answering questions by meta-reasoning over multiple chains of thought.
+
+\bibitem{ma_query_nodate}
+Xinbei Ma, Yeyun Gong, Pengcheng He, Hai Zhao, and Nan Duan.
+\newblock Query rewriting for retrieval-augmented large language models.
+
+\bibitem{levine_standing_2022}
+Yoav Levine, Itay Dalmedigos, Ori Ram, Yoel Zeldes, Daniel Jannai, Dor Muhlgay, Yoni Osin, Opher Lieber, Barak Lenz, Shai Shalev-Shwartz, Amnon Shashua, Kevin Leyton-Brown, and Yoav Shoham.
+\newblock Standing on the shoulders of giant frozen language models.
+
+\bibitem{khattab_relevance-guided_2021}
+Omar Khattab, Christopher Potts, and Matei Zaharia.
+\newblock Relevance-guided supervision for {OpenQA} with {ColBERT}.
+
+\bibitem{khattab_baleen_nodate}
+Omar Khattab, Christopher Potts, and Matei Zaharia.
+\newblock Baleen: Robust multi-hop reasoning at scale via condensed retrieval.
+
+\bibitem{xu_recomp_2023}
+Fangyuan Xu, Weijia Shi, and Eunsol Choi.
+\newblock {RECOMP}: Improving retrieval-augmented {LMs} with compression and selective augmentation.
+
+\bibitem{shao_enhancing_2023}
+Zhihong Shao, Yeyun Gong, Yelong Shen, Minlie Huang, Nan Duan, and Weizhu Chen.
+\newblock Enhancing retrieval-augmented large language models with iterative retrieval-generation synergy.
+\newblock In Houda Bouamor, Juan Pino, and Kalika Bali, editors, {\em Findings of the Association for Computational Linguistics: {EMNLP} 2023}, pages 9248--9274. Association for Computational Linguistics.
+
+\bibitem{qi_answering_2021}
+Peng Qi, Haejun Lee, Oghenetegiri~"{TG}" Sido, and Christopher~D. Manning.
+\newblock Answering open-domain questions of varying reasoning steps from text.
+
+\bibitem{zheng_take_2024}
+Huaixiu~Steven Zheng, Swaroop Mishra, Xinyun Chen, Heng-Tze Cheng, Ed~H. Chi, Quoc~V. Le, and Denny Zhou.
+\newblock Take a step back: Evoking reasoning via abstraction in large language models.
+
+\bibitem{trivedi_interleaving_2023}
+Harsh Trivedi, Niranjan Balasubramanian, Tushar Khot, and Ashish Sabharwal.
+\newblock Interleaving retrieval with chain-of-thought reasoning for knowledge-intensive multi-step questions.
+
+\bibitem{khattab_demonstrate-search-predict_2023}
+Omar Khattab, Keshav Santhanam, Xiang~Lisa Li, David Hall, Percy Liang, Christopher Potts, and Matei Zaharia.
+\newblock Demonstrate-search-predict: Composing retrieval and language models for knowledge-intensive {NLP}.
+
+\bibitem{jeong_adaptive-rag_2024}
+Soyeong Jeong, Jinheon Baek, Sukmin Cho, Sung~Ju Hwang, and Jong~C. Park.
+\newblock Adaptive-{RAG}: Learning to adapt retrieval-augmented large language models through question complexity.
+
+\bibitem{ma_large_2023}
+Yubo Ma, Yixin Cao, {YongChing} Hong, and Aixin Sun.
+\newblock Large language model is not a good few-shot information extractor, but a good reranker for hard samples!
+\newblock In {\em Findings of the Association for Computational Linguistics: {EMNLP} 2023}, pages 10572--10601.
+
+\bibitem{xiong_approximate_2020}
+Lee Xiong, Chenyan Xiong, Ye~Li, Kwok-Fung Tang, Jialin Liu, Paul Bennett, Junaid Ahmed, and Arnold Overwijk.
+\newblock Approximate nearest neighbor negative contrastive learning for dense text retrieval.
+
+\bibitem{izacard_atlas_2022}
+Gautier Izacard, Patrick Lewis, Maria Lomeli, Lucas Hosseini, Fabio Petroni, Timo Schick, Jane Dwivedi-Yu, Armand Joulin, Sebastian Riedel, and Edouard Grave.
+\newblock Atlas: Few-shot learning with retrieval augmented language models.
+
+\bibitem{asai_self-rag_2024}
+Akari Asai, Zeqiu Wu, Yizhong Wang, Avirup Sil, and Hannaneh Hajishirzi.
+\newblock {SELF}-{RAG}: {LEARNING} {TO} {RETRIEVE}, {GENERATE}, {AND} {CRITIQUE} {THROUGH} {SELF}-{REFLECTION}.
+
+\bibitem{krishna_rankgen_2022}
+Kalpesh Krishna, Yapei Chang, John Wieting, and Mohit Iyyer.
+\newblock {RankGen}: Improving text generation with large ranking models.
+
+\bibitem{yu_augmentation-adapted_2023}
+Zichun Yu, Chenyan Xiong, Shi Yu, and Zhiyuan Liu.
+\newblock Augmentation-adapted retriever improves generalization of language models as generic plug-in.
+
+\bibitem{shi_replug_2023}
+Weijia Shi, Sewon Min, Michihiro Yasunaga, Minjoon Seo, Rich James, Mike Lewis, Luke Zettlemoyer, and Wen-tau Yih.
+\newblock {REPLUG}: Retrieval-augmented black-box language models.
+
+\bibitem{lin_ra-dit_2024}
+Xi~Victoria Lin, Xilun Chen, Mingda Chen, Weijia Shi, Maria Lomeli, Rich James, Pedro Rodriguez, Jacob Kahn, Gergely Szilvasy, Mike Lewis, Luke Zettlemoyer, and Scott Yih.
+\newblock {RA}-{DIT}: {RETRIEVAL}-{AUGMENTED} {DUAL} {INSTRUC}- {TION} {TUNING}.
+
+\bibitem{yang_prca_2023}
+Haoyan Yang, Zhitao Li, Yong Zhang, Jianzong Wang, Ning Cheng, Ming Li, and Jing Xiao.
+\newblock {PRCA}: Fitting black-box large language models for retrieval question answering via pluggable reward-driven contextual adapter.
+
+\bibitem{guu_realm_2020}
+Kelvin Guu, Kenton Lee, Zora Tung, Panupong Pasupat, and Ming-Wei Chang.
+\newblock {REALM}: Retrieval-augmented language model pre-training.
 
 \end{thebibliography}

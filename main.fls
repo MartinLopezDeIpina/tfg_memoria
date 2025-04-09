@@ -386,6 +386,11 @@ INPUT ./figures/mcp.png
 INPUT ./figures/mcp.png
 INPUT ./figures/mcp.png
 INPUT ./figures/mcp.png
+INPUT ./figures/RAG.png
+INPUT ./figures/RAG.png
+INPUT ./figures/RAG.png
+INPUT ./figures/RAG.png
+INPUT ./figures/RAG.png
 INPUT chapters/appendix.tex
 INPUT ./main.bbl
 INPUT ./main.bbl
