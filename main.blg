@@ -2,7 +2,14 @@ This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: unsrt.bst
-Database file #1: references/RAG.bib
+Database file #1: references/references.bib
+I was expecting a `,' or a `}'---line 402 of file references/references.bib
+ : 
+ : @misc{hao_reasoning_2023,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty journal in nakano_webgpt_nodate
+Warning--empty year in nakano_webgpt_nodate
 Warning--empty year in gao_precise_2023
 Warning--empty journal in cheng_lift_nodate
 Warning--empty year in cheng_lift_nodate
@@ -16,45 +23,71 @@ Warning--empty journal in asai_self-rag_2024
 Warning--empty year in asai_self-rag_2024
 Warning--empty journal in lin_ra-dit_2024
 Warning--empty year in lin_ra-dit_2024
-You've used 29 entries,
+Warning--empty journal in wang_survey_2024
+Warning--empty year in wang_survey_2024
+Warning--empty publisher in liang_unleashing_2023
+Warning--empty year in liang_unleashing_2023
+Warning--empty journal in zhao_expel_2024
+Warning--empty year in zhao_expel_2024
+Warning--empty journal in zhong_memorybank_2024
+Warning--empty year in zhong_memorybank_2024
+Warning--empty year in park_generative_2023
+Warning--empty journal in shinn_reflexion_nodate
+Warning--empty year in shinn_reflexion_nodate
+Warning--empty journal in madaan_self-refine_nodate
+Warning--empty year in madaan_self-refine_nodate
+Warning--empty journal in yao_tree_nodate
+Warning--empty year in yao_tree_nodate
+Warning--empty journal in lin_swiftsage_nodate
+Warning--empty year in lin_swiftsage_nodate
+Warning--empty journal in huang_language_nodate
+Warning--empty year in huang_language_nodate
+Warning--empty year in song_llm-planner_2023
+Warning--empty journal in raman_planning_nodate
+Warning--empty year in raman_planning_nodate
+Warning--empty journal in ge_openagi_nodate
+Warning--empty year in ge_openagi_nodate
+Warning--empty journal in du_improving_nodate
+Warning--empty year in du_improving_nodate
+You've used 58 entries,
             1791 wiz_defined-function locations,
-            560 strings with 9959 characters,
-and the built_in function-call counts, 6363 in all, are:
-= -- 349
-> -- 600
-< -- 3
-+ -- 209
-- -- 180
-* -- 426
-:= -- 1044
-add.period$ -- 63
-call.type$ -- 29
-change.case$ -- 29
+            673 strings with 17551 characters,
+and the built_in function-call counts, 13681 in all, are:
+= -- 697
+> -- 1418
+< -- 5
++ -- 492
+- -- 434
+* -- 1065
+:= -- 2333
+add.period$ -- 129
+call.type$ -- 58
+change.case$ -- 57
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 216
-empty$ -- 576
-format.name$ -- 180
-if$ -- 1361
+cite$ -- 99
+duplicate$ -- 435
+empty$ -- 1126
+format.name$ -- 434
+if$ -- 2825
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 8
-newline$ -- 122
-num.names$ -- 31
-pop$ -- 154
+int.to.str$ -- 58
+missing$ -- 24
+newline$ -- 244
+num.names$ -- 59
+pop$ -- 310
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 219
+skip$ -- 383
 stack$ -- 0
-substring$ -- 128
-swap$ -- 62
-text.length$ -- 3
+substring$ -- 279
+swap$ -- 97
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 13
-while$ -- 39
-width$ -- 31
-write$ -- 216
-(There were 13 warnings)
+warning$ -- 41
+while$ -- 78
+width$ -- 60
+write$ -- 435
+(There was 1 error message)

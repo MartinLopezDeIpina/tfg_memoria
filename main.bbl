@@ -1,5 +1,9 @@
 \begin{thebibliography}{10}
 
+\bibitem{nakano_webgpt_nodate}
+Reiichiro Nakano, Jacob Hilton, Suchir Balaji, Jeff Wu, Long Ouyang, Christina Kim, Christopher Hesse, Shantanu Jain, Vineet Kosaraju, William Saunders, Xu~Jiang, Karl Cobbe, Tyna Eloundou, Gretchen Krueger, Kevin Button, Matthew Knight, Benjamin Chess, and John Schulman.
+\newblock {WebGPT}: Browser-assisted question-answering with human feedback.
+
 \bibitem{zhu_retrieving_2021}
 Fengbin Zhu, Wenqiang Lei, Chao Wang, Jianming Zheng, Soujanya Poria, and Tat-Seng Chua.
 \newblock Retrieving and reading: A comprehensive survey on open-domain question answering.
@@ -118,5 +122,123 @@ Haoyan Yang, Zhitao Li, Yong Zhang, Jianzong Wang, Ning Cheng, Ming Li, and Jing
 \bibitem{guu_realm_2020}
 Kelvin Guu, Kenton Lee, Zora Tung, Panupong Pasupat, and Ming-Wei Chang.
 \newblock {REALM}: Retrieval-augmented language model pre-training.
+
+\bibitem{wang_survey_2024}
+Lei Wang, Chen Ma, Xueyang Feng, Zeyu Zhang, Hao Yang, Jingsen Zhang, Zhiyuan Chen, Jiakai Tang, Xu~Chen, Yankai Lin, Wayne~Xin Zhao, Zhewei Wei, and Jirong Wen.
+\newblock A survey on large language model based autonomous agents.
+\newblock 18(6):186345.
+
+\bibitem{zhang_building_2024}
+Hongxin Zhang, Weihua Du, Jiaming Shan, Qinhong Zhou, Yilun Du, Joshua~B. Tenenbaum, Tianmin Shu, and Chuang Gan.
+\newblock Building cooperative embodied agents modularly with large language models.
+
+\bibitem{fischer_reflective_2023}
+Kevin~A. Fischer.
+\newblock Reflective linguistic programming ({RLP}): A stepping stone in socially-aware {AGI} ({SocialAGI}).
+
+\bibitem{liang_unleashing_2023}
+Xinnian Liang, Bing Wang, Hui Huang, Shuangzhi Wu, Peihao Wu, Lu~Lu, Zejun Ma, and Zhoujun Li.
+\newblock {\em Unleashing Infinite-Length Input Capacity for Large-scale Language Models with Self-Controlled Memory System}.
+
+\bibitem{zhao_expel_2024}
+Andrew Zhao, Daniel Huang, Quentin Xu, Matthieu Lin, Yong-Jin Liu, and Gao Huang.
+\newblock {ExpeL}: {LLM} agents are experiential learners.
+\newblock 38(17):19632--19642.
+\newblock Number: 17.
+
+\bibitem{zhong_memorybank_2024}
+Wanjun Zhong, Lianghong Guo, Qiqi Gao, He~Ye, and Yanlin Wang.
+\newblock {MemoryBank}: Enhancing large language models with long-term memory.
+\newblock 38(17):19724--19731.
+\newblock Number: 17.
+
+\bibitem{park_generative_2023}
+Joon~Sung Park, Joseph O'Brien, Carrie~Jun Cai, Meredith~Ringel Morris, Percy Liang, and Michael~S. Bernstein.
+\newblock Generative agents: Interactive simulacra of human behavior.
+\newblock In {\em Proceedings of the 36th Annual {ACM} Symposium on User Interface Software and Technology}, pages 1--22. {ACM}.
+
+\bibitem{shinn_reflexion_nodate}
+Noah Shinn, Federico Cassano, Ashwin Gopinath, Karthik Narasimhan, and Shunyu Yao.
+\newblock Reflexion: Language agents with verbal reinforcement learning.
+
+\bibitem{madaan_self-refine_nodate}
+Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler Hallinan, Luyu Gao, Sarah Wiegreffe, Uri Alon, Nouha Dziri, Shrimai Prabhumoye, Yiming Yang, Shashank Gupta, Bodhisattwa~Prasad Majumder, Katherine Hermann, Sean Welleck, Amir Yazdanbakhsh, and Peter Clark.
+\newblock {SELF}-{REFINE}: Iterative refinement with self-feedback.
+
+\bibitem{miao_selfcheck_2023}
+Ning Miao, Yee~Whye Teh, and Tom Rainforth.
+\newblock {SelfCheck}: Using {LLMs} to zero-shot check their own step-by-step reasoning.
+
+\bibitem{yao_tree_nodate}
+Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas~L Griffiths, Yuan Cao, and Karthik Narasimhan.
+\newblock Tree of thoughts: Deliberate problem solving with large language models.
+
+\bibitem{wang_recmind_2024}
+Yancheng Wang, Ziyan Jiang, Zheng Chen, Fan Yang, Yingxue Zhou, Eunah Cho, Xing Fan, Xiaojiang Huang, Yanbin Lu, and Yingzhen Yang.
+\newblock {RecMind}: Large language model powered agent for recommendation.
+
+\bibitem{lin_swiftsage_nodate}
+Bill~Yuchen Lin, Yicheng Fu, Karina Yang, Faeze Brahman, Shiyu Huang, Chandra Bhagavatula, Prithviraj Ammanabrolu, Yejin Choi, and Xiang Ren.
+\newblock {SWIFTSAGE}: A generative agent with fast and slow thinking for complex interactive tasks.
+
+\bibitem{huang_language_nodate}
+Wenlong Huang, Pieter Abbeel, Deepak Pathak, and Igor Mordatch.
+\newblock Language models as zero-shot planners: Extracting actionable knowledge for embodied agents.
+
+\bibitem{wang_describe_2024}
+Zihao Wang, Shaofei Cai, Guanzhou Chen, Anji Liu, Xiaojian Ma, and Yitao Liang.
+\newblock Describe, explain, plan and select: Interactive planning with large language models enables open-world multi-task agents.
+
+\bibitem{zhu_ghost_2023}
+Xizhou Zhu, Yuntao Chen, Hao Tian, Chenxin Tao, Weijie Su, Chenyu Yang, Gao Huang, Bin Li, Lewei Lu, Xiaogang Wang, Yu~Qiao, Zhaoxiang Zhang, and Jifeng Dai.
+\newblock Ghost in the minecraft: Generally capable agents for open-world environments via large language models with text-based knowledge and memory.
+
+\bibitem{song_llm-planner_2023}
+Chan~Hee Song, Brian~M. Sadler, Jiaman Wu, Wei-Lun Chao, Clayton Washington, and Yu~Su.
+\newblock {LLM}-planner: Few-shot grounded planning for embodied agents with large language models.
+\newblock In {\em 2023 {IEEE}/{CVF} International Conference on Computer Vision ({ICCV})}, pages 2986--2997. {IEEE}.
+
+\bibitem{raman_planning_nodate}
+Shreyas~Sundara Raman, Vanya Cohen, Eric Rosen, Ifrah Idrees, David Paulius, and Stefanie Tellex.
+\newblock Planning with large language models via corrective re-prompting.
+
+\bibitem{liu_llmp_2023}
+{LLM}+p: Empowering large language models with optimal planning proficiency.
+
+\bibitem{dagan_dynamic_2023}
+Gautier Dagan, Frank Keller, and Alex Lascarides.
+\newblock Dynamic planning with a {LLM}.
+
+\bibitem{wang_voyager_2023}
+Guanzhi Wang, Yuqi Xie, Yunfan Jiang, Ajay Mandlekar, Chaowei Xiao, Yuke Zhu, Linxi Fan, and Anima Anandkumar.
+\newblock Voyager: An open-ended embodied agent with large language models.
+
+\bibitem{liu_odyssey_2024}
+Shunyu Liu, Yaoru Li, Kongcheng Zhang, Zhenyu Cui, Wenkai Fang, Yuxuan Zheng, Tongya Zheng, and Mingli Song.
+\newblock Odyssey: Empowering minecraft agents with open-world skills.
+
+\bibitem{karpas_mrkl_2022}
+Ehud Karpas, Omri Abend, Yonatan Belinkov, Barak Lenz, Opher Lieber, Nir Ratner, Yoav Shoham, Hofit Bata, Yoav Levine, Kevin Leyton-Brown, Dor Muhlgay, Noam Rozen, Erez Schwartz, Gal Shachaf, Shai Shalev-Shwartz, Amnon Shashua, and Moshe Tenenholtz.
+\newblock {MRKL} systems: A modular, neuro-symbolic architecture that combines large language models, external knowledge sources and discrete reasoning.
+
+\bibitem{ge_openagi_nodate}
+Yingqiang Ge, Wenyue Hua, Kai Mei, Jianchao Ji, Juntao Tan, Shuyuan Xu, Zelong Li, and Yongfeng Zhang.
+\newblock {OpenAGI}: When {LLM} meets domain experts.
+
+\bibitem{zhuge_mindstorms_2023}
+Mingchen Zhuge, Haozhe Liu, Francesco Faccio, Dylan~R. Ashley, Róbert Csordás, Anand Gopalakrishnan, Abdullah Hamdi, Hasan Abed Al~Kader Hammoud, Vincent Herrmann, Kazuki Irie, Louis Kirsch, Bing Li, Guohao Li, Shuming Liu, Jinjie Mai, Piotr Piękos, Aditya Ramesh, Imanol Schlag, Weimin Shi, Aleksandar Stanić, Wenyi Wang, Yuhui Wang, Mengmeng Xu, Deng-Ping Fan, Bernard Ghanem, and Jürgen Schmidhuber.
+\newblock Mindstorms in natural language-based societies of mind.
+
+\bibitem{du_improving_nodate}
+Yilun Du, Shuang Li, Antonio Torralba, Joshua~B Tenenbaum, and Igor Mordatch.
+\newblock Improving factuality and reasoning in language models through multiagent debate.
+
+\bibitem{qian_chatdev_2024}
+Chen Qian, Wei Liu, Hongzhang Liu, Nuo Chen, Yufan Dang, Jiahao Li, Cheng Yang, Weize Chen, Yusheng Su, Xin Cong, Juyuan Xu, Dahai Li, Zhiyuan Liu, and Maosong Sun.
+\newblock {ChatDev}: Communicative agents for software development.
+
+\bibitem{hong_metagpt_2024}
+Sirui Hong, Mingchen Zhuge, Jiaqi Chen, Xiawu Zheng, Yuheng Cheng, Ceyao Zhang, Jinlin Wang, Zili Wang, Steven Ka~Shing Yau, Zijuan Lin, Liyang Zhou, Chenyu Ran, Lingfeng Xiao, Chenglin Wu, and Jürgen Schmidhuber.
+\newblock {MetaGPT}: Meta programming for a multi-agent collaborative framework.
 
 \end{thebibliography}

@@ -16,5 +16,5 @@
 \contentsline {subsection}{\numberline {2.3.1}Arquitectura RAG}{7}{subsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.1.1}Estrategias RAG avanzadas}{7}{subsubsection.2.3.1.1}%
 \contentsline {subsection}{\numberline {2.3.2}Arquitecturas de interacción entre agentes}{8}{subsection.2.3.2}%
-\contentsline {chapter}{Eranskina / apéndice}{9}{appendix*.9}%
-\contentsline {chapter}{Bibliografía}{11}{appendix*.10}%
+\contentsline {chapter}{Eranskina / apéndice}{11}{appendix*.9}%
+\contentsline {chapter}{Bibliografía}{13}{appendix*.10}%

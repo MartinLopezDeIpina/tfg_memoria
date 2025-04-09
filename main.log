@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  9 APR 2025 12:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  9 APR 2025 14:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -939,7 +939,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 LaTeX Info: Redefining \. on input line 85.
 LaTeX Info: Redefining \% on input line 85.
  (./config/cover_informatika.tex
-<config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg, id=67, 897.3525pt x 199.2243pt>
+<config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg, id=71, 897.3525pt x 199.2243pt>
 File: config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg Graphic file (type jpg)
 <use config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg>
 Package pdftex.def Info: config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg  used on input line 8.
@@ -1044,63 +1044,87 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
  [3
 
 ]
-<figures/herramienta.png, id=160, 552.1428pt x 151.767pt>
+<figures/herramienta.png, id=166, 552.1428pt x 151.767pt>
 File: figures/herramienta.png Graphic file (type png)
 <use figures/herramienta.png>
-Package pdftex.def Info: figures/herramienta.png  used on input line 43.
+Package pdftex.def Info: figures/herramienta.png  used on input line 48.
 (pdftex.def)             Requested size: 409.53003pt x 112.56981pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 44.
+(Font)              scaled to size 10.0pt on input line 49.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 44.
+(Font)              scaled to size 10.0pt on input line 49.
 
-Underfull \vbox (badness 1515) has occurred while \output is active []
+Underfull \vbox (badness 2269) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 52.
-LaTeX Info: Redefining \% on input line 52.
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
  [4 <./figures/herramienta.png (PNG copy)>]
-<figures/mcp.png, id=168, 758.1123pt x 275.3487pt>
+<figures/mcp.png, id=175, 758.1123pt x 275.3487pt>
 File: figures/mcp.png Graphic file (type png)
 <use figures/mcp.png>
-Package pdftex.def Info: figures/mcp.png  used on input line 69.
+Package pdftex.def Info: figures/mcp.png  used on input line 74.
 (pdftex.def)             Requested size: 409.53003pt x 148.74489pt.
-LaTeX Info: Redefining \. on input line 72.
-LaTeX Info: Redefining \% on input line 72.
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
  [5]
-LaTeX Info: Redefining \. on input line 85.
-LaTeX Info: Redefining \% on input line 85.
+LaTeX Info: Redefining \. on input line 90.
+LaTeX Info: Redefining \% on input line 90.
  [6 <./figures/mcp.png (PNG copy)>]
-<figures/RAG.png, id=178, 2063.71pt x 1339.0025pt>
+<figures/RAG.png, id=185, 2063.71pt x 1339.0025pt>
 File: figures/RAG.png Graphic file (type png)
 <use figures/RAG.png>
-Package pdftex.def Info: figures/RAG.png  used on input line 92.
+Package pdftex.def Info: figures/RAG.png  used on input line 97.
 (pdftex.def)             Requested size: 204.76501pt x 132.84566pt.
-LaTeX Info: Redefining \. on input line 105.
-LaTeX Info: Redefining \% on input line 105.
- [7 <./figures/RAG.png>])
+
+Overfull \hbox (36.67365pt too wide) in paragraph at lines 105--107
+[]\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) La op-ti-mi-za-ción del ren-di-mien-to en ar-qui-tec-tu-ras RAG ha si-do ob-je-to de ex-ten-sa investigación[[]][][[]][],
+ []
+
+LaTeX Info: Redefining \. on input line 110.
+LaTeX Info: Redefining \% on input line 110.
+[7 <./figures/RAG.png>]
+Overfull \hbox (1.7442pt too wide) in paragraph at lines 133--134
+\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) tes so-bre sus ac-cio-nes. Es-tra-te-gias co-mo la reflexión[[]][][[]][][[]][][[]][], self-consistency[[]][]
+ []
+
+LaTeX Info: Redefining \. on input line 134.
+LaTeX Info: Redefining \% on input line 134.
+[8]
+Overfull \hbox (9.25519pt too wide) in paragraph at lines 135--137
+\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) pen-den-cias en-tre ac-cio-nes per-mi-ten ve-ri-fi-car la va-li-dez de los pla-nes generados[[]][][[]][][[]][].
+ []
+
+)
 LaTeX Info: Redefining \. on input line 150.
 LaTeX Info: Redefining \% on input line 150.
- [8] (./chapters/appendix.tex) (./main.bbl (./main.brf)
+ [9] [10
+
+] (./chapters/appendix.tex) (./main.bbl (./main.brf)
 \tf@brf=\write5
 \openout5 = `main.brf'.
 
- [9
+ [11
 
 
-
-] [10
+] [12
 
 ]
 bibitemlist
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 23.
-[11]
+(Font)              scaled to size 10.0pt on input line 27.
+[13]
 LaTeX Info: Redefining \. on input line 121.
 LaTeX Info: Redefining \% on input line 121.
- [12])
-LaTeX Info: Redefining \. on input line 171.
-LaTeX Info: Redefining \% on input line 171.
- [13]
+ [14]
+LaTeX Info: Redefining \. on input line 187.
+LaTeX Info: Redefining \% on input line 187.
+ [15]
+LaTeX Info: Redefining \. on input line 239.
+LaTeX Info: Redefining \% on input line 239.
+ [16])
+LaTeX Info: Redefining \. on input line 170.
+LaTeX Info: Redefining \% on input line 170.
+ [17]
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1121,23 +1145,41 @@ LaTeX Info: Redefining \% on input line 12.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B610ACC2097C485113FC82070031FCA6;2652.
-Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: BD06FD29A8614F40B27F7E35E83996A0;2173.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 4FEA5168225814AB0A1927F9F86EB921;2939
+(rerunfilecheck)             After:  B610ACC2097C485113FC82070031FCA6;2652.
+
+Package rerunfilecheck Warning: File `main.brf' has changed.
+(rerunfilecheck)                Rerun to get bibliographical references right.
+
+Package rerunfilecheck Info: Checksums for `main.brf':
+(rerunfilecheck)             Before: 724231A4AF583DD92D9B3780921D8722;6081
+(rerunfilecheck)             After:  DA551B92AA154CAEE8DBFDCACB2DE356;4147.
  ) 
 Here is how much of TeX's memory you used:
- 24597 strings out of 474222
- 418731 string characters out of 5748733
- 1938975 words of memory out of 5000000
- 46065 multiletter control sequences out of 15000+600000
- 678615 words of font info for 285 fonts, out of 8000000 for 9000
+ 24857 strings out of 474222
+ 424540 string characters out of 5748733
+ 1939975 words of memory out of 5000000
+ 46251 multiletter control sequences out of 15000+600000
+ 682463 words of font info for 312 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 91i,11n,133p,1001b,721s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 91i,11n,133p,1001b,731s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{subsection.2.3.3} has been referenced but does not exist, replaced by a fixed one
+
 </usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb>
-Output written on main.pdf (25 pages, 1047182 bytes).
+Output written on main.pdf (29 pages, 1082759 bytes).
 PDF statistics:
- 346 PDF objects out of 1000 (max. 8388607)
- 77 named destinations out of 1000 (max. 500000)
- 69269 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 492 PDF objects out of 1000 (max. 8388607)
+ 111 named destinations out of 1000 (max. 500000)
+ 69277 words of extra memory for PDF output out of 74296 (max. 10000000)
 
