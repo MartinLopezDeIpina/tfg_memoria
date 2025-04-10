@@ -86,7 +86,7 @@ La aplicación de escritorio claude-desktop de Anthropic constituye un reflejo d
 
 \section{Estado del arte en arquitecturas de agentes LLM}
 
-La comunidad científica ha creado arquitecturas de agentes para optimizar el rendimiento de los modelos disponibles. La arquitectura RAG se distingue por complementar la entrada del modelo con información recuperada de documentos relevantes. Otras propuestas se centran en mejorar la comunicación y coordinación entre agentes.
+La comunidad científica ha desarrollado diferentes arquitecturas de agentes para sacar el máximo provecho al rendimiento de los modelos disponibles. Es de destacar la arquitectura RAG, la cual complementa la entrada del modelo con la recuperación de documentos relevantes. Por otro lado, se han realizado diversos esfuerzos en investigar diferentes arquitecturas de comunicación, estrategias de planning o sistemas de memoria, entre otros.
 
 \subsection{Arquitectura RAG}
 
@@ -99,20 +99,22 @@ Los modelos LLM poseen un conocimiento restringido a los datos con los que fuero
   \label{fig:rag}
 \end{figure}
 
-La recuperación de documentos relevantes se puede implementar mediate recuperadores dispersos: expresiones regulares, búsqueda de n-gramas, palabras clave, entre otras. No obstante, el enfoque predominante consiste en el uso de recuperadores densos, conocidos como indexación vectorial. En este método, los documentos se transforman en vectores, generalmente mediante LLMs especializados en codificación, denominados Embedders. Al representar los documentos en un espacio vectorial, es posible recuperar aquellos semánticamente más pertinentes mediante la comparación del vector de consulta con los vectores de los documentos indexados, utilizando métricas como la distancia coseno.
+La recuperación de documentos relevantes se puede implementar mediate recuperadores dispersos: expresiones regulares, búsqueda de trigramas [ref], palabras clave, entre otras. No obstante, el enfoque predominante consiste en el uso de recuperadores densos, conocidos como indexación vectorial. En este método, los documentos se transforman en vectores, generalmente mediante LLMs especializados en codificación, denominados Embedders. Al representar los documentos en un espacio vectorial, es posible recuperar aquellos semánticamente más pertinentes mediante la comparación del vector de consulta con los vectores de los documentos indexados, utilizando métricas como la distancia coseno.
 
 \subsubsection{Estrategias RAG avanzadas}
-La optimización del rendimiento en arquitecturas RAG ha sido ampliamente estudiada \cite{zhu_retrieving_2021}\cite{gao_retrieval-augmented_2024}, enfocándose en tres áreas principales: el procesado de documentos, los sistemas de recuperación y la mejora del flujo de generación.
+La optimización del rendimiento en arquitecturas RAG ha sido objeto de extensa investigación\cite{zhu_retrieving_2021}\cite{gao_retrieval-augmented_2024}, centrándose en cuatro áreas fundamentales: procesado de documentos, sistemas de recuperación, generación y optimización del pipeline general:
 \begin{itemize}
-  \item {\textbf{Procesado de documentos:}} La calidad de la indexación documental determina la eficacia del sistema. Entre las estrategias destacadas figuran la eliminación de ruido textual, el ajuste del tamaño óptimo de los segmentos indexados, y la técnica de ventana solapada. Esta última superpone fragmentos para preservar los datos situados en las intersecciones de los segmentos. 
-
-\item {\textbf{Sistemas de recuperación:}} Los recuperadores densos basados en representaciones, ilustrados en la figura \ref{fig:rag}, precalculan las representaciones vectoriales de los documentos mediante una indexación independiente de las consultas. Por otro lado, los recuperadores basados en interacción, proponen calcular el vector para cada documento junto al vector de consulta durante el tiempo de ejecución, obteniendo así una representación más rica que captura las relaciones contextuales específicas entre ambos elementos\cite{ma_query_nodate}\cite{levine_standing_2022}.
-
-Para contrarrestar el sobrecoste computacional de este enfoque, se han desarrollado técnicas de indexación híbrida que combinan ambos métodos. Estas técnicas permiten realizar una búsqueda inicial utilizando representaciones vectoriales y posteriormente refinar los resultados mediante la interacción con el modelo\cite{khattab_relevance-guided_2021}. 
+  \item {\textbf{Procesado de documentos:}} La calidad de la indexación documental determina la eficacia del sistema. Entre las estrategias destacadas figuran la eliminación de ruido textual, el ajuste dimensional de chunks y el sistema overlapping window, que superpone fragmentos para preservar la información limítrofe. 
   
-\item {\textbf{Optimización del flujo de generación:}} Para tareas que requieren reflexión documentada, se han desarrollado sistemas de salto múltiple que alternan entre recuperación y generación\cite{khattab_demonstrate-search-predict_2023}\cite{shao_enhancing_2023}\cite{qi_answering_2021}\cite{zheng_take_2024}\cite{trivedi_interleaving_2023}. Estos flujos permiten al sistema examinar críticamente la información inicialmente recuperada, identificar lagunas informativas, y formular las consultas correspondientes para subsanar dichas carencias.
-
+  Se han desarrollado también técnicas generativas para mejorar la calidad documental, desde la recuperación de contenidos directamente generados\cite{yu_generate_2023}, la recitación de evidencias\cite{sun_recitation-augmented_2023}, hasta el uso de documentos generados a partir de la query para localizar información relevante\cite{gao_precise_2023}. Estas técnicas pueden complementarse con algoritmos como beam search para incrementar su efectividad\cite{cheng_lift_nodate}\cite{cho_improving_2023-1}\cite{yoran_answering_2024}.
+  
+  \item {\textbf{Sistemas de recuperación:}} Los recuperadores densos se clasifican en tres categorías: basados en representaciones (ilustrados en la figura \ref{fig:rag}); basados en interacción, que emplean LLM embedders para codificar documentos junto con la consulta, evaluando su relevancia mediante clasificadores densos\cite{ma_query_nodate}\cite{levine_standing_2022}; y enfoques híbridos que combinan ambas estrategias, filtrando inicialmente por representaciones y refinando posteriormente mediante técnicas de interacción\cite{khattab_relevance-guided_2021}. Adicionalmente, existen métodos para condensar la información recuperada, minimizando así la ventana contextual de los generadores \cite{khattab_baleen_nodate}\cite{xu_recomp_2023}.
+  
+  \item {\textbf{Optimización del pipeline y generación:}} Para tareas que requieren reflexión documental, se han propuesto sistemas de salto múltiple que alternan entre recuperación y generación\cite{shao_enhancing_2023}\cite{qi_answering_2021}\cite{zheng_take_2024}\cite{trivedi_interleaving_2023}. El framework DSP\cite{khattab_demonstrate-search-predict_2023} constituye el referente en sistemas de pregunta-respuesta, utilizando demostraciones para entrenar tanto el extractor como el generador, alternando posteriormente entre búsqueda y predicción. Adaptive RAG\cite{jeong_adaptive-rag_2024} propone clasificar previamente las consultas según su complejidad para determinar la ejecución del proceso, mientras que otros enfoques integran modelos de tamaño reducido para tareas específicas como el resumen\cite{ma_large_2023}.
 \end{itemize}
+
+Adicionalmente, el ajuste fino de modelos para tareas RAG específicas mejora significativamente el rendimiento, ya sea optimizando embedders\cite{xiong_approximate_2020}, sistemas de extracción\cite{khattab_relevance-guided_2021}\cite{izacard_atlas_2022}, generación\cite{asai_self-rag_2024}\cite{krishna_rankgen_2022} o reescritura de consultas\cite{ma_query_nodate}. Diversos trabajos han ajustado extractores para LLMs de caja negra\cite{yu_augmentation-adapted_2023}\cite{shi_replug_2023}\cite{lin_ra-dit_2024}\cite{yang_prca_2023}, mientras otros enfoques modifican la arquitectura interna del modelo para incorporar contexto de documentos relevantes durante la generación\cite{guu_realm_2020}.
+
 
 %lazaridou_internet-augmented_2022 -> rag con internet
 %cheng_uprise_2023 -> rag sobre prompts
@@ -125,21 +127,13 @@ Para contrarrestar el sobrecoste computacional de este enfoque, se han desarroll
 \subsection{Arquitecturas de interacción entre agentes}
 La interacción entre agentes LLM constituye un campo de investigación activo, distinguiéndose diversos avances en módulos de memoria, planificación e interacción multiagente\cite{wang_survey_2024}.
 \begin{itemize}
-  \item{\textbf{Módulos de memoria}}: En una interacción conversacional, el modelo recibe todos los mensajes anteriores, lo que puede resultar en un contexto excesivo. Para mitigar este problema, se han desarrollados módulos de memoria que almacenan información relevante de interacciones pasadas de forma resumida\cite{zhang_building_2024}\cite{fischer_reflective_2023}\cite{liang_unleashing_2023}. Esta memoria puede consultarse posteriormente mediante RAG, permitiendo recuperar los elementos más relevantes según el contexto\cite{zhao_expel_2024}.
+\item{\textbf{Módulos de memoria}}: La investigación abarca memoria conversacional, a corto y largo plazo, cada una con distintos niveles de detalle\cite{zhang_building_2024}. Estas memorias almacenan desde interacciones previas hasta objetivos y registros de eventos\cite{fischer_reflective_2023}\cite{liang_unleashing_2023}, siendo frecuentemente accedidas mediante RAG\cite{zhao_expel_2024}.
 
-Algunos módulos se inspiran en la estructura de la memoria humana\cite{zhong_memorybank_2024}, incorporando mecanismos que almacenan información con distintas temporalidades y niveles de relevancia\cite{wang_survey_2024}\cite{park_generative_2023}.
+La transición entre memorias se define mediante reglas de olvido similares a las humanas\cite{zhong_memorybank_2024}, y su acceso se condiciona por métricas como importancia o recencia\cite{wang_survey_2024}. Generative Agents\cite{park_generative_2023} implementa estas estrategias para simular ecosistemas de NPCs que, almacenando memorias de variada importancia, generan interacciones narrativas complejas.
+\item{\textbf{Planificación}}: Los mecanismos de planificación potencian el razonamiento de los agentes sobre sus acciones. Estrategias como la reflexión\cite{shinn_reflexion_nodate}\cite{shinn_reflexion_nodate}\cite{madaan_self-refine_nodate}\cite{miao_selfcheck_2023}, self-consistency\cite{liang_unleashing_2023} o tree of thought\cite{yao_tree_nodate}\cite{wang_recmind_2024} optimizan el razonamiento, aunque modelos recientes como o1 incorporan estas capacidades nativamente.
 
-\item{\textbf{Planificación}}: Los mecanismos de planificación potencian el razonamiento de los agentes sobre sus acciones futuras.
-
-El prompting de cadena de pensamiento (Chain of Thought)\cite{wei_chain--thought_2022}\cite{kojima_large_2022} consiste en indicar al modelo que elabore un razonamiento secuencial previo a su decisión final, generando así una cadena explícita de pensamiento que permite descomponer problemas complejos paso a paso. Sobre esta base, estrategias como la autoconsciencia\cite{liang_unleashing_2023} extienden este enfoque mediante la generación de múltiples cadenas de razonamiento independientes y la posterior selección de la respuesta más adecuada entre ellas\cite{yao_tree_nodate}\cite{wang_recmind_2024}.
-
-
-
-La reflexión\cite{shinn_reflexion_nodate}\cite{shinn_reflexion_nodate}\cite{madaan_self-refine_nodate}\cite{miao_selfcheck_2023} propone un proceso iterativo de autoevaluación y mejora de las respuestas generadas por el propio modelo. 
-
-La estructuración de acciones a realizar es una práctica extendida, definiendo planes de alto nivel que luego se desglosan en acciones específicas que los agentes van a ejecutar\cite{lin_swiftsage_nodate}\cite{huang_language_nodate}\cite{wang_describe_2024}\cite{zhu_ghost_2023}\cite{song_llm-planner_2023}\cite{wang_voyager_2023}\cite{liu_odyssey_2024}. Las interdependencias entre estas acciones permiten verificar la validez de los planes generados\cite{raman_planning_nodate}\cite{liu_llmp_2023}\cite{dagan_dynamic_2023}.
-
-
+La estructuración de acciones a realizar es una práctica extendida, definiendo planes de alto nivel que luego se desglosan en acciones específicas\cite{lin_swiftsage_nodate}\cite{huang_language_nodate}\cite{wang_describe_2024}\cite{zhu_ghost_2023}\cite{song_llm-planner_2023}. Las interdependencias entre acciones permiten verificar la validez de los planes generados\cite{raman_planning_nodate}\cite{liu_llmp_2023}\cite{dagan_dynamic_2023}.
+Voyager integra memoria y planificación mediante anotación de acciones\cite{wang_voyager_2023}, aprendiendo a interactuar con el entorno como alternativa al aprendizaje por refuerzo. Odyssey perfecciona este enfoque ajustando los modelos con información contextual\cite{liu_odyssey_2024}.
 \item{\textbf{Interacción entre agentes: }}El despliegue de agentes especializados coordinados por un router constituye una estrategia para optimizar la precisión con diversas fuentes de datos\cite{karpas_mrkl_2022}\cite{ge_openagi_nodate}.
 
 Enfoques alternativos proponen la interacción directa entre agentes especializados como mecanismo de retroalimentación\cite{zhuge_mindstorms_2023}\cite{du_improving_nodate}. En este ámbito destaca ChatDev\cite{qian_chatdev_2024}, que aborda problemas de ingeniería de software mediante la colaboración de agentes programadores, testers y gestores. MetaGPT\cite{hong_metagpt_2024} refina esta propuesta estableciendo un protocolo de comunicación publisher/subscriber entre agentes, permitiéndoles seleccionar los destinatarios de su información.
@@ -147,10 +141,7 @@ Enfoques alternativos proponen la interacción directa entre agentes especializa
 
 \subsection{Agentes LLM en proyectos de software}
 
-La integración de agentes LLM en proyectos software ha sido objeto de investigación en diversas áreas. 
-
-\subsection{Ajuste de modelos para agentes LLM}
-Los llm del estado del arte suelen venir con la capacidad de ajustada de llamar tools, algunos estudios demuestran que modelos pequeños pueden sobrepasar a modelos grandes en tareas específicas si se entrenan para ello. 
+El uso de agentes LLM 
 
 %todo en capitulo agente código:
 %rana_sayplan_2023 -> robot con path de la casa -> similar a repo

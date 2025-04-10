@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1744203490.91762 "main.aux" "main.bbl" "main" 1744203490.98867 2
+["bibtex main"] 1744321621.60933 "main.aux" "main.bbl" "main" 1744321621.68332 2
   "./references/references.bib" 1744202695.46503 234556 5a58f61c503d870b31cd3ecb6d61a3a1 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1744203490.68577 13946 58193f9e09d518e70405a5fc9aeac615 "pdflatex"
+  "main.aux" 1744321621.29552 11371 45895b89d2b3fa827454715fa6513eac "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1744203489.89129 "main.tex" "main.pdf" "main" 1744203490.9888 0
+["pdflatex"] 1744321620.51649 "main.tex" "main.pdf" "main" 1744321621.68344 0
   "/etc/texmf/web2c/texmf.cnf" 1742662909.37475 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490131464 2933 9ad527ce78d7c5fa0a642dead095f172 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc" 1490131464 2934 a4a9158faed2e9e89c771b4e3b7fc12f ""
@@ -181,7 +181,7 @@
   "chapters/acknowledgements.tex" 1742662057.11728 303 3c8e783af0a59d5ec8fd7bc59d4de5eb ""
   "chapters/appendix.tex" 1742662057.11728 10 b7ff051db0d4d81df5b8d027f6b79e45 ""
   "chapters/chap1.tex" 1742662057.11728 487 2bff7c4d2c50ee04a5540b9c895e51ae ""
-  "chapters/chap2.tex" 1744203488.61379 17694 c3ff531b726502a6f3068e29613f52ab ""
+  "chapters/chap2.tex" 1744321620.23152 17043 cb7d713e538ca1773e0cfe17c12b8344 ""
   "config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg" 1742662057.12128 497752 09b39031bbea5eedf1afee283c914abc ""
   "config/cover_informatika.tex" 1742662057.12128 534 67c0f94b8a5047dc4972697755493091 ""
   "config/macros.tex" 1742662057.12228 4611 9981108341e593c39442ca9a4c27fb91 ""
@@ -189,15 +189,15 @@
   "figures/herramienta.png" 1743115626.47481 50613 1ba7987a5bccafcc43b3c3272b09fb21 ""
   "figures/mcp.png" 1743200227.63 78155 43ed7d216e7822eb3fedcc79b2570402 ""
   "ifcommands.sty" 1742662057.12428 4894 6fc6d38bd21ddafd256a754893d7696a ""
-  "main.alg" 1744203490.68577 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.aux" 1744203490.68577 13946 58193f9e09d518e70405a5fc9aeac615 "pdflatex"
-  "main.bbl" 1744203490.98577 14037 06a574df916b1d382c2cedbb4bb93c62 "bibtex main"
-  "main.brf" 1744203490.68777 4147 da551b92aa154caee8dbfdcacb2de356 "pdflatex"
-  "main.lof" 1744203490.68777 576 5365de50e1a1b21d599fd035b065c5f0 "pdflatex"
-  "main.lot" 1744203490.68777 84 b4fcc71f9e5490421dd830680a8109cd "pdflatex"
-  "main.out" 1744203490.68777 2652 b610acc2097c485113fc82070031fca6 "pdflatex"
+  "main.alg" 1744321621.29552 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.aux" 1744321621.29552 11371 45895b89d2b3fa827454715fa6513eac "pdflatex"
+  "main.bbl" 1744321621.68052 9854 8c40cc53d0a090652819755e8bf5b365 "bibtex main"
+  "main.brf" 1744321621.29752 2826 7a49868565b493969e339c2ebfa233bb "pdflatex"
+  "main.lof" 1744321621.29752 576 5365de50e1a1b21d599fd035b065c5f0 "pdflatex"
+  "main.lot" 1744321621.29752 84 b4fcc71f9e5490421dd830680a8109cd "pdflatex"
+  "main.out" 1744321621.29752 3156 fa10a511ce33b745538e09bfd89a296a "pdflatex"
   "main.tex" 1744202859.22969 4833 fdb5f6e220de821d108b4b45a017e847 ""
-  "main.toc" 1744203490.68777 1580 60a624ef8c6ad0eaa2d5a982350f779a "pdflatex"
+  "main.toc" 1744321621.29752 1790 bfb5d16ea351ef418e6bc25270586862 "pdflatex"
   (generated)
   "main.alg"
   "main.aux"
