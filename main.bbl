@@ -139,6 +139,9 @@ Shreyas~Sundara Raman, Vanya Cohen, Eric Rosen, Ifrah Idrees, David Paulius, and
 Gautier Dagan, Frank Keller, and Alex Lascarides.
 \newblock Dynamic planning with a {LLM}.
 
+\bibitem{noauthor_deepseek-r1deepseek_r1pdf_nodate}
+{DeepSeek}-r1/{DeepSeek}\_r1.pdf at main · deepseek-ai/{DeepSeek}-r1.
+
 \bibitem{karpas_mrkl_2022}
 Ehud Karpas, Omri Abend, Yonatan Belinkov, Barak Lenz, Opher Lieber, Nir Ratner, Yoav Shoham, Hofit Bata, Yoav Levine, Kevin Leyton-Brown, Dor Muhlgay, Noam Rozen, Erez Schwartz, Gal Shachaf, Shai Shalev-Shwartz, Amnon Shashua, and Moshe Tenenholtz.
 \newblock {MRKL} systems: A modular, neuro-symbolic architecture that combines large language models, external knowledge sources and discrete reasoning.

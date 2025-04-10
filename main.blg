@@ -8,6 +8,8 @@ I was expecting a `,' or a `}'---line 402 of file references/references.bib
  : @misc{hao_reasoning_2023,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Warning--entry type for "noauthor_deepseek-r1deepseek_r1pdf_nodate" isn't style-file defined
+--line 1543 of file references/references.bib
 Warning--I didn't find a database entry for "wei_chain--thought_2022"
 Warning--I didn't find a database entry for "kojima_large_2022"
 Warning--empty journal in nakano_webgpt_nodate
@@ -41,45 +43,45 @@ Warning--empty journal in ge_openagi_nodate
 Warning--empty year in ge_openagi_nodate
 Warning--empty journal in du_improving_nodate
 Warning--empty year in du_improving_nodate
-You've used 39 entries,
+You've used 40 entries,
             1791 wiz_defined-function locations,
-            603 strings with 13579 characters,
-and the built_in function-call counts, 9589 in all, are:
-= -- 467
-> -- 1044
+            605 strings with 13689 characters,
+and the built_in function-call counts, 9678 in all, are:
+= -- 472
+> -- 1045
 < -- 3
-+ -- 361
++ -- 362
 - -- 322
 * -- 795
-:= -- 1672
-add.period$ -- 88
-call.type$ -- 39
-change.case$ -- 38
+:= -- 1678
+add.period$ -- 89
+call.type$ -- 40
+change.case$ -- 39
 chr.to.int$ -- 0
-cite$ -- 70
-duplicate$ -- 290
-empty$ -- 751
+cite$ -- 71
+duplicate$ -- 295
+empty$ -- 769
 format.name$ -- 322
-if$ -- 1945
+if$ -- 1969
 int.to.chr$ -- 0
-int.to.str$ -- 39
+int.to.str$ -- 40
 missing$ -- 18
-newline$ -- 166
+newline$ -- 169
 num.names$ -- 40
-pop$ -- 208
+pop$ -- 214
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 240
+skip$ -- 248
 stack$ -- 0
 substring$ -- 191
-swap$ -- 56
+swap$ -- 57
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 31
 while$ -- 53
-width$ -- 41
-write$ -- 295
+width$ -- 42
+write$ -- 300
 (There was 1 error message)

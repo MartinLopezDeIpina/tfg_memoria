@@ -108,7 +108,7 @@ La optimización del rendimiento en arquitecturas RAG ha sido ampliamente estudi
 
 \item {\textbf{Sistemas de recuperación:}} Los recuperadores densos basados en representaciones, ilustrados en la figura \ref{fig:rag}, precalculan las representaciones vectoriales de los documentos mediante una indexación independiente de las consultas. Por otro lado, los recuperadores basados en interacción, proponen calcular el vector para cada documento junto al vector de consulta durante el tiempo de ejecución, obteniendo así una representación más rica que captura las relaciones contextuales específicas entre ambos elementos\cite{ma_query_nodate}\cite{levine_standing_2022}.
 
-Para contrarrestar el sobrecoste computacional de este enfoque, se han desarrollado técnicas de indexación híbrida que combinan ambos métodos. Estas técnicas permiten realizar una búsqueda inicial utilizando representaciones vectoriales y posteriormente refinar los resultados mediante la interacción con el modelo\cite{khattab_relevance-guided_2021}. 
+Para contrarrestar el sobrecoste computacional de este enfoque, se han desarrollado técnicas de indexación híbrida que combinan ambos métodos. Estas técnicas permiten realizar una búsqueda inicial utilizando representaciones vectoriales y posteriormente refinar los resultados mediante la extracción interactiva\cite{khattab_relevance-guided_2021}. 
   
 \item {\textbf{Optimización del flujo de generación:}} Para tareas que requieren reflexión documentada, se han desarrollado sistemas de salto múltiple que alternan entre recuperación y generación\cite{khattab_demonstrate-search-predict_2023}\cite{shao_enhancing_2023}\cite{qi_answering_2021}\cite{zheng_take_2024}\cite{trivedi_interleaving_2023}. Estos flujos permiten al sistema examinar críticamente la información inicialmente recuperada, identificar lagunas informativas, y formular las consultas correspondientes para subsanar dichas carencias.
 
@@ -125,24 +125,26 @@ Para contrarrestar el sobrecoste computacional de este enfoque, se han desarroll
 \subsection{Arquitecturas de interacción entre agentes}
 La interacción entre agentes LLM constituye un campo de investigación activo, distinguiéndose diversos avances en módulos de memoria, planificación e interacción multiagente\cite{wang_survey_2024}.
 \begin{itemize}
-  \item{\textbf{Módulos de memoria}}: En una interacción conversacional, el modelo recibe todos los mensajes anteriores, lo que puede resultar en un contexto excesivo. Para mitigar este problema, se han desarrollados módulos de memoria que almacenan información relevante de interacciones pasadas de forma resumida\cite{zhang_building_2024}\cite{fischer_reflective_2023}\cite{liang_unleashing_2023}. Esta memoria puede consultarse posteriormente mediante RAG, permitiendo recuperar los elementos más relevantes según el contexto\cite{zhao_expel_2024}.
+  \item{\textbf{Módulos de memoria}}: En una interacción conversacional, el modelo procesa todos los mensajes previos, pudiendo generar un contexto excesivamente amplio. Para mitigar este problema, se han desarrollados módulos de memoria que almacenan información relevante de interacciones pasadas de forma resumida\cite{zhang_building_2024}\cite{fischer_reflective_2023}\cite{liang_unleashing_2023}. Esta memoria puede consultarse posteriormente mediante RAG, permitiendo recuperar los elementos más relevantes según el contexto\cite{zhao_expel_2024}.
 
 Algunos módulos se inspiran en la estructura de la memoria humana\cite{zhong_memorybank_2024}, incorporando mecanismos que almacenan información con distintas temporalidades y niveles de relevancia\cite{wang_survey_2024}\cite{park_generative_2023}.
 
+
 \item{\textbf{Planificación}}: Los mecanismos de planificación potencian el razonamiento de los agentes sobre sus acciones futuras.
 
-El prompting de cadena de pensamiento (Chain of Thought)\cite{wei_chain--thought_2022}\cite{kojima_large_2022} consiste en indicar al modelo que elabore un razonamiento secuencial previo a su decisión final, generando así una cadena explícita de pensamiento que permite descomponer problemas complejos paso a paso. Sobre esta base, estrategias como la autoconsciencia\cite{liang_unleashing_2023} extienden este enfoque mediante la generación de múltiples cadenas de razonamiento independientes y la posterior selección de la respuesta más adecuada entre ellas\cite{yao_tree_nodate}\cite{wang_recmind_2024}.
+Entre estos mecanismos destaca el prompting de cadena de pensamiento (Chain of Thought)\cite{wei_chain--thought_2022}\cite{kojima_large_2022}, que instruye al modelo para elaborar un razonamiento secuencial previo a su decisión final, permitiendo así descomponer problemas complejos paso a paso.
+Partiendo de este enfoque, estrategias avanzadas como la autoconsciencia\cite{liang_unleashing_2023} lo amplían mediante la generación de múltiples cadenas de razonamiento independientes y la posterior selección de la respuesta óptima entre ellas\cite{yao_tree_nodate}\cite{wang_recmind_2024}.
+
+De manera complementaria, las técnicas de reflexión\cite{shinn_reflexion_nodate}\cite{shinn_reflexion_nodate}\cite{madaan_self-refine_nodate}\cite{miao_selfcheck_2023} implementan un proceso iterativo donde el propio modelo evalúa y refina sus respuestas.
+
+Por otro lado, la estructuración de acciones constituye una metodología ampliamente adoptada en la planificación\cite{lin_swiftsage_nodate}\cite{huang_language_nodate}\cite{wang_describe_2024}. Esta técnica permite definir planes de alto nivel que posteriormente se desglosan en acciones específicas ejecutables por los agentes\cite{zhu_ghost_2023}\cite{song_llm-planner_2023}\cite{wang_voyager_2023}\cite{liu_odyssey_2024}. El análisis de las interdependencias entre estas acciones permite verificar la validez de los planes generados\cite{raman_planning_nodate}\cite{liu_llmp_2023}\cite{dagan_dynamic_2023}.
+
+Los modelos razonadores como o1 o DeepSeek-R1 incorporan estas técnicas de forma nativa\cite{noauthor_deepseek-r1deepseek_r1pdf_nodate}. Son entrenados con datos que incluye ejemplos de razonamiento y planificación, lo que les permite generar respuestas más precisas y coherentes.
 
 
+\item{\textbf{Interacción entre agentes: }}Los sistemas multi-agente implementan una arquitectura donde diversos agentes especializados son coordinados por un componente central denominado orquestador\cite{karpas_mrkl_2022}\cite{ge_openagi_nodate}. En este paradigma, cada agente se especializa en una función particular, como la búsqueda de información, la ejecución de herramientas o la generación de texto. El orquestador evalúa las consultas entrantes y las dirige hacia el agente más competente para resolverlas.
 
-La reflexión\cite{shinn_reflexion_nodate}\cite{shinn_reflexion_nodate}\cite{madaan_self-refine_nodate}\cite{miao_selfcheck_2023} propone un proceso iterativo de autoevaluación y mejora de las respuestas generadas por el propio modelo. 
-
-La estructuración de acciones a realizar es una práctica extendida, definiendo planes de alto nivel que luego se desglosan en acciones específicas que los agentes van a ejecutar\cite{lin_swiftsage_nodate}\cite{huang_language_nodate}\cite{wang_describe_2024}\cite{zhu_ghost_2023}\cite{song_llm-planner_2023}\cite{wang_voyager_2023}\cite{liu_odyssey_2024}. Las interdependencias entre estas acciones permiten verificar la validez de los planes generados\cite{raman_planning_nodate}\cite{liu_llmp_2023}\cite{dagan_dynamic_2023}.
-
-
-\item{\textbf{Interacción entre agentes: }}El despliegue de agentes especializados coordinados por un router constituye una estrategia para optimizar la precisión con diversas fuentes de datos\cite{karpas_mrkl_2022}\cite{ge_openagi_nodate}.
-
-Enfoques alternativos proponen la interacción directa entre agentes especializados como mecanismo de retroalimentación\cite{zhuge_mindstorms_2023}\cite{du_improving_nodate}. En este ámbito destaca ChatDev\cite{qian_chatdev_2024}, que aborda problemas de ingeniería de software mediante la colaboración de agentes programadores, testers y gestores. MetaGPT\cite{hong_metagpt_2024} refina esta propuesta estableciendo un protocolo de comunicación publisher/subscriber entre agentes, permitiéndoles seleccionar los destinatarios de su información.
+Enfoques complementarios proponen la interacción directa entre agentes especializados como mecanismo de retroalimentación\cite{zhuge_mindstorms_2023}\cite{du_improving_nodate}. Por ejemplo, ChatDev\cite{qian_chatdev_2024} establece un sistema de colaboración entre agentes programadores, testers y gestores para abordar problemas de ingeniería de software. MetaGPT\cite{hong_metagpt_2024} refina esta propuesta al implementar un protocolo de comunicación basado en el patrón publicador/suscriptor entre los agentes, permitiéndoles difundir información de forma selectiva. 
 \end{itemize}
 
 \subsection{Agentes LLM en proyectos de software}

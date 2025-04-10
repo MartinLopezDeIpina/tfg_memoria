@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  10 APR 2025 23:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  11 APR 2025 01:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1079,10 +1079,10 @@ LaTeX Info: Redefining \. on input line 110.
 LaTeX Info: Redefining \% on input line 110.
  [7 <./figures/RAG.png>]
 
-LaTeX Warning: Citation `wei_chain--thought_2022' on page 8 undefined on input line 134.
+LaTeX Warning: Citation `wei_chain--thought_2022' on page 8 undefined on input line 135.
 
 
-LaTeX Warning: Citation `kojima_large_2022' on page 8 undefined on input line 134.
+LaTeX Warning: Citation `kojima_large_2022' on page 8 undefined on input line 135.
 
 LaTeX Info: Redefining \. on input line 141.
 LaTeX Info: Redefining \% on input line 141.
@@ -1107,10 +1107,21 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 [13]
 LaTeX Info: Redefining \. on input line 122.
 LaTeX Info: Redefining \% on input line 122.
- [14])
+ [14]
+LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 144.
+ (/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
+File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/LinuxLibertineT-TLF.
+)
+LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 144.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+)
 LaTeX Info: Redefining \. on input line 170.
 LaTeX Info: Redefining \% on input line 170.
- [15]
+ [15{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1135,26 +1146,23 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: FA10A511CE33B745538E09BFD89A296A;3156.
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: 7A49868565B493969E339C2EBFA233BB;2826.
+(rerunfilecheck)             Checksum: 5C5BE5024F6B05B9A6BDBBCDB9F2FB00;2910.
  ) 
 Here is how much of TeX's memory you used:
- 24696 strings out of 474222
- 420880 string characters out of 5748733
- 1939975 words of memory out of 5000000
- 46146 multiletter control sequences out of 15000+600000
- 678901 words of font info for 288 fonts, out of 8000000 for 9000
+ 24750 strings out of 474222
+ 422591 string characters out of 5748733
+ 1938975 words of memory out of 5000000
+ 46182 multiletter control sequences out of 15000+600000
+ 680137 words of font info for 296 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  91i,11n,133p,1001b,726s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb>
-Output written on main.pdf (27 pages, 1062997 bytes).
+Output written on main.pdf (27 pages, 1065468 bytes).
 PDF statistics:
- 398 PDF objects out of 1000 (max. 8388607)
- 91 named destinations out of 1000 (max. 500000)
- 69285 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 405 PDF objects out of 1000 (max. 8388607)
+ 92 named destinations out of 1000 (max. 500000)
+ 73381 words of extra memory for PDF output out of 74296 (max. 10000000)
 
