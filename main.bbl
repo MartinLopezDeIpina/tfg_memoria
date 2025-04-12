@@ -1,8 +1,33 @@
 \begin{thebibliography}{10}
 
-\bibitem{nakano_webgpt_nodate}
-Reiichiro Nakano, Jacob Hilton, Suchir Balaji, Jeff Wu, Long Ouyang, Christina Kim, Christopher Hesse, Shantanu Jain, Vineet Kosaraju, William Saunders, Xu~Jiang, Karl Cobbe, Tyna Eloundou, Gretchen Krueger, Kevin Button, Matthew Knight, Benjamin Chess, and John Schulman.
-\newblock {WebGPT}: Browser-assisted question-answering with human feedback.
+\bibitem{sim_ramp-up_1998}
+S.E. Sim and R.C. Holt.
+\newblock The ramp-up problem in software projects: a case study of how software immigrants naturalize.
+\newblock In {\em Proceedings of the 20th International Conference on Software Engineering}, pages 361--370.
+\newblock {ISSN}: 0270-5257.
+
+\bibitem{steinmacher_systematic_2015}
+Igor Steinmacher, Marco~Aurelio Graciotto~Silva, Marco~Aurelio Gerosa, and David~F. Redmiles.
+\newblock A systematic literature review on the barriers faced by newcomers to open source software projects.
+\newblock 59:67--85.
+
+\bibitem{ritz_artificial_2023}
+Eva Ritz, Fabio Donisi, Edona Elshan, and Roman Rietsche.
+\newblock Artificial socialization? how artificial intelligence applications can shape a new era of employee onboarding practices.
+
+\bibitem{azanza_can_2024}
+Maider Azanza, Juanan Pereira, Arantza Irastorza, and Aritz Galdos.
+\newblock Can {LLMs} facilitate onboarding software developers? an ongoing industrial case study.
+\newblock In {\em 2024 36th International Conference on Software Engineering Education and Training ({CSEE}\&T)}, pages 1--6.
+\newblock {ISSN}: 2377-570X.
+
+\bibitem{ionescu_multi-agent_2025}
+Andrei~Cristian Ionescu, Sergey Titov, and Maliheh Izadi.
+\newblock A multi-agent onboarding assistant based on large language models, retrieval augmented generation, and chain-of-thought.
+
+\bibitem{vaswani_attention_2023}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
 
 \bibitem{zhu_retrieving_2021}
 Fengbin Zhu, Wenqiang Lei, Chao Wang, Jianming Zheng, Soujanya Poria, and Tat-Seng Chua.
@@ -186,5 +211,17 @@ Kamal Acharya.
 
 \bibitem{noauthor_building_2023}
 Building a better repository map with tree sitter.
+
+\bibitem{chen_fireact_2023}
+Baian Chen, Chang Shu, Ehsan Shareghi, Nigel Collier, Karthik Narasimhan, and Shunyu Yao.
+\newblock {FireAct}: Toward language agent fine-tuning.
+
+\bibitem{zeng_agenttuning_2023}
+Aohan Zeng, Mingdao Liu, Rui Lu, Bowen Wang, Xiao Liu, Yuxiao Dong, and Jie Tang.
+\newblock {AgentTuning}: Enabling generalized agent abilities for {LLMs}.
+
+\bibitem{hu_lora_2021}
+Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu~Wang, and Weizhu Chen.
+\newblock {LoRA}: Low-rank adaptation of large language models.
 
 \end{thebibliography}

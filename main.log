@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  12 APR 2025 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  12 APR 2025 16:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -939,7 +939,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 LaTeX Info: Redefining \. on input line 85.
 LaTeX Info: Redefining \% on input line 85.
  (./config/cover_informatika.tex
-<config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg, id=79, 897.3525pt x 199.2243pt>
+<config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg, id=95, 897.3525pt x 199.2243pt>
 File: config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg Graphic file (type jpg)
 <use config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg>
 Package pdftex.def Info: config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg  used on input line 8.
@@ -1038,67 +1038,72 @@ l.147 \cleardoublepage
 
 ] (./chapters/chap2.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 24.
+(Font)              scaled to size 12.0pt on input line 26.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 24.
+(Font)              scaled to size 12.0pt on input line 26.
  [3
 
 ]
-LaTeX Info: Redefining \. on input line 48.
-LaTeX Info: Redefining \% on input line 48.
+LaTeX Info: Redefining \. on input line 49.
+LaTeX Info: Redefining \% on input line 49.
  [4]
-<figures/herramienta.png, id=184, 552.1428pt x 151.767pt>
+<figures/herramienta.png, id=213, 552.1428pt x 151.767pt>
 File: figures/herramienta.png Graphic file (type png)
 <use figures/herramienta.png>
-Package pdftex.def Info: figures/herramienta.png  used on input line 56.
+Package pdftex.def Info: figures/herramienta.png  used on input line 69.
 (pdftex.def)             Requested size: 409.53003pt x 112.56981pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 57.
+(Font)              scaled to size 10.0pt on input line 70.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 57.
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
- [5 <./figures/herramienta.png (PNG copy)>]
-<figures/mcp.png, id=190, 758.1123pt x 275.3487pt>
+(Font)              scaled to size 10.0pt on input line 70.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
+ [5]
+LaTeX Info: Redefining \. on input line 90.
+LaTeX Info: Redefining \% on input line 90.
+ [6 <./figures/herramienta.png (PNG copy)>]
+<figures/mcp.png, id=225, 758.1123pt x 275.3487pt>
 File: figures/mcp.png Graphic file (type png)
 <use figures/mcp.png>
-Package pdftex.def Info: figures/mcp.png  used on input line 82.
+Package pdftex.def Info: figures/mcp.png  used on input line 95.
 (pdftex.def)             Requested size: 409.53003pt x 148.74489pt.
-LaTeX Info: Redefining \. on input line 92.
-LaTeX Info: Redefining \% on input line 92.
- [6 <./figures/mcp.png (PNG copy)>]
-<figures/RAG.png, id=196, 2063.71pt x 1339.0025pt>
+LaTeX Info: Redefining \. on input line 107.
+LaTeX Info: Redefining \% on input line 107.
+ [7 <./figures/mcp.png (PNG copy)>]
+<figures/RAG.png, id=232, 2063.71pt x 1339.0025pt>
 File: figures/RAG.png Graphic file (type png)
 <use figures/RAG.png>
-Package pdftex.def Info: figures/RAG.png  used on input line 105.
+Package pdftex.def Info: figures/RAG.png  used on input line 118.
 (pdftex.def)             Requested size: 204.76501pt x 132.84566pt.
-LaTeX Info: Redefining \. on input line 112.
-LaTeX Info: Redefining \% on input line 112.
- [7 <./figures/RAG.png>]
-LaTeX Info: Redefining \. on input line 141.
-LaTeX Info: Redefining \% on input line 141.
- [8]
+LaTeX Info: Redefining \. on input line 128.
+LaTeX Info: Redefining \% on input line 128.
+ [8 <./figures/RAG.png>]
+LaTeX Info: Redefining \. on input line 156.
+LaTeX Info: Redefining \% on input line 156.
+ [9]
 
-LaTeX Warning: Citation `wei_chain--thought_2022' on page 9 undefined on input line 143.
+LaTeX Warning: Citation `wei_chain--thought_2022' on page 10 undefined on input line 156.
 
 
-LaTeX Warning: Citation `kojima_large_2022' on page 9 undefined on input line 143.
+LaTeX Warning: Citation `kojima_large_2022' on page 10 undefined on input line 156.
 
-LaTeX Info: Redefining \. on input line 164.
-LaTeX Info: Redefining \% on input line 164.
-[9]
-LaTeX Info: Redefining \. on input line 183.
-LaTeX Info: Redefining \% on input line 183.
- [10])
+LaTeX Info: Redefining \. on input line 179.
+LaTeX Info: Redefining \% on input line 179.
+[10]
+LaTeX Info: Redefining \. on input line 198.
+LaTeX Info: Redefining \% on input line 198.
+ [11])
 LaTeX Info: Redefining \. on input line 150.
 LaTeX Info: Redefining \% on input line 150.
- [11] [12
-
-] (./chapters/appendix.tex) (./main.bbl (./main.brf)
+ [12] (./chapters/appendix.tex) (./main.bbl (./main.brf)
 \tf@brf=\write5
 \openout5 = `main.brf'.
 
  [13
+
 
 
 ] [14
@@ -1106,23 +1111,23 @@ LaTeX Info: Redefining \% on input line 150.
 ]
 bibitemlist
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 35.
+(Font)              scaled to size 10.0pt on input line 8.
 [15]
-LaTeX Info: Redefining \. on input line 122.
-LaTeX Info: Redefining \% on input line 122.
+LaTeX Info: Redefining \. on input line 126.
+LaTeX Info: Redefining \% on input line 126.
  [16]
-LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 144.
+LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 169.
  (/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
 File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 144.
+(Font)              scaled to size 10.0pt on input line 169.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Info: Redefining \. on input line 182.
-LaTeX Info: Redefining \% on input line 182.
+LaTeX Info: Redefining \. on input line 189.
+LaTeX Info: Redefining \% on input line 189.
  [17{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}])
 LaTeX Info: Redefining \. on input line 170.
 LaTeX Info: Redefining \% on input line 170.
@@ -1152,22 +1157,22 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7702D5480AD4A5627347D5A0DA30D5DD;3338.
+(rerunfilecheck)             Checksum: F3158060BCA18485FE489A2C3C735B82;4310.
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: F1CDDCDB8E8E52ADAB7E7446242AC5CD;3345.
+(rerunfilecheck)             Checksum: 62ABFB979CF7E0D079E512BAA823B921;3809.
  ) 
 Here is how much of TeX's memory you used:
- 24823 strings out of 474222
- 424625 string characters out of 5748733
+ 24888 strings out of 474222
+ 426032 string characters out of 5748733
  1939975 words of memory out of 5000000
- 46219 multiletter control sequences out of 15000+600000
+ 46275 multiletter control sequences out of 15000+600000
  682203 words of font info for 311 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 91i,12n,133p,1001b,731s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 91i,12n,133p,1001b,733s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb>
-Output written on main.pdf (30 pages, 1078889 bytes).
+Output written on main.pdf (30 pages, 1090900 bytes).
 PDF statistics:
- 448 PDF objects out of 1000 (max. 8388607)
- 106 named destinations out of 1000 (max. 500000)
- 73389 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 492 PDF objects out of 1000 (max. 8388607)
+ 115 named destinations out of 1000 (max. 500000)
+ 73421 words of extra memory for PDF output out of 74296 (max. 10000000)
 

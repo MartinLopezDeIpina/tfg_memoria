@@ -16,6 +16,20 @@ Resumen de diferentes partes:
 2.3. Abstracciones en frameworks
 
 
+\section{Onboarding en proyectos software}
+El proceso de incorporación (onboarding) de nuevos desarrolladores de software constituye un desafío persistente para las organizaciones tecnológicas, donde los recién incorporados enfrentan una sobrecarga informativa mientras los desarrolladores senior ven afectada su productividad al destinar tiempo considerable a actividades de formación y mentoría\cite{sim_ramp-up_1998}. 
+
+Si bien prácticas como la designación de mentores han demostrado ser efectivas para facilitar la integración de nuevos miembros, estas incrementan significativamente la carga de trabajo sobre los profesionales experimentados, generando potenciales retrasos en los proyectos\cite{steinmacher_systematic_2015}.
+
+En este contexto, los modelos de lenguaje de gran escala (LLM) emergen como una alternativa prometedora para transformar el proceso de onboarding, ofreciendo orientación personalizada e instantánea que podría reducir la dependencia de los desarrolladores senior, preservar la productividad global de los equipos y facilitar una incorporación más eficiente y menos disruptiva\cite{ritz_artificial_2023}.
+
+\subsection{Trabajo previo}
+
+Una investigación realizada por la universidad del país vasco en colaboración con LKS NEXT desarrolló el prototipo I Need a Hero (INAH), diseñado para aprovechar el potencial de los LLM en la localización de expertos dentro de la organización\cite{azanza_can_2024}. INAH opera en dos fases: primero crea perfiles de ``héroes'' extrayendo información de currículos de empleados dispuestos a asistir; luego, ante una consulta, utiliza GPT-3.5 para identificar las competencias requeridas y localizar a los profesionales que las poseen.
+
+En una línea de estudio complementaria, un estudio reciente ha presentado el ``Onboarding Buddy'', el cual implementa una arquitectura multi-agente que organiza diversos componentes especializados para proporcionar asistencia contextualizada durante la incorporación de nuevos desarrolladores\cite{ionescu_multi-agent_2025}.
+
+El sistema se basa en la generación dinámica de planes de acción, donde el agente principal elabora una estrategia inicial mediante un proceso de Cadena de Pensamiento \ref{plani}. Esta metodología permite desglosar problemas complejos en pasos intermedios de razonamiento. Posteriormente, un módulo procesador evalúa estos planes y determina si requieren una ejecución recursiva, descomponiéndolos en sub-tareas más específicas que se procesan en paralelo por agentes de la misma tipología.
 
 \section{Agentes LLM}
 
@@ -23,7 +37,7 @@ Los agentes de Inteligencia Artificial son programas informáticos que implement
 
 \subsection{Modelos LLM}
 
-Los LLM son redes neuronales especializadas en el procesamiento del lenguaje natural, basados en la arquitectura Transformer. Esta arquitectura se fundamenta en el mecanismo de atención, el cual transforma la representación del texto para incorporar información contextual de manera escalable al hardware. 
+Los LLM son redes neuronales especializadas en el procesamiento del lenguaje natural, basados en la arquitectura Transformer. Esta arquitectura se fundamenta en el mecanismo de atención, el cual transforma la representación del texto para incorporar información contextual, dotando a estos modelos de la capacidad para comprender y relacionar elementos semánticos\cite{vaswani_attention_2023}.
 
 Para comprender el funcionamiento de estos agentes, resulta imprescindible asimilar previamente conceptos como la tokenización, las representaciones vectoriales del lenguaje y el ajuste de dichos modelos.
 
@@ -38,11 +52,10 @@ El entrenamiento de los LLM se estructura en dos fases diferenciadas. La primera
 
 Los agentes basados en LLM implementan en su mayoría modelos instruct, variantes especialmente ajustadas para responder a consultas e instrucciones de usuarios. Dentro de esta categoría se encuentran Gpt4-o (base de ChatGPT), Claude Sonnet, y la serie LLama-Instruct.
 
-\section{Onboarding mediante LLMs}
 
 
 \subsection{Interacción con herramientas externas}
-Los agentes LLM poseen la capacidad de interactuar con diversas herramientas como búsquedas web\cite{nakano_webgpt_nodate}, bases de datos o interfaces de usuario. Fundamentalmente, un LLM solo genera tokens de texto, por lo que la integración de herramientas se implementa mediante palabras clave que el modelo puede incluir en su salida. Para ello, en el texto de entrada se especifica el esquema de la función a utilizar y, si decide emplearla, el modelo generará el texto correspondiente. Posteriormente, se procesa la respuesta para extraer llamadas a funciones si las hubiese.
+Los agentes LLM poseen la capacidad de interactuar con diversas herramientas como búsquedas web, bases de datos o interfaces de usuario. Fundamentalmente, un LLM solo genera tokens de texto, por lo que la integración de herramientas se implementa mediante palabras clave o tokens especiales que el modelo puede incluir en su salida. Para ello, en el texto de entrada se especifica el esquema de la función a utilizar y, si decide emplearla, el modelo generará el texto correspondiente. Posteriormente, se procesa la respuesta para extraer llamadas a funciones si las hubiese.
 
 La interacción con herramientas es típicamente alternante. Tras realizar la llamada a la herramienta, la salida de esta se utilizará como entrada para el siguiente mensaje del modelo. La figura \ref{fig:herramientas} ilustra el esquema de un agente con acceso a una API del clima. Como el modelo carece de información climática en tiempo real, se le indica en el prompt la posibilidad de invocar esta función. Al incluir la llamada en su texto de salida, se ejecuta la función y su respuesta se transmite al modelo para generar el resultado final.
 
@@ -138,7 +151,7 @@ La interacción entre agentes LLM constituye un campo de investigación activo, 
 Algunos módulos se inspiran en la estructura de la memoria humana\cite{zhong_memorybank_2024}, incorporando mecanismos que almacenan información con distintas temporalidades y niveles de relevancia\cite{wang_survey_2024}\cite{park_generative_2023}.
 
 
-\item{\textbf{Planificación}}: Los mecanismos de planificación potencian el razonamiento de los agentes sobre sus acciones futuras.
+\item{\textbf{Planificación}}\label{plani}: Los mecanismos de planificación potencian el razonamiento de los agentes sobre sus acciones futuras.
 
 Entre estos mecanismos destaca el prompting de cadena de pensamiento (Chain of Thought)\cite{wei_chain--thought_2022}\cite{kojima_large_2022}, que instruye al modelo para elaborar un razonamiento secuencial previo a su decisión final, permitiendo así descomponer problemas complejos paso a paso.
 Partiendo de este enfoque, estrategias avanzadas como la autoconsciencia\cite{liang_unleashing_2023} lo amplían mediante la generación de múltiples cadenas de razonamiento independientes y la posterior selección de la respuesta óptima entre ellas\cite{yao_tree_nodate}\cite{wang_recmind_2024}.
@@ -155,12 +168,14 @@ Los modelos razonadores como o1 o DeepSeek-R1 incorporan estas técnicas de form
 Enfoques complementarios proponen la interacción directa entre agentes especializados como mecanismo de retroalimentación\cite{zhuge_mindstorms_2023}\cite{du_improving_nodate}. Por ejemplo, ChatDev\cite{qian_chatdev_2024} establece un sistema de colaboración entre agentes programadores, testers y gestores para abordar problemas de ingeniería de software. MetaGPT\cite{hong_metagpt_2024} refina esta propuesta al implementar un protocolo de comunicación basado en el patrón publicador/suscriptor entre los agentes, permitiéndoles difundir información de forma selectiva. 
 \end{itemize}
 
-\subsection{Agentes LLM en proyectos de software}
+todo: react y ajuste de estos
+
+\section{Agentes LLM en proyectos software}
 
 La integración de agentes LLM en proyectos software ha sido objeto de estudio enfocándose principalmente en el ámbito de la generación automática de código. Se pueden destacar tres niveles de autonomía en los productos desarrrollados: sugerencias de autocompletado, asistentes de programación y agentes autónomos. 
 
 \begin{itemize}
-  \item {\textbf{Sugerencias de autocompletado:}} Github Copilot o Cursor ofrecen la integración de un modelo LLM ajustado para generación de código directamente al entorno del desarrollador. De esta forma, el desarrollador recibe sugerencias de autocompletado en tiempo real mientras escribe el código.  
+  \item {\textbf{Sugerencias de autocompletado:}} Github Copilot o CursorAI ofrecen la integración de un modelo LLM ajustado para generación de código directamente al entorno del desarrollador. De esta forma, el desarrollador recibe sugerencias de autocompletado en tiempo real mientras escribe el código.  
 
 Este tipo de herramientas han demostrado ser eficaces para aumentar la productividad de los desarrolladores en tareas de programación repetitivas\cite{kalliamvakou_research_2022}. Sin embargo, debido a su enfoque en la rapidez de respuesta, presentan limitaciones en la aplicación de razonamiento profundo.
 
@@ -176,20 +191,23 @@ La arquitectura de este sistema opera en dos etapas: en primera instancia, los s
 
 \end{itemize}
 
-\subsection{Ajuste de modelos para agentes LLM}
-\subsubsection{Limitaciones de los modelos actuales}
+\section{Ajuste de modelos para agentes LLM}
+\subsection{Limitaciones de los modelos actuales}
 Los modelos \textit{instruct} del estado del arte poseen la capacidad de resolver tareas que requieren comportamiento agéntico gracias a su amplio conocimiento general. No obstante, su eficiencia es cuestionable, puesto que para tareas específicas pueden carecer de ciertos conocimientos particulares, mientras que disponen de una cantidad considerable de información superflua para dichas tareas.
-Los modelos más avanzados en la actualidad, como GPT-4.5 o Claude Sonnet 3.7, se estima que contienen varios trillones de parámetros (siguiendo la nomenclatura corta anglosajona), lo que los convierte en prohibitivamente costosos para su ejecución en entornos locales.
-\subsubsection{Enfoques de ajuste fino para tareas específicas}
-Como consecuencia de esta limitación, diversos proyectos de investigación han propuesto el ajuste fino de modelos de menor dimensión para tareas agénticas específicas. Mediante esta aproximación, es posible obtener modelos con mayor precisión en las tareas requeridas, pero con una fracción del coste.
+Se estima que los modelos más avanzados en la actualidad, como GPT-4.5 o Claude Sonnet 3.7, contienen varios trillones de parámetros (siguiendo la nomenclatura corta anglosajona), lo que los convierte en prohibitivamente costosos para su ejecución en entornos locales.
 
-Enfoques como FireAct y AgentTunning proponen el entrenamiento de dichos modelos mediante una estrategia de destilación. Esto consiste en previamente utilizar un modelo instruct de gran tamaño para generar un conjunto de datos sintéticos para las respuestas del agente. Posteriormente, se ajusta un modelo de menor tamaño utilizando este conjunto de datos, de forma que el conocimiento del modelo grande se destila en el modelo pequeño.
+Como consecuencia de estas limitaciones computacionales y por tratarse de modelos propietarios, estos están disponibles únicamente a través de API. Este modelo de acceso requiere enviar los datos a servidores externos, planteando así preocupaciones sobre la privacidad y la seguridad de la información. Esta restricción es especialmente relevante en el ámbito del desarrollo de software, donde los datos pueden incluir información sensible o confidencial.
+
+\subsection{Enfoques de ajuste fino para agentes específicos}
+Como consecuencia de estas limitación, diversos proyectos de investigación han propuesto el ajuste fino de modelos de menor dimensión para tareas agénticas específicas. Mediante esta aproximación, es posible obtener modelos con mayor precisión en las tareas requeridas, pero con una fracción del coste.
+
+Enfoques como FireAct\cite{chen_fireact_2023} y AgentTunning\cite{zeng_agenttuning_2023} proponen el entrenamiento de dichos modelos mediante una estrategia de destilación. Esto consiste en previamente utilizar un modelo instruct de gran tamaño para generar un conjunto de datos sintéticos para las respuestas del agente. Posteriormente, se ajusta un modelo de menor tamaño utilizando este conjunto de datos, de forma que el conocimiento del modelo grande se destila en el modelo pequeño.
 
 Adicionalmente, Agent-FLAN propone la división de dichos datos de entrenamiento en varios conjuntos de aprendizaje. Debido a que los modelos aprenden antes a interpretar el formato de entrada que a razonar sobre la acción a realizar, se propone modificar parte de las trazas de entrenamiento para que estas tengan una estructura conversacional.
 De esta forma, al ajustar el modelo con las trazas originales, este aprende la estructura de entrada y llamada de herramientas, mientras que en las trazas conversacionales, el modelo aprende a razonar sobre la acción a realizar.
 
-\subsubsection{Técnicas de entrenamiento eficiente}
-El entrenamiento de estos modelos se realiza mediante el ajuste de los pesos de la red neuronal. Debido a que el ajuste fino del modelo completo es costoso, en contextos de bajo coste se propone el uso de la técnica de entrenamiento Low Rank Adaptation (LoRA). Esta técnica consiste en ajustar únicamente un subconjunto de los pesos de la red neuronal, lo que permite reducir significativamente el coste computacional del ajuste fino.
+\subsection{Técnicas de entrenamiento eficiente}
+El entrenamiento de estos modelos se realiza mediante el ajuste de los pesos de la red neuronal. Debido a que el ajuste fino del modelo completo es costoso, en contextos de bajo coste se propone el uso de la técnica de entrenamiento Low Rank Adaptation (LoRA)\cite{hu_lora_2021}. Esta técnica consiste en ajustar únicamente un subconjunto de los pesos de la red neuronal, lo que permite reducir significativamente el coste computacional del ajuste fino.
 
 
 
