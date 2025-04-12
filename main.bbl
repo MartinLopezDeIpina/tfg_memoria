@@ -166,4 +166,25 @@ Chen Qian, Wei Liu, Hongzhang Liu, Nuo Chen, Yufan Dang, Jiahao Li, Cheng Yang, 
 Sirui Hong, Mingchen Zhuge, Jiaqi Chen, Xiawu Zheng, Yuheng Cheng, Ceyao Zhang, Jinlin Wang, Zili Wang, Steven Ka~Shing Yau, Zijuan Lin, Liyang Zhou, Chenyu Ran, Lingfeng Xiao, Chenglin Wu, and Jürgen Schmidhuber.
 \newblock {MetaGPT}: Meta programming for a multi-agent collaborative framework.
 
+\bibitem{kalliamvakou_research_2022}
+Eirini Kalliamvakou.
+\newblock Research: quantifying {GitHub} copilot’s impact on developer productivity and happiness.
+
+\bibitem{noauthor_github_nodate}
+{GitHub} copilot features.
+
+\bibitem{noauthor_sourcegraphscip_2025}
+sourcegraph/scip.
+\newblock original-date: 2022-05-10T13:18:47Z.
+
+\bibitem{noauthor_sourcegraphsourcegraph-public-snapshot_nodate}
+sourcegraph/sourcegraph-public-snapshot: Code {AI} platform with code search \& cody.
+
+\bibitem{acharya_devin_2025}
+Kamal Acharya.
+\newblock Devin: A cautionary tale of the autonomous {AI} engineer.
+
+\bibitem{noauthor_building_2023}
+Building a better repository map with tree sitter.
+
 \end{thebibliography}

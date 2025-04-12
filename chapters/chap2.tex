@@ -16,6 +16,7 @@ Resumen de diferentes partes:
 2.3. Abstracciones en frameworks
 
 
+
 \section{Agentes LLM}
 
 Los agentes de Inteligencia Artificial son programas informáticos que implementan modelos computacionales para ejecutar diversas funciones específicas del contexto en el que se aplican. Tras siete décadas y media de investigación, los esfuerzos en el campo se han focalizado en agentes basados en Grandes Modelos de Lenguaje (LLM). 
@@ -24,13 +25,20 @@ Los agentes de Inteligencia Artificial son programas informáticos que implement
 
 Los LLM son redes neuronales especializadas en el procesamiento del lenguaje natural, basados en la arquitectura Transformer. Esta arquitectura se fundamenta en el mecanismo de atención, el cual transforma la representación del texto para incorporar información contextual de manera escalable al hardware. 
 
-Para comprender el funcionamiento de estos agentes, resulta imprescindible asimilar previamente conceptos como la tokenización y las representaciones vectoriales del lenguaje.
+Para comprender el funcionamiento de estos agentes, resulta imprescindible asimilar previamente conceptos como la tokenización, las representaciones vectoriales del lenguaje y el ajuste de dichos modelos.
 
 \paragraph{Tokens}
 Los tokens constituyen la unidad mínima de texto que el modelo puede procesar. Dado que dichos modelos operan sobre estructuras matemáticas, requieren transformar el lenguaje natural en representaciones matriciales. Para lograr esta conversión, el texto se segmenta en dichas unidades mínimas, que pueden corresponder a caracteres individuales, fragmentos de texto o palabras completas. El conjunto íntegro de estas unidades reconocibles por el modelo configura su vocabulario. 
 
 \paragraph{Representaciones vectoriales}
 Constituyen vectores numéricos de dimensionalidad fija que codifican la semántica inherente a cada token. Estos vectores pueden comprender desde 768 dimensiones en arquitecturas como BERT-base hasta superar las 16.000 dimensiones en los modelos más avanzados del estado del arte. Por ejemplo, una dimensión específica podría especializarse en representar conceptos abstractos. En este contexto, la representación vectorial del token ``animal`` contendría un valor más elevado en dicha dimensión que la correspondiente al término ``gato``, reflejando su mayor grado de abstracción conceptual.
+
+\paragraph{Ajuste de modelos instruct}
+El entrenamiento de los LLM se estructura en dos fases diferenciadas. La primera corresponde al preentrenamiento, donde el modelo procesa extensos corpus textuales con operaciones como intentar predecir el siguiente token en la secuencia. Esta fase permite al modelo captar las complejas estructuras sintácticas y relaciones semánticas inherentes al lenguaje natural. La segunda fase consiste en el ajuste fino, donde el modelo previamente entrenado se especializa mediante conjuntos de datos específicos y etiquetados, optimizando su capacidad para ejecutar tareas concretas de clasificación o generación de texto.
+
+Los agentes basados en LLM implementan en su mayoría modelos instruct, variantes especialmente ajustadas para responder a consultas e instrucciones de usuarios. Dentro de esta categoría se encuentran Gpt4-o (base de ChatGPT), Claude Sonnet, y la serie LLama-Instruct.
+
+\section{Onboarding mediante LLMs}
 
 
 \subsection{Interacción con herramientas externas}
@@ -139,7 +147,7 @@ De manera complementaria, las técnicas de reflexión\cite{shinn_reflexion_nodat
 
 Por otro lado, la estructuración de acciones constituye una metodología ampliamente adoptada en la planificación\cite{lin_swiftsage_nodate}\cite{huang_language_nodate}\cite{wang_describe_2024}. Esta técnica permite definir planes de alto nivel que posteriormente se desglosan en acciones específicas ejecutables por los agentes\cite{zhu_ghost_2023}\cite{song_llm-planner_2023}\cite{wang_voyager_2023}\cite{liu_odyssey_2024}. El análisis de las interdependencias entre estas acciones permite verificar la validez de los planes generados\cite{raman_planning_nodate}\cite{liu_llmp_2023}\cite{dagan_dynamic_2023}.
 
-Los modelos razonadores como o1 o DeepSeek-R1 incorporan estas técnicas de forma nativa\cite{noauthor_deepseek-r1deepseek_r1pdf_nodate}. Son entrenados con datos que incluye ejemplos de razonamiento y planificación, lo que les permite generar respuestas más precisas y coherentes.
+Los modelos razonadores como o1 o DeepSeek-R1 incorporan estas técnicas de forma nativa\cite{noauthor_deepseek-r1deepseek_r1pdf_nodate}. Son entrenados con datos que incluye ejemplos de razonamiento y planificación, lo que les permite generar respuestas que incluyen razonamiento y planificación.  
 
 
 \item{\textbf{Interacción entre agentes: }}Los sistemas multi-agente implementan una arquitectura donde diversos agentes especializados son coordinados por un componente central denominado orquestador\cite{karpas_mrkl_2022}\cite{ge_openagi_nodate}. En este paradigma, cada agente se especializa en una función particular, como la búsqueda de información, la ejecución de herramientas o la generación de texto. El orquestador evalúa las consultas entrantes y las dirige hacia el agente más competente para resolverlas.
@@ -149,10 +157,42 @@ Enfoques complementarios proponen la interacción directa entre agentes especial
 
 \subsection{Agentes LLM en proyectos de software}
 
-La integración de agentes LLM en proyectos software ha sido objeto de investigación en diversas áreas. 
+La integración de agentes LLM en proyectos software ha sido objeto de estudio enfocándose principalmente en el ámbito de la generación automática de código. Se pueden destacar tres niveles de autonomía en los productos desarrrollados: sugerencias de autocompletado, asistentes de programación y agentes autónomos. 
+
+\begin{itemize}
+  \item {\textbf{Sugerencias de autocompletado:}} Github Copilot o Cursor ofrecen la integración de un modelo LLM ajustado para generación de código directamente al entorno del desarrollador. De esta forma, el desarrollador recibe sugerencias de autocompletado en tiempo real mientras escribe el código.  
+
+Este tipo de herramientas han demostrado ser eficaces para aumentar la productividad de los desarrolladores en tareas de programación repetitivas\cite{kalliamvakou_research_2022}. Sin embargo, debido a su enfoque en la rapidez de respuesta, presentan limitaciones en la aplicación de razonamiento profundo.
+
+\item {\textbf{Asistentes de programación:}} Principalmente en aplicaciones en forma de chat, herramientas como Github Copilot Chat, CursorAI o Cody de SourceGraph ofrecen un sistema de chat interactivo que permite al desarrollador realizar preguntas específicas sobre el código\cite{noauthor_github_nodate}.
+  
+Cabe destacar el proyecto SourceGraph, el cual al ser inicialmente de código abierto ha publicado una explicación de su funcionamiento. Proporciona un sistema avanzado de navegación de código que permite la integración del agente LLM denominado Cody.
+
+La arquitectura de este sistema opera en dos etapas: en primera instancia, los servidores de lenguaje específicos para cada lenguaje de programación analizan la estructura del código fuente, generando un grafo de dependencias que representa las relaciones jerárquicas entre los distintos elementos del código (funciones, clases, métodos, interfaces, entre otros)\cite{noauthor_sourcegraphscip_2025}. Posteriormente, el sistema implementa un mecanismo RAG basado en trigramas sobre el grafo del proyecto, cuyos fragmentos son suministrados al agente Cody, que procesa esta información estructurada y elabora respuestas contextualizadas a las consultas del desarrollador\cite{noauthor_sourcegraphsourcegraph-public-snapshot_nodate}.
+
+\item {\textbf{Agentes autónomos:}} Con un enfoque más ambicioso, soluciones como Aider o DevinAI persiguen la automatización del ciclo completo de desarrollo de software. Debido a la complejidad inherente a dicha tarea, estas herramientas permanecen en una fase incipiente\cite{acharya_devin_2025}.
+
+  El funcionamiento de Aider presenta similitudes con SourceGraph\cite{noauthor_building_2023}. En primera instancia, analiza el código fuente mediante la biblioteca tree-sitter, generando un grafo de dependencias que representa las definiciones (funciones, clases, interfaces, etc.) y las referencias entre estas. Posteriormente, implementa un algoritmo de clasificación de grafos para determinar la relevancia de cada nodo respecto al contexto actual. De este modo, incorpora dicho contexto junto con un mapa de los ficheros del proyecto en la entrada del agente LLM.  
+
+\end{itemize}
 
 \subsection{Ajuste de modelos para agentes LLM}
-Los llm del estado del arte suelen venir con la capacidad de ajustada de llamar tools, algunos estudios demuestran que modelos pequeños pueden sobrepasar a modelos grandes en tareas específicas si se entrenan para ello. 
+\subsubsection{Limitaciones de los modelos actuales}
+Los modelos \textit{instruct} del estado del arte poseen la capacidad de resolver tareas que requieren comportamiento agéntico gracias a su amplio conocimiento general. No obstante, su eficiencia es cuestionable, puesto que para tareas específicas pueden carecer de ciertos conocimientos particulares, mientras que disponen de una cantidad considerable de información superflua para dichas tareas.
+Los modelos más avanzados en la actualidad, como GPT-4.5 o Claude Sonnet 3.7, se estima que contienen varios trillones de parámetros (siguiendo la nomenclatura corta anglosajona), lo que los convierte en prohibitivamente costosos para su ejecución en entornos locales.
+\subsubsection{Enfoques de ajuste fino para tareas específicas}
+Como consecuencia de esta limitación, diversos proyectos de investigación han propuesto el ajuste fino de modelos de menor dimensión para tareas agénticas específicas. Mediante esta aproximación, es posible obtener modelos con mayor precisión en las tareas requeridas, pero con una fracción del coste.
+
+Enfoques como FireAct y AgentTunning proponen el entrenamiento de dichos modelos mediante una estrategia de destilación. Esto consiste en previamente utilizar un modelo instruct de gran tamaño para generar un conjunto de datos sintéticos para las respuestas del agente. Posteriormente, se ajusta un modelo de menor tamaño utilizando este conjunto de datos, de forma que el conocimiento del modelo grande se destila en el modelo pequeño.
+
+Adicionalmente, Agent-FLAN propone la división de dichos datos de entrenamiento en varios conjuntos de aprendizaje. Debido a que los modelos aprenden antes a interpretar el formato de entrada que a razonar sobre la acción a realizar, se propone modificar parte de las trazas de entrenamiento para que estas tengan una estructura conversacional.
+De esta forma, al ajustar el modelo con las trazas originales, este aprende la estructura de entrada y llamada de herramientas, mientras que en las trazas conversacionales, el modelo aprende a razonar sobre la acción a realizar.
+
+\subsubsection{Técnicas de entrenamiento eficiente}
+El entrenamiento de estos modelos se realiza mediante el ajuste de los pesos de la red neuronal. Debido a que el ajuste fino del modelo completo es costoso, en contextos de bajo coste se propone el uso de la técnica de entrenamiento Low Rank Adaptation (LoRA). Esta técnica consiste en ajustar únicamente un subconjunto de los pesos de la red neuronal, lo que permite reducir significativamente el coste computacional del ajuste fino.
+
+
+
 
 %todo en capitulo agente código:
 %rana_sayplan_2023 -> robot con path de la casa -> similar a repo

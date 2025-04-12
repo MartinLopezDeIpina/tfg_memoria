@@ -10,6 +10,18 @@ I was expecting a `,' or a `}'---line 402 of file references/references.bib
 I'm skipping whatever remains of this entry
 Warning--entry type for "noauthor_deepseek-r1deepseek_r1pdf_nodate" isn't style-file defined
 --line 1543 of file references/references.bib
+Warning--entry type for "kalliamvakou_research_2022" isn't style-file defined
+--line 1911 of file references/references.bib
+Warning--entry type for "noauthor_github_nodate" isn't style-file defined
+--line 1924 of file references/references.bib
+Warning--entry type for "noauthor_building_2023" isn't style-file defined
+--line 1972 of file references/references.bib
+Warning--entry type for "acharya_devin_2025" isn't style-file defined
+--line 1983 of file references/references.bib
+Warning--entry type for "noauthor_sourcegraphsourcegraph-public-snapshot_nodate" isn't style-file defined
+--line 1996 of file references/references.bib
+Warning--entry type for "noauthor_sourcegraphscip_2025" isn't style-file defined
+--line 2012 of file references/references.bib
 Warning--I didn't find a database entry for "wei_chain--thought_2022"
 Warning--I didn't find a database entry for "kojima_large_2022"
 Warning--empty journal in nakano_webgpt_nodate
@@ -43,45 +55,45 @@ Warning--empty journal in ge_openagi_nodate
 Warning--empty year in ge_openagi_nodate
 Warning--empty journal in du_improving_nodate
 Warning--empty year in du_improving_nodate
-You've used 40 entries,
+You've used 46 entries,
             1791 wiz_defined-function locations,
-            605 strings with 13689 characters,
-and the built_in function-call counts, 9678 in all, are:
-= -- 472
-> -- 1045
+            621 strings with 14259 characters,
+and the built_in function-call counts, 10271 in all, are:
+= -- 508
+> -- 1057
 < -- 3
-+ -- 362
-- -- 322
++ -- 370
+- -- 324
 * -- 795
-:= -- 1678
-add.period$ -- 89
-call.type$ -- 40
-change.case$ -- 39
+:= -- 1736
+add.period$ -- 98
+call.type$ -- 46
+change.case$ -- 45
 chr.to.int$ -- 0
-cite$ -- 71
-duplicate$ -- 295
-empty$ -- 769
-format.name$ -- 322
-if$ -- 1969
+cite$ -- 77
+duplicate$ -- 325
+empty$ -- 877
+format.name$ -- 324
+if$ -- 2121
 int.to.chr$ -- 0
-int.to.str$ -- 40
+int.to.str$ -- 46
 missing$ -- 18
-newline$ -- 169
-num.names$ -- 40
-pop$ -- 214
+newline$ -- 190
+num.names$ -- 42
+pop$ -- 251
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 248
+skip$ -- 290
 stack$ -- 0
 substring$ -- 191
-swap$ -- 57
+swap$ -- 63
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 31
-while$ -- 53
-width$ -- 42
-write$ -- 300
+while$ -- 55
+width$ -- 48
+write$ -- 336
 (There was 1 error message)
