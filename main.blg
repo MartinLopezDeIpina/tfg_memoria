@@ -17,8 +17,8 @@ Warning--entry type for "noauthor_sourcegraphsourcegraph-public-snapshot_nodate"
 --line 1997 of file references/references.bib
 Warning--entry type for "noauthor_sourcegraphscip_2025" isn't style-file defined
 --line 2013 of file references/references.bib
-Warning--I didn't find a database entry for "wei_chain--thought_2022"
-Warning--I didn't find a database entry for "kojima_large_2022"
+Warning--entry type for "noauthor_model_nodate" isn't style-file defined
+--line 2167 of file references/references.bib
 Warning--empty year in sim_ramp-up_1998
 Warning--empty journal in steinmacher_systematic_2015
 Warning--empty year in steinmacher_systematic_2015
@@ -54,45 +54,45 @@ Warning--empty journal in ge_openagi_nodate
 Warning--empty year in ge_openagi_nodate
 Warning--empty journal in du_improving_nodate
 Warning--empty year in du_improving_nodate
-You've used 56 entries,
+You've used 58 entries,
             1791 wiz_defined-function locations,
-            666 strings with 16292 characters,
-and the built_in function-call counts, 12396 in all, are:
-= -- 648
-> -- 1206
+            670 strings with 16552 characters,
+and the built_in function-call counts, 12708 in all, are:
+= -- 661
+> -- 1236
 < -- 5
-+ -- 423
-- -- 367
-* -- 914
-:= -- 2053
-add.period$ -- 123
-call.type$ -- 56
-change.case$ -- 55
++ -- 434
+- -- 376
+* -- 931
+:= -- 2099
+add.period$ -- 126
+call.type$ -- 58
+change.case$ -- 57
 chr.to.int$ -- 0
-cite$ -- 91
-duplicate$ -- 410
-empty$ -- 1103
-format.name$ -- 367
-if$ -- 2600
+cite$ -- 93
+duplicate$ -- 420
+empty$ -- 1139
+format.name$ -- 376
+if$ -- 2669
 int.to.chr$ -- 0
-int.to.str$ -- 56
+int.to.str$ -- 58
 missing$ -- 21
-newline$ -- 235
-num.names$ -- 52
-pop$ -- 305
+newline$ -- 242
+num.names$ -- 53
+pop$ -- 316
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 369
+skip$ -- 384
 stack$ -- 0
 substring$ -- 258
-swap$ -- 89
+swap$ -- 91
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 35
-while$ -- 73
-width$ -- 58
-write$ -- 418
-(There were 44 warnings)
+while$ -- 74
+width$ -- 60
+write$ -- 430
+(There were 43 warnings)

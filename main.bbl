@@ -33,6 +33,9 @@ Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N
 Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao.
 \newblock {ReAct}: Synergizing reasoning and acting in language models.
 
+\bibitem{noauthor_model_nodate}
+Model context protocol ({MCP}).
+
 \bibitem{zhu_retrieving_2021}
 Fengbin Zhu, Wenqiang Lei, Chao Wang, Jianming Zheng, Soujanya Poria, and Tat-Seng Chua.
 \newblock Retrieving and reading: A comprehensive survey on open-domain question answering.
@@ -107,6 +110,10 @@ Wanjun Zhong, Lianghong Guo, Qiqi Gao, He~Ye, and Yanlin Wang.
 Joon~Sung Park, Joseph O'Brien, Carrie~Jun Cai, Meredith~Ringel Morris, Percy Liang, and Michael~S. Bernstein.
 \newblock Generative agents: Interactive simulacra of human behavior.
 \newblock In {\em Proceedings of the 36th Annual {ACM} Symposium on User Interface Software and Technology}, pages 1--22. {ACM}.
+
+\bibitem{wei_chain--thought_2023}
+Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed~Chi, Quoc Le, and Denny Zhou.
+\newblock Chain-of-thought prompting elicits reasoning in large language models.
 
 \bibitem{yao_tree_nodate}
 Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas~L Griffiths, Yuan Cao, and Karthik Narasimhan.

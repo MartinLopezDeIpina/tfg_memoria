@@ -1,17 +1,17 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{Índice de contenidos}{\es@scroman {v}}{section*.3}%
-\contentsline {chapter}{Índice de figuras}{\es@scroman {vi}}{section*.4}%
-\contentsline {chapter}{Índice de tablas}{\es@scroman {vii}}{section*.5}%
-\contentsline {chapter}{Índice de algoritmos}{\es@scroman {ix}}{chapter*.6}%
+\contentsline {chapter}{Índice de contenidos}{\es@scroman {iii}}{section*.2}%
+\contentsline {chapter}{Índice de figuras}{\es@scroman {iv}}{section*.3}%
+\contentsline {chapter}{Índice de tablas}{\es@scroman {v}}{section*.4}%
+\contentsline {chapter}{Índice de algoritmos}{\es@scroman {vi}}{section*.4}%
 \contentsline {chapter}{\chapternumberline {1}Introducción}{1}{chapter.1}%
 \contentsline {chapter}{\chapternumberline {2}Antecedentes}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Onboarding en proyectos software}{3}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Trabajo previo}{4}{subsection.2.1.1}%
 \contentsline {section}{\numberline {2.2}Agentes LLM}{4}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Modelos LLM}{4}{subsection.2.2.1}%
-\contentsline {paragraph}{Tokens}{4}{section*.7}%
-\contentsline {paragraph}{Representaciones vectoriales}{5}{section*.8}%
-\contentsline {paragraph}{Ajuste de modelos instruct}{5}{section*.9}%
+\contentsline {paragraph}{Tokens}{4}{section*.5}%
+\contentsline {paragraph}{Representaciones vectoriales}{5}{section*.6}%
+\contentsline {paragraph}{Ajuste de modelos instruct}{5}{section*.7}%
 \contentsline {subsection}{\numberline {2.2.2}Interacción con herramientas externas}{5}{subsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.2.1}Patrón ReAct}{6}{subsubsection.2.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.3}Abstraciones en frameworks}{6}{subsection.2.2.3}%
@@ -23,8 +23,8 @@
 \contentsline {section}{\numberline {2.5}Agentes LLM en proyectos software}{11}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Ajuste de modelos para agentes LLM}{12}{section.2.6}%
 \contentsline {subsection}{\numberline {2.6.1}Limitaciones de los modelos actuales}{12}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Enfoques de ajuste fino para agentes específicos}{12}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.2}Enfoques de ajuste fino para agentes específicos}{13}{subsection.2.6.2}%
 \contentsline {subsection}{\numberline {2.6.3}Técnicas de entrenamiento eficiente}{13}{subsection.2.6.3}%
-\contentsline {chapter}{Anexo A}{15}{appendix*.10}%
-\contentsline {section}{Definición de términos técnicos}{15}{section*.11}%
-\contentsline {chapter}{Bibliografía}{17}{appendix*.12}%
+\contentsline {chapter}{Anexo A}{15}{appendix*.8}%
+\contentsline {section}{Definición de términos técnicos}{15}{section*.9}%
+\contentsline {chapter}{Bibliografía}{17}{appendix*.10}%

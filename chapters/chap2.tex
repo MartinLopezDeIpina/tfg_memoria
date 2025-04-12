@@ -17,7 +17,7 @@ Una investigación realizada por la universidad del país vasco en colaboración
 
 En una línea de estudio complementaria, un estudio reciente ha presentado el sistema ``Onboarding Buddy'', el cual implementa una arquitectura multi-agente que organiza diversos componentes especializados para proporcionar asistencia contextualizada durante la incorporación de nuevos desarrolladores\cite{ionescu_multi-agent_2025}.
 
-El sistema se basa en la generación dinámica de planes de acción, donde el agente principal elabora una estrategia inicial mediante un proceso de Cadena de Pensamiento \ref{plani}. Esta metodología permite desglosar problemas complejos en pasos intermedios de razonamiento. Posteriormente, un módulo procesador evalúa estos planes y determina si requieren una ejecución recursiva, descomponiéndolos en sub-tareas más específicas que se procesan en paralelo por agentes de la misma tipología.
+El sistema fundamenta su funcionamiento en la generación dinámica de planes mediante Cadena de Pensamiento \ref{plani}, evaluados posteriormente para determinar su posible descomposición en sub-tareas procesadas en paralelo por agentes de la misma tipología.
 
 \section{Agentes LLM}
 
@@ -73,16 +73,12 @@ Las funcionalidades principales que estos frameworks proporcionan son los siguie
 \item {\textbf{Interacción entre agentes:}} Los agentes pueden establecer comunicación entre sí, permitiendo la construcción de sistemas con mayor complejidad. Algunos frameworks establecen protocolos que definen las modalidades de comunicación entre los distintos agentes.
 \end{itemize}
 
-Entre las más populares se encuentran LangChain, LangGraph, LlamaIndex, AutoGen, CrewAI, Smolagents y el reciente OpenAI Agents. 
-
-Para este trabajo utilizaremos fundamentalmente LangChain para la gestión de llamadas a APIs de modelos y prompting, LangGraph para la orquestación de flujos agénticos, y LangSmith para el seguimiento de trazas de llamadas a modelos y herramientas. 
+Para este trabajo utilizaremos fundamentalmente LangChain\footnote{LangChain: \url{https://www.langchain.com/}} para la gestión de llamadas a APIs de modelos y prompting, LangGraph\footnote{LangGraph: \url{https://www.langchain.com/langgraph}} para la orquestación de flujos agénticos, y LangSmith\footnote{LangSmith: \url{https://www.langchain.com/langsmith}} para el seguimiento de trazas de llamadas a modelos y herramientas. Para la gestión de los conjuntos de datos y entrenamiento de modelos utilizaremos HuggingFace.\footnote{HuggingFace: \url{https://huggingface.co/}} 
 
 \section{Model Context Protocol}
-todo: referencias a las docs.
+El Model Context Protocol (MCP), desarrollado por Anthropic, estandariza la comunicación entre agentes LLM y herramientas. Permite que aplicaciones diversas ofrezcan herramientas a agentes externos sin exponer detalles de implementación\cite{noauthor_model_nodate}.
 
-El Model Context Protocol (MCP), desarrollado por Anthropic, estandariza la comunicación entre agentes LLM y herramientas. Permite que aplicaciones diversas ofrezcan herramientas a agentes externos sin exponer detalles de implementación.
-
-La figura \ref{fig:mcp} representa el esquema operativo del protocolo. Como se puede observar, los desarrolladores de Jira y GitHub han implementado un servidor MCP encargado de proporcionar el conjunto de herramientas disponibles al cliente MCP. Dicho servidor efectúa la traducción de las interacciones necesarias con las APIs de estas aplicaciones, lo que permite que el desarrollador del agente se centre exclusivamente en la conexión de las herramientas del cliente con el agente. Paralelamente, el cliente MCP gestiona la comunicación entre los diferentes servidores, posibilitando que el agente acceda de forma directa a las diversas herramientas.
+La figura \ref{fig:mcp} representa el esquema operativo del protocolo. Como se puede observar, los desarrolladores de Jira\footnote{Jira: \url{https://www.atlassian.com/es/software/jira}} y GitHub\footnote{GitHub: \url{https://github.com/}} han implementado un servidor MCP encargado de proporcionar el conjunto de herramientas disponibles al cliente MCP. Dicho servidor efectúa la traducción de las interacciones necesarias con las APIs de estas aplicaciones, lo que permite que el desarrollador del agente se centre exclusivamente en la conexión de las herramientas del cliente con el agente. Paralelamente, el cliente MCP gestiona la comunicación entre los diferentes servidores, posibilitando que el agente acceda de forma directa a las diversas herramientas.
 
 \begin{figure}[H]
   \centering
@@ -97,7 +93,7 @@ El protocolo ofrece dos modos de operación para establecer la comunicación ent
   \item{\textbf{Comunicación SSE: } El protocolo Server-Sent Events (SSE) establece un canal de comunicación unidireccional sobre HTTP desde el servidor hacia el cliente. Proporciona actualizaciones en tiempo real con capacidad de streaming. En el protocolo MCP, el cliente efectúa solicitudes para la ejecución de herramientas en el servidor mediante HTTP, a lo que el servidor puede responder mediante eventos SSE.}
 \item{\textbf{Comunicación STDIO: } El protocolo de entrada y salida estándar (STDIO) facilita la comunicación bidireccional entre cliente y servidor a nivel de proceso en el sistema operativo. Este mecanismo permite el intercambio de información en formato JSON a través de los canales estándar del sistema. Su diseño, orientado principalmente a entornos locales, restringe la conexión a un único cliente por servidor al limitarse a la comunicación entre dos procesos.}
 \end{itemize}
-La aplicación de escritorio claude-desktop de Anthropic constituye un reflejo del potencial del protocolo. Esta plataforma ofrece la posibilidad de interactuar con servidores mediante una configuración mínima. Implementando el protocolo STDIO, la aplicación ejecuta los servidores distribuidos por terceros a través de gestores de paquetes como UV, npx o Docker. Al incorporar un cliente MCP en la aplicación, consigue integrar las herramientas disponibles en la interfaz de chat con los modelos de Anthropic.
+La aplicación de escritorio Claude Desktop\footnote{Claude Desktop: \url{https://claude.ai/download}} de Anthropic constituye un reflejo del potencial del protocolo. Esta plataforma ofrece la posibilidad de interactuar con servidores mediante una configuración mínima. Implementando el protocolo STDIO, la aplicación ejecuta los servidores distribuidos por terceros a través de gestores de paquetes como uv\footnote{uv: \url{https://astral.sh/blog/uv}}, npx\footnote{npx: \url{https://docs.npmjs.com/cli/v8/commands/npx}} o Docker\footnote{Docker: \url{https://www.docker.com/}}. Al incorporar un cliente MCP en la aplicación, consigue integrar las herramientas disponibles en la interfaz de chat con los modelos de Anthropic.
 
 \section{Estado del arte en arquitecturas de agentes LLM}
 
@@ -147,14 +143,14 @@ Algunos módulos se inspiran en la estructura de la memoria humana\cite{zhong_me
 
 \item{\textbf{Planificación}}\label{plani}: Los mecanismos de planificación potencian el razonamiento de los agentes sobre sus acciones futuras.
 
-Entre estos mecanismos destaca el prompting de cadena de pensamiento (Chain of Thought)\cite{wei_chain--thought_2022}\cite{kojima_large_2022}, que instruye al modelo para elaborar un razonamiento secuencial previo a su decisión final, permitiendo así descomponer problemas complejos paso a paso.
+  Entre estos mecanismos destaca el prompting de cadena de pensamiento (Chain of Thought)\cite{wei_chain--thought_2023}, que instruye al modelo para elaborar un razonamiento secuencial previo a su decisión final, permitiendo así descomponer problemas complejos paso a paso.
 Partiendo de este enfoque, estrategias avanzadas como la autoconsciencia\cite{liang_unleashing_2023} lo amplían mediante la generación de múltiples cadenas de razonamiento independientes y la posterior selección de la respuesta óptima entre ellas\cite{yao_tree_nodate}\cite{wang_recmind_2024}.
 
-De manera complementaria, las técnicas de reflexión\cite{shinn_reflexion_nodate}\cite{shinn_reflexion_nodate}\cite{madaan_self-refine_nodate}\cite{miao_selfcheck_2023} implementan un proceso iterativo donde el propio modelo evalúa y refina sus respuestas.
+De manera complementaria, las técnicas de reflexión\cite{shinn_reflexion_nodate}\cite{madaan_self-refine_nodate}\cite{miao_selfcheck_2023} implementan un proceso iterativo donde el propio modelo evalúa y refina sus respuestas.
 
-Por otro lado, la estructuración de acciones constituye una metodología ampliamente adoptada en la planificación\cite{lin_swiftsage_nodate}\cite{huang_language_nodate}\cite{wang_describe_2024}. Esta técnica permite definir planes de alto nivel que posteriormente se desglosan en acciones específicas ejecutables por los agentes\cite{zhu_ghost_2023}\cite{song_llm-planner_2023}\cite{wang_voyager_2023}\cite{liu_odyssey_2024}. El análisis de las interdependencias entre estas acciones permite verificar la validez de los planes generados\cite{raman_planning_nodate}\cite{liu_llmp_2023}\cite{dagan_dynamic_2023}.
+Por otro lado, la estructuración de acciones constituye una metodología ampliamente adoptada en la planificación\cite{lin_swiftsage_nodate}\cite{huang_language_nodate}\cite{wang_describe_2024}. Esta técnica permite definir planes de alto nivel que posteriormente se desglosan en acciones específicas ejecutables por los agentes\cite{zhu_ghost_2023}\cite{song_llm-planner_2023}\cite{wang_voyager_2023}\cite{liu_odyssey_2024}. Adicionalmente, la definición de interdependencias entre estas acciones permite verificar la validez de los planes generados\cite{raman_planning_nodate}\cite{liu_llmp_2023}\cite{dagan_dynamic_2023}.
 
-Los modelos razonadores como o1 o DeepSeek-R1 incorporan estas técnicas de forma nativa\cite{noauthor_deepseek-r1deepseek_r1pdf_nodate}. Son entrenados con datos que incluye ejemplos de razonamiento y planificación, lo que les permite generar respuestas que incluyen razonamiento y planificación.  
+Los modelos razonadores como o1 de OpenAI o DeepSeek-R1 incorporan estas técnicas de forma nativa\cite{noauthor_deepseek-r1deepseek_r1pdf_nodate}. Estos han sido entrenados con datos que incluye ejemplos de razonamiento y planificación, lo que les permite generar respuestas que incluyen dichas estructuras.
 
 
 \item{\textbf{Interacción entre agentes: }}Los sistemas multi-agente implementan una arquitectura donde diversos agentes especializados son coordinados por un componente central denominado orquestador\cite{karpas_mrkl_2022}\cite{ge_openagi_nodate}. En este paradigma, cada agente se especializa en una función particular, como la búsqueda de información, la ejecución de herramientas o la generación de texto. El orquestador evalúa las consultas entrantes y las dirige hacia el agente más competente para resolverlas.
@@ -168,17 +164,17 @@ Enfoques complementarios proponen la interacción directa entre agentes especial
 La integración de agentes LLM en proyectos software ha sido objeto de estudio enfocándose principalmente en el ámbito de la generación automática de código. Se pueden destacar tres niveles de autonomía en los productos desarrrollados: sugerencias de autocompletado, asistentes de programación y agentes autónomos. 
 
 \begin{itemize}
-  \item {\textbf{Sugerencias de autocompletado:}} Github Copilot o CursorAI ofrecen la integración de un modelo LLM ajustado para generación de código directamente al entorno del desarrollador. De esta forma, el desarrollador recibe sugerencias de autocompletado en tiempo real mientras escribe el código.  
+  \item {\textbf{Sugerencias de autocompletado:}} GitHub Copilot\footnote{GitHub Copilot: \url{https://github.com/features/copilot}} o Cursor\footnote{Cursor: \url{https://www.cursor.com/}} ofrecen la integración de un modelo LLM ajustado para generación de código directamente al entorno del desarrollador. De esta forma, el desarrollador recibe sugerencias de autocompletado en tiempo real mientras escribe el código.  
 
 Este tipo de herramientas han demostrado ser eficaces para aumentar la productividad de los desarrolladores en tareas de programación repetitivas\cite{kalliamvakou_research_2022}. Sin embargo, debido a su enfoque en la rapidez de respuesta, presentan limitaciones en la aplicación de razonamiento profundo.
 
-\item {\textbf{Asistentes de programación:}} Principalmente en aplicaciones en forma de chat, herramientas como Github Copilot Chat, CursorAI o Cody de SourceGraph ofrecen un sistema de chat interactivo que permite al desarrollador realizar preguntas específicas sobre el código\cite{noauthor_github_nodate}.
+\item {\textbf{Asistentes de programación:}} Principalmente en aplicaciones en forma de chat, herramientas como GitHub Copilot Chat, Cursor o Cody\footnote{Cody: \url{https://sourcegraph.com/cody}} de SourceGraph\footnote{SourceGraph: \url{https://sourcegraph.com/}} ofrecen un sistema de chat interactivo que permite al desarrollador realizar preguntas específicas sobre el código\cite{noauthor_github_nodate}.
   
 Cabe destacar el proyecto SourceGraph, el cual al ser inicialmente de código abierto ha publicado una explicación de su funcionamiento. Proporciona un sistema avanzado de navegación de código que permite la integración del agente LLM denominado Cody.
 
 La arquitectura de este sistema opera en dos etapas: en primera instancia, los servidores de lenguaje específicos para cada lenguaje de programación analizan la estructura del código fuente, generando un grafo de dependencias que representa las relaciones jerárquicas entre los distintos elementos del código (funciones, clases, métodos, interfaces, entre otros)\cite{noauthor_sourcegraphscip_2025}. Posteriormente, el sistema implementa un mecanismo RAG basado en trigramas sobre el grafo del proyecto, cuyos fragmentos son suministrados al agente Cody, que procesa esta información estructurada y elabora respuestas contextualizadas a las consultas del desarrollador\cite{noauthor_sourcegraphsourcegraph-public-snapshot_nodate}.
 
-\item {\textbf{Agentes autónomos:}} Con un enfoque más ambicioso, soluciones como Aider o DevinAI persiguen la automatización del ciclo completo de desarrollo de software. Debido a la complejidad inherente a dicha tarea, estas herramientas permanecen en una fase incipiente\cite{acharya_devin_2025}.
+\item {\textbf{Agentes autónomos:}} Con un enfoque más ambicioso, soluciones como Aider\footnote{Aider: \url{https://aider.chat/}} o DevinAI\footnote{DeviAI: \url{https://devin.ai/}} persiguen la automatización del ciclo completo de desarrollo de software. Debido a la complejidad inherente a dicha tarea, estas herramientas permanecen en una fase incipiente\cite{acharya_devin_2025}.
 
   El funcionamiento de Aider presenta similitudes con SourceGraph\cite{noauthor_building_2023}. En primera instancia, analiza el código fuente mediante la biblioteca tree-sitter, generando un grafo de dependencias que representa las definiciones (funciones, clases, interfaces, etc.) y las referencias entre estas. Posteriormente, implementa un algoritmo de clasificación de grafos para determinar la relevancia de cada nodo respecto al contexto actual. De este modo, incorpora dicho contexto junto con un mapa de los ficheros del proyecto en la entrada del agente LLM.  
 

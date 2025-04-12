@@ -5,6 +5,7 @@
 \backcite {ionescu_multi-agent_2025}{{4}{2.1.1}{subsection.2.1.1}}
 \backcite {vaswani_attention_2023}{{4}{2.2.1}{subsection.2.2.1}}
 \backcite {yao_react_2023}{{6}{2.2.2.1}{subsubsection.2.2.2.1}}
+\backcite {noauthor_model_nodate}{{7}{2.3}{section.2.3}}
 \backcite {zhu_retrieving_2021}{{9}{2.4.1.1}{subsubsection.2.4.1.1}}
 \backcite {gao_retrieval-augmented_2024}{{9}{2.4.1.1}{subsubsection.2.4.1.1}}
 \backcite {ma_query_nodate}{{9}{2.4.1.1}{subsubsection.2.4.1.1}}
@@ -23,12 +24,10 @@
 \backcite {zhong_memorybank_2024}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {wang_survey_2024}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {park_generative_2023}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {wei_chain--thought_2022}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {kojima_large_2022}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {wei_chain--thought_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {liang_unleashing_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {yao_tree_nodate}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {wang_recmind_2024}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {shinn_reflexion_nodate}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {shinn_reflexion_nodate}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {madaan_self-refine_nodate}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {miao_selfcheck_2023}{{10}{2.4.2}{subsection.2.4.2}}
@@ -42,7 +41,7 @@
 \backcite {raman_planning_nodate}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {liu_llmp_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {dagan_dynamic_2023}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {noauthor_deepseek-r1deepseek_r1pdf_nodate}{{11}{2.4.2}{subsection.2.4.2}}
+\backcite {noauthor_deepseek-r1deepseek_r1pdf_nodate}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {karpas_mrkl_2022}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {ge_openagi_nodate}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {zhuge_mindstorms_2023}{{11}{2.4.2}{subsection.2.4.2}}
