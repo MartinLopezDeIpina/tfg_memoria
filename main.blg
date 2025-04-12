@@ -3,25 +3,20 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: unsrt.bst
 Database file #1: references/references.bib
-I was expecting a `,' or a `}'---line 402 of file references/references.bib
- : 
- : @misc{hao_reasoning_2023,
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Warning--entry type for "noauthor_deepseek-r1deepseek_r1pdf_nodate" isn't style-file defined
---line 1543 of file references/references.bib
+--line 1544 of file references/references.bib
 Warning--entry type for "kalliamvakou_research_2022" isn't style-file defined
---line 1911 of file references/references.bib
+--line 1912 of file references/references.bib
 Warning--entry type for "noauthor_github_nodate" isn't style-file defined
---line 1924 of file references/references.bib
+--line 1925 of file references/references.bib
 Warning--entry type for "noauthor_building_2023" isn't style-file defined
---line 1972 of file references/references.bib
+--line 1973 of file references/references.bib
 Warning--entry type for "acharya_devin_2025" isn't style-file defined
---line 1983 of file references/references.bib
+--line 1984 of file references/references.bib
 Warning--entry type for "noauthor_sourcegraphsourcegraph-public-snapshot_nodate" isn't style-file defined
---line 1996 of file references/references.bib
+--line 1997 of file references/references.bib
 Warning--entry type for "noauthor_sourcegraphscip_2025" isn't style-file defined
---line 2012 of file references/references.bib
+--line 2013 of file references/references.bib
 Warning--I didn't find a database entry for "wei_chain--thought_2022"
 Warning--I didn't find a database entry for "kojima_large_2022"
 Warning--empty year in sim_ramp-up_1998
@@ -59,45 +54,45 @@ Warning--empty journal in ge_openagi_nodate
 Warning--empty year in ge_openagi_nodate
 Warning--empty journal in du_improving_nodate
 Warning--empty year in du_improving_nodate
-You've used 54 entries,
+You've used 56 entries,
             1791 wiz_defined-function locations,
-            658 strings with 15833 characters,
-and the built_in function-call counts, 11989 in all, are:
-= -- 632
-> -- 1157
+            666 strings with 16292 characters,
+and the built_in function-call counts, 12396 in all, are:
+= -- 648
+> -- 1206
 < -- 5
-+ -- 406
-- -- 352
-* -- 886
-:= -- 1982
-add.period$ -- 119
-call.type$ -- 54
-change.case$ -- 53
++ -- 423
+- -- 367
+* -- 914
+:= -- 2053
+add.period$ -- 123
+call.type$ -- 56
+change.case$ -- 55
 chr.to.int$ -- 0
-cite$ -- 89
-duplicate$ -- 400
-empty$ -- 1067
-format.name$ -- 352
-if$ -- 2516
+cite$ -- 91
+duplicate$ -- 410
+empty$ -- 1103
+format.name$ -- 367
+if$ -- 2600
 int.to.chr$ -- 0
-int.to.str$ -- 54
+int.to.str$ -- 56
 missing$ -- 21
-newline$ -- 227
-num.names$ -- 50
-pop$ -- 295
+newline$ -- 235
+num.names$ -- 52
+pop$ -- 305
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 355
+skip$ -- 369
 stack$ -- 0
 substring$ -- 258
-swap$ -- 87
+swap$ -- 89
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 35
-while$ -- 71
-width$ -- 56
-write$ -- 404
-(There was 1 error message)
+while$ -- 73
+width$ -- 58
+write$ -- 418
+(There were 44 warnings)

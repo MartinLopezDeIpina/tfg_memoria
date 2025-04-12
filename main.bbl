@@ -29,6 +29,10 @@ Andrei~Cristian Ionescu, Sergey Titov, and Maliheh Izadi.
 Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
 \newblock Attention is all you need.
 
+\bibitem{yao_react_2023}
+Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao.
+\newblock {ReAct}: Synergizing reasoning and acting in language models.
+
 \bibitem{zhu_retrieving_2021}
 Fengbin Zhu, Wenqiang Lei, Chao Wang, Jianming Zheng, Soujanya Poria, and Tat-Seng Chua.
 \newblock Retrieving and reading: A comprehensive survey on open-domain question answering.
@@ -219,6 +223,10 @@ Baian Chen, Chang Shu, Ehsan Shareghi, Nigel Collier, Karthik Narasimhan, and Sh
 \bibitem{zeng_agenttuning_2023}
 Aohan Zeng, Mingdao Liu, Rui Lu, Bowen Wang, Xiao Liu, Yuxiao Dong, and Jie Tang.
 \newblock {AgentTuning}: Enabling generalized agent abilities for {LLMs}.
+
+\bibitem{chen_agent-flan_2024}
+Zehui Chen, Kuikun Liu, Qiuchen Wang, Wenwei Zhang, Jiangning Liu, Dahua Lin, Kai Chen, and Feng Zhao.
+\newblock Agent-{FLAN}: Designing data and methods of effective agent tuning for large language models.
 
 \bibitem{hu_lora_2021}
 Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu~Wang, and Weizhu Chen.
