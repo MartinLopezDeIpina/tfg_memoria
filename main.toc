@@ -7,14 +7,14 @@
 \contentsline {chapter}{\chapternumberline {2}Antecedentes}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Onboarding en proyectos software}{3}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Trabajo previo}{4}{subsection.2.1.1}%
-\contentsline {section}{\numberline {2.2}Agentes LLM}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.2}Agentes de Grandes Modelos de Lenguaje (LLM)}{4}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Modelos LLM}{4}{subsection.2.2.1}%
 \contentsline {paragraph}{Tokens}{4}{section*.5}%
 \contentsline {paragraph}{Representaciones vectoriales}{5}{section*.6}%
 \contentsline {paragraph}{Ajuste de modelos instruct}{5}{section*.7}%
 \contentsline {subsection}{\numberline {2.2.2}Interacción con herramientas externas}{5}{subsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.2.1}Patrón ReAct}{6}{subsubsection.2.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.3}Abstraciones en frameworks}{6}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Abstracciones en frameworks}{6}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}Model Context Protocol}{7}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Estado del arte en arquitecturas de agentes LLM}{8}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Arquitectura RAG}{8}{subsection.2.4.1}%

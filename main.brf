@@ -1,6 +1,6 @@
 \backcite {sim_ramp-up_1998}{{3}{2.1}{section.2.1}}
 \backcite {steinmacher_systematic_2015}{{3}{2.1}{section.2.1}}
-\backcite {ritz_artificial_2023}{{3}{2.1}{section.2.1}}
+\backcite {ritz_artificial_2023}{{4}{2.1}{section.2.1}}
 \backcite {azanza_can_2024}{{4}{2.1.1}{subsection.2.1.1}}
 \backcite {ionescu_multi-agent_2025}{{4}{2.1.1}{subsection.2.1.1}}
 \backcite {vaswani_attention_2023}{{4}{2.2.1}{subsection.2.2.1}}
@@ -17,7 +17,7 @@
 \backcite {zheng_take_2024}{{10}{2.4.1.1}{subsubsection.2.4.1.1}}
 \backcite {trivedi_interleaving_2023}{{10}{2.4.1.1}{subsubsection.2.4.1.1}}
 \backcite {wang_survey_2024}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {zhang_building_2024}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {zhang_building_2024-1}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {fischer_reflective_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {liang_unleashing_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {zhao_expel_2024}{{10}{2.4.2}{subsection.2.4.2}}
@@ -54,6 +54,7 @@
 \backcite {noauthor_sourcegraphsourcegraph-public-snapshot_nodate}{{12}{2.5}{section.2.5}}
 \backcite {acharya_devin_2025}{{12}{2.5}{section.2.5}}
 \backcite {noauthor_building_2023}{{12}{2.5}{section.2.5}}
+\backcite {noauthor_number_2024}{{12}{2.6.1}{subsection.2.6.1}}
 \backcite {chen_fireact_2023}{{13}{2.6.2}{subsection.2.6.2}}
 \backcite {zeng_agenttuning_2023}{{13}{2.6.2}{subsection.2.6.2}}
 \backcite {chen_agent-flan_2024}{{13}{2.6.2}{subsection.2.6.2}}

@@ -82,7 +82,7 @@ Lei Wang, Chen Ma, Xueyang Feng, Zeyu Zhang, Hao Yang, Jingsen Zhang, Zhiyuan Ch
 \newblock A survey on large language model based autonomous agents.
 \newblock 18(6):186345.
 
-\bibitem{zhang_building_2024}
+\bibitem{zhang_building_2024-1}
 Hongxin Zhang, Weihua Du, Jiaming Shan, Qinhong Zhou, Yilun Du, Joshua~B. Tenenbaum, Tianmin Shu, and Chuang Gan.
 \newblock Building cooperative embodied agents modularly with large language models.
 
@@ -222,6 +222,9 @@ Kamal Acharya.
 
 \bibitem{noauthor_building_2023}
 Building a better repository map with tree sitter.
+
+\bibitem{noauthor_number_2024}
+Number of parameters in {GPT}-4 (latest data).
 
 \bibitem{chen_fireact_2023}
 Baian Chen, Chang Shu, Ehsan Shareghi, Nigel Collier, Karthik Narasimhan, and Shunyu Yao.
