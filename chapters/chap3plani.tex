@@ -95,7 +95,7 @@ Se divide en los siguientes paquetes:
         \begin{itemize}
           \item\textbf{Exploración de arquitecturas de interacción alternativas: }Implementación y evaluación de mecanismos adicionales de interacción y orquestación agénticas.
           \item\textbf{Integración de módulos de memoria: }Adición de un mecanismo de memoria y la evaluación de su eficacia en el sistema. 
-          \item\textbf{Implementación de agentes avanzados: }Desarrollo e integración de agentes con un proceso de ejecución extensa para su evaluación de costo-beneficio. 
+          \item\textbf{Implementación de agentes avanzados: }Desarrollo e integración de un agente dotado de un proceso de ejecución extenso para su evaluación de costo-beneficio. Esto puede involucrar varios saltos de llamadas RAG. 
         \end{itemize}
     \end{itemize}
   \item\textbf{6ª iteración:}
@@ -148,7 +148,7 @@ La figura \ref{} ilustra el diagrama de Gantt, donde se puede ver de manera apro
 
 \subsection{Hitos}
 
-En la tabla \ref{} se pueden ver los hitos esperados del proyecto. Se ha planificado el fin del desarrollo para el 31 de mayo, tras lo que se espera dedicar dos semanas completamente a la redacción de la memoria 14 de junio, dejando un margen de 9 días para la entrega de esta. De esta forma, se cuenta con un margen de tiempo por si se dieran contratioempos significativos.  
+En la tabla \ref{} se detallan los hitos establecidos para el desarrollo del proyecto. La finalización de la fase de implementación ha sido programada para el 31 de mayo, tras lo cual se destinarán dos semanas íntegramente a la elaboración de la memoria hasta el 14 de junio, proporcionando así un margen de 9 días previos a la fecha límite de entrega. Este período de contingencia está planificado para abordar posibles contratiempos que pudieran surgir durante el proceso.
 
 \section{Gestión del tiempo}
 Se ha gestionado el tiempo disponible para el proyecto considerando el alcance definido para cumplir todos los objetivos del proyecto. 
@@ -161,39 +161,57 @@ La estimación específica de cada tarea se puede ver en la tabla \ref{}
 Debido al enfoque exploratorio del proyecto, la gestión de riesgos cobra especial importancia. Se han identificado los siguientes riesgos con su correspondiente plan de contingencia: 
 
 \begin{itemize}
-  \item\textbf{Concurrencia exploratoria: }Dado el carácter tecnológico vanguardista del proyecto, existe la posibilidad de que durante el período de desarrollo emerjan iniciativas paralelas que aborden la misma problemática.  
+  \item\textbf{R1- Concurrencia exploratoria: }Dado que el proyecto está enfocado en tecnologías emergentes, existe la posibilidad de que durante el período de desarrollo emerjan iniciativas paralelas que aborden la misma problemática.  
 
 Para abordar este riesgo, se realizará una previa investigación de soluciones existentes antes de implementar cada módulo del sistema, así como un análisis periódico que permita identificar mejoras inspiradas en avances externos.
 
-\item\textbf{Planificación incorrecta: }Al ser un proyecto exploratorio, con un alcance inicialmente ambigüo, podría sufrir alteraciones no planificadas. Estos contratiempos podrían suponer un sobrecoste horario, lo que obligaría a replanificar el alcance para no sobrepasar ampliamente los recursos disponibles.
+\item\textbf{R2- Variabilidad del alcance: }Al ser un proyecto exploratorio, con un alcance inicialmente ambiguo, podría sufrir alteraciones no planificadas. Estos contratiempos podrían suponer un sobrecoste horario, lo que obligaría a replanificar el alcance para no sobrepasar ampliamente los recursos disponibles.
 
-Para controlar dicha replanificación, se realizará un seguimiento y control del proyecto mediante reuniones quincenales que revisarán la correcta evolución del proyecto y evitarán poner en peligro la viabilidad del proyecto.
-
-
-
-\item\textbf{Dependencia de sistemas externos: }La implementación del proyecto depende en gran medida de sistemas externos, ya sea por los modelos accedidos a través de APIs, o los servicios consumidos con los servidores MCP. El cambio o cese de cualquiera de estos servicios podría suponer la disfuncionalidad del sistema implementado.
-
-Para prevenir este problema, se implementará el sistema con un manejo de excepciones robusto, facilitando el continuamiento de la ejecución en caso de que alguno de los módulos no funcione correctamente. Adicionalmente, se utilizará un enfoque de desarrollo genérico y modular, permitiendo la fácil adhesión o eliminación de los diferentes componentes.
-
-  \item\textbf{Filtrado de credenciales: }El acceso a recursos como modelos de inteligencia artificial de terceros, o el repositorio software sobre el que desarrollar el proyecto requiere de claves secreatas (API-keys). Es importante señalar que existen algoritmos de rastreo automatizados que analizan plataformas públicas en busca de credenciales expuestas para su uso inautorizado, por lo que si se publicase en algna plataforma por error cualquiera de estas claves, podría suponer una pérdida económica considerable o una brecha de seguridad.
-
-Para prevenir este tipo de problemas, se evitará subir a plataformas en la nube las credenciales utilizadas, gestionando estas en variables de entorno. Adicionalmente, por si accidentalmente estas acabasen siendo publicadas, se mantendrán todos los sistemas en la nube posibles en visibilidad privada.
+Para mitigar este riesgo, se implementará un seguimiento y control mediante reuniones quincenales que permitirán evaluar la correcta evolución de las actividades y, en caso necesario, adoptar medidas correctivas para garantizar la viabilidad del trabajo dentro de los plazos establecidos.
 
 
-  \item\textbf{Pérdida de recursos: }El proyecto utiliza diversas fuentes de información como el código del sistema, captura de requisitos anotada, documentación generada y la propia memoria. Perder estos recursos por problemas técnicos o accidentes podría suponer una considerable pérdida de tiempo o la imposibilidad de cumplir los objetivos definidos a tiempo.
+\item\textbf{R3- Dependencia de sistemas externos: }La implementación del proyecto depende significativamente de sistemas externos, tanto por los modelos de lenguaje accedidos a través de APIs como por los servicios proporcionados por los servidores MCP. Cualquier alteración o interrupción en estos servicios podría comprometer la funcionalidad del sistema implementado.
 
-Para mitigar este riesgo, se han definido sistemas de información \ref{} que permiten mantener una copia de seguridad en la nube diariemente actualizable. De esta forma, cualquier problema en el dispositivo utilizado para el desarrollo del proyecto implicaría en el peor de los casos la pérdida de un día de trabajo. 
+Para prevenir este riesgo, se diseñará un sistema con un manejo de excepciones robusto que garantice la continuidad operativa incluso cuando alguno de los módulos experimente fallos. Complementariamente, se adoptará una arquitectura de desarrollo modular que facilite la integración o desacoplamiento de componentes según las necesidades evolutivas del proyecto.
+
+\item\textbf{R4- Filtrado de credenciales: }El acceso a recursos externos sobre el que se desarrolla el proyecto requiere de claves secretas. Es fundamental considerar que existen algoritmos de rastreo automatizados que analizan plataformas públicas en busca de credenciales expuestas para su uso fraudulento. La publicación inadvertida de estas claves en entornos públicos podría ocasionar pérdidas económicas considerables o comprometer la seguridad del sistema corporativo.
+
+Para contrarrestar este riesgo, se implementará una política de gestión de credenciales mediante variables de entorno, evitando su inclusión directa en el código fuente o su transferencia a plataformas en la nube. Adicionalmente, se mantendrán todos los repositorios y sistemas posibles en modo de visibilidad privada.
+
+\item\textbf{R5- Pérdida de recursos: }El desarrollo del proyecto se fundamenta en múltiples recursos esenciales, incluyendo el código fuente del sistema, la documentación de requisitos, los diversos artefactos generados durante el proceso de desarrollo y la propia memoria académica. La pérdida de cualquiera de estos elementos debido a fallos técnicos o incidentes fortuitos podría ocasionar un retraso significativo.
+
+Para mitigar este riesgo, se han implementado los sistemas de información descritos en la sección \ref{sec:sys_info} que garantizan el mantenimiento de copias de seguridad actualizadas diariamente en la nube. Mediante esta estrategia preventiva, cualquier eventualidad que afecte al dispositivo principal de desarrollo supondría, como máximo, la pérdida del trabajo correspondiente a una jornada.
 \end{itemize}
 
 \section{Gestión de Comunicaciones e Información}
 
-\subsection{Sistema de información}
+\subsection{Sistema de información}\label{sec}
 
-El código del sistema desarrollado se subirá a un repositorio privado de GitHub, permitiendo así el seguimiento en tiempo real por parte de los directores y la gestión de versiones organizada. La memoria del proyecto será desarrollada en latex en el dispositivo local del alumno, y será subido también a un repositorio de GitHub para mantener tanto copias de seguridad como una gestión de versiones. 
+La gestión de la información del proyecto se ha estructurado mediante diversos sistemas tecnológicos:
+\begin{itemize}
+\item \textbf{Repositorio GitHub para código fuente:} El código desarrollado será alojado en un repositorio privado de GitHub.
+\item \textbf{Repositorio GitHub para documentación:} La memoria del proyecto, elaborada utilizando LaTeX en el entorno local del alumno, será sincronizada con un repositorio dedicado en GitHub.
+\item \textbf{Almacenamiento en Google Drive:} Los diversos recursos, referencias bibliográficas y materiales auxiliares recopilados durante las fases de desarrollo serán almacenados sistemáticamente en esta plataforma.
+\end{itemize}
+Esta estructura de gestión de la información aporta diversos beneficios al proyecto. Por un lado, facilita la supervisión continua por parte de los directores e implementa un control de versiones organizado que documenta la evolución del trabajo. Por otro lado, garantiza copias de seguridad actualizadas que protegen la integridad de los datos. Adicionalmente, asegura la accesibilidad para todos los interesados.
 
-Los diferentes recursos recopilados para el desarrollo y seguimiento del proyecto serán subidos a la plataforma Google Drive, para asegurar también copias de seguridad actualizadas. 
 
 \subsection{Sistema de comunicación}
+La comunicación eficaz entre alumno, director empresarial y directores académicos resulta imprescindible para el correcto seguimiento y control del proyecto. Las herramientas a utilizar son:
+\begin{itemize}
+\item\textbf{Correo electrónico: }Canal principal para consultas con los directores del proyecto y comunicación formal con otros miembros de la empresa.
+\item\textbf{Google Meet: }Plataforma destinada a la realización de reuniones telemáticas entre los participantes.
+\item\textbf{Google Chat: }Herramienta complementaria para resolución de consultas rápidas con el director empresarial.
+\end{itemize}
+
+\section{Herramientas disponibles}
+Para el desarrollo del proyecto se dispone de diversas herramientas que facilitan su implementación y gestión eficiente. A continuación, se detallan las principales:
+\begin{itemize}
+\item\textbf{IDE PyCharm: }En el marco del paquete educativo proporcionado por GitHub, se tiene acceso a la versión Professional del entorno de desarrollo integrado PyCharm, el cual ofrece un conjunto de funcionalidades y utilidades especializadas para el desarrollo de proyectos en lenguaje Python.
+\item\textbf{Asistencia de herramientas de IA: }Se dispone de herramientas de asistencia basadas en inteligencia artificial, concretamente el autocompletador GitHub Copilot y una suscripción al modelo Claude. Esta última contribuye a optimizar tareas relacionadas con la programación, el procesamiento de documentación y la redacción de la presente memoria.
+\item\textbf{Claves de acceso a modelos: }La empresa LKS NEXT ha facilitado las credenciales de acceso necesarias para la integración y ejecución de los diferentes modelos LLM utilizados en el proyecto.
+\end{itemize}
+
 
 
 

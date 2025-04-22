@@ -38,13 +38,14 @@
 \contentsline {section}{\numberline {3.3}Gestión del tiempo}{20}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Estimación de cada tarea}{20}{subsection.3.3.1}%
 \contentsline {section}{\numberline {3.4}Gestión de riesgos}{20}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Gestión de Comunicaciones e Información}{21}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Sistema de información}{21}{subsection.3.5.1}%
+\contentsline {section}{\numberline {3.5}Gestión de Comunicaciones e Información}{22}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Sistema de información}{22}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}Sistema de comunicación}{22}{subsection.3.5.2}%
-\contentsline {chapter}{Anexo A}{23}{appendix*.8}%
-\contentsline {section}{Definición de términos técnicos}{23}{section*.9}%
-\contentsline {subsection}{Conjunto de datos etiquetados}{23}{section*.10}%
-\contentsline {subsection}{Entrenamiento de redes neuronales}{23}{section*.11}%
-\contentsline {subsection}{Distancia coseno}{23}{section*.12}%
-\contentsline {subsection}{Tokenizador}{24}{section*.13}%
-\contentsline {chapter}{Bibliografía}{25}{appendix*.14}%
+\contentsline {section}{\numberline {3.6}Herramientas disponibles}{23}{section.3.6}%
+\contentsline {chapter}{Anexo A}{25}{appendix*.8}%
+\contentsline {section}{Definición de términos técnicos}{25}{section*.9}%
+\contentsline {subsection}{Conjunto de datos etiquetados}{25}{section*.10}%
+\contentsline {subsection}{Entrenamiento de redes neuronales}{25}{section*.11}%
+\contentsline {subsection}{Distancia coseno}{25}{section*.12}%
+\contentsline {subsection}{Tokenizador}{26}{section*.13}%
+\contentsline {chapter}{Bibliografía}{27}{appendix*.14}%
