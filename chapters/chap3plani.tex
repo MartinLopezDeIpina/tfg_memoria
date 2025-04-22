@@ -129,7 +129,75 @@ En este apartado se detallarán las dependencias entre las diferentes tareas, as
 \subsection{Dependencias entre tareas}
 Las dependencias de los paquetes de trabajo del proyecto requieren una ejecución del trabajo planificada. La figura \ref{} ilustra dichas dependencias.
 
-El proyecto comienza con la captura de requisitos generales (G.CR) para una correcta planificación. Al ser un un proyecto de alto grado exploratorio, la primera iteración corresponde  
+
+El proyecto se inicia con una primera iteración centrada en la captura de requisitos. Debido al carácter exploratorio del proyecto, se ha invertido un tiempo significativo en alinear los objetivos con las necesidades empresariales. Esta fase comprende la captura de requisitos (G.CR), la recopilación de recursos disponibles (RR) y la definición del alcance y requisitos del sistema de agentes (G.DA).
+
+La segunda iteración se orienta al desarrollo de un sistema de agentes mínimo viable (G.SA), para construir una base sobre la que ir integrando mejoras en iteraciones posteriores. 
+
+Una vez obtenida una primera versión operativa, la tercera iteración implementa un sistema de evaluación para dicho sistema de agentes permitiendo así valorar tanto el rendimiento global como las mejoras introducidas en iteraciones subsiguientes. 
+
+La cuarta iteración perfecciona el sistema de agentes inicial, con el propósito de optimizar las métricas evaluadas y abordar las deficiencias identificadas.
+
+Posteriormente, la quinta iteración explora arquitecturas de interacción alternativas para el sistema de agentes, incorporando un sistema de memoria.
+
+Para concluir, la sexta y última iteración se dedica al ajuste de un modelo específico para un agente seleccionado del sistema (G.AM).
+
+\subsection{Diagrama de Gantt}
+
+La figura \ref{} ilustra el diagrama de Gantt, donde se puede ver de manera aproximada tanto el desarrollo del proyecto en el tiempo como la dedicación horaria a cada paquete de trabajo.
+
+\subsection{Hitos}
+
+En la tabla \ref{} se pueden ver los hitos esperados del proyecto. Se ha planificado el fin del desarrollo para el 31 de mayo, tras lo que se espera dedicar dos semanas completamente a la redacción de la memoria 14 de junio, dejando un margen de 9 días para la entrega de esta. De esta forma, se cuenta con un margen de tiempo por si se dieran contratioempos significativos.  
+
+\section{Gestión del tiempo}
+Se ha gestionado el tiempo disponible para el proyecto considerando el alcance definido para cumplir todos los objetivos del proyecto. 
+
+\subsection{Estimación de cada tarea}
+La estimación específica de cada tarea se puede ver en la tabla \ref{}
+
+\section{Gestión de riesgos}
+
+Debido al enfoque exploratorio del proyecto, la gestión de riesgos cobra especial importancia. Se han identificado los siguientes riesgos con su correspondiente plan de contingencia: 
+
+\begin{itemize}
+  \item\textbf{Concurrencia exploratoria: }Dado el carácter tecnológico vanguardista del proyecto, existe la posibilidad de que durante el período de desarrollo emerjan iniciativas paralelas que aborden la misma problemática.  
+
+Para abordar este riesgo, se realizará una previa investigación de soluciones existentes antes de implementar cada módulo del sistema, así como un análisis periódico que permita identificar mejoras inspiradas en avances externos.
+
+\item\textbf{Planificación incorrecta: }Al ser un proyecto exploratorio, con un alcance inicialmente ambigüo, podría sufrir alteraciones no planificadas. Estos contratiempos podrían suponer un sobrecoste horario, lo que obligaría a replanificar el alcance para no sobrepasar ampliamente los recursos disponibles.
+
+Para controlar dicha replanificación, se realizará un seguimiento y control del proyecto mediante reuniones quincenales que revisarán la correcta evolución del proyecto y evitarán poner en peligro la viabilidad del proyecto.
+
+
+
+\item\textbf{Dependencia de sistemas externos: }La implementación del proyecto depende en gran medida de sistemas externos, ya sea por los modelos accedidos a través de APIs, o los servicios consumidos con los servidores MCP. El cambio o cese de cualquiera de estos servicios podría suponer la disfuncionalidad del sistema implementado.
+
+Para prevenir este problema, se implementará el sistema con un manejo de excepciones robusto, facilitando el continuamiento de la ejecución en caso de que alguno de los módulos no funcione correctamente. Adicionalmente, se utilizará un enfoque de desarrollo genérico y modular, permitiendo la fácil adhesión o eliminación de los diferentes componentes.
+
+  \item\textbf{Filtrado de credenciales: }El acceso a recursos como modelos de inteligencia artificial de terceros, o el repositorio software sobre el que desarrollar el proyecto requiere de claves secreatas (API-keys). Es importante señalar que existen algoritmos de rastreo automatizados que analizan plataformas públicas en busca de credenciales expuestas para su uso inautorizado, por lo que si se publicase en algna plataforma por error cualquiera de estas claves, podría suponer una pérdida económica considerable o una brecha de seguridad.
+
+Para prevenir este tipo de problemas, se evitará subir a plataformas en la nube las credenciales utilizadas, gestionando estas en variables de entorno. Adicionalmente, por si accidentalmente estas acabasen siendo publicadas, se mantendrán todos los sistemas en la nube posibles en visibilidad privada.
+
+
+  \item\textbf{Pérdida de recursos: }El proyecto utiliza diversas fuentes de información como el código del sistema, captura de requisitos anotada, documentación generada y la propia memoria. Perder estos recursos por problemas técnicos o accidentes podría suponer una considerable pérdida de tiempo o la imposibilidad de cumplir los objetivos definidos a tiempo.
+
+Para mitigar este riesgo, se han definido sistemas de información \ref{} que permiten mantener una copia de seguridad en la nube diariemente actualizable. De esta forma, cualquier problema en el dispositivo utilizado para el desarrollo del proyecto implicaría en el peor de los casos la pérdida de un día de trabajo. 
+\end{itemize}
+
+\section{Gestión de Comunicaciones e Información}
+
+\subsection{Sistema de información}
+
+El código del sistema desarrollado se subirá a un repositorio privado de GitHub, permitiendo así el seguimiento en tiempo real por parte de los directores y la gestión de versiones organizada. La memoria del proyecto será desarrollada en latex en el dispositivo local del alumno, y será subido también a un repositorio de GitHub para mantener tanto copias de seguridad como una gestión de versiones. 
+
+Los diferentes recursos recopilados para el desarrollo y seguimiento del proyecto serán subidos a la plataforma Google Drive, para asegurar también copias de seguridad actualizadas. 
+
+\subsection{Sistema de comunicación}
+
+
+
+
 
 
 
