@@ -1,3 +1,5 @@
+
+
 En este capítulo se presenta la planificación del proyecto, abordando el alcance definido, los periodos de realización de tareas y los diversos ámbitos de gestión: temporal, de riesgos, de comunicaciones e información, y de partes interesadas. El objetivo de esta planificación es establecer una hoja de ruta estructurada que permita el cumplimiento de todos los objetivos del proyecto dentro de los plazos establecidos.
 
 \section{Alcance}
@@ -165,9 +167,70 @@ A partir de la segunda iteración, cada fase incluye actividades de prueba y eva
 
 La figura \ref{} ilustra el diagrama de Gantt, donde se puede ver de manera aproximada tanto el desarrollo del proyecto en el tiempo como la dedicación horaria a cada paquete de trabajo.
 
+
+\begin{center}
+\begin{ganttchart}[
+    vgrid,
+    hgrid,
+    title label font=\bfseries,
+    title height=1,
+    bar/.style={fill=blue!50},
+    bar height=0.6,
+    x unit=0.15cm, 
+    y unit title=0.7cm,
+    y unit chart=0.6cm,
+    time slot format=isodate
+  ]{2025-02-25}{2025-06-30}
+  
+  \gantttitle{Proyecto 2025}{126} \\
+  \gantttitle{Feb}{3}\gantttitle{Mar}{31}\gantttitle{Abr}{30}\gantttitle{May}{31}\gantttitle{Jun}{30} \\
+  
+  \ganttbar[bar/.style={fill=green!50}]{Iteración 1}{2025-02-25}{2025-03-20} \\
+  \ganttbar[bar/.style={fill=green!50}]{Iteración 2}{2025-03-21}{2025-04-01} \\
+  \ganttbar[bar/.style={fill=green!50}]{Iteración 3}{2025-04-02}{2025-04-15} \\
+  \ganttbar[bar/.style={fill=blue!50}]{Iteración 4}{2025-04-16}{2025-04-29} \\
+  \ganttbar[bar/.style={fill=blue!50}]{Iteración 5}{2025-04-30}{2025-05-13} \\
+  \ganttbar[bar/.style={fill=blue!50}]{Iteración 6}{2025-05-14}{2025-05-27} \\
+  \ganttbar[bar/.style={fill=red!50}]{Memoria}{2025-05-28}{2025-06-14} \\
+  \ganttbar[bar/.style={fill=red!50}]{Defensa}{2025-06-15}{2025-06-30} \\
+  
+\end{ganttchart}
+\end{center}
+
+
+
 \subsection{Hitos}
 
-En la tabla \ref{} se detallan los hitos establecidos para el desarrollo del proyecto. La finalización de la fase de implementación ha sido programada para el 31 de mayo, tras lo cual se destinarán dos semanas íntegramente a la elaboración de la memoria hasta el 14 de junio, proporcionando así un margen de 9 días previos a la fecha límite de entrega. Este período de contingencia está planificado para abordar posibles contratiempos que pudieran surgir durante el proceso.
+En la tabla \ref{} se detallan los hitos establecidos para el desarrollo del proyecto. La finalización de la fase de implementación ha sido programada para el 31 de mayo, tras lo cual se destinarán dos semanas íntegramente a la elaboración de la memoria hasta el 14 de junio, proporcionando así un margen de 8 días previos a la fecha límite de entrega. Este período de contingencia está planificado para abordar posibles contratiempos que pudieran surgir durante el proceso.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Hito}} & \multicolumn{1}{c|}{\textbf{Fecha}} \\
+\hline
+Inicio del proyecto & 25/02/2025 \\
+\hline
+Fin Iteración 1 & 20/03/2025 \\
+\hline
+Fin Iteración 2 & 01/04/2025 \\
+\hline
+Fin Iteración 3 & 15/04/2025 \\
+\hline
+Fin Iteración 4 & 29/04/2025 \\
+\hline
+Fin Iteración 5 & 13/05/2025 \\
+\hline
+Fin Iteración 6 & 27/05/2025 \\
+\hline
+Fin memoria & 14/06/2025 \\
+\hline
+Defensa del proyecto & Por determinar \\
+\hline
+\end{tabular}
+\caption{Cronograma de Hitos del Proyecto}
+\label{tab:cronograma}
+\end{table}
 
 \section{Gestión del tiempo}
 Se ha gestionado el tiempo disponible para el proyecto considerando el alcance definido para cumplir todos los objetivos del proyecto. 

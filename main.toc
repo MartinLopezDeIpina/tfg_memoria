@@ -9,22 +9,22 @@
 \contentsline {subsection}{\numberline {2.1.1}Trabajo previo}{4}{subsection.2.1.1}%
 \contentsline {section}{\numberline {2.2}Agentes de Grandes Modelos de Lenguaje (LLM)}{4}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Modelos LLM}{4}{subsection.2.2.1}%
-\contentsline {paragraph}{Tokens}{4}{section*.5}%
+\contentsline {paragraph}{Tokens}{5}{section*.5}%
 \contentsline {paragraph}{Representaciones vectoriales}{5}{section*.6}%
 \contentsline {paragraph}{Ajuste de modelos instruct}{5}{section*.7}%
 \contentsline {subsection}{\numberline {2.2.2}Interacción con herramientas externas}{5}{subsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.2.1}Patrón ReAct}{6}{subsubsection.2.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.3}Abstracciones en frameworks}{6}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}Model Context Protocol}{7}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Estado del arte en arquitecturas de agentes LLM}{8}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Arquitectura RAG}{8}{subsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.1.1}Estrategias RAG avanzadas}{9}{subsubsection.2.4.1.1}%
+\contentsline {section}{\numberline {2.4}Estado del arte en arquitecturas de agentes LLM}{9}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Arquitectura RAG}{9}{subsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.1.1}Estrategias RAG avanzadas}{10}{subsubsection.2.4.1.1}%
 \contentsline {subsection}{\numberline {2.4.2}Arquitecturas de interacción entre agentes}{10}{subsection.2.4.2}%
 \contentsline {section}{\numberline {2.5}Agentes LLM en proyectos software}{11}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Ajuste de modelos para agentes LLM}{12}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Limitaciones de los modelos actuales}{12}{subsection.2.6.1}%
+\contentsline {section}{\numberline {2.6}Ajuste de modelos para agentes LLM}{13}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Limitaciones de los modelos actuales}{13}{subsection.2.6.1}%
 \contentsline {subsection}{\numberline {2.6.2}Enfoques de ajuste fino para agentes específicos}{13}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.6.3}Técnicas de entrenamiento eficiente}{13}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.3}Técnicas de entrenamiento eficiente}{14}{subsection.2.6.3}%
 \contentsline {chapter}{\chapternumberline {3}Planificación}{15}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Alcance}{15}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Objetivos concretos del proyecto}{15}{subsection.3.1.1}%
@@ -33,19 +33,19 @@
 \contentsline {subsection}{\numberline {3.1.4}Descomposición de tareas}{17}{subsection.3.1.4}%
 \contentsline {section}{\numberline {3.2}Periodos de realización de tareas e hitos}{20}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Dependencias entre tareas}{20}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Diagrama de Gantt}{20}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Hitos}{20}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.2}Diagrama de Gantt}{21}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Hitos}{21}{subsection.3.2.3}%
 \contentsline {section}{\numberline {3.3}Gestión del tiempo}{21}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Estimación de cada tarea}{21}{subsection.3.3.1}%
-\contentsline {section}{\numberline {3.4}Gestión de riesgos}{21}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Gestión de Comunicaciones e Información}{22}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Sistema de información}{22}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Sistema de comunicación}{23}{subsection.3.5.2}%
-\contentsline {section}{\numberline {3.6}Herramientas disponibles}{23}{section.3.6}%
-\contentsline {chapter}{Anexo A}{25}{appendix*.8}%
-\contentsline {section}{Definición de términos técnicos}{25}{section*.9}%
-\contentsline {subsection}{Conjunto de datos etiquetados}{25}{section*.10}%
-\contentsline {subsection}{Entrenamiento de redes neuronales}{25}{section*.11}%
-\contentsline {subsection}{Distancia coseno}{25}{section*.12}%
-\contentsline {subsection}{Tokenizador}{26}{section*.13}%
-\contentsline {chapter}{Bibliografía}{27}{appendix*.14}%
+\contentsline {section}{\numberline {3.4}Gestión de riesgos}{22}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Gestión de Comunicaciones e Información}{23}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Sistema de información}{23}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Sistema de comunicación}{24}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}Herramientas disponibles}{24}{section.3.6}%
+\contentsline {chapter}{Anexo A}{27}{appendix*.9}%
+\contentsline {section}{Definición de términos técnicos}{27}{section*.10}%
+\contentsline {subsection}{Conjunto de datos etiquetados}{27}{section*.11}%
+\contentsline {subsection}{Entrenamiento de redes neuronales}{27}{section*.12}%
+\contentsline {subsection}{Distancia coseno}{27}{section*.13}%
+\contentsline {subsection}{Tokenizador}{28}{section*.14}%
+\contentsline {chapter}{Bibliografía}{29}{appendix*.15}%
