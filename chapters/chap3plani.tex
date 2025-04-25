@@ -8,7 +8,7 @@ Este proyecto aborda el desarrollo de un sistema basado en agentes LLM implement
 
 En dicho sistema, se implementarán diversas modalidades de interacción entre agentes especializados en fuentes de datos específicas, evaluando la eficacia de los distintos patrones de comunicación entre dichos componentes.
 
-Aun así, el alcance del proyecto no está definido en su totalidad, dada la complejidad de estimación inherente a su naturaleza exploratoria y al uso de tecnologías emergentes. Para mitigar riesgos en el desarrollo, se ha establecido un protocolo preventivo que contempla reuniones quincenales de seguimiento y control.
+Cabe destacar que el alcance del proyecto no está definido en su totalidad, dada la complejidad de estimación inherente a su naturaleza exploratoria y al uso de tecnologías emergentes. Para mitigar riesgos en el desarrollo, se ha establecido un protocolo preventivo que contempla reuniones quincenales de seguimiento y control.
 
 \subsection{Objetivos concretos del proyecto}
 
@@ -17,15 +17,15 @@ Para facilitar el logro del objetivo principal, se han identificado y definido l
 \begin{itemize}
   \item\textbf{Estudio de arquitecturas agénticas: }Realizar un análisis de las diversas arquitecturas de agentes, considerando distintas estrategias de interacción y mecanismos de acceso a fuentes de información.
   \item\textbf{Estudio del Model Context Protocol: }Investigar las características y beneficios que aporta la implementación del protocolo MCP, con el objetivo de realizar una valoración objetiva para su posible integración en el entorno profesional de la empresa.
-  \item\textbf{Evaluación de agentes: }Desarrollar un sistema de evaluación para proporcionar métricas comparativas cuantificables sobre el rendimiento de los diferentes enfoques de agentes. 
   \item\textbf{Desarrollo de sistema de Onboarding: }Implementar las arquitecturas propuestas en un proyecto software corporativo, con el propósito de analizar su eficacia en la asistencia a nuevos integrantes durante su proceso de incorporación a la empresa.
+  \item\textbf{Evaluación de agentes: }Desarrollar un sistema de evaluación para proporcionar métricas comparativas cuantificables sobre el rendimiento de los diferentes enfoques de agentes. 
   \item\textbf{Valoración de ajuste de agentes: }Analizar la relación coste-beneficio asociada al proceso de ajuste fino de modelos LLM para su aplicación en agentes concretos.
 \end{itemize}
 
-Adicionalmente, el objetivo es desarrollar el sistema de onboarding incorporando en la medida de los posible en su base de conocimiento la metodología de trabajo implementada en la empresa. Mediante la adhesión a los estándares definidos en un entorno profesional real, se pretende garantizar que los resultados obtenidos constituyan un reflejo de la viabilidad de implementación y eficacia de proyectos similares en un sistema de explotación. 
+Adicionalmente, el proyecto contempla desarrollar el sistema de onboarding incorporando en la medida de lo posible en su base de conocimiento la metodología de trabajo implementada en la empresa. Mediante la adhesión a los estándares definidos en un entorno profesional real, se pretende garantizar que los resultados obtenidos constituyan un reflejo de la viabilidad de implementación y eficacia de proyectos similares en un sistema de explotación. 
 
 \subsection{Requisitos}
-Los requisitos del proyecto se detallan en profundidad en la sección \ref{}
+Los requisitos del proyecto se detallan en profundidad en la sección ref:\textbf{siguiente capítulo}
 
 \subsection{Fases del proyecto}
 Tal y como se ha mencionado anteriormente, el alcance del proyecto no está completamente definido debido a su naturaleza exploratoria. Consecuentemente, se propone un ciclo de vida iterativo-incremental con iteraciones de aproximadamente dos semanas de duración, permitiendo una adaptación progresiva a los requisitos emergentes.
@@ -36,7 +36,7 @@ Con este sistema mínimo implementado, la tercera iteración corresponderá al d
 
 Finalmente, la sexta iteración contemplará el ajuste fino de un modelo LLM para su integración en un agente específico del sistema, así como su evaluación contextualizada dentro del marco operativo general.
 
-Gracias a este tipo de ciclo de vida, se alcanzan los objetivos del proyecto de manera progresiva, obteniendo retroalimentación directa por parte de los directores del proyecto en cada iteración, lo que permite redirigir la dirección del trabajo si fuera necesario ante posibles contratiempos.
+Gracias a la implementación del ciclo de vida iterativo, se logra la consecución de los objetivos del proyecto de forma progresiva y estructurada. Este enfoque permite obtener retroalimentación constante por parte de los directores del proyecto durante cada iteración, facilitando así la posibilidad de reorientar la dirección del trabajo ante la aparición de posibles contratiempos.
 
 \subsection{Descomposición de tareas}
 La Estructura de Descomposición de Trabajo (EDT) del proyecto se ha creado considerando el ciclo de vida iterativo-incremental del proyecto. La figura \ref{fig:edt} ilustra un diagrama de esta. 
@@ -142,7 +142,7 @@ Se divide en los siguientes paquetes:
     \end{itemize}
   \item\textbf{Gestión (G):} 
     \begin{itemize}
-      \item\textbf{Planificación (P):} Establecimiento de directrices, objetivos y actividades para el desarrollo óptimo del proyecto.
+      \item\textbf{Planificación (PL):} Establecimiento de directrices, objetivos y actividades para el desarrollo óptimo del proyecto.
       \item\textbf{Seguimiento y control (SC):} Monitorización periódica mediante reuniones bisemanales con los directores del proyecto.
     \end{itemize}
   \item\textbf{Trabajo académico (TA):}
@@ -153,19 +153,19 @@ Se divide en los siguientes paquetes:
 \end{itemize}
 
 \section{Periodos de realización de tareas e hitos}
-En este apartado se detallarán las dependencias entre las diferentes tareas, así como la estimación de duración y fechas de cada una de ellas
+En este apartado se detallan las dependencias entre las diferentes tareas, así como la estimación de duración y fechas de cada una de ellas.
 
 \subsection{Dependencias entre tareas}
 Las dependencias de los paquetes de trabajo del proyecto requieren una ejecución secuencial planificada. La figura \ref{fig:dependencias} ilustra dichas dependencias.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.15]{figures/dependencias_2.png}%
+  \includegraphics[scale=0.16]{figures/dependencias_2.png}%
   \caption{Dependencias entre tareas del proyecto}
   \label{fig:dependencias}
 \end{figure}
 
-El proyecto se inicia con una primera iteración centrada en la captura de requisitos. Debido al carácter exploratorio del proyecto, se ha invertido un tiempo significativo en alinear los objetivos con las necesidades empresariales. Esta fase comprende la captura de requisitos (CR), la recopilación de recursos disponibles (RR) y la definición del alcance y requisitos del sistema de agentes (DA).
+El proyecto se inicia con una primera iteración centrada en la captura de requisitos, invertido un tiempo significativo en alinear los objetivos con las necesidades empresariales. Esta fase comprende la captura de requisitos (CR), la recopilación de recursos disponibles (RR) y la definición del alcance y requisitos del sistema de agentes (DA).
 
 La segunda iteración se orienta al desarrollo de un sistema de agentes mínimo viable (SA), construyendo una base sobre la que integrar mejoras en iteraciones posteriores. En esta fase se implementan también las primeras pruebas automatizadas (P).
 
@@ -182,7 +182,7 @@ A partir de la segunda iteración, cada fase incluye actividades de prueba y eva
 
 \subsection{Diagrama de Gantt}
 
-La figura \ref{fig:gantt} ilustra el diagrama de Gantt, donde se puede ver de manera aproximada a qué paquetes de trabajo se le dedicará el tiempo en cada momento del trascurso del proyecto.
+La figura \ref{fig:gantt} muestra el diagrama de Gantt, donde se visualiza de manera aproximada la distribución temporal a cada paquete de trabajo durante el transcurso del proyecto. Los rombos negros señalan los hitos clave que se detallan en la sección \ref{sec:hitos}.
 
 \definecolor{crcolor}{HTML}{6aa84f}
 \definecolor{rrcolor}{HTML}{45818e}
@@ -226,9 +226,11 @@ La figura \ref{fig:gantt} ilustra el diagrama de Gantt, donde se puede ver de ma
   \ganttmilestone{}{2025-06-14} \\
   
   % Barras regulares
-  \ganttbar[bar/.style={fill=crcolor!70}]{CR}{2025-02-25}{2025-03-20} \\
-  \ganttbar[bar/.style={fill=rrcolor!70}]{RR}{2025-02-25}{2025-03-20} \\
-  \ganttbar[bar/.style={fill=dacolor!70}]{DA}{2025-02-25}{2025-03-20} \\
+  \ganttbar[bar/.style={fill=crcolor!70}]{PL}{2025-02-25}{2025-02-28} \\
+  \ganttbar[bar/.style={fill=crcolor!70}]{SC}{2025-02-28}{2025-06-14} \\
+  \ganttbar[bar/.style={fill=crcolor!70}]{CR}{2025-02-28}{2025-03-20} \\
+  \ganttbar[bar/.style={fill=rrcolor!70}]{RR}{2025-02-28}{2025-03-20} \\
+  \ganttbar[bar/.style={fill=dacolor!70}]{DA}{2025-02-28}{2025-03-20} \\
   \ganttbar[bar/.style={fill=sacolor!70}]{SA}{2025-03-20}{2025-05-27} \\
   \ganttbar[bar/.style={fill=pcolor!70}]{P}{2025-03-20}{2025-05-27} \\
   \ganttbar[bar/.style={fill=amcolor!70}]{AM}{2025-05-13}{2025-05-27} \\
@@ -241,7 +243,7 @@ La figura \ref{fig:gantt} ilustra el diagrama de Gantt, donde se puede ver de ma
 \end{figure}
 
 
-\subsection{Hitos}
+\subsection{Hitos}\label{sec:hitos}
 
 En la tabla \ref{tab:hitos} se detallan los hitos establecidos para el desarrollo del proyecto. La finalización de la fase de implementación ha sido programada para el 31 de mayo, tras lo cual se destinarán dos semanas íntegramente a la elaboración de la memoria hasta el 14 de junio, proporcionando así un margen de 8 días previos a la fecha límite de entrega. Este período de contingencia está planificado para abordar posibles contratiempos que pudieran surgir durante el proceso.
 
@@ -303,7 +305,7 @@ Para mitigar este riesgo, se implementará un seguimiento y control mediante reu
 
 Para prevenir este riesgo, se diseñará un sistema con un manejo de excepciones robusto que garantice la continuidad operativa incluso cuando alguno de los módulos experimente fallos. Complementariamente, se adoptará una arquitectura de desarrollo modular que facilite la integración o desacoplamiento de componentes según las necesidades evolutivas del proyecto.
 
-\item\textbf{R4- Filtrado de credenciales: }El acceso a recursos externos sobre el que se desarrolla el proyecto requiere de claves secretas. Es fundamental considerar que existen algoritmos de rastreo automatizados que analizan plataformas públicas en busca de credenciales expuestas para su uso fraudulento. La publicación inadvertida de estas claves en entornos públicos podría ocasionar pérdidas económicas considerables o comprometer la seguridad del sistema corporativo.
+\item\textbf{R4- Filtrado de credenciales: }El acceso a recursos externos sobre el que se desarrolla el proyecto requiere de claves secretas. Es necesario considerar que existen algoritmos de rastreo automatizados que analizan plataformas públicas en busca de credenciales expuestas para su uso fraudulento. La publicación inadvertida de estas claves en entornos públicos podría ocasionar pérdidas económicas considerables o comprometer la seguridad del sistema corporativo.
 
 Para contrarrestar este riesgo, se implementará una política de gestión de credenciales mediante variables de entorno, evitando su inclusión directa en el código fuente o su transferencia a plataformas en la nube. Adicionalmente, se mantendrán todos los repositorios y sistemas posibles en modo de visibilidad privada.
 
@@ -314,13 +316,13 @@ Para mitigar este riesgo, se han implementado los sistemas de información descr
 
 \section{Gestión de Comunicaciones e Información}
 
-\subsection{Sistema de información}\label{sec}
+\subsection{Sistema de información}\label{sec:sys_info}
 
 La gestión de la información del proyecto se ha estructurado mediante diversos sistemas tecnológicos:
 \begin{itemize}
 \item \textbf{Repositorio GitHub para código fuente:} El código desarrollado será alojado en un repositorio privado de GitHub.
 \item \textbf{Repositorio GitHub para documentación:} La memoria del proyecto, elaborada utilizando LaTeX en el entorno local del alumno, será sincronizada con un repositorio dedicado en GitHub.
-\item \textbf{Almacenamiento en Google Drive:} Los diversos recursos, referencias bibliográficas y materiales auxiliares recopilados durante las fases de desarrollo serán almacenados sistemáticamente en esta plataforma.
+\item \textbf{Almacenamiento en Google Drive:} Los diversos recursos, referencias bibliográficas y materiales auxiliares recopilados durante las fases de desarrollo serán almacenados en esta plataforma.
 \end{itemize}
 Esta estructura de gestión de la información aporta diversos beneficios al proyecto. Por un lado, facilita la supervisión continua por parte de los directores e implementa un control de versiones organizado que documenta la evolución del trabajo. Por otro lado, garantiza copias de seguridad actualizadas que protegen la integridad de los datos. Adicionalmente, asegura la accesibilidad para todos los interesados.
 
@@ -334,10 +336,10 @@ La comunicación eficaz entre alumno, director empresarial y directores académi
 \end{itemize}
 
 \section{Herramientas disponibles}
-Para el desarrollo del proyecto se dispone de diversas herramientas que facilitan su implementación y gestión eficiente. A continuación, se detallan las principales:
+Para el desarrollo del proyecto se dispone de varias herramientas que facilitan su implementación y gestión eficiente. A continuación, se detallan las principales:
 \begin{itemize}
-\item\textbf{IDE PyCharm: }En el marco del paquete educativo proporcionado por GitHub, se tiene acceso a la versión Professional del entorno de desarrollo integrado PyCharm, el cual ofrece un conjunto de funcionalidades y utilidades especializadas para el desarrollo de proyectos en lenguaje Python.
-\item\textbf{Asistencia de herramientas de IA: }Se dispone de herramientas de asistencia basadas en inteligencia artificial, concretamente el autocompletador GitHub Copilot y una suscripción al modelo Claude. Esta última contribuye a optimizar tareas relacionadas con la programación, el procesamiento de documentación y la redacción de la presente memoria.
+\item\textbf{IDE PyCharm: }Se usará la versión Professional del entorno de desarrollo PyCharm\footnote{PyCharm: \url{https://www.jetbrains.com/es-es/pycharm/}}, obtenida a través del paquete educativo de GitHub, que proporciona herramientas especializadas para el desarrollo en Python.
+\item\textbf{Asistencia de herramientas de IA: }Se dispone de herramientas de asistencia basadas en inteligencia artificial como GitHub Copilot y una suscripción al modelo Claude, que optimizan las tareas de programación, el procesamiento documental y la redacción de esta memoria.
 \item\textbf{Claves de acceso a modelos: }La empresa LKS NEXT ha facilitado las credenciales de acceso necesarias para la integración y ejecución de los diferentes modelos LLM utilizados en el proyecto.
 \item\textbf{Plataformas de computación en la nube: }Se dispone de acceso a infraestructuras de computación en la nube con unidades de procesamiento gráfico (GPU) dedicadas para el entrenamiento e inferencia del modelo ajustado.
 \end{itemize}
