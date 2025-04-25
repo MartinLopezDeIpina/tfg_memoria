@@ -35,17 +35,17 @@
 \contentsline {subsection}{\numberline {3.2.1}Dependencias entre tareas}{20}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Diagrama de Gantt}{21}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Hitos}{21}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Gestión del tiempo}{21}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Estimación de cada tarea}{21}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.3}Gestión del tiempo}{22}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Estimación de cada tarea}{22}{subsection.3.3.1}%
 \contentsline {section}{\numberline {3.4}Gestión de riesgos}{22}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Gestión de Comunicaciones e Información}{23}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Sistema de información}{23}{subsection.3.5.1}%
+\contentsline {section}{\numberline {3.5}Gestión de Comunicaciones e Información}{24}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Sistema de información}{24}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}Sistema de comunicación}{24}{subsection.3.5.2}%
 \contentsline {section}{\numberline {3.6}Herramientas disponibles}{24}{section.3.6}%
-\contentsline {chapter}{Anexo A}{27}{appendix*.9}%
-\contentsline {section}{Definición de términos técnicos}{27}{section*.10}%
-\contentsline {subsection}{Conjunto de datos etiquetados}{27}{section*.11}%
-\contentsline {subsection}{Entrenamiento de redes neuronales}{27}{section*.12}%
-\contentsline {subsection}{Distancia coseno}{27}{section*.13}%
-\contentsline {subsection}{Tokenizador}{28}{section*.14}%
-\contentsline {chapter}{Bibliografía}{29}{appendix*.15}%
+\contentsline {chapter}{Anexo A}{29}{appendix*.9}%
+\contentsline {section}{Definición de términos técnicos}{29}{section*.10}%
+\contentsline {subsection}{Conjunto de datos etiquetados}{29}{section*.11}%
+\contentsline {subsection}{Entrenamiento de redes neuronales}{29}{section*.12}%
+\contentsline {subsection}{Distancia coseno}{29}{section*.13}%
+\contentsline {subsection}{Tokenizador}{30}{section*.14}%
+\contentsline {chapter}{Bibliografía}{31}{appendix*.15}%

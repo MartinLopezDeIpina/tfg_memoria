@@ -39,7 +39,17 @@ Finalmente, la sexta iteración contemplará el ajuste fino de un modelo LLM par
 Gracias a este tipo de ciclo de vida, se alcanzan los objetivos del proyecto de manera progresiva, obteniendo retroalimentación directa por parte de los directores del proyecto en cada iteración, lo que permite redirigir la dirección del trabajo si fuera necesario ante posibles contratiempos.
 
 \subsection{Descomposición de tareas}
-La Estructura de Descomposición de Trabajo (EDT) del proyecto se ha creado considerando el ciclo de vida iterativo-incremental del proyecto. La figura \ref{} ilustra un diagrama de esta. 
+La Estructura de Descomposición de Trabajo (EDT) del proyecto se ha creado considerando el ciclo de vida iterativo-incremental del proyecto. La figura \ref{fig:edt} ilustra un diagrama de esta. 
+
+\begin{figure}[h]
+  \centering
+  \rotatebox{90}{%
+    \includegraphics[scale=0.55]{figures/paquetes.png}%
+  }
+  \caption{Estructura de Descomposición de Trabajo (EDT) del proyecto}
+  \label{fig:edt}
+\end{figure}
+
 
 Se divide en los siguientes paquetes:
 
@@ -148,6 +158,13 @@ En este apartado se detallarán las dependencias entre las diferentes tareas, as
 \subsection{Dependencias entre tareas}
 Las dependencias de los paquetes de trabajo del proyecto requieren una ejecución secuencial planificada. La figura \ref{fig:dependencias} ilustra dichas dependencias.
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.15]{figures/dependencias_2.png}%
+  \caption{Dependencias entre tareas del proyecto}
+  \label{fig:dependencias}
+\end{figure}
+
 El proyecto se inicia con una primera iteración centrada en la captura de requisitos. Debido al carácter exploratorio del proyecto, se ha invertido un tiempo significativo en alinear los objetivos con las necesidades empresariales. Esta fase comprende la captura de requisitos (CR), la recopilación de recursos disponibles (RR) y la definición del alcance y requisitos del sistema de agentes (DA).
 
 La segunda iteración se orienta al desarrollo de un sistema de agentes mínimo viable (SA), construyendo una base sobre la que integrar mejoras en iteraciones posteriores. En esta fase se implementan también las primeras pruebas automatizadas (P).
@@ -165,46 +182,76 @@ A partir de la segunda iteración, cada fase incluye actividades de prueba y eva
 
 \subsection{Diagrama de Gantt}
 
-La figura \ref{} ilustra el diagrama de Gantt, donde se puede ver de manera aproximada tanto el desarrollo del proyecto en el tiempo como la dedicación horaria a cada paquete de trabajo.
+La figura \ref{fig:gantt} ilustra el diagrama de Gantt, donde se puede ver de manera aproximada a qué paquetes de trabajo se le dedicará el tiempo en cada momento del trascurso del proyecto.
 
+\definecolor{crcolor}{HTML}{6aa84f}
+\definecolor{rrcolor}{HTML}{45818e}
+\definecolor{dacolor}{HTML}{3d85c6}
+\definecolor{sacolor}{HTML}{f1c232}
+\definecolor{pcolor}{HTML}{cc0000}
+\definecolor{amcolor}{HTML}{674ea7}
+\definecolor{mdcolor}{HTML}{6d9eeb}
 
-\begin{center}
-\begin{ganttchart}[
+\begin{figure}[H]
+  \noindent\hspace*{-1.75cm}
+  \begin{ganttchart}[
     vgrid,
     hgrid,
     title label font=\bfseries,
     title height=1,
-    bar/.style={fill=blue!50},
     bar height=0.6,
     x unit=0.15cm, 
     y unit title=0.7cm,
     y unit chart=0.6cm,
-    time slot format=isodate
+    time slot format=isodate,
+    milestone/.style={
+        shape=diamond,
+        inner sep=2pt,
+        draw=black,
+        fill=black
+    }
   ]{2025-02-25}{2025-06-30}
   
   \gantttitle{Proyecto 2025}{126} \\
-  \gantttitle{Feb}{3}\gantttitle{Mar}{31}\gantttitle{Abr}{30}\gantttitle{May}{31}\gantttitle{Jun}{30} \\
+  \gantttitle{Feb}{4}\gantttitle{Mar}{31}\gantttitle{Abr}{30}\gantttitle{May}{31}\gantttitle{Jun}{30} \\
   
-  \ganttbar[bar/.style={fill=green!50}]{Iteración 1}{2025-02-25}{2025-03-20} \\
-  \ganttbar[bar/.style={fill=green!50}]{Iteración 2}{2025-03-21}{2025-04-01} \\
-  \ganttbar[bar/.style={fill=green!50}]{Iteración 3}{2025-04-02}{2025-04-15} \\
-  \ganttbar[bar/.style={fill=blue!50}]{Iteración 4}{2025-04-16}{2025-04-29} \\
-  \ganttbar[bar/.style={fill=blue!50}]{Iteración 5}{2025-04-30}{2025-05-13} \\
-  \ganttbar[bar/.style={fill=blue!50}]{Iteración 6}{2025-05-14}{2025-05-27} \\
-  \ganttbar[bar/.style={fill=red!50}]{Memoria}{2025-05-28}{2025-06-14} \\
-  \ganttbar[bar/.style={fill=red!50}]{Defensa}{2025-06-15}{2025-06-30} \\
+  % Fila de hitos con rombos negros
+  \ganttmilestone{}{2025-02-25} 
+  \ganttmilestone{}{2025-03-20} 
+  \ganttmilestone{}{2025-04-01} 
+  \ganttmilestone{}{2025-04-15} 
+  \ganttmilestone{}{2025-04-29} 
+  \ganttmilestone{}{2025-05-13} 
+  \ganttmilestone{}{2025-05-27} 
+  \ganttmilestone{}{2025-06-14} \\
   
-\end{ganttchart}
-\end{center}
-
+  % Barras regulares
+  \ganttbar[bar/.style={fill=crcolor!70}]{CR}{2025-02-25}{2025-03-20} \\
+  \ganttbar[bar/.style={fill=rrcolor!70}]{RR}{2025-02-25}{2025-03-20} \\
+  \ganttbar[bar/.style={fill=dacolor!70}]{DA}{2025-02-25}{2025-03-20} \\
+  \ganttbar[bar/.style={fill=sacolor!70}]{SA}{2025-03-20}{2025-05-27} \\
+  \ganttbar[bar/.style={fill=pcolor!70}]{P}{2025-03-20}{2025-05-27} \\
+  \ganttbar[bar/.style={fill=amcolor!70}]{AM}{2025-05-13}{2025-05-27} \\
+  \ganttbar[bar/.style={fill=mdcolor!70}]{M}{2025-03-20}{2025-06-14} \\
+  \ganttbar[bar/.style={fill=mdcolor!70}]{D}{2025-06-14}{2025-06-30} \\
+  
+  \end{ganttchart}
+  \caption{Diagrama de Gantt del proyecto}
+  \label{fig:gantt}
+\end{figure}
 
 
 \subsection{Hitos}
 
-En la tabla \ref{} se detallan los hitos establecidos para el desarrollo del proyecto. La finalización de la fase de implementación ha sido programada para el 31 de mayo, tras lo cual se destinarán dos semanas íntegramente a la elaboración de la memoria hasta el 14 de junio, proporcionando así un margen de 8 días previos a la fecha límite de entrega. Este período de contingencia está planificado para abordar posibles contratiempos que pudieran surgir durante el proceso.
+En la tabla \ref{tab:hitos} se detallan los hitos establecidos para el desarrollo del proyecto. La finalización de la fase de implementación ha sido programada para el 31 de mayo, tras lo cual se destinarán dos semanas íntegramente a la elaboración de la memoria hasta el 14 de junio, proporcionando así un margen de 8 días previos a la fecha límite de entrega. Este período de contingencia está planificado para abordar posibles contratiempos que pudieran surgir durante el proceso.
 
-\begin{table}[htbp]
-\centering
+% CR(#d9ead3) / RR(#d0e0e3) / DA(#cfe2f3): 25/02 -> 20/03  
+% SA(#fff2cc) / P(#f4cccc)  20/03 -> 27/05 
+% AM(#d9d2e9) -> 13/05 -> 27/05
+% M(#c9daf8): 20/03 -> 14/06/2025
+% D(#c9daf8): 14/06 -> 30/06
+
+\begin{table}[H]\centering
 \begin{tabular}{|l|c|}
 \hline
 \multicolumn{1}{|c|}{\textbf{Hito}} & \multicolumn{1}{c|}{\textbf{Fecha}} \\
@@ -229,7 +276,7 @@ Defensa del proyecto & Por determinar \\
 \hline
 \end{tabular}
 \caption{Cronograma de Hitos del Proyecto}
-\label{tab:cronograma}
+\label{tab:hitos}
 \end{table}
 
 \section{Gestión del tiempo}
