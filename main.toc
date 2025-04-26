@@ -42,10 +42,9 @@
 \contentsline {subsection}{\numberline {3.5.1}Sistema de información}{24}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}Sistema de comunicación}{24}{subsection.3.5.2}%
 \contentsline {section}{\numberline {3.6}Herramientas disponibles}{24}{section.3.6}%
-\contentsline {chapter}{Anexo A}{29}{appendix*.9}%
-\contentsline {section}{Definición de términos técnicos}{29}{section*.10}%
-\contentsline {subsection}{Conjunto de datos etiquetados}{29}{section*.11}%
-\contentsline {subsection}{Entrenamiento de redes neuronales}{29}{section*.12}%
-\contentsline {subsection}{Distancia coseno}{29}{section*.13}%
-\contentsline {subsection}{Tokenizador}{30}{section*.14}%
-\contentsline {chapter}{Bibliografía}{31}{appendix*.15}%
+\contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{29}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Conjunto de datos etiquetados}{29}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Entrenamiento de redes neuronales}{29}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Distancia coseno}{30}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Tokenizador}{30}{section.Alph1.4}%
+\contentsline {chapter}{Bibliografía}{31}{appendix*.9}%

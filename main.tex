@@ -24,6 +24,8 @@
 \usepackage[es]{ifcommands}
 \usepackage{pgfgantt}
 \usepackage{geometry}
+\usepackage{adjustbox}
+
 
 
 
@@ -159,10 +161,12 @@
 %% ERANSKINAK / APENDICES %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\backmatter
 \appendix
-
-\chapter{Anexo A} \label{ch:eranskina}
+\renewcommand{\thesection}{A.\arabic{section}}
+\renewcommand{\thesubsection}{A.\arabic{section}.\arabic{subsection}}
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\chapter{Definición de términos técnicos}
 \input chapters/anexo_a.tex
 
 %%%%%%%%%%%%%%%%%%

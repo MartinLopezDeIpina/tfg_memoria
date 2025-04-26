@@ -16,8 +16,8 @@ Para facilitar el logro del objetivo principal, se han identificado y definido l
 
 \begin{itemize}
   \item\textbf{Estudio de arquitecturas agénticas: }Realizar un análisis de las diversas arquitecturas de agentes, considerando distintas estrategias de interacción y mecanismos de acceso a fuentes de información.
-  \item\textbf{Estudio del Model Context Protocol: }Investigar las características y beneficios que aporta la implementación del protocolo MCP, con el objetivo de realizar una valoración objetiva para su posible integración en el entorno profesional de la empresa.
   \item\textbf{Desarrollo de sistema de Onboarding: }Implementar las arquitecturas propuestas en un proyecto software corporativo, con el propósito de analizar su eficacia en la asistencia a nuevos integrantes durante su proceso de incorporación a la empresa.
+  \item\textbf{Integración del Model Context Protocol: }Exploración de las características y beneficios que aporta la implementación del protocolo MCP, con el objetivo de realizar una valoración objetiva para su posible integración en el entorno profesional de la empresa.
   \item\textbf{Evaluación de agentes: }Desarrollar un sistema de evaluación para proporcionar métricas comparativas cuantificables sobre el rendimiento de los diferentes enfoques de agentes. 
   \item\textbf{Valoración de ajuste de agentes: }Analizar la relación coste-beneficio asociada al proceso de ajuste fino de modelos LLM para su aplicación en agentes concretos.
 \end{itemize}
@@ -34,7 +34,7 @@ La primera iteración se centra en la captura de requisitos del proyecto, donde 
 
 Con este sistema mínimo implementado, la tercera iteración corresponderá al desarrollo de un mecanismo de evaluación, con el objetivo de establecer métricas que permitan mejorar el sistema en la cuarta iteración, donde se aplicarán las optimizaciones identificadas. La quinta iteración se dedicará a la implementación de arquitecturas de agentes exploratorias, evaluando su rendimiento mediante las métricas previamente establecidas.
 
-Finalmente, la sexta iteración contemplará el ajuste fino de un modelo LLM para su integración en un agente específico del sistema, así como su evaluación contextualizada dentro del marco operativo general.
+Finalmente, la sexta iteración contemplará el ajuste fino de un modelo LLM para su integración en un agente específico del sistema, así como su evaluación contextualizada dentro del entorno funcional del proyecto.
 
 Gracias a la implementación del ciclo de vida iterativo, se logra la consecución de los objetivos del proyecto de forma progresiva y estructurada. Este enfoque permite obtener retroalimentación constante por parte de los directores del proyecto durante cada iteración, facilitando así la posibilidad de reorientar la dirección del trabajo ante la aparición de posibles contratiempos.
 
@@ -44,7 +44,7 @@ La Estructura de Descomposición de Trabajo (EDT) del proyecto se ha creado cons
 \begin{figure}[h]
   \centering
   \rotatebox{90}{%
-    \includegraphics[scale=0.55]{figures/paquetes.png}%
+    \includegraphics[scale=0.135]{figures/paquetes.png}%
   }
   \caption{Estructura de Descomposición de Trabajo (EDT) del proyecto}
   \label{fig:edt}
@@ -66,7 +66,7 @@ Se divide en los siguientes paquetes:
           \item\textbf{Selección de proyecto software:} Identificación y documentación del proyecto software sobre el que se desarrollará el sistema.
           \item\textbf{Generación de recursos:} Elaboración de documentación complementaria para la implementación del sistema de agentes.
         \end{itemize}
-      \item\textbf{Definición del alcance del sistema de agentes (DA):} Delimitación del alcance considerando investigaciones previas y trabajo académico existente.
+      \item\textbf{Definición del alcance del sistema de agentes (DA):} Delimitación del alcance considerando implementaciones previas y trabajo académico existente.
     \begin{itemize}
           \item\textbf{Investigación de arquitecturas del estado del arte:} Análisis de las arquitecturas relevantes documentadas en la literatura académica.
           \item\textbf{Exploración de proyectos similares:} Estudio de implementaciones similares en proyectos software y procesos de Onboarding.
@@ -116,7 +116,7 @@ Se divide en los siguientes paquetes:
         \begin{itemize}
           \item\textbf{Arquitecturas de interacción alternativas:} Implementación y evaluación de mecanismos adicionales de interacción entre agentes.
           \item\textbf{Módulos de memoria:} Integración de sistemas de memoria y evaluación de su impacto en el rendimiento global. 
-          \item\textbf{Agentes avanzados:} Desarrollo de un agente con proceso de ejecución extenso para análisis de coste-beneficio, incluyendo múltiples consultas RAG. 
+          \item\textbf{Agentes avanzados:} Desarrollo de un agente con un proceso de ejecución extenso para el análisis del coste-beneficio.
         \end{itemize}
       \item\textbf{Pruebas y evaluación (P):} Actividades destinadas a verificar y analizar el rendimiento de los módulos implementados.
         \begin{itemize}
@@ -160,25 +160,20 @@ Las dependencias de los paquetes de trabajo del proyecto requieren una ejecució
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.16]{figures/dependencias_2.png}%
+  \includegraphics[scale=0.165]{figures/dependencias_2.png}%
   \caption{Dependencias entre tareas del proyecto}
   \label{fig:dependencias}
 \end{figure}
 
-El proyecto se inicia con una primera iteración centrada en la captura de requisitos, invertido un tiempo significativo en alinear los objetivos con las necesidades empresariales. Esta fase comprende la captura de requisitos (CR), la recopilación de recursos disponibles (RR) y la definición del alcance y requisitos del sistema de agentes (DA).
+El proyecto se inicia con una primera iteración centrada en la captura de requisitos, invertiendo un tiempo significativo en alinear los objetivos con las necesidades empresariales. Esta fase comprende la captura de requisitos (CR), la recopilación de recursos disponibles (RR) y la definición del alcance y requisitos del sistema de agentes (DA).
 
-La segunda iteración se orienta al desarrollo de un sistema de agentes mínimo viable (SA), construyendo una base sobre la que integrar mejoras en iteraciones posteriores. En esta fase se implementan también las primeras pruebas automatizadas (P).
+Las iteraciones intermedias desarrollan progresivamente el paquete Sistema de agentes (SA) mediante fases complementarias. La segunda iteración implementa su diseño conceptual, agentes especializados y un sistema de comunicación mínima. Posteriormente, en la tercera iteración, el sistema evoluciona incorporando mecanismos de evaluación y captura de datos. La cuarta iteración optimiza los agentes existentes y explora variaciones en la orquestación, mientras que la quinta implementa arquitecturas de interacción alternativas, módulos de memoria y agentes de procesamiento avanzado.
 
-Una vez obtenida una primera versión operativa, la tercera iteración implementa un sistema de evaluación para dicho sistema de agentes, permitiendo valorar tanto el rendimiento global como las mejoras introducidas en iteraciones subsiguientes.
+La sexta iteración introduce el paquete Ajuste de modelo (AM), que comprende la selección del agente candidato, extracción de datos y entrenamiento especializado. Simultáneamente, el paquete SA aborda actividades de integración del modelo ajustado en la arquitectura existente.
 
-La cuarta iteración perfecciona el sistema de agentes inicial, con el propósito de optimizar las métricas evaluadas y abordar las deficiencias identificadas durante la evaluación precedente.
+Transversalmente, se establecen los paquetes de Gestión (G), que abarca actividades de planificación y seguimiento mediante reuniones bisemanales, y Trabajo académico (TA), orientado a la elaboración de la memoria y preparación de la defensa.
 
-Posteriormente, la quinta iteración explora arquitecturas de interacción alternativas para el sistema de agentes, incorporando un sistema de memoria y desarrollando agentes con capacidades avanzadas.
-
-Finalmente, la sexta y última iteración se dedica al ajuste de un modelo específico para un agente seleccionado del sistema (AM) y su integración en la arquitectura existente.
-
-A partir de la segunda iteración, cada fase incluye actividades de prueba y evaluación (P) con objetivos específicos adaptados a las nuevas funcionalidades implementadas, permitiendo así una validación continua de todo el sistema.
-
+Cabe destacar que a partir de la segunda iteración, cada fase incorpora el paquete de Pruebas y evaluación (P), destinado a verificar y analizar el rendimiento de los módulos implementados. Este paquete evoluciona progresivamente desde pruebas automatizadas básicas hasta evaluaciones comparativas que contrastan el rendimiento entre iteraciones sucesivas.
 
 \subsection{Diagrama de Gantt}
 
@@ -245,7 +240,7 @@ La figura \ref{fig:gantt} muestra el diagrama de Gantt, donde se visualiza de ma
 
 \subsection{Hitos}\label{sec:hitos}
 
-En la tabla \ref{tab:hitos} se detallan los hitos establecidos para el desarrollo del proyecto. La finalización de la fase de implementación ha sido programada para el 31 de mayo, tras lo cual se destinarán dos semanas íntegramente a la elaboración de la memoria hasta el 14 de junio, proporcionando así un margen de 8 días previos a la fecha límite de entrega. Este período de contingencia está planificado para abordar posibles contratiempos que pudieran surgir durante el proceso.
+En la tabla \ref{tab:hitos} se detallan los hitos establecidos para el desarrollo del proyecto. La finalización de la fase de implementación ha sido programada para el 31 de mayo, tras lo cual se destinarán dos semanas íntegramente a la elaboración de la memoria hasta el 14 de junio, proporcionando así un margen de 8 días previos a la fecha límite de entrega. Este período de contingencia está planificado para abordar posibles contratiempos que pudieran surgir durante el transcurso del proyecto.
 
 % CR(#d9ead3) / RR(#d0e0e3) / DA(#cfe2f3): 25/02 -> 20/03  
 % SA(#fff2cc) / P(#f4cccc)  20/03 -> 27/05 
@@ -285,7 +280,14 @@ Defensa del proyecto & Por determinar \\
 Se ha gestionado el tiempo disponible para el proyecto considerando el alcance definido para cumplir todos los objetivos del proyecto. 
 
 \subsection{Estimación de cada tarea}
-La estimación específica de cada tarea se puede ver en la tabla \ref{}
+La estimación específica de cada tarea se puede ver en la tabla \ref{fig:horas}
+
+\begin{figure}[h]
+  \centering
+  \adjustimage{width=1.3\textwidth,center}{figures/horas.png}
+  \caption{Estimación horaria de cada tarea}
+  \label{fig:horas}
+\end{figure}
 
 \section{Gestión de riesgos}
 
@@ -318,11 +320,11 @@ Para mitigar este riesgo, se han implementado los sistemas de información descr
 
 \subsection{Sistema de información}\label{sec:sys_info}
 
-La gestión de la información del proyecto se ha estructurado mediante diversos sistemas tecnológicos:
+La gestión de la información del proyecto se ha estructurado mediante los siguientes sistemas tecnológicos:
 \begin{itemize}
 \item \textbf{Repositorio GitHub para código fuente:} El código desarrollado será alojado en un repositorio privado de GitHub.
 \item \textbf{Repositorio GitHub para documentación:} La memoria del proyecto, elaborada utilizando LaTeX en el entorno local del alumno, será sincronizada con un repositorio dedicado en GitHub.
-\item \textbf{Almacenamiento en Google Drive:} Los diversos recursos, referencias bibliográficas y materiales auxiliares recopilados durante las fases de desarrollo serán almacenados en esta plataforma.
+\item \textbf{Almacenamiento en Google Drive:} Los diversos recursos y materiales auxiliares recopilados durante las fases de desarrollo serán almacenados en esta plataforma.
 \end{itemize}
 Esta estructura de gestión de la información aporta diversos beneficios al proyecto. Por un lado, facilita la supervisión continua por parte de los directores e implementa un control de versiones organizado que documenta la evolución del trabajo. Por otro lado, garantiza copias de seguridad actualizadas que protegen la integridad de los datos. Adicionalmente, asegura la accesibilidad para todos los interesados.
 
@@ -336,10 +338,10 @@ La comunicación eficaz entre alumno, director empresarial y directores académi
 \end{itemize}
 
 \section{Herramientas disponibles}
-Para el desarrollo del proyecto se dispone de varias herramientas que facilitan su implementación y gestión eficiente. A continuación, se detallan las principales:
+Para el desarrollo del proyecto se dispone de varias herramientas que facilitan su implementación y gestión eficiente:
 \begin{itemize}
 \item\textbf{IDE PyCharm: }Se usará la versión Professional del entorno de desarrollo PyCharm\footnote{PyCharm: \url{https://www.jetbrains.com/es-es/pycharm/}}, obtenida a través del paquete educativo de GitHub, que proporciona herramientas especializadas para el desarrollo en Python.
-\item\textbf{Asistencia de herramientas de IA: }Se dispone de herramientas de asistencia basadas en inteligencia artificial como GitHub Copilot y una suscripción al modelo Claude, que optimizan las tareas de programación, el procesamiento documental y la redacción de esta memoria.
+\item\textbf{Asistencia de herramientas de inteligencia artificial: }Se dispone de herramientas de asistencia basadas en inteligencia artificial como GitHub Copilot y una suscripción al modelo Claude, que optimizan las tareas de programación, el procesamiento documental y la redacción de la presente memoria.
 \item\textbf{Claves de acceso a modelos: }La empresa LKS NEXT ha facilitado las credenciales de acceso necesarias para la integración y ejecución de los diferentes modelos LLM utilizados en el proyecto.
 \item\textbf{Plataformas de computación en la nube: }Se dispone de acceso a infraestructuras de computación en la nube con unidades de procesamiento gráfico (GPU) dedicadas para el entrenamiento e inferencia del modelo ajustado.
 \end{itemize}
