@@ -1,0 +1,291 @@
+% Definir los colores
+\definecolor{background}{RGB}{240,240,240}
+\definecolor{numb}{RGB}{125,125,125}
+\definecolor{punct}{RGB}{0,100,0}
+\definecolor{delim}{RGB}{20,105,176}
+\definecolor{string}{RGB}{170,45,45}
+\definecolor{comment}{RGB}{0,100,0}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    stringstyle=\color{string},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1}
+      % Caracteres españoles
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1 {¡}{{!`}}1
+}
+
+Los índices numéricos han sido establecidos en base a una captura de datos que fue inicialmente ampliada y posteriormente sometida a un proceso de depuración manual, con el objetivo de incorporar exclusivamente preguntas no redundantes.
+
+La presencia del carácter ``e'' en el índice denota preguntas de carácter específico vinculadas a ejemplos concretos, esto es, aquellas que precisan de un contexto adicional para su adecuada interpretación. Las preguntas identificadas con el carácter ``a'' en su índice corresponden a interrogantes anotadas directamente del cuestionario electrónico, preservando su formulación original sin ningún tipo de alteración.
+
+\begin{lstlisting}[language=json, caption={Listado de elicitación de preguntas procesadas y clasificadas}, label={listado:preguntas}]
+
+{
+  "informacion_general": {
+    "intencion_del_proyecto": {
+      "1": "¿Cuál es el objetivo principal y la finalidad del proyecto?",
+      "2": "¿Qué problema específico o necesidad resuelve este proyecto?"
+    },
+    "funcionalidades_del_proyecto": {
+      "3": "¿Cuáles son las funcionalidades principales que incluye el proyecto?",
+      "4": "¿Qué funcionalidades están explícitamente fuera del alcance del proyecto?"
+    },
+    "estructura_del_proyecto": {
+      "5": "¿Cuál es la estructura organizativa general del proyecto a nivel de repositorios o subproyectos?",
+      "79a": "¿Cómo están organizados los módulos, componentes y paquetes dentro del proyecto?"
+    },
+    "contexto_de_negocio": {
+      "6": "¿Cuáles son los requisitos funcionales detallados del proyecto?",
+      "7": "¿Cuáles son los requisitos no funcionales (rendimiento, seguridad, escalabilidad, etc.) del proyecto?",
+      "8": "¿Existe documentación formal del modelo de negocio o dominio? ¿Dónde se encuentra?",
+      "80ae": "¿Dónde puedo encontrar los requerimientos funcionales documentados para entender el problema a resolver?"
+    },
+    "repositorio_codigo": {
+      "140a": "¿Cuál es la URL completa del repositorio de código y cómo puedo acceder a él?"
+    }
+  },
+  "entorno_y_despliegue": {
+    "guias_existentes": {
+      "9": "¿Existen guías o manuales de despliegue para el proyecto? ¿Dónde puedo encontrarlas?"
+    },
+    "entornos_disponibles": {
+      "10a": "¿Qué entornos están configurados o están disponibles para el proyecto (desarrollo, pruebas, preproducción, producción, etc.)?",
+      "11a": "¿Qué credenciales o permisos necesito para acceder a cada entorno (VPN, usuarios, certificados, etc.)?"
+    },
+    "configuracion_entorno_desarrollo": {
+      "12": "¿Cuál es el proceso paso a paso para configurar mi entorno de desarrollo local (IDE, herramientas, plugins)?",
+      "13a": "¿Cómo compilo y ejecuto el proyecto en mi entorno local? ¿Qué comandos debo utilizar?",
+      "84a": "¿Qué IDE o editor es recomendado para este proyecto y qué configuraciones específicas requiere?",
+      "85a": "¿Cómo configuro mi entorno de desarrollo para integrarlo con los sistemas corporativos?",
+      "86a": "¿Cuál es el proceso completo para compilar el proyecto y verificar que funciona correctamente?"
+    },
+    "despliegue": {
+      "14": "¿Qué sistema o plataforma se utiliza para el despliegue de aplicaciones?",
+      "15": "¿Cuál es el proceso detallado de despliegue, incluyendo configuraciones, tecnologías y herramientas utilizadas?",
+      "87a": "¿Existen pipelines DevOps implementados para la compilación y despliegue en los diferentes entornos?"
+    }
+  },
+  "gestion_del_proyecto": {
+    "equipo_comunicacion_coordinacion": {
+      "comunicacion": {
+        "16": "¿Cuáles son los canales oficiales de comunicación del equipo (chat, email, videollamadas)?",
+        "17": "¿Cómo puedo contactar a cada miembro del equipo y cuál es su rol o área de responsabilidad?"
+      },
+      "roles": {
+        "18": "¿Quién es el líder del proyecto o responsable final de las decisiones?",
+        "19": "¿Quiénes son los responsables de cada subsistema o área del proyecto y cuáles son sus responsabilidades específicas?"
+      },
+      "reuniones_ceremonias": {
+        "21": "¿Qué reuniones periódicas o ceremonias están establecidas en el proyecto y cuál es su propósito?",
+        "88a": "¿Con qué frecuencia se realizan reuniones de equipo o seguimiento del proyecto?",
+        "89a": "¿Cuál es la periodicidad de las reuniones (diarias, semanales, etc.) y su duración estimada?",
+        "90a": "¿Cuáles son los objetivos y entregables esperados para cada tipo de reunión?"
+      }
+    },
+    "metodologia_contribucion": {
+      "23": "¿Dónde puedo encontrar las guías oficiales de contribución al proyecto?",
+      "24": "¿Cuál es el proceso completo para contribuir código al proyecto, desde la asignación hasta la integración?",
+      "25": "¿Existen tareas marcadas como 'good first issues' para nuevos contribuyentes? ¿Dónde puedo encontrarlas?",
+      "91a": "¿Cuál es el procedimiento detallado para entregar una tarea completada (revisión, validación, merge)?"
+    },
+    "gestion_tareas_requisitos": {
+      "sistema_gestion_tareas": {
+        "26": "¿Qué herramienta específica se utiliza para gestionar las tareas del proyecto (Jira, Trello, GitHub Projects, etc.)?",
+        "27": "¿En qué ubicación exacta dentro del sistema de gestión están descritas las tareas pendientes?",
+        "28": "¿Cómo se identifican y clasifican las tareas por prioridad o urgencia?",
+        "92a": "¿Qué herramienta de gestión de tareas se utiliza en el proyecto y cómo accedo a ella?",
+        "93a": "¿Dónde puedo encontrar la descripción detallada de las tareas asignadas o disponibles?",
+        "94ae": "¿Qué tareas específicas tengo asignadas actualmente o debo realizar?",
+        "95a": "¿Cómo puedo identificar cuáles son las tareas más urgentes o prioritarias en este momento?"
+      },
+      "gestion_requisitos": {
+        "29": "¿En qué sistema o plataforma se documentan y gestionan los requisitos del proyecto?",
+        "30": "¿Cuál es el proceso establecido para analizar, validar y aprobar nuevos requisitos?",
+        "96a": "¿Dónde están registrados formalmente los requisitos del proyecto (Jira, Confluence, documentos, hojas de cálculo)?"
+      }
+    },
+    "informacion_cliente": {
+      "97a": "¿Quién es el cliente final o usuario principal de esta aplicación y cuál es su contexto de uso?",
+      "98a": "¿Qué nivel de participación tiene el cliente en el proceso de desarrollo y toma de decisiones?",
+      "99ae": "¿Es necesario consultar directamente al cliente para resolver dudas sobre determinadas funcionalidades o requisitos?"
+    }
+  },
+  "estandares_y_practicas": {
+    "estandares_nomenclatura_organizacion": {
+      "33": "¿Cuáles son los estándares definidos para la nomenclatura y gestión de branches, commits y pull requests?",
+      "34": "¿Cuál es el proceso completo para entregar una tarea, desde su finalización hasta la aprobación?",
+      "100a": "¿Existe un estándar documentado para la nomenclatura de branches, commits y otros elementos del repositorio?"
+    },
+    "estandares_codigo": {
+      "35": "¿Para qué lenguajes de programación existen estándares de codificación definidos en el proyecto?",
+      "101a": "¿Se utiliza alguna guía de estilo o formato de código específico para cada lenguaje del proyecto?",
+      "102a": "¿Existe una estructura o arquitectura de código predefinida que deba seguirse?"
+    },
+    "estandares_diseno": {
+      "36": "¿Existe un sistema de diseño o guía de estilos para la interfaz de usuario?",
+      "103a": "¿Hay diseños en Figma u otra herramienta para las nuevas pantallas o componentes a desarrollar?",
+      "104a": "¿Dónde puedo encontrar la documentación sobre el diseño visual y la experiencia de usuario a implementar?",
+      "106a": "¿Cuál es el procedimiento a seguir si no existen diseños definidos para un componente o pantalla?"
+    },
+    "practicas": {
+      "ci_cd": {
+        "37": "¿Qué procesos de Integración Continua y Despliegue Continuo (CI/CD) están implementados?",
+        "107a": "¿Cuál es el flujo completo de integración continua, desde el commit hasta la validación?",
+        "108a": "¿Qué herramientas específicas se utilizan para los procesos de integración y despliegue continuo?"
+      },
+      "ci": {
+        "38": "¿Cómo funciona detalladamente el proceso de integración continua y qué validaciones incluye?"
+      },
+      "cd": {
+        "39": "¿Cómo se ejecuta el proceso de despliegue continuo y qué entornos abarca?"
+      }
+    },
+    "aspectos_legales": {
+      "40": "¿Qué licencias de software se utilizan en el proyecto y sus dependencias?",
+      "41": "¿Cuáles son las consideraciones legales específicas que deben tenerse en cuenta durante el desarrollo?",
+      "110a": "¿Cuál es el protocolo para gestionar adecuadamente las licencias de componentes externos?"
+    },
+    "estandares_seguridad": {
+      "42": "¿Qué herramientas o procesos se utilizan para identificar vulnerabilidades de seguridad en el código?",
+      "44": "¿Cómo se gestionan y auditan las dependencias desde la perspectiva de seguridad?",
+      "112a": "¿Cómo verifico que las dependencias externas que utilizo son seguras y se mantienen actualizadas?",
+      "113a": "¿Cuál es el procedimiento a seguir si descubro una vulnerabilidad crítica en una dependencia?",
+      "114a": "¿Cuáles son las mejores prácticas de seguridad establecidas que debo aplicar en mi código para este proyecto?"
+    },
+    "pruebas_calidad": {
+      "45": "¿Qué tipos de pruebas se realizan en el proyecto (unitarias, funcionales, integración, rendimiento)?",
+      "46": "¿Cuál es la política establecida para la ejecución de pruebas (por commit, por merge request, al final del sprint)?",
+      "47a": "¿Cómo se automatizan las pruebas y qué herramientas y tecnologías se utilizan para ello?",
+      "48": "¿Cuál es el porcentaje actual de cobertura de pruebas y cuál es el objetivo establecido?",
+      "115a": "¿Existen pruebas unitarias implementadas para el código actual? ¿Dónde se encuentran?",
+      "116a": "¿Qué clases o métodos tienen pruebas unitarias documentadas y cuáles necesitan implementación?"
+    }
+  },
+  "documentacion": {
+    "49a": "¿Qué fuentes de documentación existen para el proyecto y dónde puedo encontrarlas (API, guías, licencias, estándares)?",
+    "50": "¿Cuál es la estructura organizativa de la documentación del proyecto?",
+    "51e": "¿Qué documentación específica debo consultar para realizar esta tarea concreta?",
+    "52": "¿Cuál es el proceso para modificar o actualizar la documentación del proyecto?",
+    "53": "¿Cuál es el procedimiento establecido para documentar cambios en el código?",
+    "118a": "¿Existe un espacio de documentación centralizado como Confluence para el proyecto?",
+    "120a": "¿Es obligatorio documentar los cambios realizados en el código? ¿Qué nivel de detalle se requiere?"
+  },
+  "recursos_adicionales": {
+    "54e": "¿Existen preguntas frecuentes o discusiones en StackOverflow relacionadas con este tema o tecnología?",
+    "124ae": "¿Dónde puedo encontrar la documentación técnica actualizada para las tecnologías o herramientas específicas que necesito utilizar?",
+    "123a": "¿Qué herramientas o utilidades podrían ayudarme a ejecutar mis tareas de manera más eficiente?",
+    "formaciones": {
+      "55e": "¿Qué recursos formativos están disponibles sobre estas tecnologías y cuáles son más relevantes para mi tarea actual?",
+      "122ae": "¿Dónde puedo encontrar material de formación específico para las tecnologías utilizadas en este proyecto?"
+    }
+  },
+  "arquitectura_del_sistema": {
+    "tecnologias_y_plataformas": {
+      "stack_tecnologico": {
+        "56a": "¿Cuáles son todas las tecnologías, frameworks y lenguajes utilizados en el proyecto?",
+        "57": "¿Para qué componente o funcionalidad específica se utiliza cada tecnología del proyecto?",
+        "129a": "¿Qué herramientas específicas se utilizan para gestionar las migraciones de esquemas de base de datos?"
+      },
+      "plataformas_disponibles": {
+        "58": "¿Qué plataformas o herramientas de soporte están disponibles para el proyecto (diseño, colaboración, monitoreo)?"
+      }
+    },
+    "dependencias": {
+      "126a": "¿Qué herramientas o procesos se utilizan para gestionar las dependencias en este proyecto?",
+      "127a": "¿Cuál es el procedimiento para revisar, actualizar o reemplazar dependencias vulnerables o desactualizadas?"
+    },
+    "modelo_c4": {
+      "nivel_1_contexto_sistema": {
+        "actores": {
+          "63": "¿Quiénes son los actores o usuarios que interactúan con el sistema?",
+          "64": "¿De qué manera específica interactúa cada tipo de actor con el sistema?",
+          "65": "¿Cuáles son los niveles de permiso o roles definidos para cada tipo de actor en el sistema?"
+        },
+        "sistemas_externos": {
+          "66": "¿Qué sistemas externos se integran o comunican con este sistema?",
+          "67": "¿Mediante qué protocolos, estándares o interfaces se conectan los sistemas externos?"
+        }
+      },
+      "nivel_2_contenedores": {
+        "68": "¿Qué aplicaciones, servicios o componentes principales conforman el sistema y cuál es la función de cada uno?",
+        "105a": "¿La aplicación está diseñada para funcionar en múltiples plataformas o dispositivos? ¿Cuáles?",
+        "130a": "¿Qué estrategias o patrones se aplican para optimizar el rendimiento de las consultas a bases de datos?",
+
+        "comunicacion_entre_contenedores": {
+          "69": "¿Qué protocolos, patrones o estándares se utilizan para la comunicación entre los diferentes contenedores?"
+        },
+        "dependencias_entre_contenedores": {
+          "70": "¿Cómo se gestionan las dependencias y el orden de inicio entre los diferentes contenedores?"
+        },
+        "tecnologias": {
+          "71": "¿Qué tecnologías, frameworks o bibliotecas específicas utiliza cada contenedor o servicio?"
+        },
+        "evaluacion_y_mejora": {
+          "138a": "¿El enfoque de desarrollo actual es óptimo o existen oportunidades de mejora identificadas?",
+          "139a": "¿Cuál sería el costo en tiempo y recursos para optimizar el proceso de desarrollo actual?"
+        }
+      },
+      "nivel_3_diagrama_componentes": {
+          "72": "¿Cuáles son los componentes internos de cada contenedor y cuál es la función específica de cada uno?",
+          "131a": "¿Cuál es la arquitectura de integración entre los diferentes servicios o componentes del sistema?",
+          "comunicacion_entre_componentes": {
+            "73e": "¿Qué patrones o protocolos de comunicación se utilizan entre los componentes dentro de un mismo contenedor?"
+          },
+          "dependencias_entre_componentes": {
+            "74": "¿Cómo se gestionan las dependencias y el ciclo de vida entre los componentes de diferentes contenedores?"
+          },
+          "tecnologias": {
+            "71": "¿Qué tecnologías, frameworks o bibliotecas específicas utiliza cada componente?"
+          }
+        },
+      "nivel_4_diagrama_codigo": {
+        "estructura_diagrama_clases": {
+          "75e": "¿Cuál es la estructura detallada de clases, interfaces y objetos dentro de un componente específico?",
+          "76e": "¿Cuál es la responsabilidad y función principal de cada clase o interfaz dentro del componente?",
+          "132ae": "¿Puedes proporcionar un diagrama de paquetes y clases para entender la estructura del código?",
+          "133ae": "¿Puedes mostrarme la jerarquía completa de llamadas para este método específico?",
+          "134ae": "¿Cuáles son los métodos más complejos o difíciles de entender en el código y por qué?"
+        },
+        "patrones_diseno": {
+          "77": "¿Qué patrones de diseño, estructuras de herencia o composición se implementan en el código?",
+          "135a": "¿Qué patrones arquitectónicos o de diseño se utilizan en el proyecto (MVC, MVVM, etc.)?",
+          "136ae": "¿Por qué se eligieron estos patrones arquitectónicos o de diseño específicos?",
+          "137ae": "¿Qué arquitectura o patrones debo implementar para mi desarrollo actual?"
+        },
+        "principios_diseno": {
+          "78": "¿Qué principios de diseño (SOLID, DRY) o buenas prácticas de código se aplican en el proyecto?"
+        }
+      }
+    }
+  }
+}
+
+
+
+\end{lstlisting}

@@ -13,7 +13,7 @@
 %\chapterstyle{ell}
 %\chapterstyle{ger}
 %\chapterstyle{wilsondob}
-
+ 
 
 \pdfobjcompresslevel 0
 
@@ -22,10 +22,16 @@
 %% PAKETE HONEN AGINDUAK ERABILTZEN BADIRA, ALDATU HIZKUNTZA AUKERA %%
 %% SI SE USAN LOS COMANDOS DE ESTE PAQUETE, CAMBIAR LA OPCIÓN DE IDIOMA %%
 \usepackage[es]{ifcommands}
+\usepackage{url}
 \usepackage{pgfgantt}
 \usepackage{geometry}
 \usepackage{adjustbox}
-
+\usepackage{listings}
+\lstset{
+    extendedchars=true,
+    inputencoding=utf8,
+    basicstyle=\ttfamily\small
+}
 
 
 
@@ -156,6 +162,9 @@
 \chapter{Planificación} \label{ch:chap3}
 \input chapters/chap3plani
 \cleardoublepage
+\chapter{Captura de requisitos} \label{ch:chap4}
+\input chapters/chap4
+\cleardoublepage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ERANSKINAK / APENDICES %%
@@ -168,11 +177,13 @@
 \setcounter{subsection}{0}
 \chapter{Definición de términos técnicos}
 \input chapters/anexo_a.tex
+\chapter{Elicitación de preguntas}
+\input chapters/anexo_b.tex
 
 %%%%%%%%%%%%%%%%%%
 %% BIBLIOGRAFIA %%
 %%%%%%%%%%%%%%%%%%
-\bibliographystyle{unsrt}
+\bibliographystyle{unsrturl}
 \bibliography{references/references}
 %% ALDATU HEMEN EDUKIEN ZERRENDAN AGERTUKO DEN 
 \addcontentsline{tof}{chapter}{\bibname}

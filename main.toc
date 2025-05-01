@@ -42,9 +42,20 @@
 \contentsline {subsection}{\numberline {3.5.1}Sistema de información}{24}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}Sistema de comunicación}{24}{subsection.3.5.2}%
 \contentsline {section}{\numberline {3.6}Herramientas disponibles}{24}{section.3.6}%
-\contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{29}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Conjunto de datos etiquetados}{29}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Entrenamiento de redes neuronales}{29}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Distancia coseno}{30}{section.Alph1.3}%
-\contentsline {section}{\numberline {A.4}Tokenizador}{30}{section.Alph1.4}%
-\contentsline {chapter}{Bibliografía}{31}{appendix*.9}%
+\contentsline {chapter}{\chapternumberline {4}Captura de requisitos}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Requisitos principales}{29}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Requisitos funcionales}{29}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Requisitos no funcionales}{30}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Dominios de conocimiento}{30}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Anotación de preguntas}{31}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Metodología empresarial}{32}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Recursos a utilizar}{32}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Proyecto software}{32}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Recursos generados}{33}{subsection.4.3.2}%
+\contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{35}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Conjunto de datos etiquetados}{35}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Entrenamiento de redes neuronales}{35}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Distancia coseno}{36}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Tokenizador}{36}{section.Alph1.4}%
+\contentsline {appendix}{\chapternumberline {B}Elicitación de preguntas}{37}{appendix.Alph2}%
+\contentsline {chapter}{Bibliografía}{49}{appendix*.9}%
