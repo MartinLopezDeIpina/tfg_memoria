@@ -1,0 +1,401 @@
+% Actas de reuniones TFG
+
+\section{Acta de reunión TFG (25/02/2025)}
+
+\begin{description}
+    \item[Fecha:] 25/02/2025
+    \item[Inicio de reunión:] 14:00
+    \item[Fin de reunión:] 16:00
+    \item[Lugar:] Sala Zurriola
+    \item[Tipo de reunión:] Iniciación
+    \item[Asistentes:] ~\\
+    Maider Azanza\\
+    Aritz Galdos\\
+    Martín López de Ipiña\\
+    Beatriz Pérez Lamancha\\
+    Nerea Larrañaga\\
+    Jon Dorronsoro
+\end{description}
+
+\subsection{Orden del día}
+\begin{enumerate}
+    \item Presentar el estado actual del proyecto Onboarding en LKS
+    \item Sesión de Brainstorming para el TFG
+\end{enumerate}
+
+\subsection{Resumen de la reunión}
+Se ha comenzado con una presentación del trabajo de Nerea en el proyecto de Onboarding en LKS. Se ha comentado la disponibilidad de una base de datos de itinerarios personalizados para el proceso de Onboarding. 
+
+Después, Aritz ha presentado sus requisitos para el TFG; una exploración de la implementación técnica de agentes LLM, para la posterior implementación en otros proyectos. A continuación, se ha procedido a una sesión de Brainstorming, donde las ideas destacadas son: 
+\begin{itemize}
+    \item Asistente ChatBot para la integración Onboarding en proyectos software. Se enfocaría en resolver cuestiones de dominio, arquitectura o prácticas software. Se descarta la generación de código dada su complejidad y la diversidad de herramientas existentes.
+    \item Generador de ejercicios para formaciones de Onboarding usando agentes LLM. 
+\end{itemize}
+
+La principal inquietud radica en la gestión del alcance y la validación del sistema. Se ha mencionado el riesgo de proponer un proyecto demasiado ambicioso, resultando en fracaso por falta de recursos.
+
+\subsection{Estado del proyecto}
+El proyecto se encuentra en una fase inicial, el alcance no está definido.
+
+\subsection{Decisiones}
+\subsubsection{Decisiones adoptadas}
+Dedicar un primer sprint para definir los requisitos y alcance del proyecto. 
+
+\subsubsection{Asignación de tareas a realizar}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Tarea} & \textbf{Responsable} & \textbf{Fecha límite} \\
+        \hline
+        Realizar una propuesta de alcance del proyecto & Martín & 12/03/25 \\
+        \hline
+        Diseñar una propuesta de diseño para el sistema de agentes LLM & Martín & 12/03/25 \\
+        \hline
+    \end{tabular}
+    \caption{Tareas asignadas (25/02/2025)}
+\end{table}
+
+\textbf{Próxima reunión:} 12/03/2025
+
+\clearpage
+
+\section{Acta de reunión TFG (12/03/2025)}
+
+\begin{description}
+    \item[Fecha:] 12/03/2025
+    \item[Inicio de reunión:] 14:00
+    \item[Fin de reunión:] 14:45
+    \item[Lugar:] Telemático
+    \item[Tipo de reunión:] Seguimiento
+    \item[Asistentes:] ~\\
+    Maider Azanza\\
+    Aritz Galdos\\
+    Martín López de Ipiña\\
+    Juanan Pereira
+\end{description}
+
+\subsection{Orden del día}
+\begin{enumerate}
+    \item Presentar frameworks de agentes y caso de uso propuesto
+    \item Decidir el caso de uso
+\end{enumerate}
+
+\subsection{Resumen de la reunión}
+Se ha comenzado con una presentación de Martín de los Frameworks orientados a agentes y su caso de uso propuesto para la aplicación. Se ha propuesto orientarlo a la conexión entre el proyecto software y una formación proporcionado por la empresa, creando ejercicios específicos de la documentación y proyecto de la empresa. Tras esto, se ha comentado que la creación de ejercicios por agentes LLM ya ha sido ampliamente investigada.
+
+Juanan ha aclarado que la parte interesante radica en vincular el usuario con los diferentes recursos de la empresa; proyecto software, guía de estilo y código, documentación del proyecto...
+También se ha mencionado la necesidad de generar datos para los casos en los que se va a utilizar el sistema.
+
+Se han comentado varias ideas técnicas para el sistema de agentes:
+\begin{itemize}
+    \item Un procesado del prompt del usuario para la aclaración de la tarea a realizar. Se puede complementar con el patrón human-in-the-loop para capturar mejor la intención del usuario, similar a deepresearch.
+    \item División del sistema de agentes por especialistas. Cada uno tendría acceso a herramientas especializadas en un dominio, puediendo ser las herramientas otro agente.
+    \item Módulo de memoria para guardar la información relacionada con el usuario y sus conversaciones pasadas.
+    \item Interacción entre los diferentes agentes especialistas. Podría ser mediante una conversación entre agentes, cada uno proponiendo su propuesta específica. También es posible un tablón de tareas, donde cada agente leería las cuestiones asignadas a su etiqueta.
+    \item Planificación a alto y bajo nivel. Primero un agente compondría las ideas generales, mientras que otro definiría más concretamente qué pasos llevar a cabo. Un sistema de feedback para la planificación convendría también.
+\end{itemize}
+
+\subsection{Estado del proyecto}
+El proyecto tiene un alcance más definido, pero todavía no se tiene captura de requisitos.
+
+\subsection{Decisiones}
+\subsubsection{Decisiones adoptadas}
+Dedicar una semana más a la busqueda del caso de uso específico.
+Buscar recursos disponibles en la empresa para el desarrollo del proyecto.
+Considerar varios frameworks a la hora del desarrollo. Se debe tener en cuenta el nuevo framework de OpenAI, langflow.
+
+\subsubsection{Asignación de tareas a realizar}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Tarea} & \textbf{Responsable} & \textbf{Fecha límite} \\
+        \hline
+        Proponer diferentes casos de uso específicos para el sisitema de agentes & Martín & 20/03/25 \\
+        \hline
+        Definir los recursos disponibles en la empresa para el desarrollo del proyecto & Aritz & 20/03/25 \\
+        \hline
+    \end{tabular}
+    \caption{Tareas asignadas (12/03/2025)}
+\end{table}
+
+\textbf{Próxima reunión:} 20/03/2025
+
+\clearpage
+
+\section{Acta de reunión TFG (20/03/2025)}
+
+\begin{description}
+    \item[Fecha:] 20/03/2025
+    \item[Inicio de reunión:] 12:30
+    \item[Fin de reunión:] 13:10
+    \item[Lugar:] Telemático
+    \item[Tipo de reunión:] Seguimiento
+    \item[Asistentes:] ~\\
+    Maider Azanza\\
+    Aritz Galdos\\
+    Juanan Pereira\\
+    Martín López de Ipiña
+\end{description}
+
+\subsection{Orden del día}
+\begin{enumerate}
+    \item Presentar casos de uso propuestos
+    \item Decidir el caso de uso
+\end{enumerate}
+
+\subsection{Resumen de la reunión}
+Se ha comenzado con una presentación de Martín de los casos de uso propuestos para el agente. Se han propuesto 5 posibles preguntas para el sistema: información general del proyecto, gestión del proyecto, preguntas relacionadas sobre la documentación, preguntas sobre formaciones adicionales y arquitectura del proyecto. Martín ha propuesto enfocar el agente únicamente en la arquitectura del proyecto e información general del proyecto. También ha propuesto varios posibles proyectos open source donde aplicar el sistema dada la falta de documentación en los proyectos open source de la empresa. 
+
+Posteriormente, Juanan ha propuesto no descartar los demás casos de uso, y añadirlos con un enfoque iterativo incremental. También se ha decidido buscar más proyectos disponibles en la empresa, y generar la documentación faltante con LLMs.
+
+\subsection{Estado del proyecto}
+El alcance general del proyecto está definido, los requisitos generales están definidos.
+
+\subsection{Decisiones}
+\subsubsection{Decisiones adoptadas}
+Refinar los diferentes tipos de preguntas en una taxonomía para poder definir un proceso iterativo.
+Buscar más proyectos disponibles en la empresa para el desarrollo del sistema.
+
+\subsubsection{Asignación de tareas a realizar}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Tarea} & \textbf{Responsable} & \textbf{Fecha límite} \\
+        \hline
+        Crear la taxonomía de preguntas & Martín & 02/04/2025 \\
+        \hline
+        Buscar proyectos software disponibles en la empresa para la aplicación del sistema de agentes & Aritz & 02/04/2025 \\
+        \hline
+    \end{tabular}
+    \caption{Tareas asignadas (20/03/2025)}
+\end{table}
+
+\textbf{Próxima reunión:} 02/04/2025
+
+\clearpage
+
+\section{Acta de reunión TFG (02/04/2025)}
+
+\begin{description}
+    \item[Fecha:] 02/04/2025
+    \item[Inicio de reunión:] 14:00
+    \item[Fin de reunión:] 14:45
+    \item[Lugar:] Telemático
+    \item[Tipo de reunión:] Seguimiento
+    \item[Asistentes:] ~\\
+    Maider Azanza\\
+    Aritz Galdos\\
+    Juanan Pereira\\
+    Martín López de Ipiña
+\end{description}
+
+\subsection{Orden del día}
+\begin{enumerate}
+    \item Presentar taxonomía generada con el mailing
+    \item Presentar proyecto IA-core-tools propuesto
+    \item Presentar agente de código propuesto e implementación actual
+\end{enumerate}
+
+\subsection{Resumen de la reunión}
+Se ha comenzado con una presentación de Martín sobre la taxonomía de preguntas anotadas, el proyecto IA-core-tools y el agente de código propuesto. A continuación, Aritz ha expuesto que la idea es tener un sistema mínimo implementado, para posteriormente ir añadiendo agentes y mejoras de estos.
+
+Se ha comentado la utilidad de realizar una pequeña investigación antes de crear cada agente. Podría ser más interesante incorporar uno ya implementado al sistema y evaluar su rendimiento.
+
+Tras esto, Juanan ha comentado la posibilidad de utilizar búsquedas por expresiones regulares o palabras clave de forma complementaria a la búsqueda semántica.
+
+\subsection{Estado del proyecto}
+El primer sprint está casi finalizado, el agente de código está en proceso de implementación.
+
+\subsection{Decisiones}
+\subsubsection{Decisiones adoptadas}
+Crear una implementación del sistema mínimo con el agente de código para el siguiente sprint.
+Dedicar algo de tiempo a buscar implementaciones ya existentes de agentes antes de implementarlos.
+Utilizar Jira para la gestión del proyecto.
+
+\subsubsection{Asignación de tareas a realizar}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Tarea} & \textbf{Responsable} & \textbf{Fecha límite} \\
+        \hline
+        Acabar la implementación del agente de código & Martín & 15/04/2025 \\
+        \hline
+        Crear una planificación en Jira con los issues y sprints & Martín & 15/04/2025 \\
+        \hline
+    \end{tabular}
+    \caption{Tareas asignadas (02/04/2025)}
+\end{table}
+
+\textbf{Próxima reunión:} 15/04/2025
+
+\clearpage
+
+\section{Acta de reunión TFG (04/04/2025)}
+\label{anexo:acta_diseñadores}
+
+\begin{description}
+    \item[Fecha:] 04/04/2025
+    \item[Inicio de reunión:] 12:00
+    \item[Fin de reunión:] 12:30
+    \item[Lugar:] Telemático
+    \item[Tipo de reunión:] Captura de recursos
+    \item[Asistentes:] ~\\
+    Aritz Galdos\\
+    Martín López de Ipiña\\
+    Juan Carlos del Valle\\
+    Uxue Reino
+\end{description}
+
+\subsection{Orden del día}
+\begin{enumerate}
+    \item Explicar el funcionamiento del equipo de diseño de interfaces de usuario en LKS
+    \item Exponer la idea del TFM de Uxue
+\end{enumerate}
+
+\subsection{Resumen de la reunión}
+Se ha comenzado con una breve explicación del TFG de Martín. Se han explicado los documentos que podrían ser de utilidad: guías de estilo, documentación de proceso, etc. 
+
+A continuación, Juan Carlos ha explicado el proceso general en su departamento. Se parte del requisito de un cliente, para lo que se crea un diseño con herramientas como figma. El diseño se exporta posteriormente a una maqueta en HTML, para lo que el equipo de desarrollo puede utilizar como base a seguir. En función del cliente se siguen ciertos estándares de documentación, por ejemplo, para Orona el proceso se documenta en un Confluence.
+
+Finalmente, Uxue ha hecho una breve explicación del objetivo de su TFM. La idea es eliminar por completo las maquetas HTML y generar una base directamente en el framework frontend utilizado.
+
+\subsection{Decisiones}
+\subsubsection{Decisiones adoptadas}
+Aprovechar los documentos compartidos por Juan Carlos y Uxue para generar la documentación del agente correspondiente.
+Definir un agente con acceso a Confluence como uno de los posibles agentes a implementar.
+
+\subsubsection{Asignación de tareas a realizar}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Tarea} & \textbf{Responsable} & \textbf{Fecha límite} \\
+        \hline
+        Incluir los recursos compartidos en la documentación disponible para los agentes & Martín & - \\
+        \hline
+    \end{tabular}
+    \caption{Tareas asignadas (04/04/2025)}
+\end{table}
+
+\clearpage
+
+\section{Acta de reunión TFG (15/04/2025)}
+
+\begin{description}
+    \item[Fecha:] 15/04/2025
+    \item[Inicio de reunión:] 10:30
+    \item[Fin de reunión:] 11:30
+    \item[Lugar:] Telemático
+    \item[Tipo de reunión:] Seguimiento
+    \item[Asistentes:] ~\\
+    Maider Azanza\\
+    Aritz Galdos\\
+    Juanan Pereira\\
+    Martín López de Ipiña
+\end{description}
+
+\subsection{Orden del día}
+\begin{enumerate}
+    \item Presentar Sistema mínimo de agentes actual
+    \item Proponer siguiente iteración como evaluación y mejora del sistema mínimo
+\end{enumerate}
+
+\subsection{Resumen de la reunión}
+Se ha comenzado con una presentación de Martín sobre el sistema mínimo implementado actual. Contiene 5 agentes especializados, un orquestador, un planificador y un formateador de la respuesta. Se ha hecho una demostración del funcionamiento y se han comentado algunos detalles de implementación. 
+
+Martín ha comentado la necesidad de evaluar el sistema antes de implementar mejoras, para poder evaluar si las mejoras posteriores realmente mejoran el sistema. Aritz ha ofrecido el TFG de Mikel Lonbide como ayuda para la implementación, ya que este desarrolló un benchmark para la evaluación de modelos LLM.
+
+Se ha propuesto que el agente formateador contenga la capacidad de citar las fuentes de su respuesta. 
+
+Aritz ha comentado que le gustaría probar un agente orquestador con la capacidad incorporada de pensamiento propio. Se ha decidido incluir esta posiblidad en las mejoras del sistema actual tras implementar el evaluador del sistema.
+
+\subsection{Estado del proyecto}
+La segunda iteración está finalizada, se debe empezar con la tercera.
+
+\subsection{Decisiones}
+\subsubsection{Decisiones adoptadas}
+Crear un sistema de evaluación tanto para los agentes individuales como para el sistema completo. Se deben considerar dos métricas:
+\begin{itemize}
+    \item Las llamadas a las herramientas son las adecuadas.
+    \item La respuesta del agente contiene los puntos a incluir en los datos anotados.
+\end{itemize}
+Incluir una heramienta de referencias en el agente formateador. 
+Incluir un orquestador con capacidad de decisión razonada en la fase de mejoras.
+
+\subsubsection{Asignación de tareas a realizar}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Tarea} & \textbf{Responsable} & \textbf{Fecha límite} \\
+        \hline
+        Empezar con la siguiente iteración para evaluar y mejorar los agentes actuales & Martín & 28/04/2025 \\
+        \hline
+    \end{tabular}
+    \caption{Tareas asignadas (15/04/2025)}
+\end{table}
+
+\textbf{Próxima reunión:} 28/04/2025
+
+\clearpage
+
+\section{Acta de reunión TFG (29/04/2025)}
+
+\begin{description}
+    \item[Fecha:] 29/04/2025
+    \item[Inicio de reunión:] 10:30
+    \item[Fin de reunión:] 11:30
+    \item[Lugar:] Telemático
+    \item[Tipo de reunión:] Seguimiento
+    \item[Asistentes:] ~\\
+    Maider Azanza\\
+    Aritz Galdos\\
+    Juanan Pereira\\
+    Martín López de Ipiña
+\end{description}
+
+\subsection{Orden del día}
+\begin{enumerate}
+    \item Presentar el sistema de evaluación y las mejoras implementadas
+    \item Decidir el enfoque del proyecto para la siguiente evaluación
+\end{enumerate}
+
+\subsection{Resumen de la reunión}
+Se ha comenzado con una presentación de Martín del trabajo realizado, explicado el sistema de evaluación, los resultados de las evaluaciones realizadas y las mejoras implementadas. Se han explicado las mejoras del sistema de citas, los prompts de los agentes orquestadores y planificadores y la optimización del costo de los agentes especializados. También se han definido las variaciones de orquestación posibles por implementar.
+
+Tras esto, Aritz ha indicado especial interés en las variaciones de orquestación, ya que como su evaluación está automatizada su implementación es en un principio trivial.
+
+Respecto a la iteración de mejora de interacción de agentes, se ha comentado la problemática de que un sistema de memoria sobre ejecuciones anteriores limitaría el conocimiento del agente al momento de su registro. Para evitar esto, Juanan ha indicado que se pueden utilizar sistemas de actualización de información periódicas. 
+
+La reunión ha finalizado con la decisión del enfoque del rumbo del proyecto. La dedicación horaria ha sido mayor de lo inicialmente planificada, por lo que es necesario ajustar algunas iteraciones. La complejidad técnica del proyecto es un principio suficiente, por lo que se ha decidido reducir en gran medida la dedicación horaria de las últimas dos iteraciones y centrar el enfoque en la redacción de la memoria.
+
+\subsection{Estado del proyecto}
+La tercera iteración ha finalizado, la cuarta iteración se encuentra aproximadamente por la mitad.
+
+\subsection{Decisiones}
+\subsubsection{Decisiones adoptadas}
+\begin{itemize}
+    \item Reducir la dedicación horaria en lo relacionado a la implementación técnica en las últimas dos iteraciones.
+    \item Centrar los esfuerzos en la redacción de la memoria.
+\end{itemize}
+
+\subsubsection{Asignación de tareas a realizar}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Tarea} & \textbf{Responsable} & \textbf{Fecha límite} \\
+        \hline
+        Crear un índice de todos los capítulos a incluir en la memoria & Martín & 4/05/2025 \\
+        \hline
+        Acabar las mejoras y los sistemas de orquestación & Martín & 9/05/2025 \\
+        \hline
+    \end{tabular}
+    \caption{Tareas asignadas (29/04/2025)}
+\end{table}
+
+\textbf{Próxima reunión:} 9/05/2025

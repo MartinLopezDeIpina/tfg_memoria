@@ -9,25 +9,25 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references/references.bib
 Warning--entry type for "noauthor_deepseek-r1deepseek_r1pdf_nodate" isn't style-file defined
---line 1543 of file references/references.bib
+--line 1329 of file references/references.bib
 Warning--entry type for "kalliamvakou_research_2022" isn't style-file defined
---line 1911 of file references/references.bib
+--line 1645 of file references/references.bib
 Warning--entry type for "noauthor_github_nodate" isn't style-file defined
---line 1924 of file references/references.bib
+--line 1658 of file references/references.bib
 Warning--entry type for "noauthor_building_2023" isn't style-file defined
---line 1972 of file references/references.bib
+--line 1703 of file references/references.bib
 Warning--entry type for "acharya_devin_2025" isn't style-file defined
---line 1983 of file references/references.bib
+--line 1714 of file references/references.bib
 Warning--entry type for "noauthor_sourcegraphsourcegraph-public-snapshot_nodate" isn't style-file defined
---line 1996 of file references/references.bib
+--line 1727 of file references/references.bib
 Warning--entry type for "noauthor_sourcegraphscip_2025" isn't style-file defined
---line 2012 of file references/references.bib
+--line 1743 of file references/references.bib
 Warning--entry type for "noauthor_model_nodate" isn't style-file defined
---line 2166 of file references/references.bib
+--line 1881 of file references/references.bib
 Warning--entry type for "noauthor_number_2024" isn't style-file defined
---line 2191 of file references/references.bib
+--line 1903 of file references/references.bib
 Warning--entry type for "noauthor_c4_nodate" isn't style-file defined
---line 2235 of file references/references.bib
+--line 1941 of file references/references.bib
 Warning--empty year in sim_ramp-up_1998
 Warning--empty journal in steinmacher_systematic_2015
 Warning--empty year in steinmacher_systematic_2015
@@ -65,43 +65,43 @@ Warning--empty journal in du_improving_nodate
 Warning--empty year in du_improving_nodate
 You've used 61 entries,
             2616 wiz_defined-function locations,
-            937 strings with 21693 characters,
-and the built_in function-call counts, 22764 in all, are:
-= -- 1898
+            865 strings with 20174 characters,
+and the built_in function-call counts, 20408 in all, are:
+= -- 1489
 > -- 1353
 < -- 5
 + -- 450
 - -- 389
-* -- 1650
-:= -- 2934
-add.period$ -- 182
+* -- 1109
+:= -- 2708
+add.period$ -- 181
 call.type$ -- 61
 change.case$ -- 60
 chr.to.int$ -- 0
 cite$ -- 96
-duplicate$ -- 535
-empty$ -- 2392
+duplicate$ -- 537
+empty$ -- 2254
 format.name$ -- 389
-if$ -- 6190
+if$ -- 5643
 int.to.chr$ -- 0
 int.to.str$ -- 61
 missing$ -- 21
-newline$ -- 304
+newline$ -- 303
 num.names$ -- 54
-pop$ -- 677
+pop$ -- 638
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1599
+skip$ -- 1527
 stack$ -- 0
-substring$ -- 342
-swap$ -- 238
-text.length$ -- 89
+substring$ -- 258
+swap$ -- 94
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 35
 while$ -- 75
 width$ -- 63
-write$ -- 621
+write$ -- 549
 (There were 45 warnings)

@@ -1,6 +1,6 @@
 Una vez establecido el objetivo general del proyecto en el capítulo \ref{ch:chap1} y asentados los conceptos con los que se trabajará en el capítulo \ref{ch:chap2}, en el presente capítulo se detallarán los requisitos establecidos para el desarrollo del sistema.
 
-La captura de requisitos se ha estructurado en dos fases: en primera instancia, se acordaron los requisitos principales y el alcance general con los directores del proyecto; posteriormente, se realizó una captura exhaustiva para determinar los dominios de conocimiento que el sistema debe implementar.
+La captura de requisitos se ha estructurado en tres fases: en primer lugar, la definición de los requisitos principales y el alcance general con los directores del proyecto; en segundo lugar, la identificación de los dominios de conocimiento en los que el sistema debe especializarse; y finalmente, la determinación de los recursos específicos a utilizar para la implementación de la solución.
 
 \section{Requisitos principales}
 
@@ -8,13 +8,14 @@ El sistema agéntico implementado debe tener las siguientes características par
 
 \subsection{Requisitos funcionales}
 \begin{itemize}
-\item\textbf{Agentes especializados: }El sistema contemplará al menos 4 agentes cuya labor esté especializada en responder preguntas sobre fuentes de datos específicas.
-\item\textbf{Fuentes de información: }Los agentes del sistema contarán con acceso al menos al repositorio de código del proyecto software, a una documentación del proyecto externa y a un sistema de gestión de tareas. Al menos una de dichas fuentes debe ser accedida por un sistema RAG. 
+\item\textbf{Agentes especializados: }El sistema contemplará un mínimo de 4 agentes cuya labor esté especializada en responder preguntas sobre fuentes de datos específicas.
+\item\textbf{Fuentes de información: }Los agentes del sistema dispondrán de acceso a un conjunto de recursos que incluirá el repositorio de código del proyecto software, una documentación externa y un sistema de gestión de tareas. Al menos una de estas fuentes deberá ser accedida mediante una implementación RAG.
 \item\textbf{Orquestación: }Se requiere un agente coordinador cuya función sea decidir a qué agente especializado delegar una acción a realizar.
 \item\textbf{Protocolo MCP: }La implementación priorizará el uso del protocolo MCP: Al menos uno de los agentes especializados empleará dicho protocolo para obtener las herramientas a utilizar.
-\item\textbf{Evaluación de agentes: }Se implementará un sistema de evaluación objetivo para determinar si la mejora de agentes incrementa la precisión del sistema. Dado un agente y su mejora, será posible determinar cuál de los dos responde mejor a las preguntas realizadas, utilizando al menos una métrica cuantificable.
-\item\textbf{Enfoque del sistema: }La finalidad principal del sistema consistirá en responder preguntas sobre un proyecto software, logrando una tasa de precisión mínima del 75\% sobre un conjunto predefinido de al menos 25 preguntas. Esta precisión se medirá utilizando una métrica cuantificable previamente establecida. 
-\item\textbf{Librerías utilizadas: }El desarrollo se apoyará en un conjunto de librerías especializadas: LangChain para el control de modelos y prompting (empleándose en al menos el 75\% de las ejecuciones de modelos y prompts), LangGraph para el flujo lógico requiriendo que al menos el 75\% de los agentes del sistema se ejecuten sobre un grafo compilado de dicha librería, y LangSmith como herramienta de monitorización, garantizando que toda llamada a los modelos sea visualizable en dicha plataforma.\end{itemize}
+\item\textbf{Evaluación de agentes: }Se implementará un sistema de evaluación objetiva para determinar si la mejora de agentes incrementa la precisión del sistema. Dado un agente y su mejora, será posible determinar cuál de los dos responde mejor a las preguntas realizadas, utilizando para ello una métrica cuantificable.
+\item\textbf{Enfoque del sistema: }La finalidad principal del sistema consistirá en responder preguntas sobre un proyecto software, logrando una tasa de precisión mínima del 75\% sobre un conjunto predefinido de no menos de 25 preguntas, aprobado por los directores del proyecto. Esta precisión se medirá utilizando una métrica cuantificable previamente establecida.
+\item\textbf{Librerías utilizadas: }El desarrollo se sustentará en tres librerías especializadas: LangChain para el control de modelos y gestión de prompts (empleada en al menos el 75\% de las ejecuciones), LangGraph para estructurar el flujo lógico (requiriendo que mínimo tres cuartas partes de los agentes operen sobre un grafo compilado de dicha librería), y LangSmith como herramienta de monitorización (garantizando la visualización de todas las llamadas a modelos en la plataforma).
+\end{itemize}
 \subsection{Requisitos no funcionales}
 \begin{itemize}
 \item\textbf{Control de excepciones: }El sistema incorporará un control de excepciones que garantice la ejecución aún si un agente o una herramienta genera una excepción. Se contempla la captura de excepciones de todos los agentes y todas las herramientas utilizadas.
@@ -28,16 +29,18 @@ El sistema agéntico implementado debe tener las siguientes características par
 De acuerdo con los objetivos previamente establecidos en la sección \ref{chap3:objetivos}, es necesario alinear el sistema con la metodología de desarrollo implementada en la organización. Con este propósito, se ha efectuado una recopilación de las posibles interrogantes dirigidas al sistema, procediendo posteriormente a realizar un análisis de la metodología actualmente vigente en el entorno empresarial.
 
 \subsection{Anotación de preguntas}
-Para dicho cometido, se ha llevado a cabo una elicitación de requisitos mediante la implementación un cuestionario electrónico dirigido al personal técnico de la sede de Zuatzu en LKS Next. En dicho cuestionario, se solicitó a los profesionales que, acorde a su ámbito de especialización, anotasen las interrogantes que formularían a un sistema de onboarding hipotético.
+Se ha llevado a cabo una elicitación de requisitos mediante la implementación de un cuestionario electrónico dirigido al personal técnico de la sede de Zuatzu en LKS Next. En dicho cuestionario, se solicitó a los profesionales que, acorde a su ámbito de especialización, anotasen las interrogantes que formularían a un sistema de onboarding hipotético.
 
-Se recabaron un total de 63 interrogantes aportadas por 8 profesionales del ámbito del desarrollo software. Posteriormente, dichas cuestiones fueron ampliadas y categorizadas mediante la utilización del modelo Claude, tras lo cual se procedió a una anotación manual para eliminar elementos redundantes. La compilación clasificada final puede consultarse en el listado \ref{listado:preguntas}, donde se han identificado los siguientes dominios de conocimiento:
+Se recabaron un total de 63 interrogantes aportadas por 8 profesionales del ámbito del desarrollo software. Posteriormente, dichas cuestiones fueron ampliadas y categorizadas mediante la utilización del modelo Claude 3.7 Sonnet\footnote{Claude 3.7 Sonnet: \url{https://www.anthropic.com/claude/sonnet}} en su versión razonadora, tras lo cual se procedió a una anotación manual para eliminar elementos redundantes. La compilación clasificada final puede consultarse en el listado \ref{listado:preguntas}, donde se han identificado los siguientes dominios de conocimiento:
+
+\todo[inline]{En este párrafo tengo dudas con los tiempos verbales. He puesto "se recabaron", "fueron ampliadas", "se procedió", y luego el pretérito perfecto compuesto "se han identificado". Es como mejor me suena, pero no sé si el cambio contrasta demasiado.}
 
 \begin{itemize}
 \item\textbf{Información general: }Objetivo, finalidad y contexto del proyecto.
 \item\textbf{Entorno y despliegue: }Entornos de desarrollo y sistemas de despliegue disponibles.
 \item\textbf{Gestión del proyecto: }Comunicación y coordinación del equipo, metodología de contribución y gestión de tareas y requisitos.
-\item\textbf{Estándares y prácticas: }Estándares de codificación, visuales, de integración y aspectos legales.
-\item\textbf{Documentación: }Las fuentes de documentación disponibles para el proyecto y su ubicación.
+\item\textbf{Estándares y prácticas: }Estándares de codificación, estándares visuales, estándares de integración y aspectos legales.
+\item\textbf{Documentación: }Información sobre las fuentes de documentación disponibles para el proyecto, incluyendo su ubicación.
 \item\textbf{Recursos adicionales: }Recursos externos al proyecto como formaciones y documentación de librerías.
 \item\textbf{Arquitectura del sistema: }Cuestiones de diseño del código fuente sobre todos los niveles de abstracción del modelo C4\cite{noauthor_c4_nodate}. Este modelo define los niveles de abstracción de un proyecto software en 4 niveles:
 \begin{itemize}
@@ -49,37 +52,40 @@ Se recabaron un total de 63 interrogantes aportadas por 8 profesionales del ámb
 \end{itemize}
 
 \subsection{Metodología empresarial}
-La metodología implementada fue consultada directamente con los dearrolladores de la empresa. Al ser LKS Next una consultoría, la metodología implementada depende en gran medida del cliente específico con el que se está trabajando. Esta metodología cumple en su mayoría las siguientes pautas comunes:
+La metodología implementada ha sido consultada directamente con los desarrolladores de LKS Next. Al tratarse de una empresa consultora, la metodología aplicada presenta variaciones en función del cliente específico al que se presta servicio. No obstante, se ha identificado que dicha metodología se fundamenta en las siguientes directrices comunes:
 \begin{itemize}
-  \item\textbf{Gestión del tiempo: }Los integrantes del proyecto utilizan una aplicación propietaria para computar las horas dedicadas al proyecto.
-  \item\textbf{Gestión de tareas: }La asignación y monitorización de tareas se realiza mediante aplicaciones especializadas como Jira o Trello.
-  \item\textbf{Documentación: }La documentación de los proyectos está dispersa en varias ubicaciones como páginas web dedicadas o dentro del propio repositorio del proyecto.
-  \item\textbf{Respositorio del proyecto: }El código fuente del proyecto se gestiona de forma centralizada en un repositorio común, mayoritariamente en repositorios del GitLab propio de LKS Next.
+\item\textbf{Gestión del tiempo: }Los integrantes del equipo utilizan una aplicación propietaria para el registro y contabilización de las horas invertidas en cada proyecto.
+\item\textbf{Gestión de tareas: }La asignación, seguimiento y monitorización de tareas se efectúa a través de herramientas especializadas como Jira\footnote{Jira: \url{https://www.atlassian.com/es/software/jira}}.
+\item\textbf{Documentación: }La documentación técnica y funcional de los proyectos se distribuye en diversas plataformas, incluyendo páginas web específicas o directorios designados dentro del propio repositorio del proyecto.
+\item\textbf{Repositorio del proyecto: }La gestión del código fuente se realiza de manera centralizada en un repositorio común, alojado en plataformas como el GitLab\footnote{GitLab: \url{https://about.gitlab.com/}} propio de LKS Next o GitHub.
+
 \end{itemize}
+Adicionalmente, el flujo de trabajo establecido entre los equipos de diseño y desarrollo sigue una metodología específica. En una entrevista con un miembro del departamento de diseño \ref{anexo:acta_diseñadores}, se ha documentado el siguiente proceso:
 
-Adicionalmente, el flujo de trabajo entre diseñadores y desarrolladores sigue una metodología especializada. En una reunión con un integrante del equipo de diseño \textbf{referencia al acta} se capturó el proceso utilizado:
+En primera instancia, los requisitos visuales del proyecto se documentan en un repositorio de Confluence\footnote{Confluence: \url{https://www.atlassian.com/es/software/confluence}} sincronizado con el cliente. Posteriormente, el equipo de diseño elabora un prototipo visual empleando herramientas especializadas como Figma\footnote{Figma: \url{https://www.figma.com/}}. Una vez aprobados los diseños, estos se transforman en maquetas HTML funcionales, las cuales son compartidas con el equipo de desarrollo a través del sistema de almacenamiento en la nube de Google Drive.
 
-En primera instancia, se documentan los requisitos visuales a utilizar en un repositorio de Confluence. De esta forma, el equipo de diseño realiza un prototipo visual con herramientas especializadas como Figma. Tras esto, se exportan dichos diseños a maquetas html, los cuales se comparten mediante Google Drive con los desarrolladores del proyecto.
 
 \section{Recursos a utilizar}
-Tras definir los requisitos principales y los dominios de conocimeiento necesarios, se ha de definir el contexto específico en el que incorporar el sistema.  Para ello, no es posible utilizar un proyecto de un cliente en producción, dadas las restricciones legales tanto académicas como de inteligencia artificial.
-
+Tras definir los requisitos fundamentales y los dominios de conocimiento necesarios, se requiere establecer el contexto específico donde integrar el sistema a desarrollar. 
 \subsection{Proyecto software}
-Se ha seleccionado el proyecto propietario IA-core-tools. Este proyecto constituye herramientas de desarrollo de agentes LLM con acceso a fuentes de información mediante RAG. La aplicación está desarrollada en Flask y proporciona una api para desarrollar agentes de forma interactiva con la interfaz visual, de forma que los desarrolladores de LKS Next la utilicen para crear soluciones para los proyectos en producción.
 
-Se dispone de acceso al repositorio de GitLab del proyecto, con información detallada de todos los usuarios, contribuciones, gestión de incidencias y gestión de tareas.
+Debido a las restricciones legales existentes, no es viable la utilización de proyectos de cliente en entornos de producción. Bajo estas restricciones, para el desarrollo del presente trabajo se ha seleccionado el proyecto propietario IA-core-tools. Este constituye un conjunto de herramientas para el desarrollo de agentes basados en LLM con capacidad de acceso a fuentes de información mediante RAG. La aplicación está implementada en Flask\footnote{Flask: \url{https://flask.palletsprojects.com/en/stable/}} y proporciona una API que facilita el desarrollo de agentes de manera interactiva a través de una interfaz visual, permitiendo a los desarrolladores de LKS Next crear soluciones para proyectos en producción.
 
-La metodología de gestión dista ligeramente de los proyectos orientados a clientes. El desarrollador líder es Aritz Galdos (director empresarial del presente proyecto), y realiza reuniones tanto presenciales como virtuales con los contribuyentes del proyecto. Dadas las restricciones legales, no se dispone de acceso a la aplicación de gestión horaria.
+Se dispone de acceso completo al repositorio de GitLab del proyecto, lo que proporciona información detallada sobre todos los usuarios, contribuciones realizadas, gestión de incidencias y administración de tareas.
+
+Cabe destacar que la metodología de gestión implementada difiere ligeramente de la empleada en proyectos orientados directamente a clientes. En este caso, el desarrollador principal es Aritz Galdos (director empresarial del presente proyecto), quien coordina reuniones tanto presenciales como virtuales con los contribuyentes del proyecto. Debido a las restricciones legales mencionadas anteriormente, no se dispone de acceso a la aplicación de gestión horaria del proyecto.
 
 \subsection{Recursos generados}
+Con el objetivo de una evaluación detallada del sistema, se ha procedido a la generación de documentación que replica con la mayor fidelidad posible las características del proyecto original. Para este propósito, se ha empleado nuevamente el modelo Claude 3.7 Sonnet, utilizando como datos de entrada toda la información de gestión previamente mencionada, así como ficheros clave extraídos del repositorio del código fuente. Posteriormente, se ha realizado un proceso de refinamiento manual de la documentación generada con el objetivo de eliminar imprecisiones e información errónea.
 
-Para la correcta evaluación del sistema, se ha generado documentación lo más fidedigna posible al proyecto. Para ello, se ha utilizado el modelo Claude con toda la información de gestión mencionada como entrada. También se han incluido ficheros clave del repositorio del código fuente. Adicionalmente, se ha refinado manualmente la documentaión generada para eliminar información incorrecta.
+En una primera fase, se han elaborado tres documentos específicos relacionados con la sección visual del proyecto: \textit{funcionamiento\_y\_diseño\_interfaz}, \textit{guia\_de\_estilos\_visual} y \textit{limitaciones\_y\_mejoras\_pendientes}. Estos documentos han sido incorporados a un repositorio de Confluence para simular la documentación habitualmente proporcionada por los diseñadores del equipo.
 
-En primera instancia, se han generado 3 documentos relacionadas con la sección visual del proyecto: \textit{funcionamiento\_y\_diseño\_interfaz}, \textit{guia\_de\_estilos\_visual} y \textit{limitaciones\_y\_mejoras\_pendientes}. Estos documentos se han añadido a un repositorio de Confluence para simular la documentación mencionada por los diseñadores visuales. 
+Seguidamente, se han desarrollado trece documentos que constituyen una simulación de la ``documentación oficial'' del proyecto. Estos documentos recogen los elementos necesarios para la comprensión de la gestión, diseño y metodología de contribución del proyecto: \textit{arquitectura-software.md}, \textit{despliegue.md}, \textit{equipo-y-comunicacion.md}, \textit{estandares-codigo.md}, \textit{flujos-trabajo.md}, \textit{guia-contribucion.md}, \textit{informacion-cliente.md}, \textit{metodologia.md}, \textit{modelo-negocio.md}, \textit{onboarding.md}, \textit{README.md}, \textit{referencias-tecnicas.md} y \textit{sistema-gestion-tareas.md}.
 
-A continuación, se han generado 13 documentos que simulan la ``documentación oficial'' del proyecto. Estos capturan lo necesario para entender la gestión, diseño y metodología de contribución del proyecto a cualquier nueva incorporación: \textit{arquitectura-software.md}, \textit{despliegue.md}, \textit{equipo-y-comunicacion.md}, \textit{estandares-codigo.md}, \textit{flujos-trabajo.md}, \textit{guia-contribucion.md}, \textit{informacion-cliente.md}, \textit{metodologia.md}, \textit{modelo-negocio.md}, \textit{onboarding.md}, \textit{README.md}, \textit{referencias-tecnicas.md} y \textit{sistema-gestion-tareas.md}.
+Por último, se ha generado la ``Documentación API'' del proyecto mediante la utilización del agente RepoAgent\cite{luo_repoagent_2024}. Esta documentación contiene explicaciones detalladas de todas las clases y métodos implementados en Python, que conforman la estructura  del dominio y del modelo de negocio. El uso de este agente externo se explica detalladamente en la sección \textbf{Referenciar sección de agente código}.
 
-Finalmente, se ha generado la ``Documentación API'' del proyecto utilizando el agente RepoAgent\cite{luo_repoagent_2024}. Esta documentación contiene la explicación detallada de todas las clases y métodos del proyecto en Python.
+\todo[inline]{Como he usado la documentación API para indexar los chunks de código, creo que lo mejor es explicarlo en esa sección.}
+
 
 
 
