@@ -1,0 +1,94 @@
+Tras establecer los parámetros necesarios correspondientes a la gestión del proyecto, este capítulo presenta el diseño del sistema implementado. Para ello se introducirá la estructura de directorios utilizada, el diagrama del software desarrollado y la gestión de las herramientas con el protocolo MCP. 
+
+\section{Estructura del proyecto}
+El proyecto se divide en cuatro contenedores separados, cada uno con su propio entorno virtual de python venv. La figura \ref{fig:dir_principales} muestra un resumen de los directorios: 
+
+\begin{figure}[h]
+\centering
+\definecolor{folderbg}{RGB}{124,166,198}
+\definecolor{folderborder}{RGB}{110,144,169}
+\newlength\Size
+\setlength\Size{4pt}
+\tikzset{%
+  folder/.pic={%
+    \filldraw [draw=folderborder, top color=folderbg!50, bottom color=folderbg] (-1.05*\Size,0.2\Size+5pt) rectangle ++(.75*\Size,-0.2\Size-5pt);
+    \filldraw [draw=folderborder, top color=folderbg!50, bottom color=folderbg] (-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
+  },
+  file/.pic={%
+    \filldraw [draw=folderborder, top color=folderbg!5, bottom color=folderbg!10] (-\Size,.4*\Size+5pt) coordinate (a) |- (\Size,-1.2*\Size) coordinate (b) -- ++(0,1.6*\Size) coordinate (c) -- ++(-5pt,5pt) coordinate (d) -- cycle (d) |- (c) ;
+  },
+}
+\forestset{%
+  declare autowrapped toks={pic me}{},
+  declare boolean register={pic root},
+  pic root=0,
+  pic dir tree/.style={%
+    for tree={%
+      folder,
+      font=\ttfamily,
+      grow'=0,
+    },
+    before typesetting nodes={%
+      for tree={%
+        edge label+/.option={pic me},
+      },
+      if pic root={
+        tikz+={
+          \pic at ([xshift=\Size].west) {folder};
+        },
+        align={l}
+      }{},
+    },
+  },
+  pic me set/.code n args=2{%
+    \forestset{%
+      #1/.style={%
+        inner xsep=2\Size,
+        pic me={pic {#2}},
+      }
+    }
+  },
+  pic me set={directory}{folder},
+  pic me set={file}{file},
+}
+\begin{forest}
+  pic dir tree,
+  pic root,
+  for tree={% folder icons by default; override using file for file icons
+    directory,
+  },
+  [tfg\_agentes\_software
+    [sistema\_agentes
+    ]
+    [servidor\_mcp\_bd\_codigo
+    ]
+    [servidor\_mcp\_confluence
+    ]
+    [servidor\_mcp\_google\_drive
+    ]
+  ]
+\end{forest}
+\caption{Estructura de directorios principales del proyecto}
+\label{fig:dir_principales}
+\end{figure}
+
+
+El directorio \textit{sistema\_agentes} contiene todos los agentes desarrollados y los clientes MCP. Los directorios \textit{servidor\_mcp\_bd\_codigo}, \textit{servidor\_mcp\_confluence} y \textit{servidor\_mcp\_google\_drive} contienen cada uno un servidor MCP de ejecución independiente. Para el desarrollo se han implementado 5 servidores MCP:
+
+\begin{itemize}
+\item \textbf{Servidores con protocolo SSE}: código del proyecto software y Confluence. Estos se alojan en contenedores separados ya que el protocolo SSE permite desacoplar el cliente MCP del servidor.
+
+\item \textbf{Servidores con protocolo STDIO}: GitLab, Google Drive y sistema de ficheros local. La lógica de estos se he implementado junto a los agentes en \textit{sistema\_agentes} como se explica en la sección \ref{}. El servidor de Google Drive se mantiene en un contenedor independiente por ser una modificación de un repositorio no oficial: \url{https://github.com/felores/gdrive-mcp-server/blob/main/index.ts}.
+\end{itemize}
+
+\section{Diagrama de agentes}
+
+LangGraph proporciona un marco de trabajo para crear flujos de ejecución en forma de grafo. Para ello, se crea primero un grafo con el objeto StateGraph, el cual define la lógica de enrutamiento entre diferentes nodos, los cuales se definen como funciones de python. Estos grafos utilizan un denominado estado, representado por un diccionario tipado, para guardar el estado de ejecución.
+
+De esta forma, un agente podría representarse por un grafo compilado, en el que uno o varios nodos defina la lógica de llamada a LLMs, y otros posteriormente interpreten el resultado por ejemplo estructurando la respuesta. El estado en una implementación tradicional guardaría los mensajes generados entre llamadas, de forma que se itere sobre el nodo de llamada al LLM, añadiendo un mensaje al estado en cada iteración. 
+
+Este enfoque proporciona un marco de trabajo claro y enfocado en composición, ya que un nodo puede a su vez ser otro grafo compilado que represente a otro agente. No obstante, presenta un problema de redundancia: si dos agentes comparten gran parte del grafo que los componen, para no repetir código sería necesario crear un grafo que contemple la ejecución de ambos tipos de agentes, decidiendo en cada caso cuál ejecutar en función de algún parámetro en el estado. Aunque viable, la programación orientada a objetos propone una solución más limpia: la herencia. 
+
+Es por ello que se ha optado por un enfoque mixto entre composición y herencia. Cada agente está representado por una clase de Python, la cual tiene una función que compone el grafo que representa la ejecución del agente. De esta forma, la clase del agente define las funciones que representan cada nodo del grafo, puediendo heredar las de las clases más abstractas.
+
+Adicionalmente, esto proporciona la posibilidad de guardar datos no vinculados a la ejecución individual. Los datos encapsulados en los atributos de las clases representan datos que no varían en cada ejemplo de ejecución, por ejemplo, el nombre del agente o las herramientas que tiene disponibles; mientras que los atributos almacenados en el estado del grafo son propios de la ejecución, como pueden ser los mensajes generados en la instancia de ejecución concreta.
