@@ -642,6 +642,11 @@ INPUT ./figures/horas.png
 INPUT chapters/chap4.tex
 INPUT chapters/chap5.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4r-0.tfm
+INPUT ./figures/agentes.png
+INPUT ./figures/agentes.png
+INPUT ./figures/agentes.png
+INPUT ./figures/agentes.png
+INPUT ./figures/agentes.png
 INPUT chapters/anexo_a.tex
 INPUT chapters/anexo_b.tex
 INPUT chapters/anexo_d.tex
