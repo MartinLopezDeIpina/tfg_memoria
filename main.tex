@@ -30,13 +30,45 @@
 \usepackage{todonotes}
 \usepackage[edges]{forest}
 
-% Biblioteca SVG para importar el logo de Python
-\usetikzlibrary{svg.path}
+\usepackage{xcolor}
+
+\definecolor{background}{HTML}{F2F2F2}
+\definecolor{comment}{HTML}{008000}
+\definecolor{keyword}{HTML}{0000FF}
+\definecolor{string}{HTML}{A31515}
+
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{background},
+    commentstyle=\color{comment},
+    keywordstyle=\color{keyword},
+    stringstyle=\color{string},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    breaklines=true,
+    showstringspaces=false,
+    morecomment=[l]{\#},
+    morecomment=[s]{"""}{"""},
+    morestring=[b]',
+    morestring=[b]",
+    frame=tb,
+    framesep=8pt,
+    framerule=0pt,
+    columns=fullflexible,
+    keepspaces=true,
+    literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {ñ}{{\~n}}1,
+    inputencoding=utf8,
+    extendedchars=true
+}
+
 \lstset{
     extendedchars=true,
     inputencoding=utf8,
-    basicstyle=\ttfamily\small
+    basicstyle=\ttfamily\small,
+    style=pythonstyle
 }
+
 
 
 
