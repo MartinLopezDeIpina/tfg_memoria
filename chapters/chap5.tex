@@ -126,30 +126,29 @@ Adicionalmente, esta metodología facilita el almacenamiento de datos no vincula
 
 \begin{figure}[p]
   \centering
-  \adjustbox{center=\textwidth}{\hspace{-1cm}\includegraphics[width=1.35\linewidth]{figures/agentes.png}}
+  \adjustbox{center=\textwidth}{\hspace{-1.2cm}\includegraphics[width=1.4\linewidth]{figures/agentes.png}}
   \caption{Diagrama de clases UML de del sistema de agentes.}
   \label{fig:uml}
 \end{figure}
 
-La figura \ref{fig:uml} muestra el diagrama de clases (UML) general del sistema. La clase abstracta \textit{BaseAgent} define las funcionalidades básicas de todos los agentes: 
+La figura \ref{fig:uml} muestra el diagrama de clases (UML) general del sistema. La clase abstracta \textit{BaseAgent} define las funcionalidades comunes que implementan todos los agentes del sistema:
 \begin{itemize}
-  \item\textbf{Lógica de ejecución: }La función \textit{execute\_agent\_with\_exception\_handling} se encarga de invocar el grafo definido en \textit{create\_graph}, gestionando las excepciones e indicando los parámetros de entrada. Todos los agentes deben implementar la función \textit{prepare\_prompt}, e incluirla en su grafo de ejecución.
-  \item\textbf{Gestión del resultado: }La función \textit{process\_result} se encarga de estáticamente devolver el resultado de ejeución del agente para dado un estado de ejecución. 
-  \item\textbf{Evaluación del agente }La función \textit{call\_agent\_evaluation} se encarga en cada caso de definir la lógica de evaluación utilizando las métricas indicadas para cada agentes, representadas por la clase \textit{BaseEvaluator}. El capítulo \textbf{ref} explica este proceso en detalle.
+\item \textbf{Lógica de ejecución:} La función \textit{execute\_agent\_with\_exception\_handling()} se encarga de invocar el grafo definido en la función \textit{create\_graph()}, gestionando las posibles excepciones e inicializando los parámetros de entrada requeridos. Todos los agentes derivados deben implementar la función \textit{prepare\_prompt()} e integrarla en su grafo de ejecución correspondiente.
+\item \textbf{Gestión del resultado:} La función \textit{process\_result()} se encarga de procesar y devolver de manera estática el resultado de ejecución del agente para un estado de ejecución determinado.
+\item \textbf{Evaluación del agente:} La función \textit{call\_agent\_evaluation()} establece la lógica de evaluación específica para cada agente, utilizando las métricas definidas y representadas por la clase \textit{BaseEvaluator}. El capítulo \ref{cap} describe este proceso en detalle.
 \end{itemize}
 
 Los agentes que heredan del agente base son los siguientes:
-
-
 \begin{itemize}
-  \item\textbf{SpecializedAgent: }Representa a los agentes que buscan en las fuentes de información especializadas, se explica en detalle en la sección \textbf{ref}. Define la lógica de gestión de las herramientas utilizadas mediante el cliente mcp, utilizando la clase Singleton \textit{MCPClient}, la cual encapsula la lógica de conexión con todos los servidores MCP disponibles, explicado en la sección \textbf{ref}. También contiene una secuencia de instancias de \textit{DataSource}, las cuales definen todos los documentos citables en las fuentes de datos disponibles, véase la sección \textbf{ref}.
-  \item\textbf{OrchestratorAgent: }Implementa la lógica de enrutamiento de los agentes especialistas, decidiendo en cada caso cuáles agentes utilizar para una questión dada. Véase la sección \textbf{ref}. 
-  \item\textbf{PlannerAgent: }Define la lógica de planificación a seguir para una consulta dada, creando planes secuenciales dinámicamente ajustables. Véase la sección \textbf{ref}.
-  \item\textbf{FormatterAgent: }Convierte una secuencia de ejecución de agentes en un resultado legible, compuesta por una respuesta en formato textual y un conjunto de citas referenciando a documentos del proyecto software. Véase sección \textbf{ref}.
-  \item\textbf{MainAgent: }Define el flujo general de la ejecución, especificando si se usarán agentes planfiicadores, orquestadores y concatenando su respueta al agente formateador. Véase la sección \textbf{ref}. 
+\item \textbf{SpecializedAgent:} Representa de forma abstracta los agentes que realizan búsquedas en fuentes de información especializadas, aspecto detallado en la sección \ref{sec}. Define la lógica de gestión de las herramientas utilizadas mediante el cliente MCP, utilizando la clase Singleton \textit{MCPClient}, la cual encapsula la lógica de conexión con todos los servidores MCP disponibles, explicado en la sección \ref{sec:gestionmcp}. Asimismo, contiene una secuencia de instancias de \textit{DataSource}, las cuales definen todos los documentos citables en las fuentes de datos disponibles, descrito en la sección \ref{sec}.
+\item \textbf{OrchestratorAgent:} Implementa la lógica de enrutamiento de los agentes especialistas, determinando en cada caso qué agentes ejecutar para resolver una cuestión específica. Véase la sección \ref{sec}.
+\item \textbf{PlannerAgent:} Define la estrategia de planificación a seguir para una consulta determinada, elaborando planes secuenciales dinámicamente adaptables. Este proceso se detalla en la sección \ref{sec}.
+\item \textbf{FormatterAgent:} Transforma una secuencia de ejecución de agentes en un resultado estructurado y comprensible, compuesto por una respuesta en formato textual y un conjunto de citas que referencian a documentos del proyecto software. Consulte la sección \ref{sec}.
+\item \textbf{MainAgent:} Establece el flujo general de la ejecución, especificando si se implementarán agentes planificadores, orquestadores y enlanzando su respuesta al agente formateador. Este proceso se describe en la sección \ref{sec}.
 \end{itemize}
+Cada agente define su propia clase de estado para almacenar atributos vinculados a una ejecución, extendiendo la clase común \textit{AgentState}.
 
-Cada agente define su clase de estado, añadiendo en cada caso los atributos propios a la clase común \textit{AgentState}. Siguiendo estas definiciones, la figura \textbf{ref} muestra un ejemplo de ejecución para un agente especializado en buscar información en Google Drive.
+Durante la fase de inicialización, se procede a la creación de los grafos correspondientes a todos los agentes mediante la instanciación de sus respectivas clases, estableciendo simultáneamente las conexiones necesarias con los servidores MCP. Una vez completado este proceso de inicialización, los agentes adquieren la capacidad de responder a todas las consultas requeridas sin necesidad de desconexión. En la sección \textbf{\ref{sec}} se detalla la interacción funcional entre estas clases y sus mecanismos de comunicación.
 
 \section{Servidores MCP utilizados}
 En esta sección se introducirán los 5 servidores MCP utilizados, los cuales exponen herramientas mediante el protocolo SSE o el protocolo STDIO. 
@@ -291,6 +290,7 @@ Tras la verificación de autenticidad, el sistema desplegará el panel de Google
 \end{itemize}
 
 \section{Gestión de la conexión Model Context Protocol (MCP)}
+\label{sec:gestionmcp}
 Una vez explicada la estructura general de agentes, y los servidores MCP utilizados, en esta sección se explicará cómo se comunican los agentes con sus respectivos servidores para acceder a las herramientas disponibles.
 
 Siguiendo la documentación oficial de MCP, se ha desarrollado un cliente MCP mediante el patrón singleton capaz de contener todas las conexiones activas contra los servidores MCP. Esta clase guarda un diccionario para todas las herramientas y sesiones de conexiones MCP, con el identificador del servidor como clave, ilustrado en el listado \ref{lst:mcpclient}
