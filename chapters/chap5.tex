@@ -151,17 +151,16 @@ Cada agente define su propia clase de estado para almacenar atributos vinculados
 Durante la fase de inicialización, se procede a la creación de los grafos correspondientes a todos los agentes mediante la instanciación de sus respectivas clases, estableciendo simultáneamente las conexiones necesarias con los servidores MCP. Una vez completado este proceso de inicialización, los agentes adquieren la capacidad de responder a todas las consultas requeridas sin necesidad de desconexión. En la sección \textbf{\ref{sec}} se detalla la interacción funcional entre estas clases y sus mecanismos de comunicación.
 
 \section{Servidores MCP utilizados}
-En esta sección se introducirán los 5 servidores MCP utilizados, los cuales exponen herramientas mediante el protocolo SSE o el protocolo STDIO. 
+En esta sección se describirán los cinco servidores MCP implementados, los cuales exponen sus herramientas mediante dos protocolos de comunicación: el protocolo SSE (Server-Sent Events) y el protocolo STDIO (Standard Input/Output).
 
-\subsection{Servidores con protocolo SSE}
-Estos se alojan en contenedores separados ya que el protocolo SSE permite desacoplar el cliente MCP del servidor.
+\subsection{Servidores SSE}
+Estos se alojan en contenedores separados, ya que el protocolo SSE permite desacoplar servidores y cliente MCP.
+
 \begin{itemize}
-  \item\textbf{Servidor Confluence: }Tiene acceso de lectura al repositorio Confluence. Para su implementación se ha utilizado el servidor MCP oficial implementado por Atlassian \textbf{ref}. Para ello, el contenedor \textit{servidor\_mcp\_confluence} simplemente contiene un script de lanzamiento \textit{launch\_mcp\_server\_confluence.py}, un entorno virtual \textit{.venv} y un fichero para almacenar las credenciales de Confluence \textit{.env}. 
+\item \textbf{Servidor Confluence:} proporciona acceso de lectura al repositorio Confluence, utilizando el servidor MCP oficial de Atlassian \textbf{ref}. El contenedor \textit{servidor\_mcp\_confluence} incorpora un script de lanzamiento \textit{launch\_mcp\_server\_confluence.py} (detallado en el listado \ref{lst:servconf}), un entorno virtual \textit{.venv} y un archivo \textit{.env} destinado al almacenamiento de credenciales de Confluence.
 
-    Este script lanza el servidor mediante el gestor de paquetes uvx, ilustrado en el listado \ref{lst:check_data}. Para ello, ejecuta el paquete mcp-atlassian, el cual Atlassian ha publicado en PyPI (Python Package Index). Este paquete implementa el SDK oficial de MCP, para definir la implementación de las herramientas proporcionadas respecto a la api de Atlassian. Este SDK proporciona herramientas utilidades para crear un servidor ASGI (Asynchronous Server Gateway Interface) con enrutado de las herramientas implementadas. Las herramientas utilizadas en el servidor Confluence se detallan en la sección \textbf{ref}.  
-
-El script primero obtiene las variables de entorno necesarias desde el fichero \textit{.env} y posteriormente ejecuta con la librería \textit{subprocess} el comando para lanzar el servidor desde la línea de comandos de la máquina Ubuntu utilizada. Para ello es necesario tener instalado uvx en el entorno virtual de este contenedor.
-\begin{lstlisting}[caption={Ejecución del lanzamiento de servidor MCP Confluence con uvx},label={lst:check_data}]
+El script inicializa el servidor mediante el gestor de paquetes uvx, implementando el paquete mcp-atlassian disponible en PyPI. Atlassian integra el SDK de MCP en este paquete para desarrollar un servidor ASGI con capacidades de enrutamiento de herramientas que interactúan con su API. Tras la extracción de variables de entorno desde \textit{.env}, la biblioteca \textit{subprocess} ejecuta el comando uvx en el sistema, requiriendo que uvx esté previamente instalado en el entorno virtual.
+\begin{lstlisting}[caption={\textit{launch\_mcp\_server\_confluence.py}: ejecución de lanzamiento del servidor MCP Confluence},label={lst:servconf}]
     # Obtener variables de entorno
     load_dotenv() # <- Carga las variables desde el fichero .env
     confluence_url = os.getenv('CONFLUENCE_URL')
@@ -182,11 +181,11 @@ El script primero obtiene las variables de entorno necesarias desde el fichero \
     ...
 \end{lstlisting}
 
-\item\textbf{Servidor Código: }Tiene acceso de lectura al repositorio software, proporcionando herramientas para acceder a su código fuente. Se ha implementado directamente con el SDK de MCP, en el fichero \textit{src/mcp\_code\_server.py} del contenedor \textit{servidor\_mcp\_bd\_codigo}. 
+\item\textbf{Servidor Código: }proporciona acceso de lectura al repositorio software, implementando herramientas para la consulta de su código fuente. Su desarrollo se ha realizado directamente mediante el SDK de MCP, localizado en el fichero \textit{src/mcp\_code\_server.py} del contenedor \textit{servidor\_mcp\_bd\_codigo}. La sección \textbf{ref} detalla la implementación de dichas herramientas.
 
-  Se utiliza la clase FastMCP del sdk, la cual internamente implementa el framework FASTAPI para lanzar un servidor ASGI con soporte de comunicación SSE. Como se muestra en el listado \ref{lst:mcpcod}, primero se instancia la clase, se le vinculan varias herramientas utilizando el decorador \textit{@tool} sobre la función a utilizar como herramienta, y se ejecuta el servidor. Tras vincular las herramientas, el SDK implementará automáticamente las rutas \textit{call\_tool} y \textit{get\_tools} para acceder a estas desde el cliente MCP.
+El sistema emplea la clase FastMCP del SDK MCP de Python, que integra internamente un servidor Starlette para gestionar el enrutamiento de las herramientas implementadas. Como se especifica en el listado \ref{lst:mcpcod}, el procedimiento consta de la instanciación de la clase, la asociación de diversas herramientas mediante el decorador \textit{mcp.tool}, y la posterior ejecución del servidor. Una vez vinculadas las herramientas, el SDK genera automáticamente las rutas \textit{call\_tool} y \textit{get\_tools}, facilitando su acceso desde el cliente MCP.
 
-\begin{lstlisting}[caption={Implementación de servidor MCP con SDK de python},label={lst:mcpcod}]
+\begin{lstlisting}[caption={\textit{mcp\_code\_server.py: ejecución del servidor MCP con acceso al código fuente}},label={lst:mcpcod}]
   # Instanciar clase 
   mcp = FastMCP("postgre")
 
@@ -214,37 +213,24 @@ El script primero obtiene las variables de entorno necesarias desde el fichero \
 
 \end{itemize}
 
-\subsection{Servidores con protocolo STDIO}
-La lógica de estos se he implementado junto a los agentes en \textit{sistema\_agentes/src/mcp\_client/mcp\_multi\_client}. El servidor de Google Drive se mantiene en un contenedor independiente por ser una modificación de un repositorio no oficial: \url{https://github.com/felores/gdrive-mcp-server/blob/main/index.ts}.
-\begin{itemize}
-  \item\textbf{Servidor Sistema de ficheros local: }Tiene acceso a un directorio especificado, simulando el repositorio la ``documentación oficial'' del proyecto. 
-    Se ha utilizado el servidor oficial implementado por Antrhopic\textbf{ref}. Para su uso simplemente hay que configurar una instancia de StdioServerParameters, y posteriormente en la sección \textbf{ref} se detallará como establecer la conexión mediante este objeto. Similar al servidor Confluence, se utiliza un gestor de paquetes para ejecutar un paquete publicado por Anthropic, pero esta vez se utiliza npx para ejecutar el paquete de node \textit{@modelcontextprotocol/server-filesystem} como se detalla en el listado \ref{lst:mcpfs}. 
+\subsection{Servidores STDIO}
+\label{sec:stdio}
+Estos servidores ejecutan creando una conexión en el cliente MCP mediante una instancia StdioServerParameters, donde se especifican los parámetros necesarios. De este modo, cuando el cliente inicia la conexión, ejecutará el servidor en un subproceso del mismo.
 
-\begin{lstlisting}[caption={Instanciado de StdioServerParameters para el servidor MCP de sistema de ficheros},label={lst:mcpfs}]
-  # Obtener la ruta al directorio de la documentación 
-  docs_path = os.getenv("FILESYSTEM_DOCS_FOLDER")
+En los tres servidores la configuración de dicha instancia sigue el mismo procedimiento ilustrado en el Listado \ref{lst:mcpgitlab}. Se construye el comando con el gestor de paquetes y el paquete correspondiente, se obtienen los argumentos a especificar en el comando y se incorporan las credenciales como variables de entorno.
 
-  # Crear comando npx
+\begin{lstlisting}[caption={mcp\_multi\_client.py: instanciado de StdioServerParameters para el servidor MCP de GitLab},label={lst:mcpgitlab}]
+  # Crear comando y argumentos
   server_command = "npx"
-  server_args = ["-y", "@modelcontextprotocol/server-filesystem", docs_path]
+  server_args = ["-y", "@modelcontextprotocol/server-gitlab"]
 
-  # Instanciar objeto StdioServerParameters 
-  server_params = StdioServerParameters(
-      command=server_command,
-      args=server_args,
-      env={}
-  )
-\end{lstlisting}
-
-\item\textbf{Servidor GitLab: }Tiene acceso al repositorio de GitLab con utilidades para leer o modificar ficheros, incidencias, usuarios, contribuciones entre otros. Debido a que no proporciona funcionalidades específicas para leer ciertos recursos (sólo de escritura), se han añadido las herramientas correspondientes mediante la función \textit{add\_additional\_tools()} en el agente como se explica en la sección \textbf{ref}. Su funcionamiento es idéntico al del sistema de ficheros, utilizando el paquete \textit{@modelcontextprotocol/server-gitlab} y añadiendo las credenciales como variables de entorno, ilustrado en listado \ref{lst:mcpgitlab}
-
-\begin{lstlisting}[caption={Instanciado de StdioServerParameters para el servidor MCP de GitLab},label={lst:mcpgitlab}]
+  # Obtener las credenciales desde las variables de entorno
   server_env = {
       "GITLAB_PERSONAL_ACCESS_TOKEN": os.getenv('GITLAB_PERSONAL_ACCESS_TOKEN'),
       "GITLAB_API_URL": GITLAB_API_URL
   }
 
-  # Crear instancia StdioServerParameters indicando las credenciales de GitLab
+  # Crear instancia StdioServerParameters indicando las credenciales de GitLab como variables de entorno
   server_params = StdioServerParameters(
       command=server_command,
       args=server_args,
@@ -252,50 +238,72 @@ La lógica de estos se he implementado junto a los agentes en \textit{sistema\_a
   )
   
 \end{lstlisting}
+Mediante este procedimiento, se han utilizado los siguientes servidores:
+\begin{itemize}
+\item\textbf{Servidor Sistema de ficheros local: }Proporciona acceso a un directorio específico, que simula el repositorio de la ``documentación oficial'' del proyecto. Se ha utilizado el servidor oficial desarrollado por Anthropic\textbf{ref}, ejecutándolo mediante el gestor de paquetes npx con el paquete de node \textit{@modelcontextprotocol/server-filesystem}.
 
-\item\textbf{Servidor Google Drive: }Tiene acceso a un directorio de Google Drive, con las maquetas HTML del proyecto software. Aunque existe un repositorio oficial de MCP para acceder a Google Drive, este unicamente contiene herramientas para leer ficheros proporcionando su identificador, sin poder listar los identificadores disponibles. Es por ello que se ha utilizado un fork open source implementado en javascript \textbf{ref}. Adicionalmente se ha modificado la herramienta de listar ficheros para mostrar recursivamente todos los ficheros dentro de los directorios listados. En el fichero \textit{servidor\_mcp\_google\_drive/index\_mod.js}, ilustrado en el listado \ref{lst:mcpgd}
+\item\textbf{Servidor GitLab: }Facilita acceso al repositorio de GitLab con funcionalidades para leer o modificar ficheros, incidencias, usuarios y contribuciones. Se ejecuta utilizando el paquete de node \textit{@modelcontextprotocol/server-gitlab}. Debido a que no ofrece capacidades específicas para la lectura de ciertos recursos (limitándose a operaciones de escritura), se han incorporado herramientas complementarias mediante la función \textit{add\_additional\_tools()} en el agente \textit{SpecializedAgent}, como se detalla en la sección \textbf{ref}. 
 
+\item\textbf{Servidor Google Drive: }Proporciona acceso a un directorio de Google Drive, donde se alojan las maquetas HTML del proyecto software. A pesar de existir un repositorio oficial de MCP para la conexión con Google Drive, este no ofrece todas las funcionalidades requeridas, por lo que se ha empleado una modificación desarrollada en javascript \textbf{ref}. En consecuencia, en lugar de especificar el paquete a utilizar en la instancia StdioServerParameters, se indica la ruta del script a ejecutar, como se muestra en el Listado \ref{lst:clientgd}.
 
-\begin{lstlisting}[caption={Implementación de herramienta gdrive\_list\_files utilizando la API de Google Drive},label={lst:mcpgd}]
-// Utilizar librería de google drive para interactuar con la api
-import { google } from "googleapis";
-const drive = google.drive("v3"); 
+\begin{lstlisting}[caption={mcp\_multi\_client.py: StdioServerParameters para el servidor MCP de Google Drive},label={lst:clientgd}]
+  # Construir el comando indicando el script a ejecutar
+  server_script_path = f"{server_path}/index_mod.js"
+  server_command = "node"
+  server_args = [server_script_path]
 
-// Consultar archivos en la carpeta actual
-const res = await drive.files.list({
-    q: `'${folderId}' in parents`,
-    pageSize: 1000,
-    fields: "files(id, name, mimeType, modifiedTime, size)"
-\});
-
-// Procesar cada archivo/carpeta
-for (const file of res.data.files || []) {
-    allFiles.push({
-      ...
-    });
-    
-    // Si es una carpeta, listar su contenido recursivamente
-    if (file.mimeType === 'application/vnd.google-apps.folder') {
-        const subFiles = await listFilesRecursively(file.id, depth + 1, maxDepth);
-        allFiles = allFiles.concat(subFiles);
-    }
-}
-
+  server_params = StdioServerParameters(
+      command=server_command,
+      args=server_args,
+      env=env
+  )
 \end{lstlisting}
 
-La API requiere inicialmente autenticación OAuth con la cuenta de Google. Para implementar este proceso, se ha desarrollado el script mcp\_google\_drive\_client/auth.sh, el cual ejecuta el servidor con los parámetros de autenticación necesarios, mediante la utilización de la biblioteca google-cloud/local-auth. El servidor procederá a buscar las credenciales de Google Cloud almacenadas en mcp\_google\_drive/credentials/gcp-oauth.keys.json, las cuales corresponden a las credenciales de la aplicación generadas en Google Cloud para identificar la aplicación que interactúa con la API. Para este propósito, se ha configurado una aplicación en dicha plataforma, incorporando el servicio OAuth siguiendo las directrices establecidas [ref].
 
-Tras la verificación de autenticidad, el sistema desplegará el panel de Google OAuth en el navegador predeterminado, donde al autenticarse con la cuenta Google correspondiente, se generará un token de acceso temporal con validez de una hora para la interacción con la API. Dicho token se almacena en la ruta mcp\_google\_drive/credentials/.gdrive-server-credentials.json.
+Adicionalmente, se ha modificado la herramienta de listar ficheros para mostrar recursivamente todos los ficheros dentro de los directorios listados como se muestra en el Listado \ref{lst:mcpgd}
+
+
+\begin{lstlisting}[caption={index\_mod.js: herramienta gdrive\_list\_files utilizando la API de Google Drive},label={lst:mcpgd}]
+  // Utilizar librería de google drive para interactuar con la api
+  import { google } from "googleapis";
+  const drive = google.drive("v3"); 
+
+  // Consultar archivos en la carpeta actual
+  const res = await drive.files.list({
+      q: `'${folderId}' in parents`,
+      pageSize: 1000,
+      fields: "files(id, name, mimeType, modifiedTime, size)"
+  \});
+
+  // Procesar cada archivo/carpeta
+  for (const file of res.data.files || []) {
+      allFiles.push({
+        ...
+      });
+      
+      // Si es una carpeta, listar su contenido recursivamente
+      if (file.mimeType === 'application/vnd.google-apps.folder') {
+          const subFiles = await listFilesRecursively(file.id, depth + 1, maxDepth);
+          allFiles = allFiles.concat(subFiles);
+      }
+  }
+\end{lstlisting}
+Para obtener acceso API al directorio de Google Drive, se ha configurado una aplicación en Google Cloud siguiendo las directrices establecidas [ref]. En dicha plataforma se han obtenido las credenciales de acceso, las cuales se encuentran almacenadas en \textit{mcp\_google\_drive/credentials/gcp-oauth.keys.json}.
+
+La API requiere adicionalmente de autenticación OAuth con la cuenta de Google para su utilización. Para la generación del token temporal \textit{.gdrive-server-credentials.json}, es necesario ejecutar el script del servidor especificando el parámetro auth. Este proceso utilizará la biblioteca google-cloud/local-auth, la cual iniciará el protocolo de autenticación en el navegador.
 
 \end{itemize}
 
-\section{Gestión de la conexión Model Context Protocol (MCP)}
+\section{Cliente MCP}
 \label{sec:gestionmcp}
-Una vez explicada la estructura general de agentes, y los servidores MCP utilizados, en esta sección se explicará cómo se comunican los agentes con sus respectivos servidores para acceder a las herramientas disponibles.
+Una vez explicada la estructura general de agentes y los servidores MCP utilizados, en esta sección se detallará el mecanismo de comunicación entre los agentes y sus respectivos servidores para acceder a las herramientas disponibles.
 
-Siguiendo la documentación oficial de MCP, se ha desarrollado un cliente MCP mediante el patrón singleton capaz de contener todas las conexiones activas contra los servidores MCP. Esta clase guarda un diccionario para todas las herramientas y sesiones de conexiones MCP, con el identificador del servidor como clave, ilustrado en el listado \ref{lst:mcpclient}
+Siguiendo la documentación oficial, se ha implementado un cliente MCP mediante el patrón Singleton que permite gestionar todas las conexiones activas con los servidores MCP. Esta clase mantiene un diccionario para todas las herramientas y sesiones de conexiones MCP, utilizando el identificador del servidor como clave, tal como se ilustra en el listado \ref{lst:mcpclient}.
 
-\begin{lstlisting}[caption={Clase singleton MCPClient},label={lst:mcpclient}]
+
+\todo[inline]{Quizás no es necesario este fragmento de código?}
+
+\begin{lstlisting}[caption={mcp\_multi\_client.py: clase Singleton MCPClient},label={lst:mcpclient}]
   class MCPClient:
       _instance = None
 
@@ -307,9 +315,9 @@ Siguiendo la documentación oficial de MCP, se ha desarrollado un cliente MCP me
       _agent_tools: Dict[str, List[str]] = {}
 \end{lstlisting}
 
-Si se desea obtener las herramientas de un agente, se debe primero registrar el agente, conectar el servidor necesario, y obtener las herramientas con el cliente, como se muestra en el listado \ref{lst:mcpconnectgd}. 
+Para acceder a las herramientas de un agente, se debe seguir un procedimiento secuencial que consiste en registrar inicialmente el agente, establecer la conexión con el servidor correspondiente, y posteriormente obtener las herramientas mediante el cliente, según se ilustra en el listado \ref{lst:mcpconnectgd}.
 
-\begin{lstlisting}[caption={Función \textit{connect\_to\_mcp en agente Google Drive}},label={lst:mcpconnectgd}]
+\begin{lstlisting}[caption={google\_drive\_agent\_graph.py: función \textit{connect\_to\_mcp en agente Google Drive}},label={lst:mcpconnectgd}]
   async def connect_to_mcp(self):
       self.mcp_client = MCPClient.get_instance()
       await self.mcp_client.connect_to_google_drive_server()
@@ -318,20 +326,19 @@ Si se desea obtener las herramientas de un agente, se debe primero registrar el 
       self.tools = self.mcp_client.get_agent_tools(self.name)
 \end{lstlisting}
 
-Las operaciones anteriores llamarán a la función de conectar al servidor correspondiente, en este caso \textit{connect\_to\_google\_drive\_server()} \ref{lst:mcpconnect}. Esta función seguirá el patrón estándar para las conexiones STDIO, se crearán los parámetros STDIO \ref{lst:mcpgitlab} y se llamará a la función \textit{connect\_to\_stdio\_server()} ilustrado en el listado \ref{lst:mcpstdio}. 
+Las operaciones anteriormente descritas invocarán a la función de conexión con el servidor correspondiente, siguiendo dos patrones distintos según el tipo de conexión: para conexiones STDIO, como en el caso de \textit{connect\_to\_google\_drive\_server()} (Listado \ref{lst:mcpconnect}), se generarán los parámetros STDIO conforme al procedimiento detallado en la Sección \ref{sec:stdio}, y se ejecutará la función \textit{connect\_to\_stdio\_server()} (Listado \ref{lst:mcpstdio}); mientras que para conexiones SSE, la función correspondiente obtendrá la dirección del servidor para posteriormente establecer la conexión mediante \textit{connect\_to\_sse\_server()}, como se ilustra en el Listado \ref{lst:mcpsse}.
 
-\begin{lstlisting}[caption={Función \textit{connect\_to\_google\_drive\_server en Cliente MCP}},label={lst:mcpconnect}]
+Las conexiones implementan el SDK de Python de MCP, generando objetos ClientSession dentro de un contexto asíncrono denominado \textit{global\_exit\_stack}, definido a nivel global para gestionar la ejecución de todos los agentes. Al finalizar la ejecución, la función \textit{cleanup()} del cliente MCP procede a cerrar este contexto global, terminando así todas las conexiones establecidas, tal como se detalla en el Listado \ref{lst:clean}. Este diseño considera que todos los agentes serán creados y finalizados de manera simultánea.
+
+\begin{lstlisting}[caption={mcp\_multi\_client.py: función \textit{connect\_to\_google\_drive\_server en Cliente MCP}},label={lst:mcpconnect}]
     async def connect_to_google_drive_server(self):
         server_id = "google_drive"
         ...
         await self.connect_to_stdio_server(server_id, server_params)
 \end{lstlisting}
 
-\begin{lstlisting}[caption={Función \textit{connect\_to\_stdio\_server en cliente MCP}},label={lst:mcpstdio}]
+\begin{lstlisting}[caption={mcp\_multi\_client.py: función \textit{connect\_to\_stdio\_server en cliente MCP}},label={lst:mcpstdio}]
     async def connect_to_stdio_server(self, server_id: str, stdio_params: StdioServerParameters):
-        if self._check_if_session_exists(server_id):
-            return
-
         # Establecer la conexión usando el exit_stack global
         stdio_transport = await global_exit_stack.enter_async_context(stdio_client(stdio_params))
         stdio, write = stdio_transport
@@ -344,9 +351,7 @@ Las operaciones anteriores llamarán a la función de conectar al servidor corre
 
 \end{lstlisting}
 
-En caso de las conexiones SSE, se llamará nuevamente a la función correspondiente, la cual obtendrá la dirección del servidor, para posteriormente conectarse con la función \textit{connect\_to\_sse\_server} ilustrado en el listado \ref{lst:mcpsse}.  
-
-\begin{lstlisting}[caption={Función \textit{connect\_to\_sse\_server en cliente MCP}},label={lst:mcpsse}]
+\begin{lstlisting}[caption={mcp\_multi\_client.py: función \textit{connect\_to\_sse\_server en cliente MCP}},label={lst:mcpsse}]
     async def connect_to_sse_server(self, server_id: str, host_ip: str, host_port: int):
         # Usar el exit_stack global
         streams = await global_exit_stack.enter_async_context(
@@ -361,10 +366,20 @@ En caso de las conexiones SSE, se llamará nuevamente a la función correspondie
         await self._initialize_session_and_load_tools(server_id)
 \end{lstlisting}
 
+\begin{lstlisting}[caption={mcp\_multi\_client.py: función \textit{cleanup()} en cliente MCP},label={lst:clean}]
+    @staticmethod
+    async def cleanup():
+        try:
+            if global_exit_stack:
+                await global_exit_stack.aclose()
+        ...
 
-En ambos protocolos de conexión se llama finalmente a \textit{\_initialize\_session\_and\_load\_tools()} ilustrado en el listado \ref{lst:mcpinit}. Esta función inicializa la sesión de conexión y adapta las herramientas. Para ello, la función \textit{load\_mcp\_tools()} convierte las herrmientas MCP a objetos BaseTool de LangChain. La función \textit{patch\_tool\_with\_exception\_handling()} simplemente añade un try except a la ejecución de la herrmienta para evitar que una excepción en una herramienta se propague a la ejecución del agente.
+\end{lstlisting}
 
-\begin{lstlisting}[caption={Función \textit{\_initialize\_session\_and\_load\_tools}},label={lst:mcpinit}]
+
+En ambos protocolos de conexión se invoca finalmente la función \textit{\_initialize\_session\_and\_load\_tools()}, ilustrada en el Listado \ref{lst:mcpinit}. Esta función inicializa la sesión y adapta las herramientas MCP a objetos BaseTool de LangChain mediante \textit{load\_mcp\_tools()}. Adicionalmente, \textit{patch\_tool\_with\_exception\_handling()} constituye un adaptador que incorpora un bloque de manejo de excepciones para impedir que los errores en las herramientas se propaguen a la ejecución del agente.
+
+\begin{lstlisting}[caption={mcp\_multi\_client.py: función \textit{\_initialize\_session\_and\_load\_tools en cliente MCP}},label={lst:mcpinit}]
     async def _initialize_session_and_load_tools(self, server_id: str):
         await self._sessions[server_id].initialize()
 
@@ -376,30 +391,6 @@ En ambos protocolos de conexión se llama finalmente a \textit{\_initialize\_ses
 \end{lstlisting}
 
 
-Las conexiones utilizan el sdk de python de MCP, creando objetos ClientSession. Estos se crean dentro de un contexto asíncrono, \textit{global\_exit\_stack} el cual se ha definido a nivel global y contempla la ejecución de todos los agentes. Cuando se quiere finalizar la ejecución, la función \textit{cleanup} en el cliente MCP cerrará este contexto global, cerrando así todas las conexiones, como se muestra en el listado \ref{lst:clean}. Este diseño global asume que todos los agentes se crearán y destruirán al mismo tiempo.
-
-\begin{lstlisting}[caption={Función \textit{cleanup en Cliente MCP}},label={lst:clean}]
-    @staticmethod
-    async def cleanup():
-        try:
-            if global_exit_stack:
-                await global_exit_stack.aclose()
-        ...
-
-\end{lstlisting}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-todo: singleton en mcpclient, formatteragent, un diagrama de ejecución de esos para un main agent normal.
