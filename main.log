@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  6 MAY 2025 13:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  6 MAY 2025 16:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1262,12 +1262,12 @@ Package babel Info: Making > an active character on input line 722.
 Package babel Info: Importing font and identification data for spanish
 (babel)             from babel-es.ini. Reported on input line 11.
 ))
-LaTeX Font Info:    Trying to load font information for T1+LinuxLibertineT-TLF on input line 134.
+LaTeX Font Info:    Trying to load font information for T1+LinuxLibertineT-TLF on input line 135.
  (/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxLibertineT-TLF.fd
 File: T1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for T1/LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 134.
+(Font)              scaled to size 10.95pt on input line 135.
 
 
 LaTeX Warning: Unused global option(s):
@@ -1279,24 +1279,24 @@ LaTeX Info: Redefining \% on input line 13.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count468
@@ -1343,7 +1343,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \headsep=19.8738pt
 * \topskip=11.0pt
 * \footskip=27.46295pt
-* \marginparwidth=111.0pt
+* \marginparwidth=113.81102pt
 * \marginparsep=7.0pt
 * \columnsep=10.0pt
 * \skip\footins=12.0pt plus 4.0pt minus 4.0pt
@@ -1362,7 +1362,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
 )
-Package hyperref Info: Link coloring ON on input line 134.
+Package hyperref Info: Link coloring ON on input line 135.
  (./main.out) (./main.out)
 \@outlinefile=\write6
 \openout6 = `main.out'.
@@ -1383,19 +1383,19 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-LaTeX Info: Redefining \microtypecontext on input line 134.
-Package microtype Info: Applying patch `item' on input line 134.
-Package microtype Info: Applying patch `toc' on input line 134.
-Package microtype Info: Applying patch `eqnum' on input line 134.
-Package microtype Info: Applying patch `footnote' on input line 134.
-Package microtype Info: Applying patch `verbatim' on input line 134.
+LaTeX Info: Redefining \microtypecontext on input line 135.
+Package microtype Info: Applying patch `item' on input line 135.
+Package microtype Info: Applying patch `toc' on input line 135.
+Package microtype Info: Applying patch `eqnum' on input line 135.
+Package microtype Info: Applying patch `footnote' on input line 135.
+Package microtype Info: Applying patch `verbatim' on input line 135.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 134.
+LaTeX Info: Redefining \showhyphens on input line 135.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1403,8 +1403,8 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Info: Redefining \. on input line 134.
-LaTeX Info: Redefining \% on input line 134.
+LaTeX Info: Redefining \. on input line 135.
+LaTeX Info: Redefining \% on input line 135.
  (./config/cover_informatika.tex
 <config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg, id=397, 897.3525pt x 199.2243pt>
 File: config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg Graphic file (type jpg)
@@ -1429,12 +1429,12 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 24.88pt on input line 168.
+(Font)              scaled to size 24.88pt on input line 169.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 24.88pt on input line 168.
+(Font)              scaled to size 24.88pt on input line 169.
  (./chapters/abstract.tex)
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 170.
+(Font)              scaled to size 10.95pt on input line 171.
  [1
 
 
@@ -1479,8 +1479,8 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 LaTeX Info: Redefining \. on input line 70.
 LaTeX Info: Redefining \% on input line 70.
  [4])
-LaTeX Info: Redefining \. on input line 177.
-LaTeX Info: Redefining \% on input line 177.
+LaTeX Info: Redefining \. on input line 178.
+LaTeX Info: Redefining \% on input line 178.
  [5] (./main.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -1498,7 +1498,7 @@ LaTeX Info: Redefining \% on input line 1.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.195 \cleardoublepage
+l.196 \cleardoublepage
                        [1
 
 
@@ -1506,7 +1506,7 @@ l.195 \cleardoublepage
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.195 \cleardoublepage
+l.196 \cleardoublepage
                        [2
 
 ] (./chapters/chap2.tex [3
@@ -1552,51 +1552,51 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 53.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 10.0pt on input line 53.
-LaTeX Info: Redefining \. on input line 74.
-LaTeX Info: Redefining \% on input line 74.
+LaTeX Info: Redefining \. on input line 75.
+LaTeX Info: Redefining \% on input line 75.
 [6 <./figures/herramienta.png (PNG copy)>]
 <figures/mcp.png, id=657, 1086.9408pt x 375.0813pt>
 File: figures/mcp.png Graphic file (type png)
 <use figures/mcp.png>
-Package pdftex.def Info: figures/mcp.png  used on input line 86.
+Package pdftex.def Info: figures/mcp.png  used on input line 88.
 (pdftex.def)             Requested size: 430.00462pt x 148.38156pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 90.
-LaTeX Info: Redefining \% on input line 90.
+LaTeX Info: Redefining \. on input line 92.
+LaTeX Info: Redefining \% on input line 92.
  [7]
-LaTeX Info: Redefining \. on input line 103.
-LaTeX Info: Redefining \% on input line 103.
+LaTeX Info: Redefining \. on input line 105.
+LaTeX Info: Redefining \% on input line 105.
  [8 <./figures/mcp.png (PNG copy)>]
 <figures/RAG.png, id=686, 2063.71pt x 1339.0025pt>
 File: figures/RAG.png Graphic file (type png)
 <use figures/RAG.png>
-Package pdftex.def Info: figures/RAG.png  used on input line 110.
+Package pdftex.def Info: figures/RAG.png  used on input line 112.
 (pdftex.def)             Requested size: 322.50346pt x 209.23906pt.
-LaTeX Info: Redefining \. on input line 120.
-LaTeX Info: Redefining \% on input line 120.
+LaTeX Info: Redefining \. on input line 122.
+LaTeX Info: Redefining \% on input line 122.
  [9 <./figures/RAG.png>]
-LaTeX Info: Redefining \. on input line 146.
-LaTeX Info: Redefining \% on input line 146.
+LaTeX Info: Redefining \. on input line 148.
+LaTeX Info: Redefining \% on input line 148.
  [10]
-Overfull \hbox (10.39207pt too wide) in paragraph at lines 148--150
+Overfull \hbox (10.39207pt too wide) in paragraph at lines 150--152
 []\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) Entre es-tos me-ca-nis-mos des-ta-ca el promp-ting de ca-de-na de pen-sa-mien-to (Chain of Thought)[[]][],
  []
 
-LaTeX Info: Redefining \. on input line 167.
-LaTeX Info: Redefining \% on input line 167.
+LaTeX Info: Redefining \. on input line 169.
+LaTeX Info: Redefining \% on input line 169.
 [11]
-LaTeX Info: Redefining \. on input line 182.
-LaTeX Info: Redefining \% on input line 182.
+LaTeX Info: Redefining \. on input line 184.
+LaTeX Info: Redefining \% on input line 184.
  [12]
 Underfull \vbox (badness 1817) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 201.
-LaTeX Info: Redefining \% on input line 201.
+LaTeX Info: Redefining \. on input line 203.
+LaTeX Info: Redefining \% on input line 203.
  [13])
-LaTeX Info: Redefining \. on input line 198.
-LaTeX Info: Redefining \% on input line 198.
+LaTeX Info: Redefining \. on input line 199.
+LaTeX Info: Redefining \% on input line 199.
  [14] (./chapters/chap3plani.tex [15
 
 ]
@@ -1685,17 +1685,17 @@ LaTeX Info: Redefining \% on input line 326.
 LaTeX Info: Redefining \. on input line 345.
 LaTeX Info: Redefining \% on input line 345.
  [24])
-LaTeX Info: Redefining \. on input line 200.
-LaTeX Info: Redefining \% on input line 200.
+LaTeX Info: Redefining \. on input line 201.
+LaTeX Info: Redefining \% on input line 201.
  [25]
-LaTeX Info: Redefining \. on input line 200.
-LaTeX Info: Redefining \% on input line 200.
+LaTeX Info: Redefining \. on input line 201.
+LaTeX Info: Redefining \% on input line 201.
  [26 <./figures/paquetes.png>]
-LaTeX Info: Redefining \. on input line 200.
-LaTeX Info: Redefining \% on input line 200.
+LaTeX Info: Redefining \. on input line 201.
+LaTeX Info: Redefining \% on input line 201.
  [27 <./figures/dependencias_2.png>]
-LaTeX Info: Redefining \. on input line 200.
-LaTeX Info: Redefining \% on input line 200.
+LaTeX Info: Redefining \. on input line 201.
+LaTeX Info: Redefining \% on input line 201.
  [28 <./figures/horas.png (PNG copy)>] (./chapters/chap4.tex [29
 
 
@@ -1713,153 +1713,167 @@ LaTeX Info: Redefining \% on input line 70.
 LaTeX Info: Redefining \. on input line 86.
 LaTeX Info: Redefining \% on input line 86.
  [33])
-LaTeX Info: Redefining \. on input line 203.
-LaTeX Info: Redefining \% on input line 203.
+LaTeX Info: Redefining \. on input line 204.
+LaTeX Info: Redefining \% on input line 204.
  [34] (./chapters/chap5.tex
 \Size=\skip273
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 104.
+(Font)              scaled to size 10.95pt on input line 108.
 
 
-LaTeX Warning: Float too large for page by 152.61047pt on input line 107.
+LaTeX Warning: Float too large for page by 128.02042pt on input line 111.
 
-[35
+
+Overfull \hbox (49.52065pt too wide) in paragraph at lines 115--116
+[]\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) Los di-rec-to-rios \T1/zi4/m/n/10.95 servidor_mcp_bd_codigo\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) , \T1/zi4/m/n/10.95 servidor_mcp_confluence \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) y \T1/zi4/m/n/10.95 servidor_mcp_google_drive
+ []
+
+
+Underfull \vbox (badness 3088) has occurred while \output is active []
+
+ [35
 
 
 ]
-LaTeX Info: Redefining \. on input line 115.
-LaTeX Info: Redefining \% on input line 115.
+LaTeX Info: Redefining \. on input line 119.
+LaTeX Info: Redefining \% on input line 119.
  [36]
-<figures/agentes.png, id=994, 816.651pt x 739.3221pt>
+<figures/agentes.png, id=997, 816.651pt x 739.3221pt>
 File: figures/agentes.png Graphic file (type png)
 <use figures/agentes.png>
-Package pdftex.def Info: figures/agentes.png  used on input line 129.
+Package pdftex.def Info: figures/agentes.png  used on input line 133.
 (pdftex.def)             Requested size: 602.00385pt x 545.01407pt.
 
 
-LaTeX Warning: Float too large for page by 7.33751pt on input line 132.
+LaTeX Warning: Float too large for page by 7.33751pt on input line 136.
 
-LaTeX Info: Redefining \. on input line 138.
-LaTeX Info: Redefining \% on input line 138.
+LaTeX Info: Redefining \. on input line 142.
+LaTeX Info: Redefining \% on input line 142.
 [37]
-LaTeX Info: Redefining \. on input line 138.
-LaTeX Info: Redefining \% on input line 138.
+LaTeX Info: Redefining \. on input line 142.
+LaTeX Info: Redefining \% on input line 142.
  [38 <./figures/agentes.png>]
 
-LaTeX Warning: Reference `cap' on page 39 undefined on input line 138.
+LaTeX Warning: Reference `' on page 39 undefined on input line 143.
 
 
-LaTeX Warning: Reference `sec' on page 39 undefined on input line 143.
+LaTeX Warning: Reference `:west' on page 39 undefined on input line 148.
 
 
-LaTeX Warning: Reference `sec' on page 39 undefined on input line 143.
+LaTeX Warning: Reference `' on page 39 undefined on input line 148.
 
 
-LaTeX Warning: Reference `sec' on page 39 undefined on input line 144.
+LaTeX Warning: Reference `sec' on page 39 undefined on input line 149.
 
 
-LaTeX Warning: Reference `sec' on page 39 undefined on input line 145.
-
-
-LaTeX Warning: Reference `sec' on page 39 undefined on input line 146.
-
-
-LaTeX Warning: Reference `sec' on page 39 undefined on input line 147.
+LaTeX Warning: Reference `sec' on page 39 undefined on input line 150.
 
 
 LaTeX Warning: Reference `sec' on page 39 undefined on input line 151.
 
-LaTeX Info: Redefining \. on input line 155.
-LaTeX Info: Redefining \% on input line 155.
+
+LaTeX Warning: Reference `sec' on page 39 undefined on input line 152.
+
+LaTeX Info: Redefining \. on input line 156.
+LaTeX Info: Redefining \% on input line 156.
 [39]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 163.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 163.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 169.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 163.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 164.
-LaTeX Info: Redefining \. on input line 185.
-LaTeX Info: Redefining \% on input line 185.
+(Font)              scaled to size 10.0pt on input line 169.
+LaTeX Info: Redefining \. on input line 170.
+LaTeX Info: Redefining \% on input line 170.
  [40]
-LaTeX Info: Redefining \. on input line 221.
-LaTeX Info: Redefining \% on input line 221.
- [41]
-LaTeX Info: Redefining \. on input line 250.
-LaTeX Info: Redefining \% on input line 250.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 7.0pt on input line 170.
+
+
+LaTeX Warning: Reference `sec' on page 41 undefined on input line 190.
+
+LaTeX Info: Redefining \. on input line 203.
+LaTeX Info: Redefining \% on input line 203.
+[41]
+LaTeX Info: Redefining \. on input line 244.
+LaTeX Info: Redefining \% on input line 244.
  [42]
-Overfull \hbox (31.45795pt too wide) in paragraph at lines 291--292
-\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) las cre-den-cia-les de ac-ce-so, las cua-les se en-cuen-tran al-ma-ce-na-das en \T1/LinuxLibertineT-TLF/m/it/10.95 (-20) mcp_google_drive/credentials/gcp-
- []
 
-LaTeX Info: Redefining \. on input line 292.
-LaTeX Info: Redefining \% on input line 292.
+LaTeX Warning: Reference `sec:' on page 43 undefined on input line 251.
+
+LaTeX Info: Redefining \. on input line 272.
+LaTeX Info: Redefining \% on input line 272.
 [43]
-LaTeX Info: Redefining \. on input line 327.
-LaTeX Info: Redefining \% on input line 327.
- [44]
-LaTeX Info: Redefining \. on input line 358.
-LaTeX Info: Redefining \% on input line 358.
+Overfull \hbox (10.75558pt too wide) in paragraph at lines 299--300
+\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) cuen-ta de Goo-gle. Pa-ra la ge-ne-ra-ción del to-ken tem-po-ral \T1/zi4/m/n/10.95 .gdrive-server-credentials.json\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) ,
+ []
+
+LaTeX Info: Redefining \. on input line 306.
+LaTeX Info: Redefining \% on input line 306.
+[44]
+LaTeX Info: Redefining \. on input line 337.
+LaTeX Info: Redefining \% on input line 337.
  [45]
-Overfull \hbox (22.18951pt too wide) in paragraph at lines 380--381
-[]\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) En am-bos pro-to-co-los de co-ne-xión se in-vo-ca fi-nal-men-te la fun-ción \T1/LinuxLibertineT-TLF/m/it/10.95 (-20) _initia-li-ze_session_and_load_tools()\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) ,
+LaTeX Info: Redefining \. on input line 372.
+LaTeX Info: Redefining \% on input line 372.
+ [46]
+Overfull \hbox (66.09221pt too wide) in paragraph at lines 385--386
+[]\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) En am-bos pro-to-co-los de co-ne-xión se in-vo-ca fi-nal-men-te la fun-ción \T1/zi4/m/n/10.95 _initialize_session_and_load_tools()\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) ,
  []
 
 
-Overfull \hbox (28.68692pt too wide) in paragraph at lines 380--381
-\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) Ba-se-Tool de Lang-Chain me-dian-te \T1/LinuxLibertineT-TLF/m/it/10.95 (-20) load_mcp_tools()\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) . Adi-cio-nal-men-te, \T1/LinuxLibertineT-TLF/m/it/10.95 (-20) patch_tool_with_exception_handling()
+Overfull \hbox (76.58699pt too wide) in paragraph at lines 385--386
+\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) Ba-se-Tool de Lang-Chain me-dian-te \T1/zi4/m/n/10.95 load_mcp_tools()\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) . Adi-cio-nal-men-te, \T1/zi4/m/n/10.95 patch_tool_with_exception_handling()
  []
 
 )
-LaTeX Info: Redefining \. on input line 206.
-LaTeX Info: Redefining \% on input line 206.
- [46] (./chapters/anexo_a.tex
+LaTeX Info: Redefining \. on input line 207.
+LaTeX Info: Redefining \% on input line 207.
+ [47] [48
+
+] (./chapters/anexo_a.tex
 Underfull \vbox (badness 3199) has occurred while \output is active []
 
- [47
-
+ [49
 
 ])
-LaTeX Info: Redefining \. on input line 220.
-LaTeX Info: Redefining \% on input line 220.
- [48] (./chapters/anexo_b.tex [49
+LaTeX Info: Redefining \. on input line 221.
+LaTeX Info: Redefining \% on input line 221.
+ [50] (./chapters/anexo_b.tex [51
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 88.
 LaTeX Info: Redefining \% on input line 88.
- [50]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [51]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 142.
-LaTeX Info: Redefining \% on input line 142.
  [52]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 193.
-LaTeX Info: Redefining \% on input line 193.
+LaTeX Info: Redefining \. on input line 142.
+LaTeX Info: Redefining \% on input line 142.
  [54]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [55]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 248.
-LaTeX Info: Redefining \% on input line 248.
+LaTeX Info: Redefining \. on input line 193.
+LaTeX Info: Redefining \% on input line 193.
  [56]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [57])
-LaTeX Info: Redefining \. on input line 222.
-LaTeX Info: Redefining \% on input line 222.
- [58] (./chapters/anexo_d.tex [59
+ [57]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 248.
+LaTeX Info: Redefining \% on input line 248.
+ [58]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [59])
+LaTeX Info: Redefining \. on input line 223.
+LaTeX Info: Redefining \% on input line 223.
+ [60] (./chapters/anexo_d.tex [61
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 47--56
@@ -1868,10 +1882,10 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 47--56
 
 LaTeX Info: Redefining \. on input line 61.
 LaTeX Info: Redefining \% on input line 61.
-[60]
+[62]
 LaTeX Info: Redefining \. on input line 95.
 LaTeX Info: Redefining \% on input line 95.
- [61
+ [63
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 111--120
@@ -1880,10 +1894,10 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 111--120
 
 LaTeX Info: Redefining \. on input line 125.
 LaTeX Info: Redefining \% on input line 125.
-[62]
+[64]
 LaTeX Info: Redefining \. on input line 161.
 LaTeX Info: Redefining \% on input line 161.
- [63
+ [65
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 164--173
@@ -1892,10 +1906,10 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 164--173
 
 LaTeX Info: Redefining \. on input line 178.
 LaTeX Info: Redefining \% on input line 178.
-[64]
+[66]
 LaTeX Info: Redefining \. on input line 217.
 LaTeX Info: Redefining \% on input line 217.
- [65
+ [67
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 221--230
@@ -1904,22 +1918,22 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 221--230
 
 LaTeX Info: Redefining \. on input line 235.
 LaTeX Info: Redefining \% on input line 235.
-[66]
+[68]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 274--281
  [][] 
  []
 
 LaTeX Info: Redefining \. on input line 282.
 LaTeX Info: Redefining \% on input line 282.
-[67
+[69
 
 ]
 LaTeX Info: Redefining \. on input line 284.
 LaTeX Info: Redefining \% on input line 284.
- [68]
+ [70]
 LaTeX Info: Redefining \. on input line 323.
 LaTeX Info: Redefining \% on input line 323.
- [69
+ [71
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 332--339
@@ -1928,10 +1942,10 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 332--339
 
 LaTeX Info: Redefining \. on input line 344.
 LaTeX Info: Redefining \% on input line 344.
-[70]
+[72]
 LaTeX Info: Redefining \. on input line 379.
 LaTeX Info: Redefining \% on input line 379.
- [71
+ [73
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 389--398
@@ -1944,17 +1958,19 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 389--398
 
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [72]
+ [74]
 bibitemlist
-[73
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 10.0pt on input line 9.
+[75
 
 ]
 LaTeX Info: Redefining \. on input line 136.
 LaTeX Info: Redefining \% on input line 136.
- [74]
+ [76]
 LaTeX Info: Redefining \. on input line 197.
 LaTeX Info: Redefining \% on input line 197.
- [75]
+ [77]
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 214.
 
@@ -1979,15 +1995,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 251--251
 
 LaTeX Info: Redefining \. on input line 256.
 LaTeX Info: Redefining \% on input line 256.
-[76]
+[78]
 Underfull \hbox (badness 10000) in paragraph at lines 265--265
 \T1/zi4/m/n/10 @lotussavy / devin-[]a-[]cautionary-[]tale-[]of-[]the-[]autonomous-[]ai-[]engineer-[]e1339ede8f8a$[][]\T1/LinuxLibertineT-TLF/m/n/10 (+20) .
  []
 
 )
-LaTeX Info: Redefining \. on input line 233.
-LaTeX Info: Redefining \% on input line 233.
- [77]
+LaTeX Info: Redefining \. on input line 234.
+LaTeX Info: Redefining \% on input line 234.
+ [79]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -2010,22 +2026,22 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5FEDF414518E2C6C02F1C7722E94B316;17340.
+(rerunfilecheck)             Checksum: 8A30C2ACAEE572E6781A82EFECBC833B;17340.
 Package rerunfilecheck Info: File `main.brf' has not changed.
 (rerunfilecheck)             Checksum: 84831376B77F41B4217FD4F6FDE03813;4069.
  ) 
 Here is how much of TeX's memory you used:
- 56045 strings out of 474222
- 1144256 string characters out of 5748733
- 2324975 words of memory out of 5000000
- 76251 multiletter control sequences out of 15000+600000
- 725419 words of font info for 457 fonts, out of 8000000 for 9000
+ 56299 strings out of 474222
+ 1148419 string characters out of 5748733
+ 2328975 words of memory out of 5000000
+ 76517 multiletter control sequences out of 15000+600000
+ 721087 words of font info for 435 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 142i,13n,148p,1580b,3825s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 142i,13n,148p,1580b,3961s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (87 pages, 2665864 bytes).
+Output written on main.pdf (89 pages, 2680888 bytes).
 PDF statistics:
- 1951 PDF objects out of 2073 (max. 8388607)
- 726 named destinations out of 1000 (max. 500000)
+ 2023 PDF objects out of 2073 (max. 8388607)
+ 748 named destinations out of 1000 (max. 500000)
  102225 words of extra memory for PDF output out of 106986 (max. 10000000)
 

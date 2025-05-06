@@ -65,6 +65,7 @@ El agente Reasoning and Act (ReAct) constituye uno de los patrones más utilizad
 
 
 \subsection{Abstracciones en frameworks}
+\label{sec:abst}
 En pleno auge de los agentes LLM, surgen cada vez más bibliotecas y frameworks que estandarizan su implementación. Estos marcos de trabajo ofrecen abstracciones de alto nivel para reutilizar funcionalidades comunes presentes en la mayoría de sistemas de agentes.
 Las principales funcionalidades proporcionadas son las siguientes: 
 \begin{itemize}
@@ -77,6 +78,7 @@ Las principales funcionalidades proporcionadas son las siguientes:
 Para este trabajo utilizaremos fundamentalmente LangChain\footnote{LangChain: \url{https://www.langchain.com/}} para la gestión de llamadas a APIs de modelos y prompting, LangGraph\footnote{LangGraph: \url{https://www.langchain.com/langgraph}} para la orquestación de flujos agénticos, y LangSmith\footnote{LangSmith: \url{https://www.langchain.com/langsmith}} para el seguimiento de trazas de llamadas a modelos y herramientas. Para la gestión de los conjuntos de datos y entrenamiento de modelos utilizaremos HuggingFace.\footnote{HuggingFace: \url{https://huggingface.co/}} 
 
 \section{Model Context Protocol}
+\label{sec:mcp_prots}
 El Model Context Protocol (MCP), desarrollado por Anthropic, estandariza la comunicación entre agentes LLM y herramientas. Permite que aplicaciones diversas ofrezcan herramientas a agentes externos sin exponer detalles de implementación\cite{noauthor_model_nodate}.
 
 La figura \ref{fig:mcp} ilustra el esquema operativo del protocolo. Los desarrolladores de Jira\footnote{Jira: \url{https://www.atlassian.com/es/software/jira}} y GitHub\footnote{GitHub: \url{https://github.com/}} han implementado un servidor MCP que traduce las interacciones con sus APIs y proporciona herramientas al cliente MCP. Esto permite que el desarrollador del agente se enfoque exclusivamente en conectar las herramientas del cliente con el agente, sin necesidad de interactuar con APIs externas. Asimismo, el cliente MCP gestiona la comunicación entre servidores, facilitando al agente el acceso directo a múltiples herramientas.
