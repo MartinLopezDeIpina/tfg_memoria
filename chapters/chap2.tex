@@ -117,6 +117,7 @@ Los modelos LLM poseen un conocimiento restringido a los datos con los que fuero
 La recuperación de documentos relevantes se puede implementar mediate recuperadores dispersos: expresiones regulares, búsqueda de n-gramas, palabras clave, entre otras. No obstante, el enfoque predominante consiste en el uso de recuperadores densos, conocidos como indexación vectorial. En este método, los documentos se transforman en vectores, generalmente mediante LLMs especializados en codificación, denominados Embedders. Al representar los documentos en un espacio vectorial, es posible recuperar aquellos semánticamente más pertinentes mediante la comparación del vector de consulta con los vectores de los documentos indexados, utilizando métricas como la distancia coseno \ref{anexo:dis_cos}.
 
 \subsubsection{Estrategias RAG avanzadas}
+\label{sec:estr_rag}
 La optimización del rendimiento en arquitecturas RAG ha sido ampliamente estudiada \cite{zhu_retrieving_2021}\cite{gao_retrieval-augmented_2024}, enfocándose en tres áreas principales: el procesado de documentos, los sistemas de recuperación y la mejora del flujo de generación.
 \begin{itemize}
   \item {\textbf{Procesado de documentos:}} la calidad de la indexación documental determina la eficacia del sistema. Entre las estrategias destacadas figuran la eliminación de ruido textual, el ajuste del tamaño óptimo de los segmentos indexados, y la técnica de ventana solapada. Esta última superpone fragmentos para preservar los datos situados en las intersecciones de los segmentos. 
