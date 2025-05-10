@@ -50,6 +50,36 @@ Algunas herramientas proporcionadas por los servidores MCP son innecesarias o co
 
 Adicionalmente, algunos servidores MCP no proporcionan todas las funcionalidades necesarias. Para obtener estas herramientas adicionales, la función \opus{add_additional_tools()} añade en cada caso herramientas adicionales de ser necesario. 
 
+\subsection{Sistema de citas}
+Para que el usuario final obtenga las fuentes de la información que se ha utilizado para responder a su consulta, los agentes especializados deben referenciar los documentos utilizados. Un sistema sencillo podría pedirle en el prompt que el agente indique la ruta o nombre del fichero, pero sería proponeso a errores porque las direcciones url de cada fuente de datos siguen patrones distintos. Para garantizar que los documentos citados siempre existan y contengan una dirección válida, se ha implementado el sistema ilustrado en la Figura \ref{fig:citations}.
+
+\begin{figure}[h]
+  \centering
+  \adjustbox{center=\textwidth}{\includegraphics[width=1.1\linewidth]{figures/citations.png}}
+  \caption{Diagrama de funcionamiento del sistema de citas}
+  \label{fig:citations}
+\end{figure}
+
+
+Este diseño proporciona a cada agente una herramienta para citar los documentos en las fuentes de datos que estos tienen disponibles. La herramienta se construye dinámicamente para cada agente en función de las fuentes de datos a los que estos tienen acceso. Para ello, se ha implementado la clase \opus{DataSource} ilustrada en el Listado \ref{lst:data_src}, la cual se instancia en la conexión al servidor MCP, almacenando todos los documentos citables. 
+
+Esta almacena un identificador único para la fuente de datos, con la cual se podrá citar a la propia fuente de datos, la url común para todos los documentos, y un diccionario con el nombre de cada documento asociado a la url complementaria. Adicionalmente, se asocia cada fuente de datos a un \opus{ResponseParser}. Este objeto se encarga para cada fuente de datos de convertir el nombre del documento en el enlace completo, teniendo en cuenta el prefijo común de la fuente de datos y el prefijo del documento. Por ejemplo, en la fuente de datos Confluence, la url de un documento sigue la estructura \opus{url/tipo_documento/id/nombre_documento}. Por lo tanto, el parser de esta fuente de datos se encargará de construir la url añadiendo el prefijo que constará del tipo de documento y el id de este documento. 
+
+\begin{lstlisting}[caption={\protect\opus{DataSource}: clase destinada a almacenar los documentos citables para una fuente de datos}, label={lst:data_src}]
+class DataSource(ABC):
+    url: str
+    # Nombre de herramienta para obtener la lista de documentos disponibles
+    get_documents_tool_name: str | List[str]
+    # Nombre del documento junto al prefijo necesario en la url
+    available_documents: dict[str, str]
+    # Identificador de la fuente de datos
+    docs_id: str
+    parser: ResponseParser
+\end{lstlisting}
+
+De esta forma, el agente obtendrá una herramienta donde solo será necesario indicar el nombre del documento a citar. El agente podrá citar la propia fuente de datos utilizando el nombre indicado en la descripción de la herramienta. Las citas se propagarán en objetos estructurados por toda la estructura de agentes para imprimir al final las citas utilizadas, como se explica en la Sección \colorbox{yellow}{\ref{}}. 
+
+
 \section{Agentes implementados}
 En esta sección se detallarán los cinco agentes desarrollados que extienden las funcionalidades explicadas en la sección anterior.
 
@@ -68,8 +98,10 @@ Para implementar este sistema RAG, se ha utilizado la extensión PGVector sobre 
   \label{fig:relacional}
 \end{figure}
 
-\paragraph{División de los segmentos de código}
-Para realizar la división de los ficheros en \textit{chunks}, se han considerado las clases y funciones que componen el código. 
+\paragraph{Procedimiento de chunking}
+Para realizar la división de los ficheros en \textit{chunks}, se han considerado las clases y funciones que componen el código. Un agente se beneficiará mucho más si el segmento de código al que tiene acceso no contiene definiciones de clases o funciones a medias. Para ello, se ha utilizado la librería grep-ast\footnote{grep-ast: \url{https://github.com/Aider-AI/grep-ast}}. Esta librería recibe ficheros de un lenguaje de programación concreto, e identifica las definiciones (declaraciones de funciones y clases), y las referencias (cuando en un segmento de código se llama a una clase o función, entonces este segmento contiene una referencia a otro segmento). 
+
+Una vez obtenidas todas las definiciones declaradas en un fichero, se debe dividir el fichero en bloques de tamaño parecido. Para intentar no dividir definiciones de funciones o clases en diferentes chunks, se ha utilizado el patrón State ilustrado en la Figura \ref{fig:chunks}. Este comienza por el principio del fichero y empieza a añadir definiciones secuencialmente al chunk actual. En caso de que la siguiente definición no quepa en el chunk actual y el chunk actual contenga alguna definición, se crea el chunk actual (añadiendolo a la base de datos) y se vacía el chunk actual en el agloritmo. En caso de que el chunk actual esté vacío, significa que el siguiente chunk es demasiado grande para entrar en un solo chunk, por lo que es necesario dividirlo. Para ello, en caso de que sea una función se divide y se crean los chunks con un tamaño igual. en caso de qeu sea una clase, se pasa a un proceso similar pero con las funciones dentro de la misma clase, para intentar no dividr las funciones dentro de la definición de la clase. Una vez se han añadido todas las definiciones, en caso de existir líneas al final del fichero no pertenecientes a ninguna definición, se intentan añadir a la última definición.
 
 \begin{figure}[h]
   \centering
@@ -77,6 +109,39 @@ Para realizar la división de los ficheros en \textit{chunks}, se han considerad
   \caption{Algoritmo de chunking considerando definiciones de funciones y clases en el código fuente}
   \label{fig:chunks}
 \end{figure}
+
+Consecuentemente, el proceso de chunking sigue el siguiente procedimiento: una función recursiva obtiene los directorios y ficheros a ignorar para el proceso de chunking y comienza el proceso desde el directorio raíz. Se listan los elementos dentro del directorio actual y se procesan uno a uno. En caso de encontrar un directorio, se llama a la función de forma recursiva para este directorio. En caso de ser un fichero, se obtienen las definiciones y referencias dentro del fichero mediante la librería mencionada. Con el patrón State mencionado se dividen los ficheros con dichas definiciones en chunks. Tras dividir cada chunk, se van anotando en un diccionario el nombre de las definiciones declaradas junto al identificador del chunk en el que se declaran. Lo mismo se hace para el nombre de las referencias junto al identificador de los chunks donde se declaran. Una vez finalizado el procesado de los chunks, un algoritmo asigna las referencias declaradas a las definiciones declaradas, creando las relaciones de referencia en el modelo de la Figura \ref{fig:relacional}.
+
+Para verificar el correcto funcionamiento de este procedimiento, se han creado nueve tests unitarios de caja negra para las funcionalidades principales del chunking con la librería pytest\footnote{pytest: \url{https://docs.pytest.org/en/stable/}}. Estos tests se enfocan en la correcta identificación de definiciones y clases, así como la correcta división de los chunks para los casos más infrecuentes. Estos tests se han configurado de forma que se ejecuten automáticamente en cada push a las ramas develpo o master, mediante un pipeline integrado a SonarCloud\footnote{SonarCloud: \url{https://www.sonarsource.com/products/sonarcloud/}}, para mostrar la covertura de código en dicha plataforma.  
+
+\paragraph{Procedimiento de indexación}
+Para indexar cada chunk, en lugar de indexar directamente el código fuente, se ha indexado de forma que cada chunk una plantilla conteniendo el chunk a indexar, todo el fichero del que el chunk es parte, el árbol completo del repositorio y la documentación API generada por el agente RepoAgent.  
+
+Esta indexación requiere de varias operaciones a nivel de repositorio, fichero y chunks. Además, devido al coste computacional de la indexación, es necesario procesarlo de forma asíncrona. Para ello, se ha creado un algoritmo de indexación siguiendo el patrón Pipeline\footnote{Patrón Pipeline: \url{https://medium.com/@bonnotguillaume/software-architecture-the-pipeline-design-pattern-from-zero-to-hero-b5c43d8a4e60}}. Este patrón desacopla el proceso de iteración de las operaciones a realizar, añadiendo diferentes procesos a realizar en dos stages de la indexación, cada uno con un dataclass con atributos requeridos en dicha operación:
+\begin{itemize}
+  \item\textbf{PipelinePipelineStage: }Procesos a ejecutar para todo el repositorio al inicio del procedimiento. Se consideran la creación del árbol de directorios del repositorio mediante la librería treelib\footnote{treelib: \url{https://pypi.org/project/treelib/}}, la creación de la documentación API mediante el agente RepoAgent, cuya ejecución se ilustra en el Listado \ref{} 
+  \item\textbf{FilePipelineStage: }Procesos a ejecutar para cada fichero. En esta implementación no ha sido necesario ningún proceso a este nivel, se define para que guardar el estado y la ejecución de cada fichero de forma estructurada. 
+  \item\textbf{ChunkPipelineStage: }Procesos a ejecutar para cada chunk. Aquí se consideran la creación de la documentación a utilizar y la indexación de dicha documentación. 
+\end{itemize}
+
+De esta forma, al ejecutar el pipeline completo, primero se ejectuan las operaciones a nivel de repositorio, después se ejecutarán las operaciones a nivel de fichero de forma asíncrona, permitiendo el log del procesado de cada fichero de forma estructurada, y finalmente se ejecutarán las operaciones a nivel de chunk de forma asíncrona. Las operaciones dentro de cada nivel de ejecución se ejecutarán secuencialemente, es decir, para cada chunk, primero se ejecutará el proceso de generar la documentación y posteriormente la de indexar dicha documentación. 
+
+
+\begin{lstlisting}[caption={\protect\opus{generate_extra_docs}: Ejecución de agente RepoAgent para crear la documentación API}, label={lst:spec_graph}]
+  def generate_extra_docs(files_to_ignore: List[str], repo_path: str, extra_docs_path: str):
+      try:
+          files_to_ignore_str = ",".join(files_to_ignore)
+          command = f"repoagent run --model gpt-4o-mini --target-repo-path {repo_path} --markdown-docs-path {extra_docs_path} --ignore-list {files_to_ignore_str}"
+          exit_code = execute_and_stream_command(command)
+      ...
+\end{lstlisting}
+
+\subsection{Agente Google Drive}
+
+
+
+
+
 
 
 
