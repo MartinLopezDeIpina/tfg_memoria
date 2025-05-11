@@ -1,22 +1,24 @@
-Una vez introducido el diseño general del sistema, en este capítulo se explicarán los agentes especializados que acceden a las fuentes de datos del proyecto software. 
+Una vez definido el diseño general del sistema, en este capítulo se detallan los agentes especializados que acceden a las fuentes de datos del proyecto software.
 
-Para ello primero se introducirá la estructura de la base común \opus{SpecializedAgent}, tras lo que se detallarán tanto las herramientas como el grafo de los cinco agentes especialistas que extienden esta base.
+Para ello, se introduce primero la estructura de la clase base \opus{SpecializedAgent}, para posteriormente detallar las herramientas y la lógica de ejecución de los cinco agentes especialistas que extienden esta base.
 
 \section{Estructura SpecializedAgent}
-El grafo común de este agente se divide en tres pasos generales; la configuración del prompt inicial a utilizar mediante la función \opus{prepare_prompt()} heredada de \opus{BaseAgent}, la ejecución de un subgrafo que implementa el patrón ReAct (Véase Sección \ref{}) y la ejecución de un agente resumidor en caso de ser necesario. La ejecución del grafo general se ilustra en la Figura \ref{fig:specialized}.
+El grafo común de este agente comprende tres pasos principales: la configuración del prompt inicial mediante la función \opus{prepare_prompt()}, heredada de \opus{BaseAgent} y posteriormente extendida por cada agente especialista, la ejecución de un subgrafo que implementa el patrón ReAct (véase la Sección \ref{sec:react}) y la ejecución de un agente resumidor cuando sea necesario. La Figura \ref{fig:specialized} ilustra dicho flujo de ejecución.
 
 \begin{figure}[h]
   \centering
-  \adjustbox{center=\textwidth}{\hspace{-1.2cm}\includegraphics[width=1.3\linewidth]{figures/specialized.png}}
+  \adjustbox{center=\textwidth}{\hspace{-1.2cm}\includegraphics[width=1.2\linewidth]{figures/specialized.png}}
   \caption{Grafo de ejecución de agentes especializados}
   \label{fig:specialized}
 \end{figure}
 
-El grafo ReAct se ha implementado utilizando el agente prefabricado \opus{create_react_agent()} de LangGraph. Este agente acepta una serie de herramientas y un prompt inicial y entra en un bucle de ejecución en el que el agente llama a herramientas y observa su resultado. El grafo finaliza su ejecución cuando el mensaje del agente no contiene llamadas a herramientas, es decir, cuando contiene la respuesta final. 
+El grafo ReAct se ha implementado utilizando el agente prefabricado \opus{create_react_agent()} de LangGraph. Este agente acepta una serie de herramientas y un prompt inicial, entrando en un bucle de ejecución donde el agente invoca herramientas y observa sus resultados. El grafo finaliza cuando el mensaje del agente no contiene llamadas a herramientas, es decir, cuando incluye la respuesta final.
 
-Se ha establecido un límite de iteraciones que el grafo ReAct puede ejecutar, ya que se ha observado que en ocasiones entra en un bucle de ejecución excesivamente extenso al no encontrar la información requerida. De esta forma, en caso de llegar al límite de iteraciones, un agente resumdidor intenta generar una respuesta con la información disponible observando todas las ejecuciones de las herramientas. En el Listado \ref{lst:spec_graph} se ilustra la función que define el grafo explicado.
+Se ha establecido un límite de iteraciones para el grafo ReAct, ya que se ha observado que ocasionalmente entra en un bucle excesivamente extenso al no encontrar la información requerida. Cuando se alcanza dicho límite, un agente resumidor genera una respuesta con la información disponible, observando todas las ejecuciones de las herramientas. 
 
-\begin{lstlisting}[caption={\protect\opus{create_graph: Grafo de agentes especializados} },label={lst:spec_graph}]
+El Listado \ref{lst:spec_graph} ilustra la creación del grafo para los agentes especialistas, añadiendo un nodo para cada etapa mencionada. El condicional \opus{check_react_recursion_limit} dirige la ejecución al nodo resumidor en caso de haber sobrepasado el límite de pasos en el agente ReAct.
+
+\begin{lstlisting}[caption={\protect\opus{create_graph}: grafo de agentes especializados},label={lst:spec_graph}]
   def create_graph(self) -> CompiledGraph:
       # Crear grafo ReAct
       agent_tools = self.get_agent_tools()
@@ -42,16 +44,15 @@ Se ha establecido un límite de iteraciones que el grafo ReAct puede ejecutar, y
       return graph_builder.compile()
 \end{lstlisting}
 
-Para acceder al estado de ejecución del agente ReAct tras finalizar abruptamente su ejecución por el límite de mensajes, se ha utilizado el sistema de autoguardado de LangGraph. Para ello, en la inicialización del agente se crea un objeto \opus{AsyncPostgresSaver}, vinculado tanto a la base de datos PostgreSQL mediante un \textit{Pool} de conexión asíncrono \ref{} como al contexto de cierre asíncrono \opus{global_exit_stack}. De esta forma, se guardan en una collección de Postgres todos los estados de ejecución, y se pueden acceder indicando su identificador. El uso del guardador asíncrono evita problemas de concurrencia al ejecutar varios agentes asíncronos. 
+Para acceder al estado de ejecución del agente ReAct tras finalizar abruptamente por el límite de mensajes, se utiliza el sistema de autoguardado de LangGraph. En la inicialización del agente se crea un objeto \opus{AsyncPostgresSaver}, vinculado a la base de datos PostgreSQL mediante un pool de conexión asíncrono y al contexto de cierre asíncrono \opus{global_exit_stack}. De este modo, todos los estados de ejecución se almacenan en una colección de PostgreSQL y son accesibles mediante su identificador. El autoguardado asíncrono previene problemas de concurrencia al ejecutar múltiples agentes asíncronos.
 
 \subsection{Gestión de herramientas}
+Algunas herramientas proporcionadas por los servidores MCP resultan innecesarias o contraproducentes para determinados agentes. Para evitar incluir contenido innecesario en los prompts, se debe indicar al instanciar un agente el nombre de las herramientas que se utilizarán, filtrando posteriormente las herramientas en el cliente.
 
-Algunas herramientas proporcionadas por los servidores MCP son innecesarias o contraproducentes para algunos agentes. Para evitar incluir en el prompt de los agentes contenido innecesario, se debe indicar al instanciar un agente el nombre de las herramientas que se van a utilziar, para posteriormente filtrar las herramientas en el cliente. 
-
-Adicionalmente, algunos servidores MCP no proporcionan todas las funcionalidades necesarias. Para obtener estas herramientas adicionales, la función \opus{add_additional_tools()} añade en cada caso herramientas adicionales de ser necesario. 
+Por otra parte, algunos servidores MCP no proporcionan todas las funcionalidades requeridas. Para obtener estas herramientas adicionales, la función \opus{add_additional_tools()} incorpora, cuando es necesario, herramientas complementarias específicas para cada agente.
 
 \subsection{Sistema de citas}
-Para que el usuario final obtenga las fuentes de la información que se ha utilizado para responder a su consulta, los agentes especializados deben referenciar los documentos utilizados. Un sistema sencillo podría pedirle en el prompt que el agente indique la ruta o nombre del fichero, pero sería proponeso a errores porque las direcciones url de cada fuente de datos siguen patrones distintos. Para garantizar que los documentos citados siempre existan y contengan una dirección válida, se ha implementado el sistema ilustrado en la Figura \ref{fig:citations}.
+Para que el usuario final obtenga las fuentes de información utilizadas en la respuesta a su consulta, los agentes especializados deben referenciar los documentos consultados. Un sistema sencillo podría solicitar en el prompt que el agente indique la ruta o nombre del archivo, pero sería propenso a errores debido a que las direcciones URL de cada fuente de datos siguen patrones diferenciados. Para garantizar que los documentos citados siempre existan y contengan una dirección válida, se ha implementado el sistema ilustrado en la Figura \ref{fig:citations}.
 
 \begin{figure}[h]
   \centering
@@ -59,11 +60,9 @@ Para que el usuario final obtenga las fuentes de la información que se ha utili
   \caption{Diagrama de funcionamiento del sistema de citas}
   \label{fig:citations}
 \end{figure}
+Este diseño proporciona a cada agente una herramienta para citar documentos de las fuentes de datos disponibles. La herramienta se construye dinámicamente para cada agente según las fuentes de datos a las que tiene acceso. Para ello, se implementa la clase \opus{DataSource} ilustrada en el Listado \ref{lst:data_src}, la cual se instancia en la conexión al servidor MCP y almacena todos los documentos citables.
 
-
-Este diseño proporciona a cada agente una herramienta para citar los documentos en las fuentes de datos que estos tienen disponibles. La herramienta se construye dinámicamente para cada agente en función de las fuentes de datos a los que estos tienen acceso. Para ello, se ha implementado la clase \opus{DataSource} ilustrada en el Listado \ref{lst:data_src}, la cual se instancia en la conexión al servidor MCP, almacenando todos los documentos citables. 
-
-Esta almacena un identificador único para la fuente de datos, con la cual se podrá citar a la propia fuente de datos, la url común para todos los documentos, y un diccionario con el nombre de cada documento asociado a la url complementaria. Adicionalmente, se asocia cada fuente de datos a un \opus{ResponseParser}. Este objeto se encarga para cada fuente de datos de convertir el nombre del documento en el enlace completo, teniendo en cuenta el prefijo común de la fuente de datos y el prefijo del documento. Por ejemplo, en la fuente de datos Confluence, la url de un documento sigue la estructura \opus{url/tipo_documento/id/nombre_documento}. Por lo tanto, el parser de esta fuente de datos se encargará de construir la url añadiendo el prefijo que constará del tipo de documento y el id de este documento. 
+Esta clase almacena un identificador único para la fuente de datos, la URL común a todos los documentos y un diccionario con el nombre de cada documento asociado a su URL complementaria. Asimismo, cada fuente de datos se asocia a un \opus{ResponseParser}, que convierte el nombre del documento en el enlace completo considerando el prefijo común de la fuente y el prefijo del documento. Por ejemplo, en Confluence, la URL de un documento sigue la estructura \opus{url_confluence/tipo_documento/id_documento/nombre_documento}, por lo que su parser construye la URL añadiendo el prefijo correspondiente al tipo de documento y su ID.
 
 \begin{lstlisting}[caption={\protect\opus{DataSource}: clase destinada a almacenar los documentos citables para una fuente de datos}, label={lst:data_src}]
 class DataSource(ABC):
@@ -77,14 +76,16 @@ class DataSource(ABC):
     parser: ResponseParser
 \end{lstlisting}
 
-De esta forma, el agente obtendrá una herramienta donde solo será necesario indicar el nombre del documento a citar. El agente podrá citar la propia fuente de datos utilizando el nombre indicado en la descripción de la herramienta. Las citas se propagarán en objetos estructurados por toda la estructura de agentes para imprimir al final las citas utilizadas, como se explica en la Sección \colorbox{yellow}{\ref{}}. 
+Por lo tanto, el agente dispondrá de una herramienta donde bastará con indicar el nombre del documento a citar. El agente podrá citar la propia fuente de datos utilizando el nombre especificado en la descripción de la herramienta. Las citas se propagarán mediante objetos estructurados por toda la arquitectura de agentes para imprimir finalmente las citas empleadas, como se explica en la Sección \colorbox{yellow}{\ref{}}.
 
 
 \section{Agentes implementados}
-En esta sección se detallarán los cinco agentes desarrollados que extienden las funcionalidades explicadas en la sección anterior.
+En esta sección se detallan los cinco agentes desarrollados que extienden las funcionalidades descritas en la sección anterior.
 
 \subsection{Agente código}
-Para obtener información sobre el código fuente del repositorio del proyecto software, el flujo de este agente sigue el siguiente proceso: mediante \opus{prepare_prompt()} se incluye en el prompt del sistema el árbol de directorios del repositorio obtenido con la herramienta \opus{get_repository_tree_tool} y fragemntos de código, denominados \textit{chunks}, relevantes para la consulta actual obtenidos mediante la herramienta \opus{get_code_repository_rag_docs_from_query_tool}. Tras concatenar la consulta al agente mediante un \opus{HumanMessage}, este tiene que decidir si buscar \textit{chunks} adicionales sobre un subdirectorio concreto indicando otra consulta, buscar ficheros específicos con la herramienta \opus{get_file_from_repository_tool} indicando su ruta relativa, o responder directamente a la consulta. 
+El flujo de este agente comprende el siguiente proceso: mediante \opus{prepare_prompt()} se incluye en el prompt del sistema el árbol de directorios del repositorio obtenido con la herramienta \opus{get_repository_tree_tool} y fragmentos de código, denominados \textit{chunks}, relevantes para la consulta actual obtenidos mediante la herramienta \opus{get_code_repository_rag_docs_from_query_tool}. Tras concatenar la consulta al agente mediante un \opus{HumanMessage}, este debe decidir si buscar chunks adicionales sobre un subdirectorio concreto indicando otra consulta, buscar archivos específicos con la herramienta \opus{get_file_from_repository_tool} indicando su ruta relativa, o responder directamente a la consulta.
+
+Los chunks devueltos por dicha herramienta contienen tanto el código como la ruta relativa del archivo donde se declaran, permitiendo buscar en dicho archivo si fuese necesario. Adicionalmente, al extraer un chunk, se incluyen chunks referenciados o que referencian ese fragmento. Se define que un chunk referencia a otro cuando llama a una función o instancia una clase definida en el otro chunk. La cantidad de chunks referenciados y que referencian se limita a uno por chunk, y la cantidad total de chunks por cada llamada a la herramienta se limita a tres. Esta reducción en el número de chunks favorece múltiples llamadas con consultas variadas.
 
 \subsubsection{Herramientas de acceso a código}
 Para implementar las herramientas de este agente, en el componente \opus{servidor_mc_bd_codigo} se han dividido los ficheros del proyecto GitLab en \textit{chunks} y posteriormente se han indexado en la base de datos Postgres.
@@ -137,6 +138,56 @@ De esta forma, al ejecutar el pipeline completo, primero se ejectuan las operaci
 \end{lstlisting}
 
 \subsection{Agente Google Drive}
+La función de este agente es buscar y analizar las maquetas HTML disponibles en Google Drive. Para ello, mediante la heramienta \opus{gdrive_list_files()}, la función \opus{prepare_prompt()} le indica todos los documentos disponibles. Posteriormente, este tiene que decidir si buscar fragmentos relevantes en los documentos mediante la herramienta de búsqueda \opus{gdrive_search()}, o leer documentos enteros mediante la herramienta \opus{gdrive_read_file()}.
+
+\subsection{Agente Sistema de Ficheros}
+Este debe responder a consultas de diversas temáticas utilizando la fuente de datos de la documentación oficial. Para ello, similar al agente anterior, recibe la lista de documentos disponibles con la herramienta \opus{directory_tree()}, y puede decidir cuáles documentos necesita leer con las herramientas \opus{read_file()} o \opus{read_multiple_files()}. En caso de no saber exactamente cuál documento leer, puede buscar pasajes relevantes mediante la herramienta \opus{rag_search_documentation()}, la cual devuelve dichos fragmentos y el nombre del documento en los que se declaran.
+
+Esta última herramienta se implementado mediante la clase \opus{PGVector} de LangChain. A diferencia de la implementación para el agente de código, esta es una abstracción sobre el plugin de PGVector. Ofrece la capacidad búsquedas RAG de forma sencilla, pero sin la opción de combinar operaciones de búsqueda semántica con búsquedas SQL. Como se muestra en el Listado \ref{lst:pgvector_store}, se crean colecciones instanciando la clase PGVector, y posteriormente se pueden añadir o buscar documentos relevantes con sus respectivas funciones. La clase espera un diccionario de elementos, de los cuales una columna se indexará (se convertirá en un vector numérico para realizar la búsqueda), y las demás servirán de metadatos. Es posible filtrar en las búsquedas por metadatos, pero se pierde la capacidad de PGVector nativo para realizar consultas en diferentes tablas. 
+
+\begin{lstlisting}[caption={\protect\opus{PGVector}: uso de clase para indexar o buscar documentos}, label={lst:pgvector_store}]
+  # Instanciar la clase en su versión asíncrona 
+  vector_store = PGVector(
+      embeddings=self.embeddings,
+      collection_name=prefixed_name,
+      connection=self.engine,
+      use_jsonb=True,
+      async_mode=True
+  )
+
+  # Añadir documentos (clase LangChain con texto y metadatos) al store
+  await self.vector_store.aadd_documents(docs)
+
+  # Buscar documentos similares mediante una operación vectorial
+  results = await self.vector_store.asimilarity_search(query, k=top_k)
+\end{lstlisting}
+
+\subsection{Agente Confluence}
+Para este agente se han implementado dos versiones alternativas, una similar a los anteriores y otra con cacheo de prompt de todos los documentos, para poder comparar y sacar conclusiones en la fase de evaluación.
+
+El \textit{prompt caching} consiste en guardar la representación interna de los LLM para una secuencia de texto concreta inicial para no tener que repetir los cálculos necesarios si en una consulta posterior se repite ese fragmento inicial. De esta forma, las API como openai ofrecen descuentos significativos si se cachea gran parte de la entrada.
+
+\paragraph{Sin prompt caching}
+Similar a los agentes anteriores, con la herramienta \opus{confluence_search()} se le indican los documentos disponibles en la documentación del estilo visual del proyecto, y con \opus{confluence_get_page()} debe decidir cuáles documentos leer. 
+
+\paragraph{Con prompt caching}
+En esta versión el agente recibe directamente toda la documentación en su contexto de entrada, y debe responder directamente citando los documentos necesarios. Es de destacar que esta estrategia funciona únicamente en los casos en los que los documentos caben en la ventana de contexto del modelo.
+
+\subsection{Agente GitLab}
+Para este agente se han tenido que implementar una serie de herramientas utilizando directamente la API de GitLab como se explica en la Sección \ref{}. Para ello se ha utilizado la librería \opus{requests}.
+
+Este agente recibe en el \opus{SystemMessage} estadísticas del repositorio con la herramienta \opus{get_gitlab_project_statistics()}, con información como la cantidad de contribuciones, usuarios o incidencias en el repositorio. Posteriormente, este puede llamar a las siguientes herramientas:
+\begin{itemize}
+  \item\opus{get_gitlab_project_commits(user_name, since, until, result_limit): } Obtener las contribuciones (\textit{commits}) al repositorio, opcionalmente filtrando por usuarios, fechas o cantidad de resultados.
+  \item\opus{get_gitlab_project_members(): }Obtener información sobre los usuarios contribuyentes al proyecto. Es de destacar que si se quiere filtrar por contribuyentes en la herramienta anterior, el agente debe razonar para llamar esta heramienta inicialmente para obtener los nombres de usuarios.
+  \item\opus{get_gitlab_braches(): }Obtener información sobre las ramas git del proyecto
+  \item\opus{get_gitlab_issues(): }Obtener las incidencias del proyecto.
+\end{itemize}
+
+
+
+
+
 
 
 
