@@ -16,12 +16,16 @@ En el aprendizaje supervisado, específicamente durante el ajuste fino, los peso
 \label{anexo:dis_cos}
 La distancia coseno es una medida que cuantifica la similitud entre dos vectores basándose en el coseno del ángulo que forman, independientemente de sus magnitudes. Matemáticamente se expresa como: 
 
-\[Similitud_coseno(x,y) = \frac{x \cdot y}{|x||y|}\]
+\[Similitud\_coseno(x,y) = \frac{x \cdot y}{|x||y|}\]
 
 El valor 1 indica vectores perfectamente alineados (máxima similitud), 0 representa vectores perpendiculares (sin similitud) y -1 señala vectores en direcciones opuestas (máxima disimilitud.
 
 \section{Tokenizador}
 \label{anexo:tokenizer}
 Un tokenizador es el componente algorítmico encargado de segmentar el texto en unidades mínimas procesables (tokens), implementando reglas específicas de división basadas en espacios, puntuación, subpalabras o patrones predefinidos según el modelo de lenguaje.
+
+\section{Pool de conexiones asíncronas}
+\label{anexo:pool}
+Un pool de conexiones asíncronas en PostgreSQL constituye un mecanismo de gestión eficiente que mantiene un conjunto predefinido de conexiones a la base de datos. Cuando una aplicación requiere conectarse a la base de datos, en lugar de crear una nueva conexión, solicita una al pool, que le proporciona una de las conexiones ya establecidas y disponibles. Su naturaleza asíncrona permite ejecutar operaciones sin bloquear el hilo principal, reduciendo la sobrecarga asociada al establecimiento repetitivo de conexiones.
 
 
