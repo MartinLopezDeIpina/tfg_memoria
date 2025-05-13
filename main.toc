@@ -76,64 +76,65 @@
 \contentsline {paragraph}{Enfocado en el cacheo del prompt}{58}{section*.19}%
 \contentsline {subsection}{\numberline {6.2.5}Agente GitLab}{58}{subsection.6.2.5}%
 \contentsline {chapter}{\chapternumberline {7}Orquestación de agentes}{61}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Diseño general}{61}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Agentes orquestadores}{62}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Agentes Planificadores}{62}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Variaciones de orquestación}{62}{section.7.4}%
-\contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{63}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Conjunto de datos etiquetados}{63}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Entrenamiento de redes neuronales}{63}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Distancia coseno}{64}{section.Alph1.3}%
-\contentsline {section}{\numberline {A.4}Tokenizador}{64}{section.Alph1.4}%
-\contentsline {section}{\numberline {A.5}Pool de conexiones asíncronas}{64}{section.Alph1.5}%
-\contentsline {appendix}{\chapternumberline {B}Elicitación de preguntas}{65}{appendix.Alph2}%
-\contentsline {appendix}{\chapternumberline {C}Actas de reuniones}{75}{appendix.Alph3}%
-\contentsline {section}{\numberline {A.1}Acta de reunión TFG (25/02/2025)}{75}{section.Alph3.1}%
-\contentsline {subsection}{\numberline {A.1.1}Orden del día}{75}{subsection.Alph3.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Resumen de la reunión}{76}{subsection.Alph3.1.2}%
-\contentsline {subsection}{\numberline {A.1.3}Estado del proyecto}{76}{subsection.Alph3.1.3}%
-\contentsline {subsection}{\numberline {A.1.4}Decisiones}{76}{subsection.Alph3.1.4}%
-\contentsline {subsubsection}{\numberline {A.1.4.1}Decisiones adoptadas}{76}{subsubsection.Alph3.1.4.1}%
-\contentsline {subsubsection}{\numberline {A.1.4.2}Asignación de tareas a realizar}{76}{subsubsection.Alph3.1.4.2}%
-\contentsline {section}{\numberline {A.2}Acta de reunión TFG (12/03/2025)}{77}{section.Alph3.2}%
-\contentsline {subsection}{\numberline {A.2.1}Orden del día}{77}{subsection.Alph3.2.1}%
-\contentsline {subsection}{\numberline {A.2.2}Resumen de la reunión}{77}{subsection.Alph3.2.2}%
-\contentsline {subsection}{\numberline {A.2.3}Estado del proyecto}{78}{subsection.Alph3.2.3}%
-\contentsline {subsection}{\numberline {A.2.4}Decisiones}{78}{subsection.Alph3.2.4}%
-\contentsline {subsubsection}{\numberline {A.2.4.1}Decisiones adoptadas}{78}{subsubsection.Alph3.2.4.1}%
-\contentsline {subsubsection}{\numberline {A.2.4.2}Asignación de tareas a realizar}{78}{subsubsection.Alph3.2.4.2}%
-\contentsline {section}{\numberline {A.3}Acta de reunión TFG (20/03/2025)}{79}{section.Alph3.3}%
-\contentsline {subsection}{\numberline {A.3.1}Orden del día}{79}{subsection.Alph3.3.1}%
-\contentsline {subsection}{\numberline {A.3.2}Resumen de la reunión}{79}{subsection.Alph3.3.2}%
-\contentsline {subsection}{\numberline {A.3.3}Estado del proyecto}{79}{subsection.Alph3.3.3}%
-\contentsline {subsection}{\numberline {A.3.4}Decisiones}{80}{subsection.Alph3.3.4}%
-\contentsline {subsubsection}{\numberline {A.3.4.1}Decisiones adoptadas}{80}{subsubsection.Alph3.3.4.1}%
-\contentsline {subsubsection}{\numberline {A.3.4.2}Asignación de tareas a realizar}{80}{subsubsection.Alph3.3.4.2}%
-\contentsline {section}{\numberline {A.4}Acta de reunión TFG (02/04/2025)}{81}{section.Alph3.4}%
-\contentsline {subsection}{\numberline {A.4.1}Orden del día}{81}{subsection.Alph3.4.1}%
-\contentsline {subsection}{\numberline {A.4.2}Resumen de la reunión}{81}{subsection.Alph3.4.2}%
-\contentsline {subsection}{\numberline {A.4.3}Estado del proyecto}{81}{subsection.Alph3.4.3}%
-\contentsline {subsection}{\numberline {A.4.4}Decisiones}{82}{subsection.Alph3.4.4}%
-\contentsline {subsubsection}{\numberline {A.4.4.1}Decisiones adoptadas}{82}{subsubsection.Alph3.4.4.1}%
-\contentsline {subsubsection}{\numberline {A.4.4.2}Asignación de tareas a realizar}{82}{subsubsection.Alph3.4.4.2}%
-\contentsline {section}{\numberline {A.5}Acta de reunión TFG (04/04/2025)}{83}{section.Alph3.5}%
-\contentsline {subsection}{\numberline {A.5.1}Orden del día}{83}{subsection.Alph3.5.1}%
-\contentsline {subsection}{\numberline {A.5.2}Resumen de la reunión}{83}{subsection.Alph3.5.2}%
-\contentsline {subsection}{\numberline {A.5.3}Decisiones}{83}{subsection.Alph3.5.3}%
-\contentsline {subsubsection}{\numberline {A.5.3.1}Decisiones adoptadas}{83}{subsubsection.Alph3.5.3.1}%
-\contentsline {subsubsection}{\numberline {A.5.3.2}Asignación de tareas a realizar}{84}{subsubsection.Alph3.5.3.2}%
-\contentsline {section}{\numberline {A.6}Acta de reunión TFG (15/04/2025)}{85}{section.Alph3.6}%
-\contentsline {subsection}{\numberline {A.6.1}Orden del día}{85}{subsection.Alph3.6.1}%
-\contentsline {subsection}{\numberline {A.6.2}Resumen de la reunión}{85}{subsection.Alph3.6.2}%
-\contentsline {subsection}{\numberline {A.6.3}Estado del proyecto}{85}{subsection.Alph3.6.3}%
-\contentsline {subsection}{\numberline {A.6.4}Decisiones}{86}{subsection.Alph3.6.4}%
-\contentsline {subsubsection}{\numberline {A.6.4.1}Decisiones adoptadas}{86}{subsubsection.Alph3.6.4.1}%
-\contentsline {subsubsection}{\numberline {A.6.4.2}Asignación de tareas a realizar}{86}{subsubsection.Alph3.6.4.2}%
-\contentsline {section}{\numberline {A.7}Acta de reunión TFG (29/04/2025)}{87}{section.Alph3.7}%
-\contentsline {subsection}{\numberline {A.7.1}Orden del día}{87}{subsection.Alph3.7.1}%
-\contentsline {subsection}{\numberline {A.7.2}Resumen de la reunión}{87}{subsection.Alph3.7.2}%
-\contentsline {subsection}{\numberline {A.7.3}Estado del proyecto}{88}{subsection.Alph3.7.3}%
-\contentsline {subsection}{\numberline {A.7.4}Decisiones}{88}{subsection.Alph3.7.4}%
-\contentsline {subsubsection}{\numberline {A.7.4.1}Decisiones adoptadas}{88}{subsubsection.Alph3.7.4.1}%
-\contentsline {subsubsection}{\numberline {A.7.4.2}Asignación de tareas a realizar}{88}{subsubsection.Alph3.7.4.2}%
-\contentsline {chapter}{Bibliografía}{89}{appendix*.28}%
+\contentsline {section}{\numberline {7.1}Agente Principal}{61}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Agente Planificador}{63}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Agente orquestador}{63}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Variaciones de orquestación}{64}{section.7.4}%
+\contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{65}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Diseño General}{65}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Conjunto de datos etiquetados}{66}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Entrenamiento de redes neuronales}{66}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Distancia coseno}{66}{section.Alph1.4}%
+\contentsline {section}{\numberline {A.5}Tokenizador}{66}{section.Alph1.5}%
+\contentsline {section}{\numberline {A.6}Pool de conexiones asíncronas}{67}{section.Alph1.6}%
+\contentsline {appendix}{\chapternumberline {B}Elicitación de preguntas}{69}{appendix.Alph2}%
+\contentsline {appendix}{\chapternumberline {C}Actas de reuniones}{79}{appendix.Alph3}%
+\contentsline {section}{\numberline {A.1}Acta de reunión TFG (25/02/2025)}{79}{section.Alph3.1}%
+\contentsline {subsection}{\numberline {A.1.1}Orden del día}{79}{subsection.Alph3.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Resumen de la reunión}{80}{subsection.Alph3.1.2}%
+\contentsline {subsection}{\numberline {A.1.3}Estado del proyecto}{80}{subsection.Alph3.1.3}%
+\contentsline {subsection}{\numberline {A.1.4}Decisiones}{80}{subsection.Alph3.1.4}%
+\contentsline {subsubsection}{\numberline {A.1.4.1}Decisiones adoptadas}{80}{subsubsection.Alph3.1.4.1}%
+\contentsline {subsubsection}{\numberline {A.1.4.2}Asignación de tareas a realizar}{80}{subsubsection.Alph3.1.4.2}%
+\contentsline {section}{\numberline {A.2}Acta de reunión TFG (12/03/2025)}{81}{section.Alph3.2}%
+\contentsline {subsection}{\numberline {A.2.1}Orden del día}{81}{subsection.Alph3.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}Resumen de la reunión}{81}{subsection.Alph3.2.2}%
+\contentsline {subsection}{\numberline {A.2.3}Estado del proyecto}{82}{subsection.Alph3.2.3}%
+\contentsline {subsection}{\numberline {A.2.4}Decisiones}{82}{subsection.Alph3.2.4}%
+\contentsline {subsubsection}{\numberline {A.2.4.1}Decisiones adoptadas}{82}{subsubsection.Alph3.2.4.1}%
+\contentsline {subsubsection}{\numberline {A.2.4.2}Asignación de tareas a realizar}{82}{subsubsection.Alph3.2.4.2}%
+\contentsline {section}{\numberline {A.3}Acta de reunión TFG (20/03/2025)}{83}{section.Alph3.3}%
+\contentsline {subsection}{\numberline {A.3.1}Orden del día}{83}{subsection.Alph3.3.1}%
+\contentsline {subsection}{\numberline {A.3.2}Resumen de la reunión}{83}{subsection.Alph3.3.2}%
+\contentsline {subsection}{\numberline {A.3.3}Estado del proyecto}{83}{subsection.Alph3.3.3}%
+\contentsline {subsection}{\numberline {A.3.4}Decisiones}{84}{subsection.Alph3.3.4}%
+\contentsline {subsubsection}{\numberline {A.3.4.1}Decisiones adoptadas}{84}{subsubsection.Alph3.3.4.1}%
+\contentsline {subsubsection}{\numberline {A.3.4.2}Asignación de tareas a realizar}{84}{subsubsection.Alph3.3.4.2}%
+\contentsline {section}{\numberline {A.4}Acta de reunión TFG (02/04/2025)}{85}{section.Alph3.4}%
+\contentsline {subsection}{\numberline {A.4.1}Orden del día}{85}{subsection.Alph3.4.1}%
+\contentsline {subsection}{\numberline {A.4.2}Resumen de la reunión}{85}{subsection.Alph3.4.2}%
+\contentsline {subsection}{\numberline {A.4.3}Estado del proyecto}{85}{subsection.Alph3.4.3}%
+\contentsline {subsection}{\numberline {A.4.4}Decisiones}{86}{subsection.Alph3.4.4}%
+\contentsline {subsubsection}{\numberline {A.4.4.1}Decisiones adoptadas}{86}{subsubsection.Alph3.4.4.1}%
+\contentsline {subsubsection}{\numberline {A.4.4.2}Asignación de tareas a realizar}{86}{subsubsection.Alph3.4.4.2}%
+\contentsline {section}{\numberline {A.5}Acta de reunión TFG (04/04/2025)}{87}{section.Alph3.5}%
+\contentsline {subsection}{\numberline {A.5.1}Orden del día}{87}{subsection.Alph3.5.1}%
+\contentsline {subsection}{\numberline {A.5.2}Resumen de la reunión}{87}{subsection.Alph3.5.2}%
+\contentsline {subsection}{\numberline {A.5.3}Decisiones}{87}{subsection.Alph3.5.3}%
+\contentsline {subsubsection}{\numberline {A.5.3.1}Decisiones adoptadas}{87}{subsubsection.Alph3.5.3.1}%
+\contentsline {subsubsection}{\numberline {A.5.3.2}Asignación de tareas a realizar}{88}{subsubsection.Alph3.5.3.2}%
+\contentsline {section}{\numberline {A.6}Acta de reunión TFG (15/04/2025)}{89}{section.Alph3.6}%
+\contentsline {subsection}{\numberline {A.6.1}Orden del día}{89}{subsection.Alph3.6.1}%
+\contentsline {subsection}{\numberline {A.6.2}Resumen de la reunión}{89}{subsection.Alph3.6.2}%
+\contentsline {subsection}{\numberline {A.6.3}Estado del proyecto}{89}{subsection.Alph3.6.3}%
+\contentsline {subsection}{\numberline {A.6.4}Decisiones}{90}{subsection.Alph3.6.4}%
+\contentsline {subsubsection}{\numberline {A.6.4.1}Decisiones adoptadas}{90}{subsubsection.Alph3.6.4.1}%
+\contentsline {subsubsection}{\numberline {A.6.4.2}Asignación de tareas a realizar}{90}{subsubsection.Alph3.6.4.2}%
+\contentsline {section}{\numberline {A.7}Acta de reunión TFG (29/04/2025)}{91}{section.Alph3.7}%
+\contentsline {subsection}{\numberline {A.7.1}Orden del día}{91}{subsection.Alph3.7.1}%
+\contentsline {subsection}{\numberline {A.7.2}Resumen de la reunión}{91}{subsection.Alph3.7.2}%
+\contentsline {subsection}{\numberline {A.7.3}Estado del proyecto}{92}{subsection.Alph3.7.3}%
+\contentsline {subsection}{\numberline {A.7.4}Decisiones}{92}{subsection.Alph3.7.4}%
+\contentsline {subsubsection}{\numberline {A.7.4.1}Decisiones adoptadas}{92}{subsubsection.Alph3.7.4.1}%
+\contentsline {subsubsection}{\numberline {A.7.4.2}Asignación de tareas a realizar}{92}{subsubsection.Alph3.7.4.2}%
+\contentsline {chapter}{Bibliografía}{93}{appendix*.29}%
