@@ -1,0 +1,23 @@
+Habiendo abordado el funcionamiento de los agentes especialistas en el Capítulo \ref{ch:chap6}, este capítulo se centra en los mecanismos de coordinación que permiten la operación del sistema completo.  
+
+Para ello se introducirá la lógica del agente planificador, el agente orquestador y el agente principal (\opus{MainAgent}). Posteriormente se detallarán las variaciones exploradas en dicho marco de coordinación. 
+
+\section{Diseño general}
+\todo{Según el feedback de Juanan, creo que en el capítulo de "Diseño del sistema" debería incluir un resumen de esto y darle menos importancia a los directorios o funciones concretas. Entiendo que así el lector va entendiendo mejor el concepto en vez de ponerle directamente una lista con todos los detalles.
+
+Igual debería incluir esta sección completa en el diseño??
+}
+El sistema implementado aborda el caso de uso donde el usuario realiza una pregunta y el sistema debe responder basado en todas las fuentes de datos disponibles para el proyecto. El diseño del sistema está limitado por dos restricciones fundamentales: 
+\begin{itemize}
+  \item\textbf{Ventana de contexto limitada: }Los proyectos en producción pueden tener millones de líneas de código, con una documentación igualmente extensa. Los modelos del estado del arte no tienen todavía la capacidad de procesar tal volumen de texto. 
+  \item\textbf{Costo asociado: }Si bien en algunos casos es posible incluir toda la información disponible en el prompt de los agentes, varias iteraciones con tal volumen de texto conllevarían un sobrecoste prohibitivo. 
+\end{itemize}
+La arquitectura distribuye el procesamiento entre agentes especializados, evitando que un único agente cargue toda la información. Cada agente interactúa exclusivamente con su fuente de datos asignada, eliminando el sobrecoste de procesar información irrelevante en cada llamada. El agente orquestador analiza la consulta y determina qué agentes especialistas deben intervenir, seleccionando las fuentes de datos más apropiadas para cada caso.
+
+Adicionalmente, se requiere de una coordinación a alto nivel mediante el agente planificador, que razona sobre los pasos lógicos a realizar. Por ejemplo, si el usuario pregunta por ejemplos en los que se utiliza la guía de estilos del proyecto, en lugar de buscar información indiscriminadamente, primero se localizaría la guía de estilos para después examinar implementaciones específicas en el código fuente. 
+
+\section{Agentes orquestadores}
+
+\section{Agentes Planificadores}
+
+\section{Variaciones de orquestación}

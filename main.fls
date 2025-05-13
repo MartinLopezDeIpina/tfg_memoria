@@ -682,6 +682,7 @@ INPUT ./figures/confluences.png
 INPUT ./figures/confluences.png
 INPUT ./figures/confluences.png
 INPUT ./figures/confluences.png
+INPUT chapters/chap7.tex
 INPUT chapters/anexo_a.tex
 INPUT chapters/anexo_b.tex
 INPUT chapters/anexo_d.tex
