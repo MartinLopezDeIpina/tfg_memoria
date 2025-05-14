@@ -5,40 +5,40 @@ S.E. Sim and R.C. Holt.
 \newblock The ramp-up problem in software projects: a case study of how software immigrants naturalize.
 \newblock In {\em Proceedings of the 20th International Conference on Software Engineering}, pages 361--370.
 \newblock {ISSN}: 0270-5257.
-\newblock URL: \url{https://ieeexplore.ieee.org/abstract/document/671389}.
+\newblock URL: \url{https://ieeexplore.ieee.org/abstract/document/671389}, \href {https://doi.org/10.1109/ICSE.1998.671389} {\path{doi:10.1109/ICSE.1998.671389}}.
 
 \bibitem{steinmacher_systematic_2015}
 Igor Steinmacher, Marco~Aurelio Graciotto~Silva, Marco~Aurelio Gerosa, and David~F. Redmiles.
 \newblock A systematic literature review on the barriers faced by newcomers to open source software projects.
 \newblock 59:67--85.
-\newblock URL: \url{https://www.sciencedirect.com/science/article/pii/S0950584914002390}.
+\newblock URL: \url{https://www.sciencedirect.com/science/article/pii/S0950584914002390}, \href {https://doi.org/10.1016/j.infsof.2014.11.001} {\path{doi:10.1016/j.infsof.2014.11.001}}.
 
 \bibitem{ritz_artificial_2023}
 Eva Ritz, Fabio Donisi, Edona Elshan, and Roman Rietsche.
 \newblock Artificial socialization? how artificial intelligence applications can shape a new era of employee onboarding practices.
-\newblock URL: \url{http://hdl.handle.net/10125/102648}.
+\newblock URL: \url{http://hdl.handle.net/10125/102648}, \href {https://doi.org/10.24251/HICSS.2023.020} {\path{doi:10.24251/HICSS.2023.020}}.
 
 \bibitem{azanza_can_2024}
 Maider Azanza, Juanan Pereira, Arantza Irastorza, and Aritz Galdos.
 \newblock Can {LLMs} facilitate onboarding software developers? an ongoing industrial case study.
 \newblock In {\em 2024 36th International Conference on Software Engineering Education and Training ({CSEE}\&T)}, pages 1--6.
 \newblock {ISSN}: 2377-570X.
-\newblock URL: \url{https://ieeexplore.ieee.org/document/10662989}.
+\newblock URL: \url{https://ieeexplore.ieee.org/document/10662989}, \href {https://doi.org/10.1109/CSEET62301.2024.10662989} {\path{doi:10.1109/CSEET62301.2024.10662989}}.
 
 \bibitem{ionescu_multi-agent_2025}
 Andrei~Cristian Ionescu, Sergey Titov, and Maliheh Izadi.
 \newblock A multi-agent onboarding assistant based on large language models, retrieval augmented generation, and chain-of-thought.
-\newblock URL: \url{http://arxiv.org/abs/2503.23421}.
+\newblock URL: \url{http://arxiv.org/abs/2503.23421}, \href {https://arxiv.org/abs/2503.23421 [cs]} {\path{arXiv:2503.23421 [cs]}}, \href {https://doi.org/10.48550/arXiv.2503.23421} {\path{doi:10.48550/arXiv.2503.23421}}.
 
 \bibitem{vaswani_attention_2023}
 Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
 \newblock Attention is all you need.
-\newblock URL: \url{http://arxiv.org/abs/1706.03762}.
+\newblock URL: \url{http://arxiv.org/abs/1706.03762}, \href {https://arxiv.org/abs/1706.03762 [cs]} {\path{arXiv:1706.03762 [cs]}}, \href {https://doi.org/10.48550/arXiv.1706.03762} {\path{doi:10.48550/arXiv.1706.03762}}.
 
 \bibitem{yao_react_2023}
 Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao.
 \newblock {ReAct}: Synergizing reasoning and acting in language models.
-\newblock URL: \url{http://arxiv.org/abs/2210.03629}.
+\newblock URL: \url{http://arxiv.org/abs/2210.03629}, \href {https://arxiv.org/abs/2210.03629 [cs]} {\path{arXiv:2210.03629 [cs]}}, \href {https://doi.org/10.48550/arXiv.2210.03629} {\path{doi:10.48550/arXiv.2210.03629}}.
 
 \bibitem{noauthor_model_nodate}
 Model context protocol ({MCP}).
@@ -47,12 +47,12 @@ Model context protocol ({MCP}).
 \bibitem{zhu_retrieving_2021}
 Fengbin Zhu, Wenqiang Lei, Chao Wang, Jianming Zheng, Soujanya Poria, and Tat-Seng Chua.
 \newblock Retrieving and reading: A comprehensive survey on open-domain question answering.
-\newblock URL: \url{http://arxiv.org/abs/2101.00774}.
+\newblock URL: \url{http://arxiv.org/abs/2101.00774}, \href {https://arxiv.org/abs/2101.00774 [cs]} {\path{arXiv:2101.00774 [cs]}}, \href {https://doi.org/10.48550/arXiv.2101.00774} {\path{doi:10.48550/arXiv.2101.00774}}.
 
 \bibitem{gao_retrieval-augmented_2024}
 Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yi~Dai, Jiawei Sun, Meng Wang, and Haofen Wang.
 \newblock Retrieval-augmented generation for large language models: A survey.
-\newblock URL: \url{http://arxiv.org/abs/2312.10997}.
+\newblock URL: \url{http://arxiv.org/abs/2312.10997}, \href {https://arxiv.org/abs/2312.10997 [cs]} {\path{arXiv:2312.10997 [cs]}}, \href {https://doi.org/10.48550/arXiv.2312.10997} {\path{doi:10.48550/arXiv.2312.10997}}.
 
 \bibitem{ma_query_nodate}
 Xinbei Ma, Yeyun Gong, Pengcheng He, Hai Zhao, and Nan Duan.
@@ -61,83 +61,84 @@ Xinbei Ma, Yeyun Gong, Pengcheng He, Hai Zhao, and Nan Duan.
 \bibitem{levine_standing_2022}
 Yoav Levine, Itay Dalmedigos, Ori Ram, Yoel Zeldes, Daniel Jannai, Dor Muhlgay, Yoni Osin, Opher Lieber, Barak Lenz, Shai Shalev-Shwartz, Amnon Shashua, Kevin Leyton-Brown, and Yoav Shoham.
 \newblock Standing on the shoulders of giant frozen language models.
-\newblock URL: \url{http://arxiv.org/abs/2204.10019}.
+\newblock URL: \url{http://arxiv.org/abs/2204.10019}, \href {https://arxiv.org/abs/2204.10019 [cs]} {\path{arXiv:2204.10019 [cs]}}, \href {https://doi.org/10.48550/arXiv.2204.10019} {\path{doi:10.48550/arXiv.2204.10019}}.
 
 \bibitem{khattab_relevance-guided_2021}
 Omar Khattab, Christopher Potts, and Matei Zaharia.
 \newblock Relevance-guided supervision for {OpenQA} with {ColBERT}.
-\newblock URL: \url{http://arxiv.org/abs/2007.00814}.
+\newblock URL: \url{http://arxiv.org/abs/2007.00814}, \href {https://arxiv.org/abs/2007.00814 [cs]} {\path{arXiv:2007.00814 [cs]}}, \href {https://doi.org/10.48550/arXiv.2007.00814} {\path{doi:10.48550/arXiv.2007.00814}}.
 
 \bibitem{khattab_demonstrate-search-predict_2023}
 Omar Khattab, Keshav Santhanam, Xiang~Lisa Li, David Hall, Percy Liang, Christopher Potts, and Matei Zaharia.
 \newblock Demonstrate-search-predict: Composing retrieval and language models for knowledge-intensive {NLP}.
-\newblock URL: \url{http://arxiv.org/abs/2212.14024}.
+\newblock URL: \url{http://arxiv.org/abs/2212.14024}, \href {https://arxiv.org/abs/2212.14024 [cs]} {\path{arXiv:2212.14024 [cs]}}, \href {https://doi.org/10.48550/arXiv.2212.14024} {\path{doi:10.48550/arXiv.2212.14024}}.
 
 \bibitem{shao_enhancing_2023}
 Zhihong Shao, Yeyun Gong, Yelong Shen, Minlie Huang, Nan Duan, and Weizhu Chen.
 \newblock Enhancing retrieval-augmented large language models with iterative retrieval-generation synergy.
 \newblock In Houda Bouamor, Juan Pino, and Kalika Bali, editors, {\em Findings of the Association for Computational Linguistics: {EMNLP} 2023}, pages 9248--9274. Association for Computational Linguistics.
-\newblock URL: \url{https://aclanthology.org/2023.findings-emnlp.620/}.
+\newblock URL: \url{https://aclanthology.org/2023.findings-emnlp.620/}, \href {https://doi.org/10.18653/v1/2023.findings-emnlp.620} {\path{doi:10.18653/v1/2023.findings-emnlp.620}}.
 
 \bibitem{qi_answering_2021}
 Peng Qi, Haejun Lee, Oghenetegiri~"{TG}" Sido, and Christopher~D. Manning.
 \newblock Answering open-domain questions of varying reasoning steps from text.
-\newblock URL: \url{http://arxiv.org/abs/2010.12527}.
+\newblock URL: \url{http://arxiv.org/abs/2010.12527}, \href {https://arxiv.org/abs/2010.12527 [cs]} {\path{arXiv:2010.12527 [cs]}}, \href {https://doi.org/10.48550/arXiv.2010.12527} {\path{doi:10.48550/arXiv.2010.12527}}.
 
 \bibitem{zheng_take_2024}
 Huaixiu~Steven Zheng, Swaroop Mishra, Xinyun Chen, Heng-Tze Cheng, Ed~H. Chi, Quoc~V. Le, and Denny Zhou.
 \newblock Take a step back: Evoking reasoning via abstraction in large language models.
-\newblock URL: \url{http://arxiv.org/abs/2310.06117}.
+\newblock URL: \url{http://arxiv.org/abs/2310.06117}, \href {https://arxiv.org/abs/2310.06117 [cs]} {\path{arXiv:2310.06117 [cs]}}, \href {https://doi.org/10.48550/arXiv.2310.06117} {\path{doi:10.48550/arXiv.2310.06117}}.
 
 \bibitem{trivedi_interleaving_2023}
 Harsh Trivedi, Niranjan Balasubramanian, Tushar Khot, and Ashish Sabharwal.
 \newblock Interleaving retrieval with chain-of-thought reasoning for knowledge-intensive multi-step questions.
-\newblock URL: \url{http://arxiv.org/abs/2212.10509}.
+\newblock URL: \url{http://arxiv.org/abs/2212.10509}, \href {https://arxiv.org/abs/2212.10509 [cs]} {\path{arXiv:2212.10509 [cs]}}, \href {https://doi.org/10.48550/arXiv.2212.10509} {\path{doi:10.48550/arXiv.2212.10509}}.
 
 \bibitem{wang_survey_2024}
 Lei Wang, Chen Ma, Xueyang Feng, Zeyu Zhang, Hao Yang, Jingsen Zhang, Zhiyuan Chen, Jiakai Tang, Xu~Chen, Yankai Lin, Wayne~Xin Zhao, Zhewei Wei, and Jirong Wen.
 \newblock A survey on large language model based autonomous agents.
 \newblock 18(6):186345.
-\newblock URL: \url{https://doi.org/10.1007/s11704-024-40231-1}.
+\newblock \href {https://doi.org/10.1007/s11704-024-40231-1} {\path{doi:10.1007/s11704-024-40231-1}}.
 
 \bibitem{zhang_building_2024-1}
 Hongxin Zhang, Weihua Du, Jiaming Shan, Qinhong Zhou, Yilun Du, Joshua~B. Tenenbaum, Tianmin Shu, and Chuang Gan.
 \newblock Building cooperative embodied agents modularly with large language models.
-\newblock URL: \url{http://arxiv.org/abs/2307.02485}.
+\newblock URL: \url{http://arxiv.org/abs/2307.02485}, \href {https://arxiv.org/abs/2307.02485 [cs]} {\path{arXiv:2307.02485 [cs]}}, \href {https://doi.org/10.48550/arXiv.2307.02485} {\path{doi:10.48550/arXiv.2307.02485}}.
 
 \bibitem{fischer_reflective_2023}
 Kevin~A. Fischer.
 \newblock Reflective linguistic programming ({RLP}): A stepping stone in socially-aware {AGI} ({SocialAGI}).
-\newblock URL: \url{http://arxiv.org/abs/2305.12647}.
+\newblock URL: \url{http://arxiv.org/abs/2305.12647}, \href {https://arxiv.org/abs/2305.12647 [cs]} {\path{arXiv:2305.12647 [cs]}}, \href {https://doi.org/10.48550/arXiv.2305.12647} {\path{doi:10.48550/arXiv.2305.12647}}.
 
 \bibitem{liang_unleashing_2023}
 Xinnian Liang, Bing Wang, Hui Huang, Shuangzhi Wu, Peihao Wu, Lu~Lu, Zejun Ma, and Zhoujun Li.
 \newblock {\em Unleashing Infinite-Length Input Capacity for Large-scale Language Models with Self-Controlled Memory System}.
+\newblock \href {https://doi.org/10.48550/arXiv.2304.13343} {\path{doi:10.48550/arXiv.2304.13343}}.
 
 \bibitem{zhao_expel_2024}
 Andrew Zhao, Daniel Huang, Quentin Xu, Matthieu Lin, Yong-Jin Liu, and Gao Huang.
 \newblock {ExpeL}: {LLM} agents are experiential learners.
 \newblock 38(17):19632--19642.
 \newblock Number: 17.
-\newblock URL: \url{https://ojs.aaai.org/index.php/AAAI/article/view/29936}.
+\newblock URL: \url{https://ojs.aaai.org/index.php/AAAI/article/view/29936}, \href {https://doi.org/10.1609/aaai.v38i17.29936} {\path{doi:10.1609/aaai.v38i17.29936}}.
 
 \bibitem{zhong_memorybank_2024}
 Wanjun Zhong, Lianghong Guo, Qiqi Gao, He~Ye, and Yanlin Wang.
 \newblock {MemoryBank}: Enhancing large language models with long-term memory.
 \newblock 38(17):19724--19731.
 \newblock Number: 17.
-\newblock URL: \url{https://ojs.aaai.org/index.php/AAAI/article/view/29946}.
+\newblock URL: \url{https://ojs.aaai.org/index.php/AAAI/article/view/29946}, \href {https://doi.org/10.1609/aaai.v38i17.29946} {\path{doi:10.1609/aaai.v38i17.29946}}.
 
 \bibitem{park_generative_2023}
 Joon~Sung Park, Joseph O'Brien, Carrie~Jun Cai, Meredith~Ringel Morris, Percy Liang, and Michael~S. Bernstein.
 \newblock Generative agents: Interactive simulacra of human behavior.
 \newblock In {\em Proceedings of the 36th Annual {ACM} Symposium on User Interface Software and Technology}, pages 1--22. {ACM}.
-\newblock URL: \url{https://dl.acm.org/doi/10.1145/3586183.3606763}.
+\newblock URL: \url{https://dl.acm.org/doi/10.1145/3586183.3606763}, \href {https://doi.org/10.1145/3586183.3606763} {\path{doi:10.1145/3586183.3606763}}.
 
 \bibitem{wei_chain--thought_2023}
 Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed~Chi, Quoc Le, and Denny Zhou.
 \newblock Chain-of-thought prompting elicits reasoning in large language models.
-\newblock URL: \url{http://arxiv.org/abs/2201.11903}.
+\newblock URL: \url{http://arxiv.org/abs/2201.11903}, \href {https://arxiv.org/abs/2201.11903 [cs]} {\path{arXiv:2201.11903 [cs]}}, \href {https://doi.org/10.48550/arXiv.2201.11903} {\path{doi:10.48550/arXiv.2201.11903}}.
 
 \bibitem{yao_tree_nodate}
 Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas~L Griffiths, Yuan Cao, and Karthik Narasimhan.
@@ -146,7 +147,7 @@ Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas~L Griffiths, Yuan Cao, 
 \bibitem{wang_recmind_2024}
 Yancheng Wang, Ziyan Jiang, Zheng Chen, Fan Yang, Yingxue Zhou, Eunah Cho, Xing Fan, Xiaojiang Huang, Yanbin Lu, and Yingzhen Yang.
 \newblock {RecMind}: Large language model powered agent for recommendation.
-\newblock URL: \url{http://arxiv.org/abs/2308.14296}.
+\newblock URL: \url{http://arxiv.org/abs/2308.14296}, \href {https://arxiv.org/abs/2308.14296 [cs]} {\path{arXiv:2308.14296 [cs]}}, \href {https://doi.org/10.48550/arXiv.2308.14296} {\path{doi:10.48550/arXiv.2308.14296}}.
 
 \bibitem{shinn_reflexion_nodate}
 Noah Shinn, Federico Cassano, Ashwin Gopinath, Karthik Narasimhan, and Shunyu Yao.
@@ -159,7 +160,7 @@ Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler Hallinan, Luyu Gao, Sarah Wiegr
 \bibitem{miao_selfcheck_2023}
 Ning Miao, Yee~Whye Teh, and Tom Rainforth.
 \newblock {SelfCheck}: Using {LLMs} to zero-shot check their own step-by-step reasoning.
-\newblock URL: \url{http://arxiv.org/abs/2308.00436}.
+\newblock URL: \url{http://arxiv.org/abs/2308.00436}, \href {https://arxiv.org/abs/2308.00436 [cs]} {\path{arXiv:2308.00436 [cs]}}, \href {https://doi.org/10.48550/arXiv.2308.00436} {\path{doi:10.48550/arXiv.2308.00436}}.
 
 \bibitem{lin_swiftsage_nodate}
 Bill~Yuchen Lin, Yicheng Fu, Karina Yang, Faeze Brahman, Shiyu Huang, Chandra Bhagavatula, Prithviraj Ammanabrolu, Yejin Choi, and Xiang Ren.
@@ -172,28 +173,28 @@ Wenlong Huang, Pieter Abbeel, Deepak Pathak, and Igor Mordatch.
 \bibitem{wang_describe_2024}
 Zihao Wang, Shaofei Cai, Guanzhou Chen, Anji Liu, Xiaojian Ma, and Yitao Liang.
 \newblock Describe, explain, plan and select: Interactive planning with large language models enables open-world multi-task agents.
-\newblock URL: \url{http://arxiv.org/abs/2302.01560}.
+\newblock URL: \url{http://arxiv.org/abs/2302.01560}, \href {https://arxiv.org/abs/2302.01560 [cs]} {\path{arXiv:2302.01560 [cs]}}, \href {https://doi.org/10.48550/arXiv.2302.01560} {\path{doi:10.48550/arXiv.2302.01560}}.
 
 \bibitem{zhu_ghost_2023}
 Xizhou Zhu, Yuntao Chen, Hao Tian, Chenxin Tao, Weijie Su, Chenyu Yang, Gao Huang, Bin Li, Lewei Lu, Xiaogang Wang, Yu~Qiao, Zhaoxiang Zhang, and Jifeng Dai.
 \newblock Ghost in the minecraft: Generally capable agents for open-world environments via large language models with text-based knowledge and memory.
-\newblock URL: \url{http://arxiv.org/abs/2305.17144}.
+\newblock URL: \url{http://arxiv.org/abs/2305.17144}, \href {https://arxiv.org/abs/2305.17144 [cs]} {\path{arXiv:2305.17144 [cs]}}, \href {https://doi.org/10.48550/arXiv.2305.17144} {\path{doi:10.48550/arXiv.2305.17144}}.
 
 \bibitem{song_llm-planner_2023}
 Chan~Hee Song, Brian~M. Sadler, Jiaman Wu, Wei-Lun Chao, Clayton Washington, and Yu~Su.
 \newblock {LLM}-planner: Few-shot grounded planning for embodied agents with large language models.
 \newblock In {\em 2023 {IEEE}/{CVF} International Conference on Computer Vision ({ICCV})}, pages 2986--2997. {IEEE}.
-\newblock URL: \url{https://ieeexplore.ieee.org/document/10378628/}.
+\newblock URL: \url{https://ieeexplore.ieee.org/document/10378628/}, \href {https://doi.org/10.1109/ICCV51070.2023.00280} {\path{doi:10.1109/ICCV51070.2023.00280}}.
 
 \bibitem{wang_voyager_2023}
 Guanzhi Wang, Yuqi Xie, Yunfan Jiang, Ajay Mandlekar, Chaowei Xiao, Yuke Zhu, Linxi Fan, and Anima Anandkumar.
 \newblock Voyager: An open-ended embodied agent with large language models.
-\newblock URL: \url{http://arxiv.org/abs/2305.16291}.
+\newblock URL: \url{http://arxiv.org/abs/2305.16291}, \href {https://arxiv.org/abs/2305.16291 [cs]} {\path{arXiv:2305.16291 [cs]}}, \href {https://doi.org/10.48550/arXiv.2305.16291} {\path{doi:10.48550/arXiv.2305.16291}}.
 
 \bibitem{liu_odyssey_2024}
 Shunyu Liu, Yaoru Li, Kongcheng Zhang, Zhenyu Cui, Wenkai Fang, Yuxuan Zheng, Tongya Zheng, and Mingli Song.
 \newblock Odyssey: Empowering minecraft agents with open-world skills.
-\newblock URL: \url{http://arxiv.org/abs/2407.15325}.
+\newblock URL: \url{http://arxiv.org/abs/2407.15325}, \href {https://arxiv.org/abs/2407.15325 [cs]} {\path{arXiv:2407.15325 [cs]}}, \href {https://doi.org/10.48550/arXiv.2407.15325} {\path{doi:10.48550/arXiv.2407.15325}}.
 
 \bibitem{raman_planning_nodate}
 Shreyas~Sundara Raman, Vanya Cohen, Eric Rosen, Ifrah Idrees, David Paulius, and Stefanie Tellex.
@@ -201,12 +202,12 @@ Shreyas~Sundara Raman, Vanya Cohen, Eric Rosen, Ifrah Idrees, David Paulius, and
 
 \bibitem{liu_llmp_2023}
 {LLM}+p: Empowering large language models with optimal planning proficiency.
-\newblock URL: \url{http://arxiv.org/abs/2304.11477}.
+\newblock URL: \url{http://arxiv.org/abs/2304.11477}, \href {https://doi.org/10.48550/arXiv.2304.11477} {\path{doi:10.48550/arXiv.2304.11477}}.
 
 \bibitem{dagan_dynamic_2023}
 Gautier Dagan, Frank Keller, and Alex Lascarides.
 \newblock Dynamic planning with a {LLM}.
-\newblock URL: \url{http://arxiv.org/abs/2308.06391}.
+\newblock URL: \url{http://arxiv.org/abs/2308.06391}, \href {https://arxiv.org/abs/2308.06391 [cs]} {\path{arXiv:2308.06391 [cs]}}, \href {https://doi.org/10.48550/arXiv.2308.06391} {\path{doi:10.48550/arXiv.2308.06391}}.
 
 \bibitem{noauthor_deepseek-r1deepseek_r1pdf_nodate}
 {DeepSeek}-r1/{DeepSeek}\_r1.pdf at main · deepseek-ai/{DeepSeek}-r1.
@@ -215,7 +216,7 @@ Gautier Dagan, Frank Keller, and Alex Lascarides.
 \bibitem{karpas_mrkl_2022}
 Ehud Karpas, Omri Abend, Yonatan Belinkov, Barak Lenz, Opher Lieber, Nir Ratner, Yoav Shoham, Hofit Bata, Yoav Levine, Kevin Leyton-Brown, Dor Muhlgay, Noam Rozen, Erez Schwartz, Gal Shachaf, Shai Shalev-Shwartz, Amnon Shashua, and Moshe Tenenholtz.
 \newblock {MRKL} systems: A modular, neuro-symbolic architecture that combines large language models, external knowledge sources and discrete reasoning.
-\newblock URL: \url{http://arxiv.org/abs/2205.00445}.
+\newblock URL: \url{http://arxiv.org/abs/2205.00445}, \href {https://arxiv.org/abs/2205.00445 [cs]} {\path{arXiv:2205.00445 [cs]}}, \href {https://doi.org/10.48550/arXiv.2205.00445} {\path{doi:10.48550/arXiv.2205.00445}}.
 
 \bibitem{ge_openagi_nodate}
 Yingqiang Ge, Wenyue Hua, Kai Mei, Jianchao Ji, Juntao Tan, Shuyuan Xu, Zelong Li, and Yongfeng Zhang.
@@ -224,7 +225,7 @@ Yingqiang Ge, Wenyue Hua, Kai Mei, Jianchao Ji, Juntao Tan, Shuyuan Xu, Zelong L
 \bibitem{zhuge_mindstorms_2023}
 Mingchen Zhuge, Haozhe Liu, Francesco Faccio, Dylan~R. Ashley, Róbert Csordás, Anand Gopalakrishnan, Abdullah Hamdi, Hasan Abed Al~Kader Hammoud, Vincent Herrmann, Kazuki Irie, Louis Kirsch, Bing Li, Guohao Li, Shuming Liu, Jinjie Mai, Piotr Piękos, Aditya Ramesh, Imanol Schlag, Weimin Shi, Aleksandar Stanić, Wenyi Wang, Yuhui Wang, Mengmeng Xu, Deng-Ping Fan, Bernard Ghanem, and Jürgen Schmidhuber.
 \newblock Mindstorms in natural language-based societies of mind.
-\newblock URL: \url{http://arxiv.org/abs/2305.17066}.
+\newblock URL: \url{http://arxiv.org/abs/2305.17066}, \href {https://arxiv.org/abs/2305.17066 [cs]} {\path{arXiv:2305.17066 [cs]}}, \href {https://doi.org/10.48550/arXiv.2305.17066} {\path{doi:10.48550/arXiv.2305.17066}}.
 
 \bibitem{du_improving_nodate}
 Yilun Du, Shuang Li, Antonio Torralba, Joshua~B Tenenbaum, and Igor Mordatch.
@@ -233,12 +234,12 @@ Yilun Du, Shuang Li, Antonio Torralba, Joshua~B Tenenbaum, and Igor Mordatch.
 \bibitem{qian_chatdev_2024}
 Chen Qian, Wei Liu, Hongzhang Liu, Nuo Chen, Yufan Dang, Jiahao Li, Cheng Yang, Weize Chen, Yusheng Su, Xin Cong, Juyuan Xu, Dahai Li, Zhiyuan Liu, and Maosong Sun.
 \newblock {ChatDev}: Communicative agents for software development.
-\newblock URL: \url{http://arxiv.org/abs/2307.07924}.
+\newblock URL: \url{http://arxiv.org/abs/2307.07924}, \href {https://arxiv.org/abs/2307.07924 [cs]} {\path{arXiv:2307.07924 [cs]}}, \href {https://doi.org/10.48550/arXiv.2307.07924} {\path{doi:10.48550/arXiv.2307.07924}}.
 
 \bibitem{hong_metagpt_2024}
 Sirui Hong, Mingchen Zhuge, Jiaqi Chen, Xiawu Zheng, Yuheng Cheng, Ceyao Zhang, Jinlin Wang, Zili Wang, Steven Ka~Shing Yau, Zijuan Lin, Liyang Zhou, Chenyu Ran, Lingfeng Xiao, Chenglin Wu, and Jürgen Schmidhuber.
 \newblock {MetaGPT}: Meta programming for a multi-agent collaborative framework.
-\newblock URL: \url{http://arxiv.org/abs/2308.00352}.
+\newblock URL: \url{http://arxiv.org/abs/2308.00352}, \href {https://arxiv.org/abs/2308.00352 [cs]} {\path{arXiv:2308.00352 [cs]}}, \href {https://doi.org/10.48550/arXiv.2308.00352} {\path{doi:10.48550/arXiv.2308.00352}}.
 
 \bibitem{kalliamvakou_research_2022}
 Eirini Kalliamvakou.
@@ -274,22 +275,22 @@ Number of parameters in {GPT}-4 (latest data).
 \bibitem{chen_fireact_2023}
 Baian Chen, Chang Shu, Ehsan Shareghi, Nigel Collier, Karthik Narasimhan, and Shunyu Yao.
 \newblock {FireAct}: Toward language agent fine-tuning.
-\newblock URL: \url{http://arxiv.org/abs/2310.05915}.
+\newblock URL: \url{http://arxiv.org/abs/2310.05915}, \href {https://arxiv.org/abs/2310.05915 [cs]} {\path{arXiv:2310.05915 [cs]}}, \href {https://doi.org/10.48550/arXiv.2310.05915} {\path{doi:10.48550/arXiv.2310.05915}}.
 
 \bibitem{zeng_agenttuning_2023}
 Aohan Zeng, Mingdao Liu, Rui Lu, Bowen Wang, Xiao Liu, Yuxiao Dong, and Jie Tang.
 \newblock {AgentTuning}: Enabling generalized agent abilities for {LLMs}.
-\newblock URL: \url{http://arxiv.org/abs/2310.12823}.
+\newblock URL: \url{http://arxiv.org/abs/2310.12823}, \href {https://arxiv.org/abs/2310.12823 [cs]} {\path{arXiv:2310.12823 [cs]}}, \href {https://doi.org/10.48550/arXiv.2310.12823} {\path{doi:10.48550/arXiv.2310.12823}}.
 
 \bibitem{chen_agent-flan_2024}
 Zehui Chen, Kuikun Liu, Qiuchen Wang, Wenwei Zhang, Jiangning Liu, Dahua Lin, Kai Chen, and Feng Zhao.
 \newblock Agent-{FLAN}: Designing data and methods of effective agent tuning for large language models.
-\newblock URL: \url{http://arxiv.org/abs/2403.12881}.
+\newblock URL: \url{http://arxiv.org/abs/2403.12881}, \href {https://arxiv.org/abs/2403.12881 [cs]} {\path{arXiv:2403.12881 [cs]}}, \href {https://doi.org/10.48550/arXiv.2403.12881} {\path{doi:10.48550/arXiv.2403.12881}}.
 
 \bibitem{hu_lora_2021}
 Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu~Wang, and Weizhu Chen.
 \newblock {LoRA}: Low-rank adaptation of large language models.
-\newblock URL: \url{http://arxiv.org/abs/2106.09685}.
+\newblock URL: \url{http://arxiv.org/abs/2106.09685}, \href {https://arxiv.org/abs/2106.09685 [cs]} {\path{arXiv:2106.09685 [cs]}}, \href {https://doi.org/10.48550/arXiv.2106.09685} {\path{doi:10.48550/arXiv.2106.09685}}.
 
 \bibitem{noauthor_c4_nodate}
 C4 - abstractions.
@@ -298,6 +299,11 @@ C4 - abstractions.
 \bibitem{luo_repoagent_2024}
 Qinyu Luo, Yining Ye, Shihao Liang, Zhong Zhang, Yujia Qin, Yaxi Lu, Yesai Wu, Xin Cong, Yankai Lin, Yingli Zhang, Xiaoyin Che, Zhiyuan Liu, and Maosong Sun.
 \newblock {RepoAgent}: An {LLM}-powered open-source framework for repository-level code documentation generation.
-\newblock URL: \url{http://arxiv.org/abs/2402.16667}.
+\newblock URL: \url{http://arxiv.org/abs/2402.16667}, \href {https://arxiv.org/abs/2402.16667 [cs]} {\path{arXiv:2402.16667 [cs]}}, \href {https://doi.org/10.48550/arXiv.2402.16667} {\path{doi:10.48550/arXiv.2402.16667}}.
+
+\bibitem{tam_let_2024}
+Zhi~Rui Tam, Cheng-Kuang Wu, Yi-Lin Tsai, Chieh-Yen Lin, Hung-yi Lee, and Yun-Nung Chen.
+\newblock Let me speak freely? a study on the impact of format restrictions on performance of large language models.
+\newblock URL: \url{http://arxiv.org/abs/2408.02442}, \href {https://arxiv.org/abs/2408.02442 [cs]} {\path{arXiv:2408.02442 [cs]}}, \href {https://doi.org/10.48550/arXiv.2408.02442} {\path{doi:10.48550/arXiv.2408.02442}}.
 
 \end{thebibliography}

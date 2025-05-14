@@ -20,7 +20,11 @@
 \contentsline {figure}{\numberline {6.4}{\ignorespaces Algoritmo de chunking considerando definiciones de funciones y clases en el código fuente}}{55}{figure.6.4}%
 \contentsline {figure}{\numberline {6.5}{\ignorespaces Comparación de agente Confluence estándar y enfocado en el cacheo del prompt}}{58}{figure.6.5}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Flujo de ejecución del agente planificador}}{63}{figure.7.1}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Flujo operativo del agente planificador}}{63}{figure.7.1}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Variaciones de orquestación principales experimentadas}}{65}{figure.7.2}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sistema con planificador y orquestador independientes}}}{65}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sistema con planificador y orquestador fusionados}}}{65}{subfigure.2.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Sistema con orquestador como agente ReAct}}}{65}{subfigure.2.3}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
