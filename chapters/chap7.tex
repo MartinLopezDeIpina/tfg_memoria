@@ -1,14 +1,15 @@
-Habiendo abordado el funcionamiento de los agentes especialistas en el Capítulo 6, este capítulo se centra en los mecanismos de coordinación que permiten la operación del sistema completo.
+\todo{Voy a añadir una sección al capítulo de ``Diseño del sistema'' donde se explique la lógica detrás de separar los agentes. He pensado en algo como el anexo \ref{anexo:design}}
+Habiendo abordado tanto el diseño del sistema como el funcionamiento de los agentes especialistas, este capítulo se centra en los mecanismos de coordinación que permiten la operación del sistema completo.
 
 Para ello se introducirá la lógica del agente principal (MainAgent), el agente planificador y el agente orquestador. Posteriormente se detallarán las variaciones exploradas en dicho marco de coordinación, concluyendo con el análisis de un caso práctico de ejecución.
 
 \section{Agente Principal}
 \label{sec:principal}
-Este agente establece la lógica de enrutamiento entre el planificador y el orquestador, derivando finalmente el resultado al agente formateador.
+Este agente establece la lógica de enrutamiento entre el planificador y el orquestador, derivando finalmente el resultado al agente formateador. Todas las versiones principales de este agente pueden visualizarse en la Figura \ref{fig:orchs}.
 
-El proceso se inicia con la ejecución del agente planificador, que genera un plan de alto nivel compuesto por múltiples pasos secuenciales. Posteriormente, se activa el agente orquestador con el primer paso del plan generado, cuya función consiste en determinar qué agentes especializados deben ejecutarse para dicha etapa. Los agentes seleccionados son ejecutados de forma asíncrona, generando cada uno un \opus{CitedAIMessage}, estructura que integra tanto el contenido de la respuesta como una lista de citas referentes a los documentos consultados.
+El proceso se inicia con la ejecución del agente planificador, que genera un plan de alto nivel compuesto por múltiples pasos secuenciales, donde cada paso constituye una cadena de texto que define específicamente qué información buscar. Posteriormente, se activa el agente orquestador con el primer paso del plan generado, cuya función consiste en determinar qué agentes especializados deben ejecutarse para dicha etapa. Los agentes seleccionados son ejecutados de forma asíncrona, generando cada uno un \opus{CitedAIMessage}, estructura que integra tanto el contenido de la respuesta como una lista de citas referentes a los documentos consultados.
 
-Este ciclo se itera hasta que el planificador establece la finalización del plan. A continuación, el agente formateador estructura el contenido en un formato estandarizado, consistente en un mensaje markdown y la relación de identificadores para las citas referenciadas.
+Este ciclo se itera hasta que el planificador establece la finalización del plan. A continuación, el agente formateador estructura el contenido en un formato estandarizado, consistente en un mensaje markdown y un índice de identificadores que referencia solo las citas empleadas de entre todas las generadas en las respuestas de los agentes.
 
 Considerando el desarrollo de múltiples versiones de planificadores y orquestadores, se ha implementado un patrón Builder para facilitar la construcción del sistema a partir de los agentes especificados, permitiendo así las variaciones detalladas en la Sección \ref{sec:vars}. El Listado \ref{lst:builder} muestra la creación, inicialización y ejecución del sistema mínimo con los cinco agentes especialistas.
 
@@ -34,12 +35,13 @@ Considerando el desarrollo de múltiples versiones de planificadores y orquestad
 \end{lstlisting}
 
 \subsection{Respuesta estructurada}
-\todo{Esta sección la he puesto aquí pero no sé si es el lugar más adecuado.}
+\todo{Esta sección la he puesto aquí pero no sé si es el lugar más adecuado.
+
+Es donde primero menciono la salida estructurada, pero queda un poco raro en medio de ``agente principal''.
+}
 El sistema necesita interpretar las respuestas de los agentes de forma programática en varios escenarios. Para conseguir este objetivo, se implementan respuestas estructuradas que permiten procesar información de manera automatizada dentro de la arquitectura del sistema. Por ejemplo, el agente formateador puede separar claramente el texto de la respuesta de las citas utilizadas, mientras que el orquestador puede generar listas de agentes especializados en un formato directamente utilizable por el código.
 
-El Listado \ref{lst:structured_output} muestra la implementación mediante el adaptador \opus{with_structured_output}, que incorpora en el prompt un esquema JSON específico que guía al modelo a generar una salida estructurada. Esta salida puede ser posteriormente serializada a objetos Python para su procesamiento. En los casos donde el modelo no logra producir la estructura correcta, se implementa un mecanismo de recuperación utilizando un \opus{RetryOutputParser} de LangChain, el cual emplea un segundo modelo para reformular la respuesta según el formato requerido,
-
-
+El Listado \ref{lst:structured_output} muestra la implementación mediante el adaptador \opus{with_structured_output}, que incorpora en el prompt un esquema JSON específico que guía al modelo a generar una salida estructurada. Esta salida, gracias a los modelos Pydantic\footnote{Pydantic: \url{https://docs.pydantic.dev/latest/}}, puede ser automáticamente deserializada a objetos Python para su procesamiento. En los casos donde el modelo no logra producir la estructura correcta, se implementa un mecanismo de recuperación utilizando un \opus{RetryOutputParser} de LangChain, que emplea un segundo modelo para reformular la respuesta según el formato requerido.
 
 \begin{lstlisting}[caption={Validación de la salida estructurada de un LLM},label={lst:structured_output}]
   async def execute_structured_llm_with_validator_handling(prompt: str | Sequence[BaseMessage], output_schema: Type[BaseModel], max_retries: int, llm: BaseChatModel) -> BaseModel:
@@ -60,8 +62,6 @@ El Listado \ref{lst:structured_output} muestra la implementación mediante el ad
           # Si no se convierte intentar parsear la respuesta con otro LLM  
           response = retry_parser.parse(raw_response)
         ...
-
-        return response
 \end{lstlisting}
 \subsection{Agente Planificador}
 Este agente establece planes de alto nivel para estructurar el proceso de respuesta mediante un procedimiento lógico secuencial. Adicionalmente, incorpora la capacidad de modificar dinámicamente dichos planes en función del estado de ejecución actual.
@@ -74,14 +74,14 @@ El flujo operativo del agente se ilustra en la Figura \ref{fig:planner}. En prim
 \caption{Flujo operativo del agente planificador}
 \label{fig:planner}
 \end{figure}
-Posteriormente, un agente razonador procesa la consulta del usuario junto con una descripción concisa del proyecto. En caso de no tratarse de la primera iteración de ejecución, este recibe adicionalmente el plan anterior y las respuestas de los agentes especializados, que constituyen el resultado de la ejecución de todos los pasos del plan precedentes. La función del agente razonador consiste en analizar los pasos subsiguientes a ejecutar, generando un nuevo plan o modificando el existente.
+Posteriormente, un agente razonador procesa la consulta del usuario junto con una breve descripción del proyecto. En caso de no tratarse de la primera iteración de ejecución, este recibe también los planes anteriores y las respuestas de los agentes especializados, que constituyen el resultado de la ejecución del primer paso de todos los planes precedentes. La función del agente razonador consiste en analizar los siguientes pasos a ejecutar, generando un nuevo plan o modificando el existente.
 
-Finalmente, otro agente transforma el plan textual elaborado por el razonador a un modelo de Pydantic, consistente en un objeto Python representado como una lista de pasos textuales con un argumento booleano que indica si el plan ha finalizado. Cabe destacar que el razonador no estructura directamente su plan, puesto que los agentes razonadores han sido optimizados para generar respuestas sin un formato predeterminado, habiéndose comprobado que imponer restricciones de formato reduce la precisión del razonamiento \cite{tam_let_2024}.
+Cabe destacar que el razonador no estructura directamente su plan, puesto que los agentes razonadores han sido optimizados para generar respuestas sin un formato predeterminado, habiéndose demostrado que imponer restricciones de formato reduce la precisión del razonamiento \cite{tam_let_2024}. Por consiguiente, otro agente, denominado estructurador, transforma el plan textual elaborado por el razonador a un modelo de Pydantic. Este plan consiste en un objeto Python representado como una lista de pasos textuales con un argumento booleano que indica si el plan ha finalizado.
 
 \section{Agente orquestador}
 Este agente recibe una tarea específica, ya sea derivada de un paso del plan establecido o formulada como consulta directa por el usuario, y determina qué agentes especializados deben ejecutarse de forma asíncrona.
 
-Para fundamentar su toma de decisiones, su prompt incorpora una descripción detallada de cada agente disponible, incluyendo una síntesis del tipo de información que gestiona cada uno. Este contexto se construye dinámicamente en función de los agentes integrados en el sistema, almacenando dicha caracterización en la estructura de la clase \opus{SpecializedAgent}.
+Para fundamentar su toma de decisiones, su prompt incorpora una descripción detallada de cada agente disponible, incluyendo una síntesis del tipo de información que gestiona cada uno. Este contexto se construye dinámicamente en función de los agentes integrados en el sistema, almacenando dicha caracterización en cada objeto \opus{SpecializedAgent}.
 
 \section{Variaciones de orquestación}
 \label{sec:vars}
@@ -102,19 +102,18 @@ En contraste, la arquitectura ilustrada en la Figura \ref{fig:orch_2} integra el
 
 Estos dos primeros enfoques presentan ventajas e inconvenientes diferenciados. Mientras que el segundo enfoque resulta más simple y podría presumirse una precisión superior al integrar toda la información contextualizada en un único agente, el primero establece una separación más clara. Esta separación entre planificación y ejecución podría traducirse en decisiones más meditadas, potencialmente mejorando la precisión.
 
-La tercera aproximación, ilustrada en la Figura \ref{fig:orch_3}, explora un diseño de máxima simplicidad. Eliminando completamente la fase de razonamiento y planificación, implementa un orquestador que invoca a los agentes especializados mediante el patrón ReAct, interactuando con ellos encapsulándolos en herramientas. En este paradigma, el propio orquestador determina la necesidad de ejecutar agentes adicionales en función de los resultados obtenidos, proporcionando una respuesta directa cuando considera que dispone de información suficiente
+La tercera aproximación, ilustrada en la Figura \ref{fig:orch_3}, explora un diseño de máxima simplicidad. Eliminando completamente la fase de planificación, implementa un orquestador que invoca a los agentes especializados mediante el patrón ReAct, interactuando con ellos encapsulándolos en herramientas. El propio orquestador determina la necesidad de ejecutar agentes adicionales, proporcionando una respuesta directa cuando considera que dispone de información suficiente.
 
 \subsection{Caso práctico}
-Para ilustrar el funcionamiento de cada enfoque, esta sección analiza el comportamiento de las diferentes estructuras ante la siguiente consulta del usuario:
-
-\texttt{¿Podrías proporcionar ejemplos de código donde se apliquen los principios de la guía de estilos?}
+Para ilustrar el funcionamiento de cada enfoque, esta sección analiza el comportamiento de las diferentes estructuras ante la siguiente consulta del usuario: \texttt{¿Podrías proporcionar ejemplos de código donde se apliquen los principios de la guía de estilos?}
 
 Este ejemplo requiere dos pasos lógicos secuenciales: primero, identificar los principios establecidos en la guía de estilos, lo que implica localizar y extraer el documento completo; posteriormente, analizar qué principios específicos deben buscarse y realizar una exploración en el repositorio para localizar su implementación. La respuesta deberá incluir citas tanto de la guía de estilos como de los archivos que contienen los fragmentos de código incluidos en la respuesta.
 
 \begin{itemize}
-\item\textbf{Sistema básico:} El planificador debe generar un plan de dos pasos, donde el primer paso consiste en localizar la guía de estilos y el segundo en identificar la aplicación de sus principios en el código. Posteriormente, el orquestador determinará qué agentes invocar para el primer paso, debiendo incluir el agente Confluence. Tras la ejecución de los especialistas, el planificador evaluará el resultado obtenido: si la guía ha sido localizada, procederá con el paso siguiente; en caso contrario, deberá razonar sobre la respuesta recibida, posiblemente requiriendo un paso adicional para ampliar la búsqueda. Una vez identificada la guía, el orquestador invocará al agente de código, especificando en la consulta los principios específicos a localizar.
 
-\item\textbf{Sistema unificado:} Este implementa un procedimiento similar al sistema básico, pero integrando ambas funciones en cada iteración del orquestador. El agente orquestador establece los dos pasos a ejecutar y, sin delegar en un agente externo, indica directamente qué agentes deben ejecutarse para el primer paso. Posteriormente, analiza los resultados obtenidos y determina la siguiente acción a ejecutar.
+\item\textbf{Sistema base: } El planificador genera un plan secuencial de dos pasos: primero localizar la guía de estilos y después identificar su aplicación en el código. Para el primer paso, el orquestador invoca al agente Confluence. El planificador evalúa el resultado obtenido y, si encuentra la guía, autoriza proceder al segundo paso; en caso contrario, modifica el plan para ampliar la búsqueda. Una vez identificada la guía, en el siguiente paso el orquestador consulta al agente de código para localizar la implementación de los principios específicos.
+
+\item\textbf{Sistema unificado:} Este implementa un procedimiento similar al sistema básico, pero integrando ambas funciones en cada iteración del orquestador. El agente orquestador establece los dos pasos a ejecutar y, sin delegar en un agente externo, indica directamente la ejecución del agente Confluence para el primer paso. Posteriormente, analiza los resultados obtenidos, modifica el plan de ser necesario y ejecuta el siguiente paso.
 
 \item\textbf{Sistema con orquestador autónomo:} El orquestador recibe la consulta y, sin planificación previa, debe determinar qué agente debe invocarse para obtener la guía de estilos. Tras procesar el resultado, invocará al agente de código para buscar la implementación de los principios identificados.
 \end{itemize}

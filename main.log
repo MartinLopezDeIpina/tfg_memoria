@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  14 MAY 2025 12:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  15 MAY 2025 10:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1944,63 +1944,63 @@ LaTeX Info: Redefining \% on input line 218.
  [59] [60
 
 
-] (./chapters/chap7.tex [61]
-Overfull \hbox (0.92271pt too wide) in paragraph at lines 37--37
+] (./chapters/chap7.tex
+Overfull \hbox (0.92271pt too wide) in paragraph at lines 1--1
 [][][] 
  []
 
 
-Overfull \hbox (0.92271pt too wide) in paragraph at lines 37--37
+Overfull \hbox (0.92271pt too wide) in paragraph at lines 1--1
 [][][] 
  []
 
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
+[61]
+Overfull \hbox (0.92271pt too wide) in paragraph at lines 41--41
+[][][] 
+ []
+
+
+Overfull \hbox (0.92271pt too wide) in paragraph at lines 41--41
+[][][] 
+ []
+
+LaTeX Info: Redefining \. on input line 46.
+LaTeX Info: Redefining \% on input line 46.
 [62]
-<figures/planner.png, id=1609, 1292.9103pt x 149.5989pt>
+<figures/planner.png, id=1612, 1292.9103pt x 149.5989pt>
 File: figures/planner.png Graphic file (type png)
 <use figures/planner.png>
 Package pdftex.def Info: figures/planner.png  used on input line 73.
 (pdftex.def)             Requested size: 537.50577pt x 62.19423pt.
-LaTeX Info: Redefining \. on input line 80.
-LaTeX Info: Redefining \% on input line 80.
+LaTeX Info: Redefining \. on input line 78.
+LaTeX Info: Redefining \% on input line 78.
  [63 <./figures/planner.png (PNG copy)>]
-<figures/orch_1.png, id=1634, 1542.76375pt x 1156.32pt>
+<figures/orch_1.png, id=1639, 1542.76375pt x 1156.32pt>
 File: figures/orch_1.png Graphic file (type png)
 <use figures/orch_1.png>
 Package pdftex.def Info: figures/orch_1.png  used on input line 92.
 (pdftex.def)             Requested size: 279.50037pt x 209.4872pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 9.0pt on input line 92.
-<figures/orch_2.png, id=1635, 1281.78876pt x 1379.1525pt>
+<figures/orch_2.png, id=1640, 1281.78876pt x 1379.1525pt>
 File: figures/orch_2.png Graphic file (type png)
 <use figures/orch_2.png>
 Package pdftex.def Info: figures/orch_2.png  used on input line 94.
 (pdftex.def)             Requested size: 215.0023pt x 231.31725pt.
-<figures/orch_3.png, id=1636, 1281.78876pt x 1193.45876pt>
+<figures/orch_3.png, id=1641, 1281.78876pt x 1193.45876pt>
 File: figures/orch_3.png Graphic file (type png)
 <use figures/orch_3.png>
 Package pdftex.def Info: figures/orch_3.png  used on input line 96.
 (pdftex.def)             Requested size: 215.0023pt x 200.1719pt.
-LaTeX Info: Redefining \. on input line 106.
-LaTeX Info: Redefining \% on input line 106.
+LaTeX Info: Redefining \. on input line 105.
+LaTeX Info: Redefining \% on input line 105.
  [64]
-LaTeX Info: Redefining \. on input line 106.
-LaTeX Info: Redefining \% on input line 106.
+LaTeX Info: Redefining \. on input line 105.
+LaTeX Info: Redefining \% on input line 105.
  [65 <./figures/orch_1.png> <./figures/orch_2.png> <./figures/orch_3.png>])
 LaTeX Info: Redefining \. on input line 221.
 LaTeX Info: Redefining \% on input line 221.
- [66] (./chapters/anexo_a.tex
-Overfull \hbox (0.92271pt too wide) in paragraph at lines 2--2
-[][][] 
- []
-
-
-Overfull \hbox (0.92271pt too wide) in paragraph at lines 2--2
-[][][] 
- []
-
-[67
+ [66] (./chapters/anexo_a.tex [67
 
 
 ]
@@ -2191,17 +2191,17 @@ Package rerunfilecheck Info: File `main.brf' has not changed.
 (rerunfilecheck)             Checksum: E06864329726F7A9DA17D940F7AD0A5C;4119.
  ) 
 Here is how much of TeX's memory you used:
- 57055 strings out of 474222
- 1161443 string characters out of 5748733
+ 57059 strings out of 474222
+ 1161534 string characters out of 5748733
  2346975 words of memory out of 5000000
- 77077 multiletter control sequences out of 15000+600000
- 725955 words of font info for 435 fonts, out of 8000000 for 9000
+ 77079 multiletter control sequences out of 15000+600000
+ 726220 words of font info for 437 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  142i,13n,148p,1601b,4099s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (110 pages, 4113112 bytes).
+Output written on main.pdf (110 pages, 4114478 bytes).
 PDF statistics:
- 2546 PDF objects out of 2984 (max. 8388607)
- 938 named destinations out of 1000 (max. 500000)
+ 2550 PDF objects out of 2984 (max. 8388607)
+ 937 named destinations out of 1000 (max. 500000)
  106518 words of extra memory for PDF output out of 106986 (max. 10000000)
 

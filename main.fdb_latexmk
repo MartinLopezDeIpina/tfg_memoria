@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1747218352.19028 "main.aux" "main.bbl" "main" 1747218476.32957 0
+["bibtex main"] 1747298921.36819 "main.aux" "main.bbl" "main" 1747299123.82794 0
   "./references/references.bib" 1747216667.2842 270282 9792b4654002df12f14c8b06f2676fe9 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/urlbst/unsrturl.bst" 1675116457 30912 2cfc330ae0a68bbf7dc64e1666bbb15c ""
-  "main.aux" 1747218476.03616 53475 c327bdc6517819897ee0159bd104a454 "pdflatex"
+  "main.aux" 1747299123.53551 53875 a3ef824bb1734d718cdc48022b1bb01a "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1747218470.76435 "main.tex" "main.pdf" "main" 1747218476.32974 0
+["pdflatex"] 1747299118.24831 "main.tex" "main.pdf" "main" 1747299123.82811 0
   "/etc/texmf/web2c/texmf.cnf" 1742662909.37475 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490131464 2933 9ad527ce78d7c5fa0a642dead095f172 ""
@@ -310,7 +310,7 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1742662926.62368 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1742663003 8215969 04fa62464cc1af9a580ed58ee3c0aa09 ""
   "chapters/abstract.tex" 1744495005.43808 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "chapters/anexo_a.tex" 1747126549.82887 4588 20b2559f2f2f0aacd564bc77c8b7fd3d ""
+  "chapters/anexo_a.tex" 1747297030.07555 4639 5b332e29d66d27965ea22c220a1db034 ""
   "chapters/anexo_b.tex" 1746551224.46138 18032 418dbb23d31edf91f1093efeb65cea72 ""
   "chapters/anexo_d.tex" 1746179224.68959 18519 fbf3d5e66ba0009c3ef4159132560b4b ""
   "chapters/chap1.tex" 1744529083.91241 1 68b329da9893e34099c7d8ad5cb9c940 ""
@@ -319,7 +319,7 @@
   "chapters/chap4.tex" 1746549197.66986 13056 e5bb9a1a325d4ecdc6f7156e095e0fbf ""
   "chapters/chap5.tex" 1747042584.46151 28667 8ed0d121624b5b9a7101ee0b8d5eb5f1 ""
   "chapters/chap6.tex" 1747057336.99465 22503 bcbf9a14b85435c168ad678d448a8bba ""
-  "chapters/chap7.tex" 1747218469.84485 13080 c53924cd104d92378444832caafe47de ""
+  "chapters/chap7.tex" 1747299118.08444 13498 504c773c4a73c53560094be489e89c76 ""
   "config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg" 1742662057.12128 497752 09b39031bbea5eedf1afee283c914abc ""
   "config/cover_informatika.tex" 1742662057.12128 534 67c0f94b8a5047dc4972697755493091 ""
   "config/macros.tex" 1742662057.12228 4611 9981108341e593c39442ca9a4c27fb91 ""
@@ -340,14 +340,14 @@
   "figures/planner.png" 1747133326.07137 117743 8836e8882e47630b0cd57a9e295397e1 ""
   "figures/specialized.png" 1746953630.44624 161147 1bc27e89a2f633f7956cda74bff43197 ""
   "ifcommands.sty" 1742662057.12428 4894 6fc6d38bd21ddafd256a754893d7696a ""
-  "main.aux" 1747218476.03616 53475 c327bdc6517819897ee0159bd104a454 "pdflatex"
-  "main.bbl" 1747218352.28996 23375 06cad875cc31c423fbc1b16ad78e7815 "bibtex main"
-  "main.brf" 1747218476.04016 4119 e06864329726f7a9da17d940f7ad0a5c "pdflatex"
-  "main.lof" 1747218476.04016 2765 f966b3fe7d74a71b0289dda114db115d "pdflatex"
-  "main.lot" 1747218476.04016 1084 193558d3acaf661082b54de9f62a34bf "pdflatex"
-  "main.out" 1747218476.04016 20464 990d558f89ad1e1095f65e3127aeb663 "pdflatex"
+  "main.aux" 1747299123.53551 53875 a3ef824bb1734d718cdc48022b1bb01a "pdflatex"
+  "main.bbl" 1747298921.44958 23375 06cad875cc31c423fbc1b16ad78e7815 "bibtex main"
+  "main.brf" 1747299123.54051 4119 e06864329726f7a9da17d940f7ad0a5c "pdflatex"
+  "main.lof" 1747299123.54051 2765 f966b3fe7d74a71b0289dda114db115d "pdflatex"
+  "main.lot" 1747299123.54051 1084 193558d3acaf661082b54de9f62a34bf "pdflatex"
+  "main.out" 1747299123.53951 20464 990d558f89ad1e1095f65e3127aeb663 "pdflatex"
   "main.tex" 1747218324.16795 6796 bc75abcab057a9fae5b5236ed11119fd ""
-  "main.toc" 1747218476.04016 12868 9db81742100835a60116a194272960c5 "pdflatex"
+  "main.toc" 1747299123.54051 12868 9db81742100835a60116a194272960c5 "pdflatex"
   (generated)
   "main.aux"
   "main.brf"

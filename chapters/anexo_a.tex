@@ -1,13 +1,13 @@
 \section{Diseño General}
-\todo{Esta sección ponerla en diseño del sistema}
-El sistema implementado aborda el caso de uso donde el usuario realiza una pregunta y se debe responder consultando las fuentes de datos disponibles. El diseño del sistema está limitado por dos restricciones fundamentales: 
+\label{anexo:design}
+El sistema implementado explora arquitecturas aplicables a entornos con restricciones significativas de procesamiento, orientándose a responder consultas mediante el acceso eficiente a múltiples fuentes de datos. El diseño contempla las siguientes restricciones: 
 \begin{itemize}
-  \item\textbf{Ventana de contexto limitada: }Los proyectos en producción pueden tener millones de líneas de código, con una documentación igualmente extensa. Los modelos del estado del arte no tienen todavía la capacidad de procesar tal volumen de texto. 
-  \item\textbf{Costo asociado: }Si bien en algunos casos es posible incluir toda la información disponible en el prompt de los agentes, varias iteraciones con tal volumen de texto conllevarían un sobrecoste prohibitivo. 
+\item\textbf{Ventana de contexto limitada: }los proyectos en producción pueden contener millones de líneas de código y documentación de comparable magnitud. Los modelos del estado del arte carecen de capacidad para procesar tal volumen textual.
+  \item\textbf{Costo asociado: }incluso cuando el texto cabe en la ventana de contexto, las iteraciones con grandes volúmenes textuales generan un gasto computacional prohibitivo en entornos productivos. Esto crea la necesidad de optimizar selectivamente el acceso a la información.
 \end{itemize}
-La arquitectura distribuye el procesamiento entre agentes especializados, evitando que un único agente cargue toda la información. Cada agente interactúa exclusivamente con su fuente de datos asignada, eliminando el sobrecoste de procesar información irrelevante en cada llamada. El agente orquestador analiza la consulta y determina qué agentes especialistas deben intervenir, seleccionando las fuentes de datos más apropiadas para cada caso.
+Para abordar estas limitaciones, el sistema adopta un enfoque distribuido. La arquitectura reparte el procesamiento entre agentes especializados, cada uno interactuando exclusivamente con su fuente asignada. Estos agentes procesan los documentos originales y sintetizan únicamente la información pertinente, evitando así que niveles superiores procesen detalles irrelevantes. El agente orquestador analiza una operación y determina qué especialistas deben intervenir según las fuentes más apropiadas.
 
-Adicionalmente, se requiere de una coordinación a alto nivel mediante el agente planificador, que razona sobre los pasos lógicos a realizar. Por ejemplo, si el usuario pregunta por ejemplos en los que se utiliza la guía de estilos del proyecto, en lugar de buscar información indiscriminadamente, primero se localizaría la guía de estilos para después examinar implementaciones específicas en el código fuente. 
+Complementariamente, se implementa una coordinación de alto nivel mediante el agente planificador, que establece la secuencia lógica de operaciones. Por ejemplo, ante una consulta sobre ejemplos de aplicación de la guía de estilos, se priorizaría localizar dicha guía para posteriormente examinar implementaciones específicas en el código fuente.
 
 \section{Conjunto de datos etiquetados}
 \label{anexo:datos_et}
