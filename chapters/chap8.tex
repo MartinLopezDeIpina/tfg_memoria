@@ -1,0 +1,87 @@
+Partiendo de la arquitectura base descrita en los capítulos anteriores, en esta sección se analizan las mejoras exploradas para incrementar la eficacia del sistema multiagente.
+
+Para ello, se han integrado tres mecanismos complementarios: un prompting con ejemplos ilustrativos (\textit{few-shot}), un sistema de memoria persistente y un diseño adaptativo que modifica el comportamiento del sistema según la complejidad de la consulta formulada.
+
+\section{Prompting Few Shot}
+El aprendizaje mediante ejemplos de entrada consiste en proveer al LLM ejemplos del comportamiento esperado para ajustar la salida de este, obteniendo mejoras de rendimiento para tareas específicas de forma flexible, únicamente modificando el prompt de entrada \cite{brown_language_2020}.
+
+El comportamiento del orquestador y planificador son perfectos para esta estrategia, ya que hay varios escenarios generales donde se quiere que actúen de cierta forma. Por ejemplo, se requiere que el agente planificador ajuste su plan dinámicamente en función de la información recavada. El Listado \ref{lst:few_shot} ilustra un ejemplo donde se le instruye al agente que tiene la capacidad de razonar si finalizar el plan, aún en contra de lo planeado inicialmente. Se le indica el contexto en el que se encuentra, la respuesta esperada y una explicación del comportamiento esperado. 
+
+\begin{lstlisting}[caption={Integración de ejemplos few shot al agente planificador},label={lst:few_shot}]
+  examples = [
+      {
+          "current_info": "The previous plan was to find information about X and then about Y. Information about X was gathered",
+          "question": "Provide information about X and Y",
+          "plan": "Enough information for X and Y was gathered. Finished",
+          "explanation": "Dynamically adjust your plan as you go, some steps might be unnecessary"
+
+      },
+      ...
+  ]
+
+  # Indicar la plantilla con la que se convertirá cada ejemplo en el prompt
+  example_prompt = PromptTemplate.from_template("\t{explanation}:\n\t\tCurrent information:{current_info}\n\t\tQuestion:{question}\n\t\tPlan:{plan}")
+
+  # Aplicar la plantilla a todos los ejemplos
+  def get_planner_few_shots(examples_list: List[dict]):
+      few_shots_template = FewShotPromptTemplate(
+          examples=examples_list,
+          example_prompt=example_prompt,
+          input_variables=[],
+          suffix="",
+          prefix="Here are some abstract examples:"
+      )
+      return few_shots_template.format()
+  planner_few_shots = get_planner_few_shots(examples)
+\end{lstlisting}
+
+Los ejemplos se han redactado de forma abstracta respecto al proyecto software utilizado. No se ha incluído información del comportamiento esperado respecto a fuentes de datos o agentes específicos, para evitar el sobreajuste de este respecto a los datos anotados. 
+
+\section{Memoria persistente}
+La memoria persistente constituye en proveer al agente información de ejecuciones anteriores para ampliar su conocimiento, simulando funciones cognitivas humanas (Véase Sección \ref{sec:modulos_memoria}). 
+
+Este enfoque se ha implementado en los agentes especializados, con el objetivo de mejorar la búsqueda de información. De esta forma, el agente obtendrá resúmenes de respuestas anteriores que sean relevantes para la consulta actual, proporcionando información complementaria que el agente podría no haber extraído correctamente. 
+
+La Figura \ref{fig:mem_1} ilustra el funcionamiento de dicho mecanismo. En primer lugar, se añaden al prompt del agente memorias relevantes realizando una búsqueda RAG sobre un objeto \opus{AsyncPostgresSaver}. Este representa una abstarcción de LangChain para guardar elementos en PostgreSQL, similar a \opus{PGVector} utilizado en la Sección \ref{sec:agente_filesystem}. Una vez el agente ha generado su respuesta, un agente resumidor comprime el resultado en aproximadamente 75 carácteres. Este resumen se indexa en la base de datos utilizando dicha abstracción, guardando adicionalmente las citas referenciadas.
+
+\begin{figure}[h]
+\centering
+\adjustbox{center=\textwidth}{\includegraphics[width=1\linewidth]{figures/memoria_1.png}}
+\caption{Flujo operativo del sistema de memoria de los agentes especializados}
+\label{fig:mem_1}
+\end{figure}
+
+La extracción de las memorias se realiza mediante un RAG híbrido. En lugar de obtener únicamente las memorias más parecidas al prompt actual, se considera también las veces que estas han sido accedidas, favoreciendo las memorias que más veces han sido accedidas. De este modo, se calcula la relevancia final teniendo en cuenta en un 75\% la puntuación de relevancia y en un 25\% la puntuación de acceso. Esta última se obtiene en relación a la memoria más accedida. Por ejemplo, si la memoria más accedida se ha extraído 10 veces, y la memoria actual ha sido accedida 5 veces, la puntuación para ello será de 0.5. Si la puntuación de relevancia semántica es a su vez 0.8, la media ponderada será de 0.725.
+
+\subsection{Agrupación de memoria}
+Para evitar que conceptos relevantes se pierdan ante un conjunto de memorias excesivamente grande, se ha implementado un sistema de agrupación que resume pasajes parecidos en memorias unificadas, replicando el olvido de la memoria humana. 
+
+La Figura \ref{fig:mem_2} ilustra dicho sistema. Cuando las memorias de un agente especializado específico llegan a cierto número, se ejecuta el sistema de agrupación. Este ejecuta primero una agrupación semántica de las diferentes memorias en los denominados \textit{clusters}. Para ello se utiliza el algoritmo KMeans Clustering, de la librería scikit-learn\footnote{}. Este algoritmo agrupa las diferentes memorias basándose en la distancia entre las diferentes dimensiones de los embeddings, siendo dos memorias más parecidos semánticamente en caso de tener embeddings más cercanos. 
+
+\begin{figure}[h]
+\centering
+\adjustbox{center=\textwidth}{\includegraphics[width=1.25\linewidth]{figures/memoria_2.png}}
+\caption{Agrupación de memoria por clusters}
+\label{fig:mem_2}
+\end{figure}
+
+Una vez distinguidos los diferentes clusters, un agente resumidor agrupa todas las memorias de cada cluster en memorias individuales. Al ser estos parecidos semánticamnete, este debería ser capaz de abstraer los conceptos comunes en todas las memorias a otra memoria. Estas memorias agrupadas se añaden a la base de datos, eliminando a su vez las memorias originales del cluster. 
+
+Para determinar el número óptimo de clusters, se ha aplicado el método del codo. Esta técnica calcula la suma de distancias entre cada elemento y el centro de su cluster para distintas cantidades de grupos. A medida que aumenta el número de clusters, la distancia total disminuye (ya que al haber menos elementos por grupo, cada uno está más cerca de su centro); sin embargo, el punto de mayor inclinación (calculado mediante la segunda derivada) representa el equilibrio óptimo. La Figura \ref{fig:codo} muestra los resultados de este análisis, identificando 3 como el número ideal de clusters.
+
+La Figura \ref{fig:clustering-analysis} ilustra el agrupamiento de 11 memorias del agente de código en los mencionados 3 clusters, mientras que la Figura \ref{fig:clusters} presenta la simplificación de sus embeddings a un espacio bidimensional. En esta última visualización se observan los tres grupos identificados, confirmando la diferenciación  .
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[Representación de agrupación de clusters reducidos a dos dimensiones\label{fig:clusters}]{
+        \includegraphics[width=\textwidth]{figures/clustering.png}
+    }
+    
+    \subfloat[Método del codo sobre agrupación de clusters\label{fig:codo}]{
+        \includegraphics[width=\textwidth]{figures/codo.png}
+    }
+    \caption{Agrupación de 3 clústeres}
+    \label{fig:clustering-analysis}
+\end{figure}
+
+\section{Diseño adaptativo}

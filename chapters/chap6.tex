@@ -158,6 +158,7 @@ La ejecución sigue un flujo jerárquico donde primero se completan las operacio
 La función de este agente consiste en buscar y analizar las maquetas HTML almacenadas en Google Drive. Mediante la herramienta \opus{gdrive_list_files()}, la función \opus{prepare_prompt()} proporciona al agente información sobre todos los documentos disponibles. Posteriormente, el agente determina si debe buscar fragmentos relevantes en los documentos utilizando la herramienta \opus{gdrive_search()}, o acceder a documentos completos mediante la herramienta \opus{gdrive_read_file()}.
 
 \subsection{Agente Sistema de Ficheros}
+\label{sec:agente_filesystem}
 Este agente responde a consultas utilizando la documentación oficial como fuente de datos. La función \opus{prepare_prompt()} proporciona la lista de documentos disponibles a través de la herramienta \opus{directory_tree()} en el prompt inicial, pudiendo acceder a archivos específicos con \opus{read_file()} o \opus{read_multiple_files()}, o realizar búsquedas de pasajes relevantes a través de \opus{rag_search_documentation()}.
 
 Esta última herramienta se ha implementado utilizando la clase PGVector de LangChain. A diferencia de la implementación nativa de PGVector utilizada en el agente de código, esta versión ofrece una abstracción más sencilla para búsquedas RAG, pero sacrifica la capacidad de combinar operaciones de búsqueda semántica con consultas SQL avanzadas.

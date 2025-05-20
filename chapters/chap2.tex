@@ -142,6 +142,7 @@ Para contrarrestar el sobrecoste computacional de este enfoque, se han desarroll
 \subsection{Arquitecturas de interacción entre agentes}
 La interacción entre agentes LLM constituye un campo de investigación activo, distinguiéndose diversos avances en módulos de memoria, planificación e interacción multiagente\cite{wang_survey_2024}.
 \begin{itemize}
+  \label{sec:modulos_memoria}
   \item{\textbf{Módulos de memoria}}: en una interacción conversacional, el modelo procesa todos los mensajes previos, pudiendo generar un contexto excesivamente amplio. Para mitigar este problema, se han desarrollados módulos de memoria que almacenan información relevante de interacciones pasadas de forma resumida\cite{zhang_building_2024-1}\cite{fischer_reflective_2023}\cite{liang_unleashing_2023}. Esta memoria puede consultarse posteriormente mediante RAG, permitiendo recuperar los elementos más relevantes según el contexto\cite{zhao_expel_2024}.
 
 Algunos módulos se inspiran en la estructura de la memoria humana\cite{zhong_memorybank_2024}, incorporando mecanismos que almacenan información con distintas temporalidades y niveles de relevancia\cite{wang_survey_2024}\cite{park_generative_2023}.

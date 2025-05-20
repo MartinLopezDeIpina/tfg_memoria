@@ -63,45 +63,45 @@ Warning--empty journal in ge_openagi_nodate
 Warning--empty year in ge_openagi_nodate
 Warning--empty journal in du_improving_nodate
 Warning--empty year in du_improving_nodate
-You've used 62 entries,
+You've used 63 entries,
             2616 wiz_defined-function locations,
-            944 strings with 22003 characters,
-and the built_in function-call counts, 23134 in all, are:
-= -- 1931
-> -- 1374
+            951 strings with 22748 characters,
+and the built_in function-call counts, 23829 in all, are:
+= -- 1964
+> -- 1470
 < -- 5
-+ -- 457
-- -- 395
-* -- 1679
-:= -- 2980
-add.period$ -- 185
-call.type$ -- 62
-change.case$ -- 61
++ -- 489
+- -- 426
+* -- 1758
+:= -- 3101
+add.period$ -- 188
+call.type$ -- 63
+change.case$ -- 62
 chr.to.int$ -- 0
-cite$ -- 97
-duplicate$ -- 542
-empty$ -- 2432
-format.name$ -- 395
-if$ -- 6292
+cite$ -- 98
+duplicate$ -- 549
+empty$ -- 2472
+format.name$ -- 426
+if$ -- 6444
 int.to.chr$ -- 0
-int.to.str$ -- 62
+int.to.str$ -- 63
 missing$ -- 21
-newline$ -- 309
-num.names$ -- 55
-pop$ -- 688
+newline$ -- 314
+num.names$ -- 56
+pop$ -- 699
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1626
+skip$ -- 1653
 stack$ -- 0
-substring$ -- 344
-swap$ -- 243
-text.length$ -- 91
+substring$ -- 346
+swap$ -- 248
+text.length$ -- 93
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 35
-while$ -- 76
-width$ -- 64
-write$ -- 632
+while$ -- 77
+width$ -- 65
+write$ -- 643
 (There were 45 warnings)
