@@ -89,7 +89,8 @@
 \contentsline {section}{\numberline {8.3}Diseño adaptativo}{71}{section.8.3}%
 \contentsline {subsection}{\numberline {8.3.1}Criterios de clasificación}{71}{subsection.8.3.1}%
 \contentsline {subsection}{\numberline {8.3.2}Aumento de datos}{71}{subsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.3.3}}{72}{subsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.3.3}Clasificación de preguntas}{72}{subsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.3.1}Evaluación de ambos enfoques}{72}{subsubsection.8.3.3.1}%
 \contentsline {chapter}{\chapternumberline {9}Evaluación}{73}{chapter.9}%
 \contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{75}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Diseño General}{75}{section.Alph1.1}%
@@ -148,4 +149,5 @@
 \contentsline {subsection}{\numberline {A.7.4}Decisiones}{102}{subsection.Alph3.7.4}%
 \contentsline {subsubsection}{\numberline {A.7.4.1}Decisiones adoptadas}{102}{subsubsection.Alph3.7.4.1}%
 \contentsline {subsubsection}{\numberline {A.7.4.2}Asignación de tareas a realizar}{102}{subsubsection.Alph3.7.4.2}%
-\contentsline {chapter}{Bibliografía}{103}{appendix*.29}%
+\contentsline {appendix}{\chapternumberline {D}Detalles de entrenamiento}{103}{appendix.Alph4}%
+\contentsline {chapter}{Bibliografía}{105}{appendix*.30}%

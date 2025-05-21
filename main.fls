@@ -787,6 +787,7 @@ INPUT chapters/chap9.tex
 INPUT chapters/anexo_a.tex
 INPUT chapters/anexo_b.tex
 INPUT chapters/anexo_d.tex
+INPUT chapters/anexo_e.tex
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl

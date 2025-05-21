@@ -56,7 +56,7 @@ La extracción de las memorias se realiza mediante un RAG híbrido. En lugar de 
 \subsection{Agrupación de memoria}
 Para evitar que conceptos relevantes se pierdan ante un conjunto de memorias excesivamente grande, se ha implementado un sistema de agrupación que resume pasajes parecidos en memorias unificadas, replicando el olvido de la memoria humana. 
 
-La Figura \ref{fig:mem_2} ilustra dicho sistema. Cuando las memorias de un agente especializado específico llegan a cierto número, se ejecuta el sistema de agrupación. Este ejecuta primero una agrupación semántica de las diferentes memorias en los denominados \textit{clusters}. Para ello se utiliza el algoritmo KMeans Clustering, de la librería scikit-learn\footnote{}. Este algoritmo agrupa las diferentes memorias basándose en la distancia entre las diferentes dimensiones de los embeddings, siendo dos memorias más parecidos semánticamente en caso de tener embeddings más cercanos. 
+La Figura \ref{fig:mem_2} ilustra dicho sistema. Cuando las memorias de un agente especializado específico llegan a cierto número, se ejecuta el sistema de agrupación. Este ejecuta primero una agrupación semántica de las diferentes memorias en los denominados \textit{clusters}. Para ello se utiliza el algoritmo KMeans Clustering, de la librería scikit-learn\footnote{scikit-learn: \url{https://scikit-learn.org/stable/}}. Este algoritmo agrupa las diferentes memorias basándose en la distancia entre las diferentes dimensiones de los embeddings, siendo dos memorias más parecidos semánticamente en caso de tener embeddings más cercanos. 
 
 \begin{figure}[h]
 \centering
@@ -99,7 +99,23 @@ Tras determinar los criterios de clasificación, se instruyó al modelo Calude S
 Tras esto, se utilizó la técnica de aumento sencillo de datos (EDA) \cite{} sobre dichos ejemplos. Esto consiste en realizar una serie de operaciones sobre los ejemplos originales para variar ligeramentesu composición, reemplazando palabras por sinónimos, alterando el órden de algunas palabras, u omitiendo palabras específicas. Para ello se ha utilizado el script\footnote{\url{https://github.com/jasonwei20/eda_nlp}} desarrollado por los autores de dicha técnica, obteniendo un total de 2000 preguntas tras el aumento.   
 Estos ejemplos se dividieron en tres conjuntos individuales: entrenamiento (75\%), evaluación (15\%) y pruebas (15\%). Todas las preguntas resultantes de la técnica EDA para una sola pregunta original deben de estar en el mismo conjunto, ya que al ser muy parecidas sesgarían los resultados de evaluación. Finalmente se subieron a un dataset público en HuggingFace\footnote{Dataset de preguntas: \url{https://huggingface.co/datasets/MartinElMolon/tfg_clasificador}}. 
 
-\subsection{}
+\subsection{Clasificación de preguntas}
+Para clasificar las consultas del usuario por dificultad, se han utilizado dos enfoques alternativos: 
+
+\begin{itemize}
+  \item\textbf{Agente clasificador: }Añadiendo en el prompt tanto los criterios de clasificación, tanto 5 ejemplos representativos de cada clase, el agente debe determinar mediante una salida estructurada la dificultad de la pregunta.
+  \item\textbf{Modelo clasificador: }Se ha utilizado el modelo especializado en clasificación RoBERTa-base\cite{}, en su versión entrenada con un corpus textual derivado de la biblioteca nacional de españa\cite{}. Dicho modelo se ha ajustado con el dataset mencionado en la sección anterior. Los detalles del entrenamiento están disponibles en el anexo \ref{}, mientras que el modelo está públicamente disponible en HuggingFace\footnote{Modelo: \url{https://huggingface.co/MartinElMolon/RoBERTa_question_difficulty_classifier}}.
+\todo{Omitir los detalles de entrenamiento en la memoria principal y añadirlos en el anexo es una buena idea? Así evito explicar conceptos que no tienen que ver con la ingeniería del software y es todo más simple.
+
+También podría no ponerlos directamente}
+\end{itemize}
+
+\subsubsection{Evaluación de ambos enfoques}
+Ambos modelos se han evaluado con el conjunto de prueba de 300 preguntas, siendo el agente clasificador usando el modelo gpt4.1-mini ligeramente superior en un 3\% (91\% frente a 88\%).
+
+Dichos resultados muestran el potencial de integrar modelos especializados en flujos agénticos. El LLM ajustado obtiene un rendimiento similar con aproximadamente 2 órdenes de magnitud menos de complejidad, teniendo este 125 millones de parámetros frente a las decenas de miles de millones de modelos comparables al gpt propietario utilizado. Adicionalmente, este se ha ejecutado en la CPU local, obteniendo un tiempo de respuesta inferior. 
+
+Cabe destacar que el enfoque con el modelo reducido presenta una serie de inconvenientes que lo hacen viable únicamente en escenarios concretos. Al depender este de un entrenamiento previo, su modificación es menos flexible. Mientras que para modificar el comportamiento del LLM grande basta con modificar el prompt, el LLM pequeño requeriría de un reentrenamiento, con un conjunto de datos modificado que representen los cambios a introducir. 
 
 
 
