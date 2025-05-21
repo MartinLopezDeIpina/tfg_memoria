@@ -38,13 +38,43 @@ Dicho entrenamiento ha costado aproximadamente 15 horas de computación, dividid
 \section{Valores de entrenamiento}
 En una primera iteración, se ha optado por un rango de búsqueda amplio. Para ello, se han probado 4 épocas de entrenamiento por intento, con los rangos ilustrados en la Tabla \ref{}. Se han ejecutado 30 ensayos con dicha configuración, los cuales han sido suficientes para acotar el rango para el siguiente iteración. 
 
+\begin{table}[htbp]
+    \centering
+    \caption{Proceso de búsqueda de hiperparámetros y resultados óptimos}
+    \label{tabla:hiperparametros}
+    \begin{tabular}{|l|p{2.6cm}|p{2.6cm}|p{2.6cm}|p{2cm}|}
+        \hline
+        \textbf{Hiperparámetro} & \textbf{Primera Búsqueda} & \textbf{Segunda Búsqueda} & \textbf{Tercera Búsqueda} & \textbf{Valores Óptimos} \\
+        \hline
+        Learning rate & 5.0e-06 a 1.0e-05 & 5.5e-06 a 9.5e-06 & 8.3e-06 a 9.9e-06 & 8.5e-06 \\
+        \hline
+        Weight decay & 1.0e-06 a 0.09+ & 1.0e-06 a 0.1 & 1.0e-05 a 2.0e-04 & 3.44e-05 \\
+        \hline
+        Dropout & 0.10 a 0.3 & 0.35 a 0.50 & 0.39 a 0.41 & 0.399 \\
+        \hline
+        Warmup steps & 0 a 25 & 10 a 20 & 14 a 16 & 16 \\
+        \hline
+        Freeze level & 0, 1, 2, 3, 4 & 0, 1, 2 & 1 & 1 \\
+        \hline
+        Épocas & 4 & 4 & 6 & 3 \\
+        \hline
+        \multicolumn{5}{|p{13cm}|}{\textbf{Notas:}} \\
+        \hline
+        \multicolumn{5}{|p{13cm}|}{- \textbf{Primera a Segunda Búsqueda}: Se acotaron los rangos, aumentando a 6 épocas de entrenamiento por ensayo y 40 ensayos totales. Se descartaron los niveles de congelación 3 y 4, optando por un entrenamiento más completo.} \\
+        \hline
+        \multicolumn{5}{|p{13cm}|}{- \textbf{Segunda a Tercera Búsqueda}: Se mantuvo en 6 épocas por ensayo y se realizaron 50 ensayos en total. La ejecución anterior demostró que el nivel 1 de congelación (entrenando el modelo completo exceptuando el módulo de embedding) obtenía los resultados más prometedores.} \\
+        \hline
+        \multicolumn{5}{|p{13cm}|}{- \textbf{Resultados finales}: El conjunto de hiperparámetros óptimo (ensayo 20) obtuvo una precisión en el conjunto de validación del 93,67\% y en el conjunto de prueba del 88\%.} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
 En la segunda iteración, se han acotado los rangos a los ilustrados en la Tabla \ref{}, aumentando a 6 épocas de entrenamiento por ensayo y 40 ensayos totales. Es de destacar el nivel de congelación, el cual se ha descartado los niveles 3 y 4, optando por un entrenamiento más completo. 
+
 
 Finalmente, la tercera iteración se ha realizado con los valores de la Tabla \ref{}, manteniendo las 6 épocas por ensayo y realizando 50 ensayos en total. La ejecución anterior demostró que el nivel 1 de congelación (entrenando el modelo completo exceptuando el módulo de embedding) obtenía los resultados más prometedores.
 
+
 \section{Resultados finales}
 El conjunto de hiperparámetros óptimo ha resultado ser el ilustrado en la Tabla \ref{}, obteniendo una precisión en el conjunto de validación del 93,6\% y en el conjunto de prueba del 88\%.  
-
-
-
-  

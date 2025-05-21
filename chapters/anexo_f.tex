@@ -1,0 +1,70 @@
+Este anexo documenta el ajuste fino de RoBERTa-base para clasificación binaria. Se describen la configuración del dataset, la arquitectura del modelo, las estrategias de congelación paramétrica implementadas y la metodología experimental con búsqueda bayesiana de hiperparámetros. El análisis finaliza con la evaluación de resultados y la configuración óptima alcanzada.
+
+\section{Configuración del Dataset y Arquitectura del Modelo}
+
+El dataset consta de 2000 ejemplos distribuidos en dos clases de clasificación. Dada su dimensión reducida, se ha optado por una división avariciosa (75\% entrenamiento, 15\% validación y 15\% prueba) complementada con valores de regularización elevados para prevenir el sobreajuste.
+
+El modelo base seleccionado es RoBERTa-base, que contiene aproximadamente 125 millones de parámetros estructurados en tres módulos principales:
+
+\begin{itemize}
+  \item \textbf{Embedder:} Tabla de embeddings con 38 millones de parámetros que transforma los tokens de entrada en representaciones vectoriales.
+  \item \textbf{Codificador:} Estructura de 85 millones de parámetros distribuidos en 12 capas de atención que procesa las representaciones contextuales.
+  \item \textbf{Clasificador:} Sistema de medio millón de parámetros compuesto por 2 capas completamente conectadas que realiza la predicción final. 
+\end{itemize}
+
+\section{Estrategias de Entrenamiento}
+
+Para evaluar distintos enfoques de entrenamiento, se implementaron cinco niveles de congelación paramétrica:
+
+\begin{itemize}
+  \item \textbf{Nivel 0:} Entrenamiento del modelo completo sin parámetros congelados.
+  \item \textbf{Nivel 1:} Congelación exclusiva del módulo de embedding.
+  \item \textbf{Nivel 2:} Congelación del módulo de embedding y las 4 capas inferiores de atención.
+  \item \textbf{Nivel 3:} Congelación del módulo de embedding y las 8 capas inferiores de atención.
+  \item \textbf{Nivel 4:} Congelación de los módulos de embedding y codificación completo, ajustando únicamente el clasificador. 
+\end{itemize}
+
+Respecto a la configuración del prompt, se evaluaron tres alternativas distintas. Inicialmente se estableció una línea base sin prompt como referencia. Posteriormente se implementó un prompt breve que incorporaba explícitamente el criterio de clasificación (mostrado en el Listado \ref{}), lo que resultó en una mejora significativa de la precisión. En un tercer experimento, se evaluó la incorporación de tokens especiales delimitadores al inicio y final de la consulta para indicar la posición de la pregunta, pero esta aproximación fue descartada tras registrar resultados inferiores.
+
+\section{Metodología Experimental}
+
+La experimentación se realizó en la plataforma Kaggle\footnote{Kaggle: \url{https://www.kaggle.com/}}, utilizando dos GPU T4 con 16GB de VRAM cada una. La implementación se llevó a cabo mediante el Trainer de la librería HuggingFace, incorporando el prompt optimizado descrito previamente.
+
+El proceso completo consumió aproximadamente 15 horas de computación, distribuidas en tres búsquedas bayesianas mediante la librería Optuna\footnote{Optuna: \url{https://optuna.org/}}. Cada ensayo individual requirió aproximadamente entre 5 y 10 minutos para completar 6 épocas de entrenamiento.
+
+Para la optimización, se evaluaron cinco hiperparámetros: tasa de aprendizaje, decaimiento de pesos, tasa de desconexión (\textit{dropout}), pasos de calentamiento y nivel de congelación. El entrenamiento se realizó con un tamaño de lote de 32 ejemplos, resultando en 44 pasos por época con los 1400 ejemplos disponibles. Siguiendo las recomendaciones establecidas para este modelo, se utilizó el optimizador \texttt{adamw\_torch} con un planificador lineal.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Proceso de búsqueda de hiperparámetros y resultados óptimos}
+    \label{tabla:hiperparametros}
+    \begin{tabular}{|l|p{2.6cm}|p{2.6cm}|p{2.6cm}|p{2cm}|}
+        \hline
+        \textbf{Hiperparámetro} & \textbf{Primera Búsqueda} & \textbf{Segunda Búsqueda} & \textbf{Tercera Búsqueda} & \textbf{Valores Óptimos} \\
+        \hline
+        Learning rate & 5.0e-06 a 1.0e-05 & 5.5e-06 a 9.5e-06 & 8.3e-06 a 9.9e-06 & 8.5e-06 \\
+        \hline
+        Weight decay & 1.0e-06 a 0.09+ & 1.0e-06 a 0.1 & 1.0e-05 a 2.0e-04 & 3.44e-05 \\
+        \hline
+        Dropout & 0.10 a 0.3 & 0.35 a 0.50 & 0.39 a 0.41 & 0.399 \\
+        \hline
+        Warmup steps & 0 a 25 & 10 a 20 & 14 a 16 & 16 \\
+        \hline
+        Freeze level & 0, 1, 2, 3, 4 & 0, 1, 2 & 1 & 1 \\
+        \hline
+        Épocas & 4 & 6 & 6 & 3 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\section{Resultados y Análisis}
+La optimización de hiperparámetros se desarrolló a través de tres búsquedas bayesianas secuenciales, cada una refinando los resultados de la anterior.
+
+En la primera iteración, se estableció un rango de búsqueda amplio con 4 épocas por ensayo y 30 ensayos totales. Durante esta fase se exploraron todos los niveles de congelación (0-4) para identificar tendencias iniciales en el comportamiento del modelo.
+
+Para la segunda iteración, se acotaron los rangos basándose en los resultados iniciales. Se incrementó el número de épocas a 6 por ensayo y se ejecutaron 40 ensayos totales. Los niveles de congelación 3 y 4 mostraban rendimiento inferior, por lo que fueron descartados. También se observó que valores más altos de dropout mejoraban el rendimiento, por lo que se aumentó este rango respecto a la primera iteración.
+
+En la tercera y última iteración, se refinaron aún más los rangos de búsqueda manteniendo 6 épocas por ensayo y aumentando a 50 ensayos totales. El nivel 1 de congelación (preservando únicamente el módulo de embedding) ofrecía el mejor rendimiento, por lo que esta fase se centró exclusivamente en dicha configuración.
+
+La configuración óptima de hiperparámetros, correspondiente al ensayo 20 de la tercera búsqueda, logró una precisión del 93,67\% en el conjunto de validación y 88\% en el conjunto de prueba. Los valores específicos pueden consultarse en la columna "Valores Óptimos" de la Tabla \ref{tabla:hiperparametros}, con una tasa de aprendizaje de 8.5e-06, un decaimiento de pesos de 3.44e-05, un dropout de 0.399, 16 pasos de calentamiento, y un nivel de congelación 1 con 3 épocas de entrenamiento.
+
