@@ -28,9 +28,9 @@
 \addvspace {10pt}
 \contentsline {figure}{\numberline {8.1}{\ignorespaces Flujo operativo del sistema de memoria de los agentes especializados}}{69}{figure.8.1}%
 \contentsline {figure}{\numberline {8.2}{\ignorespaces Agrupación de memoria por clusters}}{70}{figure.8.2}%
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Agrupación de 3 clústeres}}{71}{figure.8.3}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Representación de agrupación de clusters reducidos a dos dimensiones}}}{71}{subfigure.3.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Método del codo sobre agrupación de clusters}}}{71}{subfigure.3.2}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Agrupación de 3 clústeres}}{70}{figure.8.3}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualización de clusters en dos dimensiones}}}{70}{subfigure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Método del codo sobre agrupación de clusters}}}{70}{subfigure.3.2}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

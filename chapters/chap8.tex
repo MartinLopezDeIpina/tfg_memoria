@@ -69,19 +69,38 @@ Una vez distinguidos los diferentes clusters, un agente resumidor agrupa todas l
 
 Para determinar el número óptimo de clusters, se ha aplicado el método del codo. Esta técnica calcula la suma de distancias entre cada elemento y el centro de su cluster para distintas cantidades de grupos. A medida que aumenta el número de clusters, la distancia total disminuye (ya que al haber menos elementos por grupo, cada uno está más cerca de su centro); sin embargo, el punto de mayor inclinación (calculado mediante la segunda derivada) representa el equilibrio óptimo. La Figura \ref{fig:codo} muestra los resultados de este análisis, identificando 3 como el número ideal de clusters.
 
-La Figura \ref{fig:clustering-analysis} ilustra el agrupamiento de 11 memorias del agente de código en los mencionados 3 clusters, mientras que la Figura \ref{fig:clusters} presenta la simplificación de sus embeddings a un espacio bidimensional. En esta última visualización se observan los tres grupos identificados, confirmando la diferenciación  .
+La Figura \ref{fig:clustering-analysis} ilustra el agrupamiento de 12 memorias del agente de código en los mencionados 3 clusters, mientras que la Figura \ref{fig:clusters} presenta la simplificación de sus embeddings a un espacio bidimensional. En esta última visualización se observan los tres grupos identificados, confirmando la diferenciación  .
 
 \begin{figure}[htbp]
     \centering
-    \subfloat[Representación de agrupación de clusters reducidos a dos dimensiones\label{fig:clusters}]{
-        \includegraphics[width=\textwidth]{figures/clustering.png}
+    \subfloat[Visualización de clusters en dos dimensiones\label{fig:clusters}]{
+        \includegraphics[width=0.40\textwidth]{figures/cluster_2.png}
     }
-    
     \subfloat[Método del codo sobre agrupación de clusters\label{fig:codo}]{
-        \includegraphics[width=\textwidth]{figures/codo.png}
+        \includegraphics[width=0.65\textwidth]{figures/codo.png}
     }
     \caption{Agrupación de 3 clústeres}
     \label{fig:clustering-analysis}
 \end{figure}
 
 \section{Diseño adaptativo}
+Tras evaluar los enfoques expuestos en el capítulo anterior (Véase Sección \colorbox{yellow}{\ref{}}), los resultados muestran que aunque con un rendimiento superior, el paso de planificación añade una complejidad considerable frente al enfoque más simple. Mientras que el sistema simple es capaz de responder algunas preguntas con mayor rapidez, no consigue resolver las preguntas más difíciles. Es por ello que un sistema híbrido surge como la solución ideal \cite{}, utilizando la planificación para preguntas complejas y omitiéndolo cuando no es necesario.
+
+La implementación de este enfoque se ha estructurado en tres fases: la determinación de criterios para identificar preguntas complejas, la ampliación del conjunto de evaluación para mejorar la precisión de evaluación, y el análisis comparativo entre un modelo especializado y un agente clasificador. Finalmente, se procedió a la integración del clasificador seleccionado en el flujo del sistema.
+
+\subsection{Criterios de clasificación}
+Para determinar qué tipos de preguntas clasificar como difíciles, se han empleado las evaluaciones detalladas en la Sección \colorbox{yellow}{\ref{}}. Se consideran difíciles aquellas preguntas en las que se cumple cualquiera de estas condiciones: el resultado de evaluación es peor en la orquestación simple que en la compleja, o el resultado de evaluación es menor a 0.5 en cualquiera de las dos orquestaciones. Esto resultó en un total de 19 preguntas difíciles y 27 fáciles. 
+
+Tras analizar ambos conjuntos, quedó claro que las consultas que más desafían al sistema son aquellas cuyas fuentes de información no son triviales de acceder. Por ejemplo, el sistema no tiene problemas en responder preguntas genéricas de gestión, ya que determinar cuál agente contiene dicha información es sencillo. Por el contrario información, sobre módulos o implementaciones específicas es más difícil de ubicar: \texttt{¿Dónde puedo encontrar la documentación técnica actualizada para las tecnologías o herramientas específicas?}. La ubicación de esta información no es clara, podría estar en la documentación general, en Confluence, o incluso en el repositorio de código. 
+
+\subsection{Aumento de datos}
+Tras determinar los criterios de clasificación, se instruyó al modelo Calude Sonnet con dichos criterios y el contexto del proyecto, aumentando las preguntas originales a 200 ejemplos únicos.
+
+Tras esto, se utilizó la técnica de aumento sencillo de datos (EDA) \cite{} sobre dichos ejemplos. Esto consiste en realizar una serie de operaciones sobre los ejemplos originales para variar ligeramentesu composición, reemplazando palabras por sinónimos, alterando el órden de algunas palabras, u omitiendo palabras específicas. Para ello se ha utilizado el script\footnote{\url{https://github.com/jasonwei20/eda_nlp}} desarrollado por los autores de dicha técnica, obteniendo un total de 2000 preguntas tras el aumento.   
+Estos ejemplos se dividieron en tres conjuntos individuales: entrenamiento (75\%), evaluación (15\%) y pruebas (15\%). Todas las preguntas resultantes de la técnica EDA para una sola pregunta original deben de estar en el mismo conjunto, ya que al ser muy parecidas sesgarían los resultados de evaluación. Finalmente se subieron a un dataset público en HuggingFace\footnote{Dataset de preguntas: \url{https://huggingface.co/datasets/MartinElMolon/tfg_clasificador}}. 
+
+\subsection{}
+
+
+
+
