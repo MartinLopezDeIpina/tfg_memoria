@@ -1,1 +1,50 @@
-blah blah
+2000 ejemplos totales en el dataset para 2 clases de clasificación es una cantidad viable pero reducida, por lo que se ha optado por una división del dataset avariciosa (75\% de entrenamiento, 15\% de validación y 15\% de prueba) y se ha optado por una regularización fuerte.
+
+El modelo RoBERTa-base contiene aproximadamente 125 millones de parámetros, divididos en tres módulos principales: 
+
+\begin{itemize}
+  \item\textbf{Embedder: }Una tabla de embeddings de 38 millones de parámetros.
+  \item\textbf{Codificador: }Un codificador de 85 millones de parámetros dividido en 12 capas de atención.
+  \item\textbf{Clasificador: }Un clasificador de medio millón de parámetros compuesto de 2 capas completamente conectadas. 
+\end{itemize}
+
+
+Para el entrenamiento se ha probado a congelar los parámetros de diferentes capas, entrenando únicamente los parámetros no congelados. Para ello se han explorado 4 niveles de congelación:
+
+\begin{itemize}
+  \item\textbf{Nivel 0: }No se ha congelado ningún parámetro, entrenando el modelo completo.
+  \item\textbf{Nivel 1: }Se ha congelado únicamente el módulo de embedding.
+  \item\textbf{Nivel 2: }Se han congelado el módulo de embedding y las 4 capas de atención más bajas.
+  \item\textbf{Nivel 3: }Se han congelado el módulo de embedding y las 8 capas de atención más bajas.
+  \item\textbf{Nivel 4: }Se han congelado el módulo de embedding y todo el módulo de codificación, ajustando únicamente el módulo clasificador. 
+\end{itemize}
+
+Adicionalmente, se ha realizado várias búsquedas bayesianas mediante la librería optuna\footnote{} para buscar los hiperparámetros de entrenamiento óptimos respecto a la precisión de evaluación. Esta búsqueda ha considerado 5 hiperáemtros: tasa de aprendizaje, decaimiento de pesos, tasa de desconexión (\textit{dropout}), pasos de calentamiento y nivel de congelación. El tamaño de lote utilizado ha sido de 32 ejemplos de entrenamiento, por lo que con 1400 datos de entrenamiento, deja un total de 44 pasos de entrenamiento por época. 
+
+Se ha utilizado el optimizador \opus{adamw_torch} y un planificador (\textit{scheduler}) lineal, siguiendo las recomendaciones establecidas para este modelo.
+
+\section{Prompt utilizado}
+Inicialmente se ha probado a entrenar el modelo directamente con los datos de entrenamiento y añadiendo un breve prompt que añade el criterio de clasificación, ilustrado en el Listado \ref{}. Dicho prompt ha resultado en una precisión superior.  
+
+Adicionalmente se ha probado a añadir dos tókenes especiales al inicio y al final de la consulta, para indicar la posición de la pregunta en la entrada del modelo. Esta estrategia ha resultado en una precisión inferior, por lo que se ha descartado. 
+
+\section{Entorno de entrenamiento}
+El entrenamiento se ha realizado en la plataforma Kaggle\footnote{}, la cual ofrece 30 horas de entrenamiento semanales con dos GPU T4 de 16GB de VRAM cada una.
+
+Para ello se ha utilizado el Trainer de la librería HuggingFace, añadiendo el prompt ilustrado en el Listado \ref{}  
+
+Dicho entrenamiento ha costado aproximadamente 15 horas de computación, dividido en un total de 3 búsquedas bayesianas. Es de destacar que un ensayo de entrenamiento completo del modelo tarda aprximadamente 7 minutos para 6 épocas de entrenamiento. 
+
+\section{Valores de entrenamiento}
+En una primera iteración, se ha optado por un rango de búsqueda amplio. Para ello, se han probado 4 épocas de entrenamiento por intento, con los rangos ilustrados en la Tabla \ref{}. Se han ejecutado 30 ensayos con dicha configuración, los cuales han sido suficientes para acotar el rango para el siguiente iteración. 
+
+En la segunda iteración, se han acotado los rangos a los ilustrados en la Tabla \ref{}, aumentando a 6 épocas de entrenamiento por ensayo y 40 ensayos totales. Es de destacar el nivel de congelación, el cual se ha descartado los niveles 3 y 4, optando por un entrenamiento más completo. 
+
+Finalmente, la tercera iteración se ha realizado con los valores de la Tabla \ref{}, manteniendo las 6 épocas por ensayo y realizando 50 ensayos en total. La ejecución anterior demostró que el nivel 1 de congelación (entrenando el modelo completo exceptuando el módulo de embedding) obtenía los resultados más prometedores.
+
+\section{Resultados finales}
+El conjunto de hiperparámetros óptimo ha resultado ser el ilustrado en la Tabla \ref{}, obteniendo una precisión en el conjunto de validación del 93,6\% y en el conjunto de prueba del 88\%.  
+
+
+
+  

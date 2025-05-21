@@ -150,4 +150,8 @@
 \contentsline {subsubsection}{\numberline {A.7.4.1}Decisiones adoptadas}{102}{subsubsection.Alph3.7.4.1}%
 \contentsline {subsubsection}{\numberline {A.7.4.2}Asignación de tareas a realizar}{102}{subsubsection.Alph3.7.4.2}%
 \contentsline {appendix}{\chapternumberline {D}Detalles de entrenamiento}{103}{appendix.Alph4}%
-\contentsline {chapter}{Bibliografía}{105}{appendix*.30}%
+\contentsline {section}{\numberline {A.1}Prompt utilizado}{104}{section.Alph4.1}%
+\contentsline {section}{\numberline {A.2}Entorno de entrenamiento}{104}{section.Alph4.2}%
+\contentsline {section}{\numberline {A.3}Valores de entrenamiento}{104}{section.Alph4.3}%
+\contentsline {section}{\numberline {A.4}Resultados finales}{105}{section.Alph4.4}%
+\contentsline {chapter}{Bibliografía}{107}{appendix*.30}%
