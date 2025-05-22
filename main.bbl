@@ -311,4 +311,24 @@ Tom~B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla
 \newblock Language models are few-shot learners.
 \newblock URL: \url{http://arxiv.org/abs/2005.14165}, \href {https://arxiv.org/abs/2005.14165 [cs]} {\path{arXiv:2005.14165 [cs]}}, \href {https://doi.org/10.48550/arXiv.2005.14165} {\path{doi:10.48550/arXiv.2005.14165}}.
 
+\bibitem{jeong_adaptive-rag_2024}
+Soyeong Jeong, Jinheon Baek, Sukmin Cho, Sung~Ju Hwang, and Jong~C. Park.
+\newblock Adaptive-{RAG}: Learning to adapt retrieval-augmented large language models through question complexity.
+\newblock URL: \url{http://arxiv.org/abs/2403.14403}, \href {https://arxiv.org/abs/2403.14403 [cs]} {\path{arXiv:2403.14403 [cs]}}, \href {https://doi.org/10.48550/arXiv.2403.14403} {\path{doi:10.48550/arXiv.2403.14403}}.
+
+\bibitem{wei_eda_2019}
+Jason Wei and Kai Zou.
+\newblock {EDA}: Easy data augmentation techniques for boosting performance on text classification tasks.
+\newblock URL: \url{https://arxiv.org/abs/1901.11196v2}.
+
+\bibitem{liu_roberta_2019}
+Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov.
+\newblock {RoBERTa}: A robustly optimized {BERT} pretraining approach.
+\newblock URL: \url{http://arxiv.org/abs/1907.11692}, \href {https://arxiv.org/abs/1907.11692 [cs]} {\path{arXiv:1907.11692 [cs]}}, \href {https://doi.org/10.48550/arXiv.1907.11692} {\path{doi:10.48550/arXiv.1907.11692}}.
+
+\bibitem{gutierrez-fandino_maria_2021}
+Asier Gutiérrez-Fandiño, Jordi Armengol-Estapé, Marc Pàmies, Joan Llop-Palao, Joaquín Silveira-Ocampo, Casimiro~Pio Carrino, Aitor Gonzalez-Agirre, Carme Armentano-Oller, Carlos Rodriguez-Penagos, and Marta Villegas.
+\newblock {MarIA}: Spanish language models.
+\newblock URL: \url{https://arxiv.org/abs/2107.07253v5}, \href {https://doi.org/10.26342/2022-68-3} {\path{doi:10.26342/2022-68-3}}.
+
 \end{thebibliography}

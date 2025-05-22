@@ -86,7 +86,7 @@
 \contentsline {section}{\numberline {8.1}Prompting Few Shot}{67}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Memoria persistente}{68}{section.8.2}%
 \contentsline {subsection}{\numberline {8.2.1}Agrupación de memoria}{69}{subsection.8.2.1}%
-\contentsline {section}{\numberline {8.3}Diseño adaptativo}{71}{section.8.3}%
+\contentsline {section}{\numberline {8.3}Diseño adaptativo}{70}{section.8.3}%
 \contentsline {subsection}{\numberline {8.3.1}Criterios de clasificación}{71}{subsection.8.3.1}%
 \contentsline {subsection}{\numberline {8.3.2}Aumento de datos}{71}{subsection.8.3.2}%
 \contentsline {subsection}{\numberline {8.3.3}Clasificación de preguntas}{72}{subsection.8.3.3}%
@@ -154,4 +154,4 @@
 \contentsline {section}{\numberline {A.2}Estrategias de Entrenamiento}{104}{section.Alph4.2}%
 \contentsline {section}{\numberline {A.3}Metodología Experimental}{104}{section.Alph4.3}%
 \contentsline {section}{\numberline {A.4}Resultados y Análisis}{105}{section.Alph4.4}%
-\contentsline {chapter}{Bibliografía}{107}{appendix*.31}%
+\contentsline {chapter}{Bibliografía}{107}{appendix*.30}%

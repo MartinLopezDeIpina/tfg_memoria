@@ -28,7 +28,10 @@ Warning--entry type for "noauthor_number_2024" isn't style-file defined
 --line 2182 of file references/references.bib
 Warning--entry type for "noauthor_c4_nodate" isn't style-file defined
 --line 2226 of file references/references.bib
-Warning--I didn't find a database entry for ""
+Warning--entry type for "wei_eda_2019" isn't style-file defined
+--line 2269 of file references/references.bib
+Warning--entry type for "gutierrez-fandino_maria_2021" isn't style-file defined
+--line 2282 of file references/references.bib
 Warning--empty year in sim_ramp-up_1998
 Warning--empty journal in steinmacher_systematic_2015
 Warning--empty year in steinmacher_systematic_2015
@@ -64,45 +67,45 @@ Warning--empty journal in ge_openagi_nodate
 Warning--empty year in ge_openagi_nodate
 Warning--empty journal in du_improving_nodate
 Warning--empty year in du_improving_nodate
-You've used 63 entries,
+You've used 67 entries,
             2616 wiz_defined-function locations,
-            951 strings with 22748 characters,
-and the built_in function-call counts, 23829 in all, are:
-= -- 1964
-> -- 1470
+            974 strings with 23907 characters,
+and the built_in function-call counts, 25259 in all, are:
+= -- 2081
+> -- 1563
 < -- 5
-+ -- 489
-- -- 426
-* -- 1758
-:= -- 3101
-add.period$ -- 188
-call.type$ -- 63
-change.case$ -- 62
++ -- 520
+- -- 453
+* -- 1857
+:= -- 3286
+add.period$ -- 200
+call.type$ -- 67
+change.case$ -- 66
 chr.to.int$ -- 0
-cite$ -- 98
-duplicate$ -- 549
-empty$ -- 2472
-format.name$ -- 426
-if$ -- 6444
+cite$ -- 102
+duplicate$ -- 577
+empty$ -- 2626
+format.name$ -- 453
+if$ -- 6837
 int.to.chr$ -- 0
-int.to.str$ -- 63
+int.to.str$ -- 67
 missing$ -- 21
-newline$ -- 314
-num.names$ -- 56
-pop$ -- 699
+newline$ -- 334
+num.names$ -- 60
+pop$ -- 742
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1653
+skip$ -- 1759
 stack$ -- 0
-substring$ -- 346
-swap$ -- 248
-text.length$ -- 93
+substring$ -- 352
+swap$ -- 262
+text.length$ -- 99
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 35
-while$ -- 77
-width$ -- 65
-write$ -- 643
-(There were 46 warnings)
+while$ -- 81
+width$ -- 69
+write$ -- 684
+(There were 47 warnings)
