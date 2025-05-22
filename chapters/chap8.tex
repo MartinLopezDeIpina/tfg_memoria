@@ -2,12 +2,12 @@ Partiendo de la arquitectura base descrita en los capítulos anteriores, en esta
 
 Para ello, se han integrado tres mecanismos complementarios: un prompting con ejemplos ilustrativos (\textit{few-shot}), un sistema de memoria persistente y un diseño adaptativo que modifica el comportamiento del sistema según la complejidad de la consulta formulada.
 
-\section{Prompting Few Shot}
-El aprendizaje mediante ejemplos de entrada consiste en proporcionar al LLM ejemplos del comportamiento esperado para ajustar la salida del modelo, obteniendo mejoras de rendimiento para tareas específicas de forma flexible, únicamente modificando el prompt de entrada \cite{brown_language_2020}.
+\section{Prompting Few-Shot}
+El aprendizaje mediante ejemplos de entrada consiste en proporcionar al LLM ejemplos del comportamiento esperado para ajustar la salida del modelo. Este enfoque permite obtener mejoras de rendimiento para tareas específicas de forma flexible, modificando únicamente el prompt de entrada \cite{brown_language_2020}.
 
-El comportamiento del orquestador y planificador resulta idóneo para esta estrategia, ya que existen varios escenarios generales donde se requiere que actúen de cierta forma. Por ejemplo, se necesita que el agente planificador ajuste su plan dinámicamente en función de la información recabada. El Listado \ref{lst:few_shot} ilustra un ejemplo donde se le instruye al agente que tiene la capacidad de razonar sobre si finalizar el plan, aún en contra de lo planeado inicialmente. Se le indica el contexto en el que se encuentra, la respuesta esperada y una explicación del comportamiento esperado.
+El comportamiento del orquestador y planificador resulta idóneo para esta estrategia, ya que existen varios escenarios donde se requiere que actúen de cierta forma. Por ejemplo, se necesita que el agente planificador ajuste su plan dinámicamente en función de la información recabada. El Listado \ref{lst:few_shot} ilustra un ejemplo donde se le instruye al agente que tiene la capacidad de razonar sobre si finalizar el plan, aún en contra de lo planeado inicialmente, omitiendo el paso de obtención de información adicional previsto. Se le indica el contexto en el que se encuentra, la respuesta esperada y una explicación del comportamiento esperado.
 
-\begin{lstlisting}[caption={Integración de ejemplos few shot al agente planificador},label={lst:few_shot}]
+\begin{lstlisting}[caption={Integración de ejemplos few-shot al agente planificador},label={lst:few_shot}]
   examples = [
       {
           "current_info": "The previous plan was to find information about X and then about Y. Information about X was gathered",
@@ -35,14 +35,14 @@ El comportamiento del orquestador y planificador resulta idóneo para esta estra
   planner_few_shots = get_planner_few_shots(examples)
 \end{lstlisting}
 
-Los ejemplos se han redactado de forma abstracta respecto al proyecto software utilizado. No se ha incluido información del comportamiento esperado respecto a fuentes de datos o agentes específicos, para evitar el sobreajuste de estos respecto a los datos anotados. Este sobreajuste podría manifestarse como una dependencia excesiva hacia patrones específicos presentes en los ejemplos few-shot, limitando la capacidad de generalización del agente ante consultas que no sigan exactamente los patrones proporcionados en dichos ejemplos.
+Los ejemplos se han redactado de forma abstracta respecto al proyecto software utilizado, evitando incluir información específica sobre fuentes de datos o agentes particulares. Esta abstracción previene el sobreajuste, que se manifestaría como una dependencia excesiva hacia patrones específicos de los ejemplos few-shot y limitaría la capacidad del agente para generalizar ante consultas que no sigan exactamente dichos patrones.
 
 \section{Memoria persistente}
 La memoria persistente consiste en proporcionar al agente información de ejecuciones anteriores para ampliar su conocimiento, simulando funciones cognitivas humanas (véase Sección \ref{sec:modulos_memoria}).
 
 Este enfoque se ha implementado en los agentes especializados con el objetivo de mejorar la búsqueda de información. De esta forma, el agente obtendrá resúmenes de respuestas anteriores que sean relevantes para la consulta actual, proporcionando información complementaria que el agente podría no haber extraído correctamente.
 
-La Figura \ref{fig:mem_1} ilustra el funcionamiento de dicho mecanismo. En primer lugar, se añaden al prompt del agente memorias relevantes realizando una búsqueda RAG sobre un objeto \opus{AsyncPostgresSaver}. Este representa una abstracción de LangChain para guardar elementos en PostgreSQL, similar a \opus{PGVector} utilizado en la Sección \ref{sec:agente_filesystem}. Una vez el agente ha generado su respuesta, un agente resumidor comprime el resultado en aproximadamente 75 caracteres. Este resumen se indexa en la base de datos utilizando dicha abstracción, guardando adicionalmente las citas referenciadas.
+La Figura \ref{fig:mem_1} ilustra el funcionamiento de dicho mecanismo. En primer lugar, se añaden al prompt del agente memorias relevantes realizando una búsqueda RAG sobre un objeto \opus{AsyncPostgresSaver}. El objeto representa una abstracción de LangChain para guardar elementos en PostgreSQL, similar a \opus{PGVector} utilizado en la Sección \ref{sec:agente_filesystem}. Una vez el agente ha generado su respuesta, un agente resumidor comprime el resultado en aproximadamente 75 caracteres. Este resumen se indexa en la base de datos utilizando dicha abstracción, guardando adicionalmente las citas referenciadas. 
 
 \begin{figure}[h]
 \centering
@@ -50,6 +50,8 @@ La Figura \ref{fig:mem_1} ilustra el funcionamiento de dicho mecanismo. En prime
 \caption{Flujo operativo del sistema de memoria de los agentes especializados}
 \label{fig:mem_1}
 \end{figure}
+
+Es de destacar que las memorias recuperadas se insertan como mensajes \opus{AIMessage} entre el mensaje del sistema y la consulta del usuario, ya que incluirlas en el \opus{SystemMessage}, se observó que el agente tendía a ignorarlas.
 
 La extracción de las memorias se realiza mediante un RAG híbrido. En lugar de obtener únicamente las memorias más similares al prompt actual, se considera también las veces que estas han sido accedidas, favoreciendo las memorias más frecuentemente utilizadas. Este mecanismo actúa como un sistema de olvido, donde las memorias que no se acceden frecuentemente tienden a desvanecerse en favor de aquellas más relevantes y utilizadas. De este modo, se calcula la relevancia final considerando en un 75\% la puntuación de relevancia y en un 25\% la puntuación de acceso. Esta última se obtiene en relación a la memoria más accedida. Por ejemplo, si la memoria más accedida se ha extraído 10 veces, y la memoria actual ha sido accedida 5 veces, la puntuación para ella será de 0.5. Si la puntuación de relevancia semántica es a su vez 0.8, la media ponderada será de 0.725.
 
@@ -99,7 +101,7 @@ Tras determinar los criterios de clasificación, se instruyó al modelo Claude S
 
 Posteriormente, se utilizó la técnica de aumento sencillo de datos (EDA) \cite{wei_eda_2019} sobre dichos ejemplos. Esta consiste en realizar una serie de operaciones sobre los ejemplos originales para variar ligeramente su composición, reemplazando palabras por sinónimos, alterando el orden de algunas palabras, o eliminando palabras específicas. Para ello se ha utilizado el script\footnote{Repositorio EDA: \url{https://github.com/jasonwei20/eda_nlp}} desarrollado por los autores de dicha técnica, obteniendo un total de 2000 preguntas tras el aumento.
 
-Estos ejemplos se dividieron en tres conjuntos individuales: entrenamiento (75\%), evaluación (15\%) y pruebas (15\%). Todas las preguntas resultantes de la técnica EDA para una sola pregunta original deben estar en el mismo conjunto, ya que al ser muy similares sesgarían los resultados de evaluación. Finalmente se subieron a un dataset público en HuggingFace\footnote{Dataset de preguntas: \url{https://huggingface.co/datasets/MartinElMolon/tfg_clasificador}}.
+Estos ejemplos se dividieron en tres conjuntos individuales: entrenamiento (75\%), evaluación (15\%) y pruebas (15\%). Todas las preguntas resultantes de la técnica EDA para una sola pregunta original se han mantenido en su respectivo conjunto, ya que al ser muy similares sesgarían los resultados de evaluación. Finalmente se subieron a un dataset público en HuggingFace\footnote{Dataset de preguntas: \url{https://huggingface.co/datasets/MartinElMolon/tfg_clasificador}}.
 
 \subsection{Clasificación de preguntas}
 Para clasificar las consultas del usuario por dificultad, se han utilizado dos enfoques alternativos:
@@ -107,6 +109,9 @@ Para clasificar las consultas del usuario por dificultad, se han utilizado dos e
 \begin{itemize}
 \item\textbf{Agente clasificador: }Añadiendo en el prompt los criterios de clasificación y 5 ejemplos representativos de cada clase, el agente debe determinar mediante una salida estructurada la dificultad de la pregunta.
 \item\textbf{Modelo clasificador: }Se ha utilizado el modelo especializado en clasificación RoBERTa-base \cite{liu_roberta_2019}, en su versión entrenada con un corpus textual derivado de la biblioteca nacional de España \cite{gutierrez-fandino_maria_2021}. Dicho modelo se ha ajustado con el dataset mencionado en la sección anterior. Los detalles del entrenamiento están disponibles en el anexo \ref{anexo:entrenamiento}, mientras que el modelo está públicamente disponible en HuggingFace\footnote{Modelo: \url{https://huggingface.co/MartinElMolon/RoBERTa_question_difficulty_classifier}}.
+\todo{Todo el tema del entrenamiento lo he sacado al anexo para no tener que explicar demasiados conceptos externos a la ingeniería del software. 
+
+Supongo que podría omitirlo directamente también.}
 
 \end{itemize}
 \subsubsection{Evaluación de ambos enfoques}
