@@ -5,7 +5,7 @@ Para ello, se han integrado tres mecanismos complementarios: un prompting con ej
 \section{Prompting Few-Shot}
 El aprendizaje mediante ejemplos de entrada consiste en proporcionar al LLM ejemplos del comportamiento esperado para ajustar la salida del modelo. Este enfoque permite obtener mejoras de rendimiento para tareas específicas de forma flexible, modificando únicamente el prompt de entrada \cite{brown_language_2020}.
 
-El comportamiento del orquestador y planificador resulta idóneo para esta estrategia, ya que existen varios escenarios donde se requiere que actúen de cierta forma. Por ejemplo, se necesita que el agente planificador ajuste su plan dinámicamente en función de la información recabada. El Listado \ref{lst:few_shot} ilustra un ejemplo donde se le instruye al agente que tiene la capacidad de razonar sobre si finalizar el plan, aún en contra de lo planeado inicialmente, omitiendo el paso de obtención de información adicional previsto. Se le indica el contexto en el que se encuentra, la respuesta esperada y una explicación del comportamiento esperado.
+El comportamiento del orquestador y planificador resulta idóneo para esta estrategia, ya que existen varios escenarios donde se requiere que actúen siguiendo unos criterios específicos. Por ejemplo, se necesita que el agente planificador ajuste su plan dinámicamente en función de la información recabada. El Listado \ref{lst:few_shot} ilustra un ejemplo donde se le instruye al agente que tiene la capacidad de razonar sobre si finalizar el plan, aún en contra de lo planeado inicialmente, omitiendo el paso de obtención de información adicional previsto. Con este fin, se le indica el contexto en el que se encuentra, la respuesta esperada y una explicación del comportamiento esperado.
 
 \begin{lstlisting}[caption={Integración de ejemplos few-shot al agente planificador},label={lst:few_shot}]
   examples = [
@@ -42,7 +42,7 @@ La memoria persistente consiste en proporcionar al agente información de ejecuc
 
 Este enfoque se ha implementado en los agentes especializados con el objetivo de mejorar la búsqueda de información. De esta forma, el agente obtendrá resúmenes de respuestas anteriores que sean relevantes para la consulta actual, proporcionando información complementaria que el agente podría no haber extraído correctamente.
 
-La Figura \ref{fig:mem_1} ilustra el funcionamiento de dicho mecanismo. En primer lugar, se añaden al prompt del agente memorias relevantes realizando una búsqueda RAG sobre un objeto \opus{AsyncPostgresSaver}. El objeto representa una abstracción de LangChain para guardar elementos en PostgreSQL, similar a \opus{PGVector} utilizado en la Sección \ref{sec:agente_filesystem}. Una vez el agente ha generado su respuesta, un agente resumidor comprime el resultado en aproximadamente 75 caracteres. Este resumen se indexa en la base de datos utilizando dicha abstracción, guardando adicionalmente las citas referenciadas. 
+La Figura \ref{fig:mem_1} ilustra el funcionamiento de dicho mecanismo. En primer lugar, se añaden al prompt del agente memorias relevantes realizando una búsqueda RAG sobre un objeto \opus{AsyncPostgresSaver}. Este objeto representa una abstracción de LangChain para guardar elementos en PostgreSQL, similar a \opus{PGVector} utilizado en la Sección \ref{sec:agente_filesystem}. Una vez el agente ha generado su respuesta, un agente resumidor comprime el resultado en aproximadamente 75 caracteres. Este resumen se indexa en la base de datos utilizando dicha abstracción, guardando adicionalmente las citas referenciadas. 
 
 \begin{figure}[h]
 \centering
@@ -51,34 +51,34 @@ La Figura \ref{fig:mem_1} ilustra el funcionamiento de dicho mecanismo. En prime
 \label{fig:mem_1}
 \end{figure}
 
-Es de destacar que las memorias recuperadas se insertan como mensajes \opus{AIMessage} entre el mensaje del sistema y la consulta del usuario, ya que incluirlas en el \opus{SystemMessage}, se observó que el agente tendía a ignorarlas.
+Es de destacar que las memorias recuperadas se insertan como mensajes \opus{AIMessage} entre el mensaje del sistema y la consulta del usuario, ya que al incluirlas en el \opus{SystemMessage} se observó que el agente tendía a ignorarlas.
 
 La extracción de las memorias se realiza mediante un RAG híbrido. En lugar de obtener únicamente las memorias más similares al prompt actual, se considera también las veces que estas han sido accedidas, favoreciendo las memorias más frecuentemente utilizadas. Este mecanismo actúa como un sistema de olvido, donde las memorias que no se acceden frecuentemente tienden a desvanecerse en favor de aquellas más relevantes y utilizadas. De este modo, se calcula la relevancia final considerando en un 75\% la puntuación de relevancia y en un 25\% la puntuación de acceso. Esta última se obtiene en relación a la memoria más accedida. Por ejemplo, si la memoria más accedida se ha extraído 10 veces, y la memoria actual ha sido accedida 5 veces, la puntuación para ella será de 0.5. Si la puntuación de relevancia semántica es a su vez 0.8, la media ponderada será de 0.725.
 
 \subsection{Agrupación de memoria}
 Para evitar que conceptos relevantes se pierdan ante un conjunto de memorias excesivamente grande, se ha implementado un sistema de agrupación que resume pasajes similares en memorias unificadas, replicando nuevamente el olvido de la memoria humana.
 
-La Figura \ref{fig:mem_2} ilustra dicho sistema. Cuando las memorias de un agente especializado específico alcanzan cierto número, se ejecuta el sistema de agrupación. Este realiza primero una agrupación semántica de las diferentes memorias en los denominados \textit{clusters}. Para ello se utiliza el algoritmo KMeans Clustering de la librería scikit-learn\footnote{scikit-learn: \url{https://scikit-learn.org/stable/}}. Este algoritmo agrupa las diferentes memorias basándose en la distancia entre las diferentes dimensiones de los embeddings, siendo dos memorias más similares semánticamente cuando poseen embeddings más cercanos.
+La Figura \ref{fig:mem_2} ilustra dicho sistema. Cuando las memorias de un agente especializado específico alcanzan cierto número, se ejecuta el sistema de agrupación. Este realiza primero una agrupación semántica de las diferentes memorias en los denominados \textit{clusters}. Para ello se utiliza el algoritmo K-Means clustering de la librería scikit-learn\footnote{scikit-learn: \url{https://scikit-learn.org/stable/}}. Este algoritmo agrupa las diferentes memorias basándose en la distancia entre todas las dimensiones de los embeddings, siendo dos memorias más similares semánticamente cuando poseen embeddings más cercanos.
 
 \begin{figure}[h]
 \centering
 \adjustbox{center=\textwidth}{\includegraphics[width=1.25\linewidth]{figures/memoria_2.png}}
-\caption{Agrupación de memoria por clusters}
+\caption{Agrupación de memoria por clústeres}
 \label{fig:mem_2}
 \end{figure}
 
-Una vez distinguidos los diferentes clusters, un agente resumidor agrupa todas las memorias de cada cluster en memorias individuales. Al ser estos similares semánticamente, debería ser capaz de abstraer los conceptos comunes en todas las memorias. Estas memorias agrupadas se añaden a la base de datos, eliminando las memorias originales del cluster.
+Una vez distinguidos los diferentes clústeres, un agente resumidor agrupa todas las memorias de cada clúster en memorias individuales. Al ser estos similares semánticamente, debería ser capaz de abstraer los conceptos comunes en todas las memorias. Estas memorias agrupadas se añaden a la base de datos, eliminando las memorias originales del clúster.
 
-Para determinar el número óptimo de clusters, se ha aplicado el método del codo. Esta técnica calcula la suma de distancias entre cada elemento y el centro de su cluster para distintas cantidades de grupos. A medida que aumenta el número de clusters, la distancia total disminuye; sin embargo, el punto de mayor inclinación (calculado mediante la segunda derivada) representa el equilibrio óptimo. La Figura \ref{fig:codo} muestra los resultados de este análisis, identificando 3 como el número ideal de clusters.
+Para determinar el número óptimo de clústeres, se ha aplicado el método del codo. Esta técnica calcula la suma de distancias entre cada elemento y el centro de su clúster para distintas cantidades de grupos, generando una curva que relaciona el número de clústeres con la distancia total (Figura \ref{fig:codo}). A medida que aumenta el número de clústeres, la distancia total disminuye; sin embargo, el punto donde esta curva presenta mayor inclinación (calculado mediante su segunda derivada) representa el equilibrio óptimo.
 
-La Figura \ref{fig:clustering-analysis} ilustra el agrupamiento de 12 memorias del agente de código en los mencionados 3 clusters, mientras que la Figura \ref{fig:clusters} presenta la simplificación de sus embeddings a un espacio bidimensional. En esta última visualización se observan los tres grupos identificados, confirmando la efectividad del método del codo.
+La Figura \ref{fig:clustering-analysis} ilustra el agrupamiento de 12 memorias del agente de código en 3 clústeres, mientras que la Figura \ref{fig:clusters} presenta la simplificación de sus embeddings a un espacio bidimensional. En esta última visualización se observan los tres grupos identificados, evidenciándose su separación.
 
 \begin{figure}[h]
 \centering
-\subfloat[Visualización de clusters en dos dimensiones\label{fig:clusters}]{
+\subfloat[Visualización de clústeres en dos dimensiones\label{fig:clusters}]{
 \includegraphics[width=0.40\textwidth]{figures/cluster_2.png}
 }
-\subfloat[Método del codo sobre agrupación de clusters\label{fig:codo}]{
+\subfloat[Método del codo sobre agrupación de clústeres\label{fig:codo}]{
 \includegraphics[width=0.65\textwidth]{figures/codo.png}
 }
 \caption{Agrupación de 3 clústeres}
@@ -101,7 +101,7 @@ Tras determinar los criterios de clasificación, se instruyó al modelo Claude S
 
 Posteriormente, se utilizó la técnica de aumento sencillo de datos (EDA) \cite{wei_eda_2019} sobre dichos ejemplos. Esta consiste en realizar una serie de operaciones sobre los ejemplos originales para variar ligeramente su composición, reemplazando palabras por sinónimos, alterando el orden de algunas palabras, o eliminando palabras específicas. Para ello se ha utilizado el script\footnote{Repositorio EDA: \url{https://github.com/jasonwei20/eda_nlp}} desarrollado por los autores de dicha técnica, obteniendo un total de 2000 preguntas tras el aumento.
 
-Estos ejemplos se dividieron en tres conjuntos individuales: entrenamiento (75\%), evaluación (15\%) y pruebas (15\%). Todas las preguntas resultantes de la técnica EDA para una sola pregunta original se han mantenido en su respectivo conjunto, ya que al ser muy similares sesgarían los resultados de evaluación. Finalmente se subieron a un dataset público en HuggingFace\footnote{Dataset de preguntas: \url{https://huggingface.co/datasets/MartinElMolon/tfg_clasificador}}.
+Estos ejemplos se dividieron en tres conjuntos individuales: entrenamiento (75\%), evaluación (15\%) y pruebas (15\%). Todas las preguntas resultantes de la técnica EDA para una sola pregunta original se mantuvieron en el mismo conjunto, evitando así que variaciones de una misma pregunta aparezcan en diferentes particiones, lo cual sesgaría los resultados de evaluación. Finalmente se subieron a un dataset público en HuggingFace\footnote{Dataset de preguntas: \url{https://huggingface.co/datasets/MartinElMolon/tfg_clasificador}}.
 
 \subsection{Clasificación de preguntas}
 Para clasificar las consultas del usuario por dificultad, se han utilizado dos enfoques alternativos:

@@ -784,6 +784,11 @@ INPUT ./figures/codo.png
 INPUT ./figures/codo.png
 INPUT ./figures/codo.png
 INPUT chapters/chap9.tex
+INPUT ./figures/evaluacion.png
+INPUT ./figures/evaluacion.png
+INPUT ./figures/evaluacion.png
+INPUT ./figures/evaluacion.png
+INPUT ./figures/evaluacion.png
 INPUT chapters/anexo_a.tex
 INPUT chapters/anexo_b.tex
 INPUT chapters/anexo_d.tex

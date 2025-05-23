@@ -18,11 +18,11 @@ El modelo base seleccionado es RoBERTa-base, que contiene aproximadamente 125 mi
 Para evaluar distintos enfoques de entrenamiento, se han implementado cinco niveles de congelación paramétrica:
 
 \begin{itemize}
-  \item \textbf{Nivel 0:} Entrenamiento del modelo completo sin parámetros congelados.
-  \item \textbf{Nivel 1:} Congelación exclusiva del módulo de embedding.
-  \item \textbf{Nivel 2:} Congelación del módulo de embedding y las 4 capas inferiores de atención.
-  \item \textbf{Nivel 3:} Congelación del módulo de embedding y las 8 capas inferiores de atención.
-  \item \textbf{Nivel 4:} Congelación de los módulos de embedding y codificador completo, ajustando únicamente el clasificador. 
+  \item \textbf{Nivel 0:} entrenamiento del modelo completo sin parámetros congelados.
+  \item \textbf{Nivel 1:} congelación exclusiva del módulo de embedding.
+  \item \textbf{Nivel 2:} congelación del módulo de embedding y las 4 capas inferiores de atención.
+  \item \textbf{Nivel 3:} congelación del módulo de embedding y las 8 capas inferiores de atención.
+  \item \textbf{Nivel 4:} congelación de los módulos de embedding y codificador completo, ajustando únicamente el clasificador. 
 \end{itemize}
 
 Respecto a la configuración del prompt, se han evaluado tres alternativas distintas. La primera configuración consistió en una implementación sin prompt como referencia. Posteriormente se implementó un prompt breve que incorporaba explícitamente el criterio de clasificación (mostrado en el Listado \ref{lst:template}), lo que resultó en una mejora significativa de la precisión. En un tercer experimento, se evaluó la incorporación de tokens especiales delimitadores al inicio y final de la consulta para indicar la posición de la pregunta, pero esta aproximación fue descartada tras registrar resultados inferiores.
@@ -52,9 +52,9 @@ Para la optimización, se han evaluado cinco hiperparámetros: tasa de aprendiza
         \hline
         Tasa de aprendizaje & 5.0e-06 a 1.0e-05 & 5.5e-06 a 9.5e-06 & 8.3e-06 a 9.9e-06 & 8.5e-06 \\
         \hline
-        Decaimiento de pesos & 1.0e-06 a 0.09+ & 1.0e-06 a 0.1 & 1.0e-05 a 2.0e-04 & 3.44e-05 \\
+        Decaimiento de pesos & 1.0e-06 a 0.09 & 1.0e-06 a 0.1 & 1.0e-05 a 2.0e-04 & 3.44e-05 \\
         \hline
-        Dropout & 0.10 a 0.3 & 0.35 a 0.50 & 0.39 a 0.41 & 0.399 \\
+        Dropout & 0.10 a 0.30 & 0.35 a 0.50 & 0.39 a 0.41 & 0.399 \\
         \hline
         Pasos de calentamiento & 0 a 25 & 10 a 20 & 14 a 16 & 16 \\
         \hline
@@ -65,7 +65,7 @@ Para la optimización, se han evaluado cinco hiperparámetros: tasa de aprendiza
     \end{tabular}
 \end{table}
 
-\section{Resultados y Análisis}
+\section{Resultados}
 La optimización de hiperparámetros se desarrolló a través de tres búsquedas bayesianas secuenciales, cada una refinando los resultados de la anterior.
 
 En la primera iteración, se estableció un rango de búsqueda amplio con 4 épocas por ensayo y 30 ensayos totales. Durante esta fase se exploraron todos los niveles de congelación (0-4) para identificar tendencias iniciales en el comportamiento del modelo.
