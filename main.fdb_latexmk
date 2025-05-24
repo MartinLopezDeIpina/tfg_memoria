@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1748001189.0089 "main.aux" "main.bbl" "main" 1748001196.18935 0
+["bibtex main"] 1748086708.4632 "main.aux" "main.bbl" "main" 1748086716.63352 0
   "./references/references.bib" 1747900183.5921 277802 4adc8c82e006a2961d80dc1b063c7590 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/urlbst/unsrturl.bst" 1675116457 30912 2cfc330ae0a68bbf7dc64e1666bbb15c ""
-  "main.aux" 1748001195.7871 63255 54364ca9cf0d097b344edba94b50b778 "pdflatex"
+  "main.aux" 1748086716.30286 66246 0d71c5de3655ed375eb5fc8231f57f96 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1748001189.13302 "main.tex" "main.pdf" "main" 1748001196.18959 0
+["pdflatex"] 1748086708.58274 "main.tex" "main.pdf" "main" 1748086716.63373 0
   "/etc/texmf/web2c/texmf.cnf" 1742662909.37475 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490131464 2933 9ad527ce78d7c5fa0a642dead095f172 ""
@@ -60,7 +60,9 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1229303445 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb" 1558214095 55526 184de5d68af8c544d6d1653244a2b006 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb" 1354061736 614791 ea39341e4db76f25cb20c361802d3cd5 ""
@@ -364,7 +366,7 @@
   "chapters/chap6.tex" 1747733305.14048 22533 b0a496ecb11ff2d3bf0c84b55a461dc8 ""
   "chapters/chap7.tex" 1747299118.08444 13498 504c773c4a73c53560094be489e89c76 ""
   "chapters/chap8.tex" 1747926463.84841 14472 39adb76844f7813fe050395f0b087d98 ""
-  "chapters/chap9.tex" 1748001188.6301 12197 0ab2e33925a9f69c30830c1fcd377c78 ""
+  "chapters/chap9.tex" 1748086699.61295 20372 f2bfe8d40a7ac7c976f426d7502daf33 ""
   "config/FacultadInformatica-Gipuzkoa-bilingue-positivo-alta.jpg" 1742662057.12128 497752 09b39031bbea5eedf1afee283c914abc ""
   "config/cover_informatika.tex" 1742662057.12128 534 67c0f94b8a5047dc4972697755493091 ""
   "config/macros.tex" 1742662057.12228 4611 9981108341e593c39442ca9a4c27fb91 ""
@@ -390,14 +392,14 @@
   "figures/planner.png" 1747133326.07137 117743 8836e8882e47630b0cd57a9e295397e1 ""
   "figures/specialized.png" 1746953630.44624 161147 1bc27e89a2f633f7956cda74bff43197 ""
   "ifcommands.sty" 1742662057.12428 4894 6fc6d38bd21ddafd256a754893d7696a ""
-  "main.aux" 1748001195.7871 63255 54364ca9cf0d097b344edba94b50b778 "pdflatex"
-  "main.bbl" 1748001189.1261 25714 271b065728986a98e19cce959ef3d162 "bibtex main"
-  "main.brf" 1748001195.7921 4423 814b577913e03d30377299f5c2ddcb0d "pdflatex"
-  "main.lof" 1748001195.7931 3547 1d62625a9523d9c858b1e808d8c1c994 "pdflatex"
-  "main.lot" 1748001195.7931 1286 e4cbf60a14c25e1f83c6342fa234a818 "pdflatex"
-  "main.out" 1748001195.7921 23799 675d92c9809a55f25e62e866c3d97e6b "pdflatex"
+  "main.aux" 1748086716.30286 66246 0d71c5de3655ed375eb5fc8231f57f96 "pdflatex"
+  "main.bbl" 1748086708.5759 25714 271b065728986a98e19cce959ef3d162 "bibtex main"
+  "main.brf" 1748086716.30886 4423 814b577913e03d30377299f5c2ddcb0d "pdflatex"
+  "main.lof" 1748086716.30986 4183 d1a0a41db4c93b0bf34f9dbb8947c919 "pdflatex"
+  "main.lot" 1748086716.30986 1288 ea77cb296c534c5f7131a202a83c7ff1 "pdflatex"
+  "main.out" 1748086716.30886 24388 e5cf1fd8313af620866010f71fd71f54 "pdflatex"
   "main.tex" 1747990370.65751 7055 72a5e4501a1e7474378ae5dedf2cd729 ""
-  "main.toc" 1748001195.7931 14968 0f2ad7d5cc354728eca89f0a55810a04 "pdflatex"
+  "main.toc" 1748086716.30986 15488 61510d6bba55f011d21d8ea962c4b23a "pdflatex"
   (generated)
   "main.aux"
   "main.brf"

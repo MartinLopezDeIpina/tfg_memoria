@@ -33,6 +33,12 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Método del codo sobre agrupación de clústeres}}}{71}{subfigure.3.2}%
 \addvspace {10pt}
 \contentsline {figure}{\numberline {9.1}{\ignorespaces Mecanismo de evaluación de agentes}}{77}{figure.9.1}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Comparación de métricas entre versión inicial y mejorada}}{81}{figure.9.2}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM Juez}}}{81}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión Citas}}}{81}{subfigure.2.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Precisión Herramientas}}}{81}{subfigure.2.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Alucinación}}}{81}{subfigure.2.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Tokens Utilizados (millares)}}}{81}{subfigure.2.5}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

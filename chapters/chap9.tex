@@ -22,7 +22,7 @@ Cabe destacar que el juez marcará como incorrecto todo concepto más abstracto 
 
 Por ejemplo, un agente podría tener 5 herramientas disponibles, de las cuales 2 son necesarias, 2 son innecesarias, y otra no se clasifica en ninguno de los dos grupos, puediendo ser de utilidad pero no indispensable. Si este llama a 1 necesaria y 2 innecesarias, la precisión necesaria sería de 0.5, mientras que la innecesaria sería de 0.0. La media total sería de 0.25. El uso de la herramienta no clasificada no varía ninguna precisión.  
 
-\paragraph{Precisión de halucinación}Los modelos tienden a responder las consultas realizadas aún si no contienen el conocimiento necesario para ello. Para evaluar esto, se han anotado algunas preguntas que son imposibles de responder con la información a la que el agente tiene acceso. Ante la consulta: \opus{¿Qué flujo de despliegue contínuo se utiliza?}, el agente no podrá responder correctamente porque no existe dicho flujo.
+\paragraph{Precisión de alucinación}Los modelos tienden a responder las consultas realizadas aún si no contienen el conocimiento necesario para ello. Para evaluar esto, se han anotado algunas preguntas que son imposibles de responder con la información a la que el agente tiene acceso. Ante la consulta: \texttt{¿Qué flujo de despliegue contínuo se utiliza?}, el agente no podrá responder correctamente porque no existe dicho flujo.
 
 Para evaluar esto, un agente juez determina si la respuesta del agente realmente intenta responder a la pregunta o por el contrario indica que no se dispone de la suficiente información.
 
@@ -120,6 +120,289 @@ De esta forma, se han identificado tres escenarios: preguntas donde se requiere 
 \item\textbf{Agente código: }En los casos sencillos los chunks relevantes deberían estar incluidos en el prompt de entrada, mientras que en los más complejos debería buscar información adicional. 
 \end{itemize}
 \section{Resultados obtenidos}
+En esta sección se presentan los resultados obtenidos mediante el sistema implementado. En primera instancia se exponen los resultados de evaluación correspondientes a la versión inicial de cada agente, contrastados con una segunda versión que incorpora un prompt optimizado. Posteriormente se evalúan los distintos sistemas de orquestación desarrollados. Finalmente se analizan las mejoras introducidas en el sistema.
+\subsection{Mejora de primera versión}
+Una vez desarrollado un sistema mínimo compuesto por los agentes especializados, un planificador y un orquestador, se evaluó su rendimiento con las métricas establecidas. Primero se procedió a mejorar los agentes especializados, tras lo que se incorporó el prompting few-shot en el orquestador y planificador.
+
+\subsubsection{Agentes especializados}
+La Figura \ref{} ilustra la precisión para las métricas juez, citación, alucinación y gasto promedio en millares de tokens para los agentes especializados. Todas las evaluaciones fueron ejecutadas dos veces para reducir variaciones. 
+
+\begin{figure}[hbtp]
+\centering
+
+% Definir estilos comunes para todos los gráficos
+\pgfplotsset{
+    mybar/.style={
+        ylabel=,  
+        xlabel=,
+        x tick label style={font=\tiny},
+        yticklabel style={font=\tiny},
+        ymin=0,
+        enlarge x limits=0.12,
+        ybar=4pt,
+        bar width=5pt,
+        symbolic x coords={Code, Confluence, FileSystem, GDrive, Gitlab},
+        xtick={Code, Confluence, FileSystem, GDrive, Gitlab},
+        x tick label style={rotate=45, anchor=east, font=\scriptsize},
+        width=4.3cm,
+        height=4.5cm,
+        grid=major,
+        grid style={dashed, gray!30},
+        tick label style={font=\scriptsize},
+        legend style={draw=none},
+        scale only axis,
+    }
+}
+
+% Primera fila con tres gráficos usando minipage
+\begin{minipage}{0.32\textwidth}
+\centering
+\subfloat[LLM Juez\label{fig:llm_juez}]{
+\begin{tikzpicture}
+\begin{axis}[
+    mybar,
+    ymax=1.1,
+    ytick={0,0.2,0.4,0.6,0.8,1.0},
+]
+\addplot[
+    fill=red!70,
+    draw=red!80,
+    line width=0.5pt
+] coordinates {
+    (Code, 0.67)
+    (Confluence, 0.86)
+    (FileSystem, 0.88)
+    (GDrive, nan)
+    (Gitlab, nan)
+};
+\addplot[
+    fill=blue!70,
+    draw=blue!80,
+    line width=0.5pt
+] coordinates {
+    (Code, 0.89)
+    (Confluence, 0.86)
+    (FileSystem, 1.0)
+    (GDrive, 0.75)
+    (Gitlab, 0.9)
+};
+\end{axis}
+\end{tikzpicture}
+}
+\end{minipage}
+\begin{minipage}{0.32\textwidth}
+\centering
+\subfloat[Precisión Citas\label{fig:precision_citas}]{
+\begin{tikzpicture}
+\begin{axis}[
+    mybar,
+    ymax=1.1,
+    ytick={0,0.2,0.4,0.6,0.8,1.0},
+]
+\addplot[
+    fill=red!70,
+    draw=red!80,
+    line width=0.5pt
+] coordinates {
+    (Code, 0.07)
+    (Confluence, 0.86)
+    (FileSystem, 0.75)
+    (GDrive, nan)
+    (Gitlab, nan)
+};
+\addplot[
+    fill=blue!70,
+    draw=blue!80,
+    line width=0.5pt
+] coordinates {
+    (Code, 0.21)
+    (Confluence, 0.86)
+    (FileSystem, 0.71)
+    (GDrive, 0.84)
+    (Gitlab, 0.5)
+};
+\end{axis}
+\end{tikzpicture}
+}
+\end{minipage}
+\begin{minipage}{0.32\textwidth}
+\centering
+\subfloat[Precisión Herramientas\label{fig:precision_herramientas}]{
+\begin{tikzpicture}
+\begin{axis}[
+    mybar,
+    ymax=1.1,
+    ytick={0,0.2,0.4,0.6,0.8,1.0},
+]
+\addplot[
+    fill=red!70,
+    draw=red!80,
+    line width=0.5pt
+] coordinates {
+    (Code, 0.78)
+    (Confluence, 0.87)
+    (FileSystem, 0.81)
+    (GDrive, nan)
+    (Gitlab, nan)
+};
+\addplot[
+    fill=blue!70,
+    draw=blue!80,
+    line width=0.5pt
+] coordinates {
+    (Code, 0.76)
+    (Confluence, 0.87)
+    (FileSystem, 0.84)
+    (GDrive, 0.82)
+    (Gitlab, 0.89)
+};
+\end{axis}
+\end{tikzpicture}
+}
+\end{minipage}
+
+\vspace{0.2cm}
+
+% Segunda fila con dos gráficos centrados
+\begin{minipage}{0.32\textwidth}
+\centering
+\subfloat[Alucinación\label{fig:halucinacion}]{
+\begin{tikzpicture}
+\begin{axis}[
+    mybar,
+    ymax=1.1,
+    ytick={0,0.2,0.4,0.6,0.8,1.0},
+]
+\addplot[
+    fill=red!70,
+    draw=red!80,
+    line width=0.5pt
+] coordinates {
+    (Code, 0.67)
+    (Confluence, 0.33)
+    (FileSystem, 0.16)
+    (GDrive, nan)
+    (Gitlab, nan)
+};
+\addplot[
+    fill=blue!70,
+    draw=blue!80,
+    line width=0.5pt
+] coordinates {
+    (Code, 1.0)
+    (Confluence, 0.33)
+    (FileSystem, 0.01)
+    (GDrive, 0.5)
+    (Gitlab, 0.67)
+};
+\end{axis}
+\end{tikzpicture}
+}
+\end{minipage}
+\hspace{0.05\textwidth}
+\begin{minipage}{0.32\textwidth}
+\centering
+\subfloat[Tokens Utilizados (millares)\label{fig:tokens}]{
+\begin{tikzpicture}
+\begin{axis}[
+    mybar,
+    ymax=60,
+    ytick={0,10,20,30,40,50,60},  % Para el gráfico de tokens
+]
+\addplot[
+    fill=red!70,
+    draw=red!80,
+    line width=0.5pt
+] coordinates {
+    (Code, 55)
+    (Confluence, 14)
+    (FileSystem, 11)
+    (GDrive, nan)
+    (Gitlab, nan)
+};
+\addplot[
+    fill=blue!70,
+    draw=blue!80,
+    line width=0.5pt
+] coordinates {
+    (Code, 46)
+    (Confluence, 12)
+    (FileSystem, 12)
+    (GDrive, 36)
+    (Gitlab, 15)
+};
+\end{axis}
+\end{tikzpicture}
+}
+\end{minipage}
+
+% Leyenda global centrada (simplificada)
+\vspace{-0.2cm} % Justo antes del bloque de leyenda
+\begin{center}
+\begin{tikzpicture}
+    \draw[fill=red!70,draw=red!80,line width=0.5pt] (0,0) rectangle (0.4,-0.25);
+    \node[right] at (0.5,-0.125) {Inicial};
+    \draw[fill=blue!70,draw=blue!80,line width=0.5pt] (2,0) rectangle (2.4,-0.25);
+    \node[right] at (2.5,-0.125) {Mejorado};
+\end{tikzpicture}
+\end{center}
+
+\caption{Comparación de métricas entre versión inicial y mejorada}
+\label{fig:comparacion_metricas}
+\end{figure}
+\vspace{-0.2cm} 
+
+Se observó que el gasto del agente de código era muy superior a los demás. Esto se debe a que se realizan varias consultas RAG para la misma pregunta. Se ajustó el prompt y la cantidad de chunks extraídos, ya que se observó que la mayoría del gasto venía de ejecuciones individuales prolongadas.
+
+Por otro lado, la mejora del agnete Confluence representa el agente enfocado en el prompt caching. Aunque la precisión en todas las métricas es similar, el enfoque en prompt caching redució el uso y el gasto ligeramente. 
+
+La mejora en el agente de sistema de ficheros representa la inclusión de la herramienta de RAG. 
+
+\subsubsection{Prompting few-shot}
+La Figura \ref{} ilustra la comparación para el agente planificador y orquestador tras incorporar el prompting few-shot. Como se puede observar, este mejoró considerablemente ambos agentes.
+
+\subsection{Variaciones de orquestación}
+Esta evaluación compara los diferentes enfoques de orquestación: planificación dividida, planificación unificada y el sistema sin planificación. Adicionalmente se incluye la evaluación del sistema con planificación dividida antes de implementar las mejoras de la sección anterior. 
+
+Como se puede observar en la Figra \ref{}, las mejoras de la sección anterior mejoraron significativamente el sistema general. El prompting few-shot en los agentes superiores redució la cantidad de agentes utilizados, mejorando significativamente el costo total.
+
+Los resultados de evaluación evidencian que el paso de planificación mejora le sistema. Más concretamente, la planificación unificada supera a la dividida. Esto significa que en este caso de uso, la divisió lógica del paso de planificació no es rentable, y es mejor que el agente planificador tenga directamente la máxima información posible para fundamentear su plan. 
+
+\subsection{Integración de memoria}
+Para la evaluación de este componente se ha dividido el dataset del agente principal en dos partes, en entrenamiento (80\%) y evaluación (20\%). El objetivo es analizar si las memorias de ejecuciones de las consultas del dataset de entrenamiento pueden mejorar el rendimiento en el dataset de evaluación. Por lo tanto, se ejecutó primero el sistema completo en el dataste de entrenamiento, acumulando memorias para este. Después, se ejecutó en el dataset de evaluación, para comparar el resultado con el sistema sin memoria.
+
+Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclusión de memorias del dataset de entrenamiento realmente mejoró la precisión respecto al sistema sin memoria.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \clearpage
 
