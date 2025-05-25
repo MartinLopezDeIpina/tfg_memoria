@@ -38,7 +38,7 @@ Se ha incorporado el sistema de evaluación de LangSmith en la arquitectura agé
 \label{fig:mem_1}
 \end{figure}
 
-Se utiliza la función \opus{evaluate\_agent()} heredada por todos los agentes, la cual define una serie de instancias \opus{BaseEvaluator} que se ejecutarán sobre el dataset del agente. El Listado \ref{lst:evaluate} ilustra la evaluación de los agentes especializados, donde se declaran los evaluadores a utilizar.
+Se utiliza la función \opus{evaluate_agent()} heredada por todos los agentes, la cual define una serie de instancias \opus{BaseEvaluator} que se ejecutarán sobre el dataset del agente. El Listado \ref{lst:evaluate} ilustra la evaluación de los agentes especializados, donde se declaran los evaluadores a utilizar.
 
 \begin{lstlisting}[caption={Evaluación de agentes especializados},label={lst:evaluate}]
 async def evaluate_agent(self, langsmith_client: Client):
@@ -361,109 +361,300 @@ La mejora en el agente de sistema de ficheros representa la inclusión de la her
 \subsubsection{Prompting few-shot}
 La Figura \ref{} ilustra la comparación para el agente planificador y orquestador tras incorporar el prompting few-shot. Como se puede observar, este mejoró considerablemente ambos agentes.
 
+
+\begin{figure}[hbtp]
+\centering
+
+% Primera fila con tres gráficos usando minipage
+\begin{minipage}{0.32\textwidth}
+\centering
+\subfloat[LLM juez\label{fig:llm_judge_agentes}]{
+\begin{tikzpicture}
+\begin{axis}[
+    ylabel=,  
+    xlabel=,
+    ymin=0,
+    ymax=1.0,
+    ytick={0,0.2,0.4,0.6,0.8,1.0},
+    enlarge x limits=0.8,
+    ybar=4pt,
+    bar width=5pt,
+    symbolic x coords={Planificador},
+    xtick={Planificador},
+    x tick label style={rotate=0, anchor=center, font=\scriptsize},
+    yticklabel style={font=\tiny},
+    width=4.3cm,
+    height=4.5cm,
+    grid=major,
+    grid style={dashed, gray!30},
+    tick label style={font=\scriptsize},
+    scale only axis,
+]
+\addplot[
+    fill=red!70,
+    draw=red!80,
+    line width=0.5pt
+] coordinates {
+    (Planificador, 0.69)
+};
+\addplot[
+    fill=blue!70,
+    draw=blue!80,
+    line width=0.5pt
+] coordinates {
+    (Planificador, 0.84)
+};
+\end{axis}
+\end{tikzpicture}
+}
+\end{minipage}
+\begin{minipage}{0.32\textwidth}
+\centering
+\subfloat[Precisión de Herramientas\label{fig:tool_precision_agentes}]{
+\begin{tikzpicture}
+\begin{axis}[
+    ylabel=,  
+    xlabel=,
+    ymin=0,
+    ymax=1.0,
+    ytick={0,0.2,0.4,0.6,0.8,1.0},
+    enlarge x limits=0.8,
+    ybar=4pt,
+    bar width=5pt,
+    symbolic x coords={Orquestador},
+    xtick={Orquestador},
+    x tick label style={rotate=0, anchor=center, font=\scriptsize},
+    yticklabel style={font=\tiny},
+    width=4.3cm,
+    height=4.5cm,
+    grid=major,
+    grid style={dashed, gray!30},
+    tick label style={font=\scriptsize},
+    scale only axis,
+]
+\addplot[
+    fill=red!70,
+    draw=red!80,
+    line width=0.5pt
+] coordinates {
+    (Orquestador, 0.70)
+};
+\addplot[
+    fill=blue!70,
+    draw=blue!80,
+    line width=0.5pt
+] coordinates {
+    (Orquestador, 0.91)
+};
+\end{axis}
+\end{tikzpicture}
+}
+\end{minipage}
+\begin{minipage}{0.32\textwidth}
+\centering
+\subfloat[Alucinación\label{fig:alucinacion_agentes}]{
+\begin{tikzpicture}
+\begin{axis}[
+    ylabel=,  
+    xlabel=,
+    ymin=0,
+    ymax=0.8,
+    ytick={0,0.2,0.4,0.6,0.8},
+    enlarge x limits=0.8,
+    ybar=4pt,
+    bar width=5pt,
+    symbolic x coords={Planificador},
+    xtick={Planificador},
+    x tick label style={rotate=0, anchor=center, font=\scriptsize},
+    yticklabel style={font=\tiny},
+    width=4.3cm,
+    height=4.5cm,
+    grid=major,
+    grid style={dashed, gray!30},
+    tick label style={font=\scriptsize},
+    scale only axis,
+]
+\addplot[
+    fill=red!70,
+    draw=red!80,
+    line width=0.5pt
+] coordinates {
+    (Planificador, 0.01)
+};
+\addplot[
+    fill=blue!70,
+    draw=blue!80,
+    line width=0.5pt
+] coordinates {
+    (Planificador, 0.66)
+};
+\end{axis}
+\end{tikzpicture}
+}
+\end{minipage}
+
+% Leyenda global centrada
+\vspace{-0.2cm}
+\begin{center}
+\begin{tikzpicture}
+    \draw[fill=red!70,draw=red!80,line width=0.5pt] (0,0) rectangle (0.4,-0.25);
+    \node[right] at (0.5,-0.125) {Inicial};
+    \draw[fill=blue!70,draw=blue!80,line width=0.5pt] (2,0) rectangle (2.4,-0.25);
+    \node[right] at (2.5,-0.125) {Mejorado};
+\end{tikzpicture}
+\end{center}
+
+\caption{Evaluación de agentes orquestador y planificador antes y después de prompting few-shot}
+\label{fig:comparacion_agentes}
+\end{figure}
+\vspace{-0.2cm}
+
 \subsection{Variaciones de orquestación}
 Esta evaluación compara los diferentes enfoques de orquestación: planificación dividida, planificación unificada y el sistema sin planificación. Adicionalmente se incluye la evaluación del sistema con planificación dividida antes de implementar las mejoras de la sección anterior. 
 
 Como se puede observar en la Figra \ref{}, las mejoras de la sección anterior mejoraron significativamente el sistema general. El prompting few-shot en los agentes superiores redució la cantidad de agentes utilizados, mejorando significativamente el costo total.
+
+\begin{figure}[hbtp]
+\centering
+
+% Primera fila con dos gráficos usando minipage
+\begin{minipage}{0.48\textwidth}
+\centering
+\subfloat[LLM-juez\label{fig:llm_judge_sistemas}]{
+\begin{tikzpicture}
+\begin{axis}[
+    ylabel=,  
+    xlabel=,
+    ymin=0,
+    ymax=1.0,
+    ytick={0,0.2,0.4,0.6,0.8,1.0},
+    enlarge x limits=0.15,
+    ybar=4pt,
+    bar width=8pt,
+    symbolic x coords={Inicial, Dividida, Fusionada, Sin Plan, Adaptativo},
+    xtick={Inicial, Dividida, Fusionada, Sin Plan, Adaptativo},
+    x tick label style={rotate=45, anchor=north east, font=\scriptsize},
+    yticklabel style={font=\tiny},
+    width=5cm,
+    height=4.5cm,
+    grid=major,
+    grid style={dashed, gray!30},
+    tick label style={font=\scriptsize},
+    scale only axis,
+]
+\addplot[
+    fill=blue!70,
+    draw=blue!80,
+    line width=0.5pt
+] coordinates {
+    (Inicial, 0.5183)
+    (Dividida, 0.7665)
+    (Fusionada, 0.7889)
+    (Sin Plan, 0.7126)
+    (Adaptativo, 0.7307)
+};
+\end{axis}
+\end{tikzpicture}
+}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\centering
+\subfloat[Costo total de tokens (millones)\label{fig:token_cost_sistemas}]{
+\begin{tikzpicture}
+\begin{axis}[
+    ylabel=,  
+    xlabel=,
+    ymin=0,
+    ymax=8,
+    ytick={0,2,4,6,8},
+    enlarge x limits=0.15,
+    ybar=4pt,
+    bar width=8pt,
+    symbolic x coords={Inicial, Dividida, Fusionada, Sin Plan, Adaptativo},
+    xtick={Inicial, Dividida, Fusionada, Sin Plan, Adaptativo},
+    x tick label style={rotate=45, anchor=north east, font=\scriptsize},
+    yticklabel style={font=\tiny},
+    width=5cm,
+    height=4.5cm,
+    grid=major,
+    grid style={dashed, gray!30},
+    tick label style={font=\scriptsize},
+    scale only axis,
+]
+\addplot[
+    fill=blue!70,
+    draw=blue!80,
+    line width=0.5pt
+] coordinates {
+    (Inicial, 6.8)
+    (Dividida, 5.0)
+    (Fusionada, 4.5)
+    (Sin Plan, 1.4)
+    (Adaptativo, 4.5)
+};
+\end{axis}
+\end{tikzpicture}
+}
+\end{minipage}
+
+\caption{Comparación de rendimiento LLM-juez y costo de tokens entre diferentes sistemas}
+\label{fig:comparacion_sistemas}
+\end{figure}
+\vspace{-0.2cm}
+
+
 
 Los resultados de evaluación evidencian que el paso de planificación mejora le sistema. Más concretamente, la planificación unificada supera a la dividida. Esto significa que en este caso de uso, la divisió lógica del paso de planificació no es rentable, y es mejor que el agente planificador tenga directamente la máxima información posible para fundamentear su plan. 
 
 \subsection{Integración de memoria}
 Para la evaluación de este componente se ha dividido el dataset del agente principal en dos partes, en entrenamiento (80\%) y evaluación (20\%). El objetivo es analizar si las memorias de ejecuciones de las consultas del dataset de entrenamiento pueden mejorar el rendimiento en el dataset de evaluación. Por lo tanto, se ejecutó primero el sistema completo en el dataste de entrenamiento, acumulando memorias para este. Después, se ejecutó en el dataset de evaluación, para comparar el resultado con el sistema sin memoria.
 
-Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclusión de memorias del dataset de entrenamiento realmente mejoró la precisión respecto al sistema sin memoria.
+Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclusión de memorias del dataset de entrenamiento realmente mejoró la precisión respecto al sistema sin memoria. Por otra parte, la Figura \ref{} muestra la evaluación repetida del conjunto de test, añadiendo en cada ejecución las memorias correspondientes a los mismos ejemplos. Estas resultaron menos prometedores, indicando que la memoria funciona mejor como información adicional que como una memoria caché. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\clearpage
-
-79, 78, 82,333
+\begin{figure}[hbtp]
+\centering
+% Primera fila con dos gráficos usando minipage
+\begin{minipage}{0.48\textwidth}
+\centering
+\subfloat[Comparación con/sin memoria\label{fig:memoria_comparacion}]{
 \begin{tikzpicture}
 \begin{axis}[
-    title={precisión en dataset test tras varias ejecuciones consecutivas},
-    xlabel={ejecuciones consecutivas},
-    ylabel={precisión llm juez},
-    xmin=1, xmax=3,
-    ymin=65, ymax=130,
-    xtick={1, 2, 3},
-    ytick={0,20,40,60,80,100},
-    legend pos=north west,
-    ymajorgrids=true,
-    grid style=dashed,
+    ylabel=,  
+    xlabel=,
+    ymin=0,
+    ymax=1.0,
+    ytick={0,0.2,0.4,0.6,0.8,1.0},
+    height=5.5cm,
+    enlarge x limits=0.3,
+    ybar=2pt,
+    bar width=6pt,
+    symbolic x coords={Sin memoria, Con memoria},
+    xtick={Sin memoria, Con memoria},
+    x tick label style={rotate=45, anchor=north east, font=\scriptsize},
+    yticklabel style={font=\tiny},
+    grid=major,
+    grid style={dashed, gray!30},
+    tick label style={font=\scriptsize},
+    scale only axis,
 ]
-% gráfico original de solubilidad
 \addplot[
-    color=blue,
-    mark=square,
-    opacity=0.4,
-    ]
-    coordinates {
-    (1, 75)(2, 71)(3, 85)
-    };
-% primer punto adicional 
-\addplot[
-    color=red,
-    mark=square,
-    opacity=0.4,
-    ]
-    coordinates {
-      (1, 86)(2, 91)(3, 76)
-    };
-% segundo punto adicional 
-\addplot[
-    color=green!60!black,
-    mark=square,
-    opacity=0.4,
-    ]
-    coordinates {
-      (1, 76)(2, 72)(3, 86)
-    };
-% línea promedio
-\addplot[
-    color=black,
-    mark=*,
-    line width=1.5pt,
-    ]
-    coordinates {
-      (1, 79)(2, 78)(3, 82.333)
-    };
-\legend{trial 1, trial 2, trial 3, promedio}
-    
+    fill=blue!70,
+    draw=blue!80,
+    line width=0.5pt
+] coordinates {
+    (Sin memoria, 0.7377)
+    (Con memoria, 0.8066)
+};
 \end{axis}
 \end{tikzpicture}
-
+}
+\end{minipage}
+\begin{minipage}{0.44\textwidth}
+\centering
+\subfloat[Evolución en ejecuciones consecutivas\label{fig:evolucion_trials}]{
 \begin{tikzpicture}
 \begin{axis}[
-    title={precisión en dataset test tras varias ejecuciones consecutivas, pasando las memorias como mensajes},
+    title={},
     xlabel={ejecuciones consecutivas},
     ylabel={precisión llm juez},
     xmin=1, xmax=3,
@@ -474,7 +665,7 @@ Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclu
     ymajorgrids=true,
     grid style=dashed,
 ]
-% gráfico original de solubilidad
+% gráfico original trial 1
 \addplot[
     color=blue,
     mark=square,
@@ -483,7 +674,7 @@ Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclu
     coordinates {
     (1, 70)(2, 73)(3, 80) 
     };
-% primer punto adicional 
+% trial 2 
 \addplot[
     color=red,
     mark=square,
@@ -492,7 +683,7 @@ Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclu
     coordinates {
       (1, 78)(2, 72)(3, 76)
     };
-% segundo punto adicional 
+% trial 3 
 \addplot[
     color=green!60!black,
     mark=square,
@@ -511,11 +702,10 @@ Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclu
       (1, 73)(2, 72)(3, 77)
     };
 \legend{trial 1, trial 2, trial 3, promedio}
-    
 \end{axis}
 \end{tikzpicture}
-
-media sin memorias: 76
-con memorias train: 81, 83,78 
-media con memorias train: 80.66
-
+}
+\end{minipage}
+\caption{Comparación del impacto de la memoria y evolución en ejecuciones consecutivas}
+\label{fig:memoria_evolucion}
+\end{figure}

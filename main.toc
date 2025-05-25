@@ -105,7 +105,7 @@
 \contentsline {subsubsection}{\numberline {9.2.1.1}Agentes especializados}{80}{subsubsection.9.2.1.1}%
 \contentsline {subsubsection}{\numberline {9.2.1.2}Prompting few-shot}{80}{subsubsection.9.2.1.2}%
 \contentsline {subsection}{\numberline {9.2.2}Variaciones de orquestación}{80}{subsection.9.2.2}%
-\contentsline {subsection}{\numberline {9.2.3}Integración de memoria}{82}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.3}Integración de memoria}{83}{subsection.9.2.3}%
 \contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{85}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Diseño General}{85}{section.Alph1.1}%
 \contentsline {section}{\numberline {A.2}Conjunto de datos etiquetados}{86}{section.Alph1.2}%

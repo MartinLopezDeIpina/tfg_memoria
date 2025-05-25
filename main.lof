@@ -39,6 +39,16 @@
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Precisión Herramientas}}}{81}{subfigure.2.3}%
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Alucinación}}}{81}{subfigure.2.4}%
 \contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Tokens Utilizados (millares)}}}{81}{subfigure.2.5}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Evaluación de agentes orquestador y planificador antes y después de prompting few-shot}}{82}{figure.9.3}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{82}{subfigure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión de Herramientas}}}{82}{subfigure.3.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Alucinación}}}{82}{subfigure.3.3}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Comparación de rendimiento LLM-juez y costo de tokens entre diferentes sistemas}}{82}{figure.9.4}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM-juez}}}{82}{subfigure.4.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Costo total de tokens (millones)}}}{82}{subfigure.4.2}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Comparación del impacto de la memoria y evolución en ejecuciones consecutivas}}{83}{figure.9.5}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Comparación con/sin memoria}}}{83}{subfigure.5.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Evolución en ejecuciones consecutivas}}}{83}{subfigure.5.2}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
