@@ -3,33 +3,35 @@ Tras exponer la implementación de los diferentes módulos del sistema, este cap
 En esta línea, inicialmente se explica el sistema de evaluación implementado, tras lo que se exponen los resultados de evaluación y las conclusiones derivadas de dichos resultados. 
 
 \section{Sistema de evaluación}
-Evaluar el sistema presenta un desafío inherente a su naturaleza, ya que se debe evaluar la capacidad de este para responder preguntas en lenguaje natural. Para resolver esta problemática, se han definido una serie de métricas utilizando para ello la metodología de evaluación ofrecida por la librería LangSmith sobre un dataset anotado manualmente que actúa como respuesta correcta o \textit{ground truth}.
+La evaluación del sistema presenta un reto inherente al lenguaje natural: ¿cómo determinar si la respuesta a una pregunta es correcta? Para abordar esta problemática, se han implementado una serie de métricas (Sección \ref{sec:metricas}), evaluadas mediante el SDK de LangSmith (Sección \ref{sec:langsmith}) sobre un dataset \textit{ground truth} anotado manualmente (Sección \ref{sec:dataset}).
 
 \subsection{Métricas de evaluación}
-Siguiendo los principios etablecidos en la Sección \colorbox{yellow}{(sección antecedentes evaluación)}, se han definido las siguientes métricas para cada agente:
 
-\paragraph{LLM juez}Consiste en utilizar un agente evaluador cuya función sea valorar el resultado obtenido por el agente evaluado.
-
-Esta métrica incorpora variabilidad de precisión adicional, ya que el agente evaluador también contiene una tasa de error. Para minimizar dicha tasa, se han anotado las respuestas esperadas como listas textuales con los conceptos necesarios a incluir en la respuesta del agente. De esta forma, el agente juez genera una respuesta estructurada que contiene un argumento booleano para cada concepto requerido, indicando si se incluye en la respuesta generada, calculando así una precisión medible para la calidad de la respuesta.
+\label{sec:metricas}
+Siguiendo los principios establecidos en la Sección \colorbox{yellow}{\ref{}}, se han definido las siguientes métricas para cada agente sobre una pregunta anotada: 
+\paragraph{LLM juez} Consiste en utilizar un agente evaluador cuya función sea valorar el resultado obtenido por el agente evaluado. Para minimizar la tasa de error de este, se han anotado las respuestas esperadas como listas textuales con los conceptos necesarios a incluir en la respuesta del agente. De esta forma, el agente juez genera una respuesta estructurada que contiene un argumento booleano para cada concepto requerido, indicando si se incluye en la respuesta generada y calculando así una precisión medible.
 
 Cabe destacar que el juez marcará como incorrecto todo concepto más abstracto que el anotado, aún si conceptualmente el significado es equivalente. Por ejemplo, si se anota que la función del proyecto es proporcionar herramientas de modelos de lenguaje generativos para el equipo de desarrolladores, una respuesta sobre proporcionar herramientas de inteligencia artificial para el equipo sería considerada incorrecta.
 
-\paragraph{Precisión de herramientas}Se comparan las herramientas utilizadas por un agente para responder una pregunta con el listado de herramientas anotado como perfecto, calculando dos métricas posibles: 
+\paragraph{Precisión de herramientas} Se comparan las herramientas utilizadas por un agente para responder una pregunta con el listado de herramientas anotado como ideal, calculando dos métricas posibles:
+
 \begin{itemize}
-  \item Precisión de herramientas necesarias: indica la cantidad de herramientas necesarias utilizadas, favoreciendo el uso de estas.
-  \item Precisión de herramientas innecesarias: indica la cantidad de herrmientas innecesarias ignoradas, desfavoreciendo el uso de estas.  
+\item Precisión de herramientas necesarias: indica la cantidad de herramientas necesarias utilizadas, favoreciendo el uso de estas.
+\item Precisión de herramientas innecesarias: indica la cantidad de herramientas innecesarias ignoradas, desfavoreciendo el uso de estas.
 \end{itemize}
 
-Por ejemplo, un agente podría tener 5 herramientas disponibles, de las cuales 2 son necesarias, 2 son innecesarias, y otra no se clasifica en ninguno de los dos grupos, puediendo ser de utilidad pero no indispensable. Si este llama a 1 necesaria y 2 innecesarias, la precisión necesaria sería de 0.5, mientras que la innecesaria sería de 0.0. La media total sería de 0.25. El uso de la herramienta no clasificada no varía ninguna precisión.  
+Por ejemplo, un agente podría tener 5 herramientas disponibles, de las cuales 2 son necesarias, 2 son innecesarias, y otra no se clasifica en ninguno de los dos grupos, pudiendo ser de utilidad pero no indispensable. Si este llama a 1 necesaria y 2 innecesarias, la precisión necesaria sería de 0.5, mientras que la innecesaria sería de 0.0. La media total sería de 0.25. El uso de la herramienta no clasificada no varía ninguna precisión.
 
-\paragraph{Precisión de alucinación}Los modelos tienden a responder las consultas realizadas aún si no contienen el conocimiento necesario para ello. Para evaluar esto, se han anotado algunas preguntas que son imposibles de responder con la información a la que el agente tiene acceso. Ante la consulta: \texttt{¿Qué flujo de despliegue contínuo se utiliza?}, el agente no podrá responder correctamente porque no existe dicho flujo.
+\paragraph{Precisión de alucinación} Los modelos tienden a responder las consultas realizadas aún si no contienen el conocimiento necesario para ello. Para evaluar esto, se han anotado algunas preguntas que son imposibles de responder con la información a la que el agente tiene acceso. Ante la consulta: \opus{¿Qué flujo de despliegue continuo se utiliza?}, el agente no podrá responder correctamente porque no existe dicho flujo.
 
-Para evaluar esto, un agente juez determina si la respuesta del agente realmente intenta responder a la pregunta o por el contrario indica que no se dispone de la suficiente información.
+Esto es evaluado mediante un agente juez el cual determina si la respuesta del agente realmente intenta responder a la pregunta o por el contrario indica que no se dispone de la información suficiente.
 
-\paragraph{Precisión de citado}Constituye la cantidad de documentos citados en la respuesta que estaban anotados como necesarios.   
+\paragraph{Precisión de citado} Constituye la cantidad de documentos citados en la respuesta que estaban anotados como necesarios.
+
 
 \subsection{Implementación de evaluación}
-Se ha incorporado el sistema de evaluación de LangSmith en la arquitectura agéntica utilizada. Para ello, se ha creado un dataset en dicha plataforma para cada agente con los datos ground truth anotados. La Figura \ref{} muestra un esquema de dicho mecanismo
+\label{sec:langsmith}
+El sistema de evaluación de LangSmith, ilustrado en la Figura \ref{fig:mem_1}, consiste en ejecutar cada ejemplo en el conjunto de datos de forma asíncrona con el agente evaluado. El resultado de cada ejecución se combina con el ejemplo anotado, y el evaluador correspondiente a cada métrica compara los resultados. Posteriormente se calcula el promedio de cada métrica para cada evaluación.
 
 \begin{figure}[h]
 \centering
@@ -38,7 +40,7 @@ Se ha incorporado el sistema de evaluación de LangSmith en la arquitectura agé
 \label{fig:mem_1}
 \end{figure}
 
-Se utiliza la función \opus{evaluate_agent()} heredada por todos los agentes, la cual define una serie de instancias \opus{BaseEvaluator} que se ejecutarán sobre el dataset del agente. El Listado \ref{lst:evaluate} ilustra la evaluación de los agentes especializados, donde se declaran los evaluadores a utilizar.
+Para ello se utiliza la función \opus{evaluate_agent()} heredada por todos los agentes, la cual define una serie de instancias \opus{BaseEvaluator} que representan los evaluadores a ejecutar para cada ejemplo. El Listado \ref{lst:evaluate} ilustra dicha función para los agentes especializados.
 
 \begin{lstlisting}[caption={Evaluación de agentes especializados},label={lst:evaluate}]
 async def evaluate_agent(self, langsmith_client: Client):
@@ -51,13 +53,17 @@ async def evaluate_agent(self, langsmith_client: Client):
     return result
 \end{lstlisting}
 
-Esta función invoca \opus{call\_agent\_evaluation()}, heredado por todos los agentes (Listado \ref{lst:call_evaluation}), que ejecuta la función de evaluación de LangSmith para aplicar las funciones de evaluación sobre cada estado final de ejecución y ejemplo anotado.
+Esta función utiliza internamente las funciones de evaluación de LangSmith mediante \opus{call_agent_evaluation} (Listado \ref{lst:call_evaluation}) para ejecutar todos los ejemplos del conjunto de datos y evaluarlos con las métricas proporcionadas. El conjunto de datos de cada agente va ligado a su nombre y se obtiene mediante el cliente de LangSmith.
 
 \begin{lstlisting}[caption={Llamada a evaluación de agentes},label={lst:call_evaluation}]
 async def call_agent_evaluation(self, langsmith_client: Client, 
                                evaluators: List[BaseEvaluator], ...):
     ...
+
+    evaluator_functions = [evaluator.evaluate_metrics for evaluator in evaluators]
+    data=langsmith_client.list_examples(dataset_name=dataset_name, splits=splits)
     run_function = self.execute_from_dataset
+
     results = await aevaluate(
         run_function,
         data=data,
@@ -88,44 +94,52 @@ class CiteEvaluator(BaseEvaluator):
 \end{lstlisting}
 
 
-
-
 \subsection{Dataset anotado}
-La captura de dicho dataset se ha realizado en una hoja de cálculo de Google Drive. Esta hoja se ha descargado posteriormente en formato de valores separados por coma (CSV), y se ha subido como dataset de LangSmith. 
+\label{sec:dataset}
+La captura del conjunto de datos se ha realizado en una hoja de cálculo de G. Drive. Esta hoja se ha descargado posteriormente en formato de valores separados por coma (CSV) y se ha subido como conjunto de datos de LangSmith.
 
-La captura constituye de 46 ejemplos para el agente principal (el sistema completo), y aproximadamente 10 ejemplos para los agentes individuales. Para ello se han utilizado las preguntas anotadas en la captura de requisitos, filtrando y modificando en algunos casos las preguntas para ser lo suficientemente específicas como para tener una respuesta exacta, pero a su vez con cierto grado de complejidad que requiera un razonamiento sobre la consulta. Se han utilizado las siguientes consideraciones sobre cada agente: 
-
-\begin{itemize}
-  \item\textbf{Agente principal: }Se han identificado tres tipos de preguntas: aquellas que se pueden responder consultando una única fuente de datos, las que requieren múltiples fuentes de datos, y las que requieren múltiples fuentes de datos en un orden sequencial, dependiendo la entrada de uno de la salida del otro.   
-  \item\textbf{Planificador: }Para este agente se ha anotado la respuesta como el plan generado para un ejemplo de ejecución, incluyendo la pregunta y el estado de ejecución, siendo este último la información de la que se dispone y el plan actual.
-
-De esta forma, se han identificado tres escenarios: preguntas donde se requiere un solo paso, preguntas donde se requieren varios pasos, y preguntas a medio completar donde se requiere que el agente genere el siguiente paso o decida finalizar el plan. 
-\item\textbf{Orquestador: }Este agente se ha evaluado utilizando los agentes seleccionados para ejecutar como herramientas. Para ello se han incluido preguntas de todas las temáticas, evaluando qué agentes llamar en cada caso:
+La captura comprende 46 ejemplos para el agente principal (el sistema completo) y aproximadamente 10 ejemplos para los agentes individuales. Para ello se han utilizado las preguntas anotadas en la captura de requisitos, filtrando y modificando en algunos casos las preguntas para ser lo suficientemente específicas como para tener una respuesta exacta, pero a su vez con cierto grado de complejidad que requiera un razonamiento sobre la consulta. Se han utilizado las siguientes consideraciones sobre cada agente:
 
 \begin{itemize}
-    \item \textbf{Tareas de agente único: }Se ha definido una consulta relacionada únicamente con cada agente especializado. 
-    \item \textbf{Tareas multi-agente:}
-    \begin{itemize}
-        \item Información general: \opus{file_system_agent} principalmente
-        \item Entorno y despliegue: \opus{file_system_agent} + \opus{code_agent}
-        \item Gestión del proyecto: \opus{file_system_agent} + otros agentes según el caso
-        \item Estándares y prácticas: \opus{file_system_agent} + \opus{confluence_agent} si es frontend
-        \item Documentación: \opus{file_system_agent}
-        \item Arquitectura del sistema: \opus{code_agent} + \opus{file_system_agent} en la mayoría
-        \item Tareas de frontend: \opus{confluence_agent} + \opus{google_drive_agent}
-    \end{itemize}
-  \end{itemize}
-\item\textbf{Agente sistema de ficheros, Confluence y Google Drive}: En los casos sencillos es necesario únicamente la herramienta de leer páginas. En los más desafiantes se requiere de las herramientas de búsqueda.
-\item\textbf{Agente GitLab: }Se han incluido ejemplos donde este debe llamar primero a la herramienta de obtener información sobre los usuarios en caso de necesitarlo para especificar el nombre de usuario en otras herramientas.
-\item\textbf{Agente código: }En los casos sencillos los chunks relevantes deberían estar incluidos en el prompt de entrada, mientras que en los más complejos debería buscar información adicional. 
+\item\textbf{Agente principal: }se han identificado tres tipos de preguntas: aquellas que se pueden responder consultando una única fuente de datos, las que requieren múltiples fuentes de datos, y las que requieren múltiples fuentes de datos en un orden secuencial, dependiendo la entrada de uno de la salida del otro.
+
+\item\textbf{Planificador: }para este agente se ha anotado la respuesta como el plan generado para un ejemplo de ejecución, incluyendo la pregunta y el estado de ejecución actual. Se han identificado tres escenarios: preguntas donde se requiere un solo paso, preguntas donde se requieren varios pasos, y preguntas a medio completar donde se requiere que el agente genere el siguiente paso o decida finalizar el plan.
+
+\item\textbf{Orquestador: }este agente se ha evaluado considerando los agentes seleccionados para ejecutar como herramientas. Para ello se han incluido preguntas de todas las temáticas, evaluando qué agentes llamar en cada caso:
+
+\begin{itemize}
+\item \textbf{Tareas de agente único: }Se ha definido una consulta relacionada únicamente con cada agente especializado.
+
+\item \textbf{Tareas multi-agente:}
+\begin{itemize}
+\item Información general: \opus{file_system_agent} principalmente
+\item Entorno y despliegue: \opus{file_system_agent} + \opus{code_agent}
+\item Gestión del proyecto: \opus{file_system_agent} + otros agentes según el caso
+\item Estándares y prácticas: \opus{file_system_agent} + \opus{confluence_agent} si es frontend
+\item Documentación: \opus{file_system_agent}
+\item Arquitectura del sistema: \opus{code_agent} + \opus{file_system_agent} en la mayoría
+\item Tareas de frontend: \opus{confluence_agent} + \opus{google_drive_agent}
 \end{itemize}
+\end{itemize}
+\item\textbf{Agentes sistema de ficheros, Confluence y G. Drive}: en los casos sencillos es necesario únicamente la herramienta de lectura de páginas. En los más desafiantes se requiere de las herramientas de búsqueda.
+\item\textbf{Agente GitLab: }Se han incluido ejemplos donde este debe llamar primero a la herramienta de obtener información sobre los usuarios para posteriormente utilizar esos nombres de usuario como parámetros en otras herramientas.
+\item\textbf{Agente código: }en los casos sencillos los fragmentos relevantes deberían estar incluidos en el prompt de entrada, mientras que en los más complejos debería buscar información adicional.
+\end{itemize}
+
+
+
 \section{Resultados obtenidos}
 En esta sección se presentan los resultados obtenidos mediante el sistema implementado. En primera instancia se exponen los resultados de evaluación correspondientes a la versión inicial de cada agente, contrastados con una segunda versión que incorpora un prompt optimizado. Posteriormente se evalúan los distintos sistemas de orquestación desarrollados. Finalmente se analizan las mejoras introducidas en el sistema.
+
+Cabe destacar que los modelos de lenguaje no son deterministas: una misma pregunta puede generar respuestas diferentes. Además, al evaluar estas respuestas mediante otro LLM, se introduce una segunda capa de indeterminismo. Esto implica que el sistema presenta una tasa de error variable.
+
+Los resultados mostrados corresponden al promedio de al menos dos ejecuciones. Si bien esto no garantiza certeza absoluta, sí permite afirmar que una evaluación más favorable tiene mayor probabilidad de ser una mejor solución, incrementándose esta probabilidad con el número de repeticiones. Esta metodología permite mejorar el sistema de manera objetiva, ya que las mejoras que generen resultados consistentemente superiores en las evaluaciones tienen mayor probabilidad de constituir avances reales
+
 \subsection{Mejora de primera versión}
-Una vez desarrollado un sistema mínimo compuesto por los agentes especializados, un planificador y un orquestador, se evaluó su rendimiento con las métricas establecidas. Primero se procedió a mejorar los agentes especializados, tras lo que se incorporó el prompting few-shot en el orquestador y planificador.
+En primer lugar se mejoraron los agentes especializados que presentaron deficiencias en la evaluación inicial, tras lo cual se incorporó el prompting few-shot en el orquestador y planificador.
 
 \subsubsection{Agentes especializados}
-La Figura \ref{} ilustra la precisión para las métricas juez, citación, alucinación y gasto promedio en millares de tokens para los agentes especializados. Todas las evaluaciones fueron ejecutadas dos veces para reducir variaciones. 
+La Figura \ref{fig:eval_esp} ilustra la precisión para las métricas juez, citación, alucinación y gasto promedio en millares de tokens para los agentes especializados.
 
 \begin{figure}[hbtp]
 \centering
@@ -141,8 +155,8 @@ La Figura \ref{} ilustra la precisión para las métricas juez, citación, aluci
         enlarge x limits=0.12,
         ybar=4pt,
         bar width=5pt,
-        symbolic x coords={Code, Confluence, FileSystem, GDrive, Gitlab},
-        xtick={Code, Confluence, FileSystem, GDrive, Gitlab},
+        symbolic x coords={Código, Confluence, S. ficheros, G. Drive, GitLab},
+        xtick={Código, Confluence, S. ficheros, G. Drive, GitLab},
         x tick label style={rotate=45, anchor=east, font=\scriptsize},
         width=4.3cm,
         height=4.5cm,
@@ -169,22 +183,22 @@ La Figura \ref{} ilustra la precisión para las métricas juez, citación, aluci
     draw=red!80,
     line width=0.5pt
 ] coordinates {
-    (Code, 0.67)
+    (Código, 0.67)
     (Confluence, 0.86)
-    (FileSystem, 0.88)
-    (GDrive, nan)
-    (Gitlab, nan)
+    (S. ficheros, 0.88)
+    (G. Drive, nan)
+    (GitLab, nan)
 };
 \addplot[
     fill=blue!70,
     draw=blue!80,
     line width=0.5pt
 ] coordinates {
-    (Code, 0.89)
+    (Código, 0.89)
     (Confluence, 0.86)
-    (FileSystem, 1.0)
-    (GDrive, 0.75)
-    (Gitlab, 0.9)
+    (S. ficheros, 1.0)
+    (G. Drive, 0.75)
+    (GitLab, 0.9)
 };
 \end{axis}
 \end{tikzpicture}
@@ -204,22 +218,22 @@ La Figura \ref{} ilustra la precisión para las métricas juez, citación, aluci
     draw=red!80,
     line width=0.5pt
 ] coordinates {
-    (Code, 0.07)
+    (Código, 0.07)
     (Confluence, 0.86)
-    (FileSystem, 0.75)
-    (GDrive, nan)
-    (Gitlab, nan)
+    (S. ficheros, 0.75)
+    (G. Drive, nan)
+    (GitLab, nan)
 };
 \addplot[
     fill=blue!70,
     draw=blue!80,
     line width=0.5pt
 ] coordinates {
-    (Code, 0.21)
+    (Código, 0.21)
     (Confluence, 0.86)
-    (FileSystem, 0.71)
-    (GDrive, 0.84)
-    (Gitlab, 0.5)
+    (S. ficheros, 0.71)
+    (G. Drive, 0.84)
+    (GitLab, 0.5)
 };
 \end{axis}
 \end{tikzpicture}
@@ -239,22 +253,22 @@ La Figura \ref{} ilustra la precisión para las métricas juez, citación, aluci
     draw=red!80,
     line width=0.5pt
 ] coordinates {
-    (Code, 0.78)
+    (Código, 0.78)
     (Confluence, 0.87)
-    (FileSystem, 0.81)
-    (GDrive, nan)
-    (Gitlab, nan)
+    (S. ficheros, 0.81)
+    (G. Drive, nan)
+    (GitLab, nan)
 };
 \addplot[
     fill=blue!70,
     draw=blue!80,
     line width=0.5pt
 ] coordinates {
-    (Code, 0.76)
+    (Código, 0.76)
     (Confluence, 0.87)
-    (FileSystem, 0.84)
-    (GDrive, 0.82)
-    (Gitlab, 0.89)
+    (S. ficheros, 0.84)
+    (G. Drive, 0.82)
+    (GitLab, 0.89)
 };
 \end{axis}
 \end{tikzpicture}
@@ -278,22 +292,22 @@ La Figura \ref{} ilustra la precisión para las métricas juez, citación, aluci
     draw=red!80,
     line width=0.5pt
 ] coordinates {
-    (Code, 0.67)
+    (Código, 0.67)
     (Confluence, 0.33)
-    (FileSystem, 0.16)
-    (GDrive, nan)
-    (Gitlab, nan)
+    (S. ficheros, 0.16)
+    (G. Drive, nan)
+    (GitLab, nan)
 };
 \addplot[
     fill=blue!70,
     draw=blue!80,
     line width=0.5pt
 ] coordinates {
-    (Code, 1.0)
+    (Código, 1.0)
     (Confluence, 0.33)
-    (FileSystem, 0.01)
-    (GDrive, 0.5)
-    (Gitlab, 0.67)
+    (S. ficheros, 0.01)
+    (G. Drive, 0.5)
+    (GitLab, 0.67)
 };
 \end{axis}
 \end{tikzpicture}
@@ -314,22 +328,22 @@ La Figura \ref{} ilustra la precisión para las métricas juez, citación, aluci
     draw=red!80,
     line width=0.5pt
 ] coordinates {
-    (Code, 55)
+    (Código, 55)
     (Confluence, 14)
-    (FileSystem, 11)
-    (GDrive, nan)
-    (Gitlab, nan)
+    (S. ficheros, 11)
+    (G. Drive, nan)
+    (GitLab, nan)
 };
 \addplot[
     fill=blue!70,
     draw=blue!80,
     line width=0.5pt
 ] coordinates {
-    (Code, 46)
+    (Código, 46)
     (Confluence, 12)
-    (FileSystem, 12)
-    (GDrive, 36)
-    (Gitlab, 15)
+    (S. ficheros, 12)
+    (G. Drive, 36)
+    (GitLab, 15)
 };
 \end{axis}
 \end{tikzpicture}
@@ -348,15 +362,15 @@ La Figura \ref{} ilustra la precisión para las métricas juez, citación, aluci
 \end{center}
 
 \caption{Comparación de métricas entre versión inicial y mejorada}
-\label{fig:comparacion_metricas}
+\label{fig:eval_esp}
 \end{figure}
 \vspace{-0.2cm} 
 
-Se observó que el gasto del agente de código era muy superior a los demás. Esto se debe a que se realizan varias consultas RAG para la misma pregunta. Se ajustó el prompt y la cantidad de chunks extraídos, ya que se observó que la mayoría del gasto venía de ejecuciones individuales prolongadas.
+Se observó que el gasto del agente de código era considerablemente superior a los demás. Esto se debe a que se realizan múltiples consultas RAG para la misma pregunta. Se ajustó el prompt y la cantidad de fragmentos extraídos, ya que gran parte del gasto procedía de ejecuciones individuales prolongadas.
 
-Por otro lado, la mejora del agnete Confluence representa el agente enfocado en el prompt caching. Aunque la precisión en todas las métricas es similar, el enfoque en prompt caching redució el uso y el gasto ligeramente. 
+Por otro lado, la mejora del agente Confluence representa el agente enfocado en el prompt caching. Aunque la precisión en todas las métricas es similar, el enfoque en prompt caching redujo el uso y el gasto ligeramente.
 
-La mejora en el agente de sistema de ficheros representa la inclusión de la herramienta de RAG. 
+La mejora en el agente de sistema de ficheros representa la inclusión de la herramienta de RAG.
 
 \subsubsection{Prompting few-shot}
 La Figura \ref{} ilustra la comparación para el agente planificador y orquestador tras incorporar el prompting few-shot. Como se puede observar, este mejoró considerablemente ambos agentes.
