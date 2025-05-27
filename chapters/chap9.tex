@@ -1,16 +1,16 @@
 Tras exponer la implementación de los diferentes módulos del sistema, este capítulo detalla su evaluación y la comparación entre las diferentes versiones propuestas.
 
-Con este propósito, inicialmente se explica el sistema de evaluación implementado, tras lo que se exponen los resultados de evaluación y las conclusiones derivadas de dichos resultados. 
+Con este propósito, inicialmente se explica el sistema de evaluación automatizado implementado, tras lo que se exponen los resultados obtenidos y las conclusiones derivadas de dichos resultados. 
 
 \section{Sistema de evaluación}
-La evaluación del sistema plantea un reto inherente al lenguaje natural: ¿cómo determinar si la respuesta a una pregunta es correcta? La solución adoptada comprende una serie de métricas (Sección \ref{sec:metricas}), evaluadas mediante el SDK de LangSmith (Sección \ref{sec:langsmith}) sobre un dataset \textit{ground truth} anotado manualmente (Sección \ref{sec:dataset}).
+La validación del sistema plantea un reto inherente al lenguaje natural: ¿cómo determinar si la respuesta a una pregunta es correcta? La solución adoptada comprende una serie de métricas (Sección \ref{sec:metricas}), evaluadas mediante el SDK de LangSmith (Sección \ref{sec:langsmith}) sobre un dataset \textit{ground truth} anotado manualmente (Sección \ref{sec:dataset}).
 
 \subsection{Métricas de evaluación}
 
 \label{sec:metricas}
 Siguiendo los principios establecidos en la Sección \colorbox{yellow}{\ref{}}, se han implementado las siguientes métricas para cada agente sobre una pregunta anotada: 
-\todo{Aquí creo que debería referenciar una sección de antecedentes que introduzca el tema de evaluación de agentes LLM y explique brevemente el TFG de Mikel Lonbide.}
-\paragraph{LLM juez} Consiste en utilizar un agente evaluador cuya función sea valorar el resultado obtenido por el agente evaluado. Para minimizar la tasa de error de este, se han anotado las respuestas esperadas como listas textuales con los conceptos necesarios a incluir en la respuesta del agente. De esta forma, el agente juez genera una respuesta estructurada que contiene un argumento booleano para cada concepto requerido, indicando si se incluye en la respuesta generada y calculando así una precisión medible.
+\todo{Aquí creo que debería referenciar una sección de antecedentes que introduzca el tema de evaluación de agentes LLM y mencione el TFG de Mikel Lonbide.}
+\paragraph{LLM juez} Consiste en utilizar un agente evaluador cuya función sea valorar el resultado obtenido por el agente evaluado. Para minimizar la tasa de error del juez, se han anotado las respuestas esperadas como listas textuales con los conceptos necesarios a incluir en la respuesta del agente. El agente juez genera una respuesta estructurada con un argumento booleano para cada concepto requerido, indicando si se incluye en la respuesta generada. Esto permite calcular una precisión cuantificable.
 
 Cabe destacar que el juez marcará como incorrecto todo concepto más abstracto que el anotado, aún si conceptualmente el significado es equivalente. Por ejemplo, si se anota que la función del proyecto es proporcionar herramientas de modelos de lenguaje generativos para el equipo de desarrolladores, una respuesta sobre proporcionar herramientas de inteligencia artificial para el equipo sería considerada incorrecta.
 
@@ -25,14 +25,14 @@ A modo de ejemplo, un agente podría tener 5 herramientas disponibles, de las cu
 
 \paragraph{Precisión de alucinación} Los modelos tienden a responder las consultas realizadas aún si no contienen el conocimiento necesario para ello. Para evaluar esto, se han anotado algunas preguntas que son imposibles de responder con la información a la que el agente tiene acceso. Ante la consulta: \texttt{¿Qué flujo de despliegue continuo se utiliza?}, el agente no podrá responder correctamente porque no existe dicho flujo.
 
-Esto es evaluado mediante un agente juez el cual determina si la respuesta del agente realmente intenta responder a la pregunta o por el contrario indica que no se dispone de la información suficiente.
+Esto es evaluado mediante un agente juez, el cual determina si la respuesta del agente realmente intenta responder a la pregunta o, por el contrario, reconoce que no se dispone de la información suficiente.
 
 \paragraph{Precisión de citación} Constituye la cantidad de documentos citados en la respuesta que estaban anotados como necesarios.
 
 
 \subsection{Implementación de evaluación}
 \label{sec:langsmith}
-El sistema de evaluación de LangSmith, ilustrado en la Figura \ref{fig:mem_1}, consiste en ejecutar cada ejemplo en el conjunto de datos de forma asíncrona con el agente evaluado. El resultado de cada ejecución se combina con el ejemplo anotado, y el evaluador correspondiente a cada métrica compara los resultados. Posteriormente se calcula el promedio de cada métrica para cada evaluación.
+El sistema de evaluación de LangSmith, ilustrado en la Figura \ref{fig:mem_1}, consiste en ejecutar cada ejemplo en el conjunto de datos de forma asíncrona con el agente evaluado. El resultado de cada ejecución se combina con el resultado anotado, y el evaluador correspondiente a cada métrica compara los resultados. Posteriormente, se calcula el promedio de cada métrica para todos los ejemplos de evaluación.
 
 \begin{figure}[h]
 \centering
@@ -41,7 +41,7 @@ El sistema de evaluación de LangSmith, ilustrado en la Figura \ref{fig:mem_1}, 
 \label{fig:mem_1}
 \end{figure}
 
-Para ello se utiliza la función \opus{evaluate_agent()} heredada por todos los agentes, la cual define una serie de instancias \opus{BaseEvaluator} que representan los evaluadores a ejecutar para cada ejemplo. El Listado \ref{lst:evaluate} ilustra dicha función para los agentes especializados.
+Para ello, se utiliza la función \opus{evaluate_agent()} heredada por todos los agentes, la cual define una serie de instancias \opus{BaseEvaluator} que representan los evaluadores a ejecutar. Este diseño permite configurar de forma modular las métricas específicas para cada tipo de agente según sus características particulares. El Listado \ref{lst:evaluate} ilustra dicha función para los agentes especializados.
 
 \begin{lstlisting}[caption={Evaluación de agentes especializados},label={lst:evaluate}]
 async def evaluate_agent(self, langsmith_client: Client):
@@ -99,37 +99,37 @@ class CiteEvaluator(BaseEvaluator):
 
 \subsection{Dataset anotado}
 \label{sec:dataset}
-La captura del conjunto de datos se ha realizado en una hoja de cálculo de Google Drive. Este documento se ha descargado posteriormente en formato de valores separados por coma (CSV) y se ha subido como conjunto de datos de LangSmith.
+La captura del conjunto de datos se ha realizado en una hoja de cálculo de Google Drive. Este documento se ha descargado posteriormente en formato de valores separados por coma (CSV) y se ha exportado como conjunto de datos a la plataforma LangSmith.
 
-La captura comprende 46 ejemplos para el agente principal (el sistema completo) y aproximadamente 10 ejemplos para los agentes individuales. Para ello se han utilizado las preguntas anotadas en la captura de requisitos, filtrando y modificando en algunos casos las preguntas para ser lo suficientemente específicas como para tener una respuesta exacta, pero a su vez con cierto grado de complejidad que requiera un razonamiento sobre la consulta. Se han utilizado las siguientes consideraciones sobre cada agente:
+La captura comprende 46 ejemplos para el agente principal (el sistema completo) y aproximadamente 10 ejemplos para cada agente individual. Para ello se han utilizado las preguntas anotadas en la captura de requisitos, filtrando y modificando en algunos casos las preguntas para ser lo suficientemente específicas como para tener una respuesta exacta, pero a su vez con cierto grado de complejidad que requiera un razonamiento sobre la consulta. Se han utilizado las siguientes consideraciones sobre cada agente:
 
 \begin{itemize}
-\item\textbf{Agente principal: }se han identificado tres tipos de preguntas: aquellas que se pueden responder consultando una única fuente de datos, las que requieren múltiples fuentes de datos, y las que requieren múltiples fuentes de datos en un orden secuencial, dependiendo la entrada de uno de la salida del otro.
+\item\textbf{Agente principal: }comprende tres tipos de preguntas según su complejidad: consultas respondibles mediante una única fuente de datos, las que requieren múltiples fuentes, y las que necesitan múltiples fuentes en orden secuencial con dependencias entre ellas.
 
 \item\textbf{Planificador: }para este agente se ha anotado la respuesta como el plan generado para un ejemplo de ejecución, incluyendo la pregunta y el estado de ejecución actual. Se han identificado tres escenarios: preguntas donde se requiere un solo paso, preguntas donde se requieren varios pasos, y preguntas a medio completar donde se requiere que el agente genere el siguiente paso o decida finalizar el plan.
 
-\item\textbf{Orquestador: }este agente se ha evaluado considerando los agentes seleccionados para ejecutar como herramientas. Para ello se han incluido preguntas de todas las temáticas, evaluando qué agentes llamar en cada caso:
+\item\textbf{Orquestador: }este agente se ha evaluado considerando los agentes seleccionados para ejecutar como herramientas. Con tal fin, se han incluido preguntas de todas las temáticas, evaluando qué agentes llamar en cada caso:
 
 \begin{itemize}
-\item \textbf{Tareas de agente único: }se ha definido una consulta relacionada únicamente con cada agente especializado.
+\item \textbf{Tareas de agente único: }contempla consultas diseñadas específicamente para cada agente especializado.
 
-\item \textbf{Tareas multi-agente:} Las consultas de información general y documentación requieren principalmente el \opus{file_system_agent}, mientras que las de entorno y despliegue combinan este con el \opus{code_agent}. Las preguntas sobre arquitectura del sistema utilizan ambos agentes, y las de gestión del proyecto emplean el \opus{file_system_agent} junto con otros según el contexto específico. Para estándares y prácticas se añade el \opus{confluence_agent} cuando involucran frontend, y las tareas específicas de frontend combinan los agentes \opus{confluence_agent} y \opus{google_drive_agent}.
+\item \textbf{Tareas multi-agente:} las consultas de información general y documentación requieren principalmente el \opus{file_system_agent}, mientras que las de entorno y despliegue combinan este con el \opus{code_agent}. Las preguntas sobre arquitectura del sistema utilizan ambos agentes, y las de gestión del proyecto emplean el \opus{file_system_agent} junto con otros según el contexto específico. Para estándares y prácticas se añade el \opus{confluence_agent} cuando involucran frontend, y las tareas específicas de frontend combinan los agentes \opus{confluence_agent} y \opus{google_drive_agent}.
 
 \end{itemize}
 \item\textbf{Agentes sistema de ficheros, Confluence y Google Drive}: en los casos sencillos es necesario únicamente la herramienta de lectura de páginas. En los más desafiantes se requiere de las herramientas de búsqueda.
-\item\textbf{Agente GitLab: }se han incluido ejemplos donde este debe llamar primero a la herramienta de obtener información sobre los usuarios para posteriormente utilizar esos nombres de usuario como parámetros en otras herramientas.
+\item\textbf{Agente GitLab: }incluye ejemplos donde este debe llamar primero a la herramienta de obtener información sobre los usuarios para posteriormente utilizar esos nombres de usuario como parámetros en otras herramientas.
 \item\textbf{Agente código: }en los casos sencillos los fragmentos relevantes deberían estar incluidos en el prompt de entrada, mientras que en los más complejos debería buscar información adicional.
 \end{itemize}
 
 \section{Resultados obtenidos}
-En esta sección se presentan los resultados obtenidos mediante el sistema implementado. En primera instancia se exponen los resultados de evaluación correspondientes a la versión inicial de cada agente, contrastados con una segunda versión que incorpora un prompt optimizado. Posteriormente se evalúan los distintos sistemas de orquestación desarrollados. Finalmente se analizan las mejoras introducidas en el sistema.
+En esta sección se presentan los resultados obtenidos mediante el sistema implementado. En primera instancia, se exponen los resultados de evaluación correspondientes a la versión inicial de cada agente, contrastados con una segunda versión mejorada. Posteriormente se evalúan los distintos sistemas de orquestación desarrollados. Finalmente se analizan las mejoras introducidas en el sistema.
 
-Cabe destacar que los modelos de lenguaje no son deterministas: una misma pregunta puede generar respuestas diferentes. Además, al evaluar estas respuestas mediante otro LLM, se introduce una segunda capa de indeterminismo. Esto implica que el sistema presenta una tasa de error variable.
+Cabe destacar que los LLM utilizados no son deterministas: una misma pregunta puede generar respuestas diferentes. Además, al evaluar estas respuestas mediante otro modelo, se introduce una segunda capa de indeterminismo. Esto implica que el sistema presenta una tasa de error variable.
 
 Los resultados mostrados corresponden al promedio de al menos dos ejecuciones. Si bien esto no garantiza certeza absoluta, sí permite afirmar que una evaluación más favorable tiene mayor probabilidad de ser una mejor solución. Esta metodología permite mejorar el sistema de manera objetiva, ya que las mejoras que generen resultados consistentemente superiores en las evaluaciones tienen mayor probabilidad de constituir avances reales.
 
 \subsection{Mejora de versión inicial}
-Inicialmente se mejoraron los agentes especializados que presentaron deficiencias en la evaluación inicial, incorporándose posteriormente el prompting few-shot en el orquestador y planificador.
+Primero se mejoraron los agentes especializados que presentaron deficiencias en la evaluación inicial, incorporándose posteriormente el prompting few-shot en el orquestador y planificador.
 
 \subsubsection{Agentes especializados}
 La Figura \ref{fig:eval_esp} ilustra el rendimiento de los agentes especializados según las métricas de juez, citación y alucinación, así como su gasto promedio por cada ejemplo de ejecución en el dataset.
@@ -365,7 +365,7 @@ La mejora del agente Confluence incorporó el enfoque de prompt caching. Aunque 
 
 La mejora en el agente de sistema de ficheros consistió en la inclusión de la herramienta de RAG.
 
-\subsubsection{Prompting few-shot}
+\subsubsection{Planificador y orquestador}
 La Figura \ref{fig:eval_fewshots} ilustra la comparación del agente planificador y orquestador tras incorporar el prompting few-shot. Los resultados muestran una mejora considerable en el rendimiento de ambos agentes.
 
 
@@ -381,7 +381,7 @@ La Figura \ref{fig:eval_fewshots} ilustra la comparación del agente planificado
     ylabel=,  
     xlabel=,
     ymin=0,
-    ymax=1.0,
+    ymax=1.1,
     ytick={0,0.2,0.4,0.6,0.8,1.0},
     enlarge x limits=0.8,
     ybar=4pt,
@@ -423,7 +423,7 @@ La Figura \ref{fig:eval_fewshots} ilustra la comparación del agente planificado
     ylabel=,  
     xlabel=,
     ymin=0,
-    ymax=1.0,
+    ymax=1.1,
     ytick={0,0.2,0.4,0.6,0.8,1.0},
     enlarge x limits=0.8,
     ybar=4pt,
@@ -465,8 +465,8 @@ La Figura \ref{fig:eval_fewshots} ilustra la comparación del agente planificado
     ylabel=,  
     xlabel=,
     ymin=0,
-    ymax=0.8,
-    ytick={0,0.2,0.4,0.6,0.8},
+    ymax=1.1,
+    ytick={0,0.2,0.4,0.6,0.8, 1.0},
     enlarge x limits=0.8,
     ybar=4pt,
     bar width=5pt,
@@ -517,9 +517,9 @@ La Figura \ref{fig:eval_fewshots} ilustra la comparación del agente planificado
 \vspace{-0.2cm}
 
 \subsection{Variaciones de orquestación}
-Esta evaluación (Figura \ref{fig:eval_orch}) compara los diferentes enfoques de orquestación: planificación dividida, planificación unificada y el sistema sin planificación. Adicionalmente se incluye la evaluación del sistema con planificación dividida previo a las mejoras implementadas en la sección anterior.
+Esta evaluación (Figura \ref{fig:eval_orch}) compara los diferentes enfoques de orquestación: planificación dividida, planificación unificada, el sistema sin planificación y el sistema adaptativo. Adicionalmente se incluye la evaluación del sistema con planificación dividida previo a las mejoras implementadas en la sección anterior.
 
-Los resultados muestran que las mejoras implementadas incrementaron significativamente el rendimiento del sistema respecto al inicial. El prompting few-shot en el orquestador y planificador redujo la cantidad de agentes utilizados, optimizando notablemente el coste total.
+Los resultados muestran que las mejoras implementadas incrementaron significativamente el rendimiento del sistema inicial. El prompting few-shot en el orquestador y planificador redujo la cantidad de agentes utilizados, optimizando notablemente el coste total.
 
 \begin{figure}[hbtp]
 \centering
@@ -527,13 +527,13 @@ Los resultados muestran que las mejoras implementadas incrementaron significativ
 % Primera fila con dos gráficos usando minipage
 \begin{minipage}{0.48\textwidth}
 \centering
-\subfloat[LLM-juez\label{fig:llm_judge_sistemas}]{
+\subfloat[LLM juez\label{fig:llm_judge_sistemas}]{
 \begin{tikzpicture}
 \begin{axis}[
     ylabel=,  
     xlabel=,
     ymin=0,
-    ymax=1.0,
+    ymax=1.1,
     ytick={0,0.2,0.4,0.6,0.8,1.0},
     enlarge x limits=0.15,
     ybar=4pt,
@@ -572,7 +572,7 @@ Los resultados muestran que las mejoras implementadas incrementaron significativ
     ylabel=,  
     xlabel=,
     ymin=0,
-    ymax=8,
+    ymax=7,
     ytick={0,2,4,6,8},
     enlarge x limits=0.15,
     ybar=4pt,
@@ -609,30 +609,30 @@ Los resultados muestran que las mejoras implementadas incrementaron significativ
 \end{figure}
 \vspace{-0.2cm}
 
-Los resultados de evaluación demuestran que el paso de planificación mejora el sistema. Específicamente, la planificación unificada supera a la dividida. Esto indica que, en este caso de uso, la división lógica del paso de planificación no resulta eficiente, siendo preferible que el agente planificador disponga directamente de la máxima información posible para fundamentar su plan.
+En cuanto a la planificación, los resultados confirman que esta etapa mejora en ambos casos el sistema. Específicamente, la planificación unificada supera a la dividida. Esto indica que, en este caso de uso, la división lógica del paso de planificación no resulta eficiente, siendo preferible que el agente planificador disponga directamente de la máxima información posible para fundamentar su plan.
 
 Finalmente, los resultados del enfoque adaptativo no cumplieron las expectativas. Aunque el rendimiento se situó en el rango esperado —superior al sistema sin planificación pero inferior a la planificación unificada— y el coste resultó menor que la planificación tradicional (al no emplear modelos razonadores pese al uso similar de tokens), la mejora económica resultó mínima mientras que la pérdida de rendimiento fue considerable. Estos resultados indican que el enfoque adaptativo no es adecuado para este caso de uso, siendo la planificación unificada la opción más eficiente.
 
 \subsection{Integración de memoria}
-Para la evaluación de este componente se dividió el dataset del agente principal en entrenamiento (80\%) y evaluación (20\%). El objetivo consistió en analizar si las memorias acumuladas en la ejecución del dataset de entrenamiento mejoran el rendimiento en el de evaluación. Se ejecutó el sistema sobre ambos datasets secuencialmente, comparando el rendimiento con y sin memoria en el dataset de evaluación.
+Para evaluar este componente, se dividió el dataset del agente principal en un conjunto de entrenamiento (80\%) y de evaluación (20\%). Se analizó si las memorias acumuladas sobre el conjunto de entrenamiento mejoran el rendimiento en el conjunto de evaluación, ejecutando el sistema secuencialmente sobre ambos conjuntos y comparando el rendimiento con y sin memoria.
 
-La Figura \ref{fig:mem_train} muestra que la inclusión de memorias del dataset de entrenamiento mejoró la precisión respecto al sistema sin memoria. Por otra parte, la Figura \ref{fig:mem_test} presenta la evaluación repetida del conjunto de test, añadiendo en cada ejecución las memorias correspondientes a los mismos ejemplos. Estos resultados fueron menos prometedores, indicando que en este caso la memoria funciona mejor como información adicional que como memoria caché.
+La Figura \ref{fig:mem_train} muestra que incluir memorias de entrenamiento mejoró la precisión en el conjunto de evaluación respecto al sistema sin memoria. Sin embargo, la Figura \ref{fig:mem_test} presenta resultados menos prometedores al evaluar repetidamente el conjunto de evaluación añadiendo memorias de los mismos ejemplos de evaluación. Esto indica que, en este caso, la memoria funciona mejor como información adicional que como memoria caché.
 
 \begin{figure}[hbtp]
 \centering
 % Primera fila con dos gráficos usando minipage
 \begin{minipage}{0.48\textwidth}
 \centering
-\subfloat[Memorias de entrenamiento en evaluación\label{fig:memoria_comparacion}]{
+\subfloat[Evaluación con memorias de entrenamiento sobre conjunto de evaluación\label{fig:memoria_comparacion}]{
 \label{fig:mem_train}
 \begin{tikzpicture}
 \begin{axis}[
     ylabel=,  
     xlabel=,
     ymin=0,
-    ymax=1.0,
+    ymax=1.1,
     ytick={0,0.2,0.4,0.6,0.8,1.0},
-    height=5.5cm,
+    height=5cm,
     enlarge x limits=0.3,
     ybar=2pt,
     bar width=6pt,
@@ -660,7 +660,7 @@ La Figura \ref{fig:mem_train} muestra que la inclusión de memorias del dataset 
 \end{minipage}
 \begin{minipage}{0.44\textwidth}
 \centering
-\subfloat[Memorias de evaluación en evaluación repetidamente\label{fig:evolucion_trials}]{
+\subfloat[Evaluación con memorias de evaluación sobre conjunto de evaluación\label{fig:evolucion_trials}]{
 \label{fig:mem_test}
 \begin{tikzpicture}
 \begin{axis}[

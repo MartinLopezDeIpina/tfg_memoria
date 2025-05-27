@@ -44,11 +44,11 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión herramientas}}}{82}{subfigure.3.2}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Alucinación (más es mejor)}}}{82}{subfigure.3.3}%
 \contentsline {figure}{\numberline {9.4}{\ignorespaces Comparación de rendimiento y costo entre diferentes variaciones de orquestación}}{82}{figure.9.4}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM-juez}}}{82}{subfigure.4.1}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{82}{subfigure.4.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Costo total de tokens (millones)}}}{82}{subfigure.4.2}%
 \contentsline {figure}{\numberline {9.5}{\ignorespaces Resultados de evaluación para el sistema con y sin memoria}}{83}{figure.9.5}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Memorias de entrenamiento en evaluación}}}{83}{subfigure.5.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Memorias de evaluación en evaluación repetidamente}}}{83}{subfigure.5.2}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Evaluación con memorias de entrenamiento sobre conjunto de evaluación}}}{83}{subfigure.5.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Evaluación con memorias de evaluación sobre conjunto de evaluación}}}{83}{subfigure.5.2}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

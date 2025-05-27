@@ -103,7 +103,7 @@
 \contentsline {section}{\numberline {9.2}Resultados obtenidos}{79}{section.9.2}%
 \contentsline {subsection}{\numberline {9.2.1}Mejora de versión inicial}{80}{subsection.9.2.1}%
 \contentsline {subsubsection}{\numberline {9.2.1.1}Agentes especializados}{80}{subsubsection.9.2.1.1}%
-\contentsline {subsubsection}{\numberline {9.2.1.2}Prompting few-shot}{80}{subsubsection.9.2.1.2}%
+\contentsline {subsubsection}{\numberline {9.2.1.2}Planificador y orquestador}{80}{subsubsection.9.2.1.2}%
 \contentsline {subsection}{\numberline {9.2.2}Variaciones de orquestación}{80}{subsection.9.2.2}%
 \contentsline {subsection}{\numberline {9.2.3}Integración de memoria}{83}{subsection.9.2.3}%
 \contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{85}{appendix.Alph1}%
