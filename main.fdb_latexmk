@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1748342678.89401 "main.aux" "main.bbl" "main" 1748342688.68755 0
+["bibtex main"] 1748356717.52562 "main.aux" "main.bbl" "main" 1748356724.80366 0
   "./references/references.bib" 1747900183.5921 277802 4adc8c82e006a2961d80dc1b063c7590 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/urlbst/unsrturl.bst" 1675116457 30912 2cfc330ae0a68bbf7dc64e1666bbb15c ""
-  "main.aux" 1748342688.20979 71733 513e1b576aad9cacae7c2b87a1715b14 "pdflatex"
+  "main.aux" 1748356724.43357 73213 e380759a81f6432ec10188d87b300f27 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1748342679.05581 "main.tex" "main.pdf" "main" 1748342688.6878 0
+["pdflatex"] 1748356717.59712 "main.tex" "main.pdf" "main" 1748356724.80391 0
   "/etc/texmf/web2c/texmf.cnf" 1742662909.37475 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490131464 2933 9ad527ce78d7c5fa0a642dead095f172 ""
@@ -359,6 +359,7 @@
   "chapters/anexo_d.tex" 1746179224.68959 18519 fbf3d5e66ba0009c3ef4159132560b4b ""
   "chapters/anexo_f.tex" 1747923118.38132 6817 7dd68a40b1aa73b024ef29e856892660 ""
   "chapters/chap1.tex" 1744529083.91241 1 68b329da9893e34099c7d8ad5cb9c940 ""
+  "chapters/chap10.tex" 1748356709.49469 4002 2de9fa678f766c62fd51bc31867f5c86 ""
   "chapters/chap2.tex" 1747728332.1057 29234 6caa476c431b1d14494773ed86d6cc2f ""
   "chapters/chap3plani.tex" 1746547133.55854 26673 6ab6d51cf82bd53dc8fc707806066506 ""
   "chapters/chap4.tex" 1746549197.66986 13056 e5bb9a1a325d4ecdc6f7156e095e0fbf ""
@@ -392,14 +393,14 @@
   "figures/planner.png" 1747133326.07137 117743 8836e8882e47630b0cd57a9e295397e1 ""
   "figures/specialized.png" 1746953630.44624 161147 1bc27e89a2f633f7956cda74bff43197 ""
   "ifcommands.sty" 1742662057.12428 4894 6fc6d38bd21ddafd256a754893d7696a ""
-  "main.aux" 1748342688.20979 71733 513e1b576aad9cacae7c2b87a1715b14 "pdflatex"
-  "main.bbl" 1748342679.0453 25714 271b065728986a98e19cce959ef3d162 "bibtex main"
-  "main.brf" 1748342688.22379 4423 814b577913e03d30377299f5c2ddcb0d "pdflatex"
-  "main.lof" 1748342688.22479 5508 202009553a5e7b3d6a4f4cab323e557e "pdflatex"
-  "main.lot" 1748342688.22479 1288 21a090cd8eee586397c3dda619b50168 "pdflatex"
-  "main.out" 1748342688.22379 24388 0f4631d367c04ef6e79ff5c0a9bb4fce "pdflatex"
-  "main.tex" 1747990370.65751 7055 72a5e4501a1e7474378ae5dedf2cd729 ""
-  "main.toc" 1748342688.22479 15499 af89d3950a800aac538e5f9d22d4fde3 "pdflatex"
+  "main.aux" 1748356724.43357 73213 e380759a81f6432ec10188d87b300f27 "pdflatex"
+  "main.bbl" 1748356717.58963 25714 271b065728986a98e19cce959ef3d162 "bibtex main"
+  "main.brf" 1748356724.43957 4423 814b577913e03d30377299f5c2ddcb0d "pdflatex"
+  "main.lof" 1748356724.43957 5526 4448ccc34943aa5741707dc064d874c6 "pdflatex"
+  "main.lot" 1748356724.43957 1306 5d8a744a9c692584d39e633df89456b0 "pdflatex"
+  "main.out" 1748356724.43957 25932 231f451586d7df40c50af65e9ab201a5 "pdflatex"
+  "main.tex" 1748353332.2056 7139 2c60abe33901183c36757c904d4e230f ""
+  "main.toc" 1748356724.43957 16369 c84b93a9894640a341d3ea5d05f7d50b "pdflatex"
   (generated)
   "main.aux"
   "main.brf"

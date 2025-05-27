@@ -1,0 +1,37 @@
+Este capítulo presenta el seguimiento y control del proyecto, abordando la gestión del alcance, la evaluación de riesgos y el control temporal de las actividades desarrolladas.
+
+\section{Gestión del alcance}
+Durante el desarrollo del proyecto el alcance del proyecto se ha ido modificando, suprimiendo algunas tareas y añadiendo otras nuevas. A continuación se presenta un resumen de las modificaciones realizadas:
+
+\begin{itemize}
+  \item\textbf{Tareas RAG avanzadas: }el alcance inicial comprendía la implementación y análisis de un sistema RAG con capacidades extendidas como posible mejora. Esto podía incluir la integración de diferentes tipos de recuperadores densos y su correspondiente evaluación, así como el ajuste de recuperadores específicos. 
+
+Debido a que este tipo de sistema requeriría una cantidad de datos considerable para poder ser efectivo, se decidió enfocar el los esfuerzos en otras áreas, ya que la captura de los propios datos habría requerido gran parte de la dedicación. En su lugar se han implementado varios mecanismos de RAG más sencillos, incorporando en el de memoria un sistema de recuperación híbirida. 
+  \item\textbf{Ajuste de agentes: }otra de las posibles mejoras consistía en el ajuste de un modelo de lenguaje para la decisión de las herramientas a utilizar. Sin embargo, el alcance se limitó en gran medida en este aspecto, ya que la dedicación horaria restante al final del proyecto no era suficiente para llevar a cabo un ajuste efectivo. En su lugar, se optó por ajustar un modelo clasificador cuyo entrenamiento se realizó un una ínfima parte de lo planteado inicialmente.
+  \item\textbf{Evaluación de agentes: }el alcance inicial contemplaba la evaluación de los agentes mediante un análisis por inspección, evaluando su rendimiento en cada caso. Sin embargo, el sistema ha resultado tener más complejidad de la esperada, por lo que se optó por implementar un sistema de evaluación automático que permitiera evaluar el rendimiento de los agentes de forma más eficiente.
+\end{itemize}
+
+Todas las modificaciones del alcance fueron fruto del seguimiento y control realizado con carácter bisemanal con los tres directores del proyecto. 
+
+\section{Gestión de riesgos}
+En este apartado se enumeran los riesgos que se materializaron en incidencias durante el desarrollo del proyecto, detallando su impacto y las medidas correctivas implementadas.
+
+\subsection{R1-Concurrencia exploratoria}
+Este riesgo se materializó al encontrar la publicación ``Onboarding Buddy'', el cual proponía un enfoque muy parecido para la creación de un sistema de agentes con una fase de planificación dinámica. 
+
+El impacto de este riesgo fue bajo y supuso más bien un beneficio al surgir en la fase inicial del proyecto. Se analizó la implementación de dicho trabajo y se incorporó un enfoque similar en el agente planificador. 
+
+\subsection{R2-Variabilidad del alcance}
+Este riesgo se materializó al inicio del proyecto, en la fase de planificación y captura de requisitos. El desarrollo de dicha captura requirió de un mayor esfuerzo de lo previsto, ya que definir el alcance del proyecto fue más desafiante de lo esperado. 
+
+Al alargarse esta fase, se decidió recortar la fase de la mejoras propuestas, para evitar que el proyecto se alargara más de lo previsto o que conllevase un sobrecoste horario grande.
+
+\subsection{R4-Filtrado de credenciales}
+Este riesgo se materializó al accidentalmente incluir la clave de acceso al modelo de openAI en el repositorio del proyecto. El impacto de este riesgo fue nulo gracias a la segunda capa de seguridad implementada, que consistía en mantener el repositorio privado. Como medida se anulo la clave de acceso y se creó una nueva por si en un futuro el repositorio se hiciera público.
+
+\subsection{R5-Pérdida de recursos}
+Este riesgo se materializó al inicio del proyecto, cuando por un error humano fue necesario formatear el equipo de desarrollo sin previo respaldo. El impacto fue mínimo por las copias de seguridad periódicas.
+
+\section{Gestión del tiempo}
+
+\section{}
