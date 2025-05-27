@@ -1,14 +1,15 @@
 Tras exponer la implementación de los diferentes módulos del sistema, este capítulo detalla su evaluación y la comparación entre las diferentes versiones propuestas.
 
-En esta línea, inicialmente se explica el sistema de evaluación implementado, tras lo que se exponen los resultados de evaluación y las conclusiones derivadas de dichos resultados. 
+Con este propósito, inicialmente se explica el sistema de evaluación implementado, tras lo que se exponen los resultados de evaluación y las conclusiones derivadas de dichos resultados. 
 
 \section{Sistema de evaluación}
-La evaluación del sistema presenta un reto inherente al lenguaje natural: ¿cómo determinar si la respuesta a una pregunta es correcta? Para abordar esta problemática, se han implementado una serie de métricas (Sección \ref{sec:metricas}), evaluadas mediante el SDK de LangSmith (Sección \ref{sec:langsmith}) sobre un dataset \textit{ground truth} anotado manualmente (Sección \ref{sec:dataset}).
+La evaluación del sistema plantea un reto inherente al lenguaje natural: ¿cómo determinar si la respuesta a una pregunta es correcta? La solución adoptada comprende una serie de métricas (Sección \ref{sec:metricas}), evaluadas mediante el SDK de LangSmith (Sección \ref{sec:langsmith}) sobre un dataset \textit{ground truth} anotado manualmente (Sección \ref{sec:dataset}).
 
 \subsection{Métricas de evaluación}
 
 \label{sec:metricas}
-Siguiendo los principios establecidos en la Sección \colorbox{yellow}{\ref{}}, se han definido las siguientes métricas para cada agente sobre una pregunta anotada: 
+Siguiendo los principios establecidos en la Sección \colorbox{yellow}{\ref{}}, se han implementado las siguientes métricas para cada agente sobre una pregunta anotada: 
+\todo{Aquí creo que debería referenciar una sección de antecedentes que introduzca el tema de evaluación de agentes LLM y explique brevemente el TFG de Mikel Lonbide.}
 \paragraph{LLM juez} Consiste en utilizar un agente evaluador cuya función sea valorar el resultado obtenido por el agente evaluado. Para minimizar la tasa de error de este, se han anotado las respuestas esperadas como listas textuales con los conceptos necesarios a incluir en la respuesta del agente. De esta forma, el agente juez genera una respuesta estructurada que contiene un argumento booleano para cada concepto requerido, indicando si se incluye en la respuesta generada y calculando así una precisión medible.
 
 Cabe destacar que el juez marcará como incorrecto todo concepto más abstracto que el anotado, aún si conceptualmente el significado es equivalente. Por ejemplo, si se anota que la función del proyecto es proporcionar herramientas de modelos de lenguaje generativos para el equipo de desarrolladores, una respuesta sobre proporcionar herramientas de inteligencia artificial para el equipo sería considerada incorrecta.
@@ -20,13 +21,13 @@ Cabe destacar que el juez marcará como incorrecto todo concepto más abstracto 
 \item Precisión de herramientas innecesarias: indica la cantidad de herramientas innecesarias ignoradas, desfavoreciendo el uso de estas.
 \end{itemize}
 
-Por ejemplo, un agente podría tener 5 herramientas disponibles, de las cuales 2 son necesarias, 2 son innecesarias, y otra no se clasifica en ninguno de los dos grupos, pudiendo ser de utilidad pero no indispensable. Si este llama a 1 necesaria y 2 innecesarias, la precisión necesaria sería de 0.5, mientras que la innecesaria sería de 0.0. La media total sería de 0.25. El uso de la herramienta no clasificada no varía ninguna precisión.
+A modo de ejemplo, un agente podría tener 5 herramientas disponibles, de las cuales 2 son necesarias, 2 son innecesarias, y otra no se clasifica en ninguno de los dos grupos, pudiendo ser de utilidad pero no indispensable. Si este llama a 1 necesaria y 2 innecesarias, la precisión necesaria sería de 0.5, mientras que la innecesaria sería de 0.0. La media total sería de 0.25. El uso de la herramienta no clasificada no varía ninguna precisión.
 
-\paragraph{Precisión de alucinación} Los modelos tienden a responder las consultas realizadas aún si no contienen el conocimiento necesario para ello. Para evaluar esto, se han anotado algunas preguntas que son imposibles de responder con la información a la que el agente tiene acceso. Ante la consulta: \opus{¿Qué flujo de despliegue continuo se utiliza?}, el agente no podrá responder correctamente porque no existe dicho flujo.
+\paragraph{Precisión de alucinación} Los modelos tienden a responder las consultas realizadas aún si no contienen el conocimiento necesario para ello. Para evaluar esto, se han anotado algunas preguntas que son imposibles de responder con la información a la que el agente tiene acceso. Ante la consulta: \texttt{¿Qué flujo de despliegue continuo se utiliza?}, el agente no podrá responder correctamente porque no existe dicho flujo.
 
 Esto es evaluado mediante un agente juez el cual determina si la respuesta del agente realmente intenta responder a la pregunta o por el contrario indica que no se dispone de la información suficiente.
 
-\paragraph{Precisión de citado} Constituye la cantidad de documentos citados en la respuesta que estaban anotados como necesarios.
+\paragraph{Precisión de citación} Constituye la cantidad de documentos citados en la respuesta que estaban anotados como necesarios.
 
 
 \subsection{Implementación de evaluación}
@@ -59,7 +60,6 @@ Esta función utiliza internamente las funciones de evaluación de LangSmith med
 async def call_agent_evaluation(self, langsmith_client: Client, 
                                evaluators: List[BaseEvaluator], ...):
     ...
-
     evaluator_functions = [evaluator.evaluate_metrics for evaluator in evaluators]
     data=langsmith_client.list_examples(dataset_name=dataset_name, splits=splits)
     run_function = self.execute_from_dataset
@@ -82,7 +82,10 @@ class CiteEvaluator(BaseEvaluator):
     async def evaluate(self, run: Run, example: Example) -> EvaluationResults:
         run_state = run.outputs.get("run_state")
         expected_cites = example.outputs.get("cite")
-        ...
+        expected_cites_list = get_list_from_string_comma_separated_values(expected_cites)
+        actual_cites = get_cites_from_state_messages(run_state)
+
+        citation_score = get_citation_score(expected_cites_list, actual_cites)
         return EvaluationResults(
             results=[
                 EvaluationResult(
@@ -96,7 +99,7 @@ class CiteEvaluator(BaseEvaluator):
 
 \subsection{Dataset anotado}
 \label{sec:dataset}
-La captura del conjunto de datos se ha realizado en una hoja de cálculo de G. Drive. Esta hoja se ha descargado posteriormente en formato de valores separados por coma (CSV) y se ha subido como conjunto de datos de LangSmith.
+La captura del conjunto de datos se ha realizado en una hoja de cálculo de Google Drive. Este documento se ha descargado posteriormente en formato de valores separados por coma (CSV) y se ha subido como conjunto de datos de LangSmith.
 
 La captura comprende 46 ejemplos para el agente principal (el sistema completo) y aproximadamente 10 ejemplos para los agentes individuales. Para ello se han utilizado las preguntas anotadas en la captura de requisitos, filtrando y modificando en algunos casos las preguntas para ser lo suficientemente específicas como para tener una respuesta exacta, pero a su vez con cierto grado de complejidad que requiera un razonamiento sobre la consulta. Se han utilizado las siguientes consideraciones sobre cada agente:
 
@@ -108,38 +111,28 @@ La captura comprende 46 ejemplos para el agente principal (el sistema completo) 
 \item\textbf{Orquestador: }este agente se ha evaluado considerando los agentes seleccionados para ejecutar como herramientas. Para ello se han incluido preguntas de todas las temáticas, evaluando qué agentes llamar en cada caso:
 
 \begin{itemize}
-\item \textbf{Tareas de agente único: }Se ha definido una consulta relacionada únicamente con cada agente especializado.
+\item \textbf{Tareas de agente único: }se ha definido una consulta relacionada únicamente con cada agente especializado.
 
-\item \textbf{Tareas multi-agente:}
-\begin{itemize}
-\item Información general: \opus{file_system_agent} principalmente
-\item Entorno y despliegue: \opus{file_system_agent} + \opus{code_agent}
-\item Gestión del proyecto: \opus{file_system_agent} + otros agentes según el caso
-\item Estándares y prácticas: \opus{file_system_agent} + \opus{confluence_agent} si es frontend
-\item Documentación: \opus{file_system_agent}
-\item Arquitectura del sistema: \opus{code_agent} + \opus{file_system_agent} en la mayoría
-\item Tareas de frontend: \opus{confluence_agent} + \opus{google_drive_agent}
+\item \textbf{Tareas multi-agente:} Las consultas de información general y documentación requieren principalmente el \opus{file_system_agent}, mientras que las de entorno y despliegue combinan este con el \opus{code_agent}. Las preguntas sobre arquitectura del sistema utilizan ambos agentes, y las de gestión del proyecto emplean el \opus{file_system_agent} junto con otros según el contexto específico. Para estándares y prácticas se añade el \opus{confluence_agent} cuando involucran frontend, y las tareas específicas de frontend combinan los agentes \opus{confluence_agent} y \opus{google_drive_agent}.
+
 \end{itemize}
-\end{itemize}
-\item\textbf{Agentes sistema de ficheros, Confluence y G. Drive}: en los casos sencillos es necesario únicamente la herramienta de lectura de páginas. En los más desafiantes se requiere de las herramientas de búsqueda.
-\item\textbf{Agente GitLab: }Se han incluido ejemplos donde este debe llamar primero a la herramienta de obtener información sobre los usuarios para posteriormente utilizar esos nombres de usuario como parámetros en otras herramientas.
+\item\textbf{Agentes sistema de ficheros, Confluence y Google Drive}: en los casos sencillos es necesario únicamente la herramienta de lectura de páginas. En los más desafiantes se requiere de las herramientas de búsqueda.
+\item\textbf{Agente GitLab: }se han incluido ejemplos donde este debe llamar primero a la herramienta de obtener información sobre los usuarios para posteriormente utilizar esos nombres de usuario como parámetros en otras herramientas.
 \item\textbf{Agente código: }en los casos sencillos los fragmentos relevantes deberían estar incluidos en el prompt de entrada, mientras que en los más complejos debería buscar información adicional.
 \end{itemize}
-
-
 
 \section{Resultados obtenidos}
 En esta sección se presentan los resultados obtenidos mediante el sistema implementado. En primera instancia se exponen los resultados de evaluación correspondientes a la versión inicial de cada agente, contrastados con una segunda versión que incorpora un prompt optimizado. Posteriormente se evalúan los distintos sistemas de orquestación desarrollados. Finalmente se analizan las mejoras introducidas en el sistema.
 
 Cabe destacar que los modelos de lenguaje no son deterministas: una misma pregunta puede generar respuestas diferentes. Además, al evaluar estas respuestas mediante otro LLM, se introduce una segunda capa de indeterminismo. Esto implica que el sistema presenta una tasa de error variable.
 
-Los resultados mostrados corresponden al promedio de al menos dos ejecuciones. Si bien esto no garantiza certeza absoluta, sí permite afirmar que una evaluación más favorable tiene mayor probabilidad de ser una mejor solución, incrementándose esta probabilidad con el número de repeticiones. Esta metodología permite mejorar el sistema de manera objetiva, ya que las mejoras que generen resultados consistentemente superiores en las evaluaciones tienen mayor probabilidad de constituir avances reales
+Los resultados mostrados corresponden al promedio de al menos dos ejecuciones. Si bien esto no garantiza certeza absoluta, sí permite afirmar que una evaluación más favorable tiene mayor probabilidad de ser una mejor solución. Esta metodología permite mejorar el sistema de manera objetiva, ya que las mejoras que generen resultados consistentemente superiores en las evaluaciones tienen mayor probabilidad de constituir avances reales.
 
-\subsection{Mejora de primera versión}
-En primer lugar se mejoraron los agentes especializados que presentaron deficiencias en la evaluación inicial, tras lo cual se incorporó el prompting few-shot en el orquestador y planificador.
+\subsection{Mejora de versión inicial}
+Inicialmente se mejoraron los agentes especializados que presentaron deficiencias en la evaluación inicial, incorporándose posteriormente el prompting few-shot en el orquestador y planificador.
 
 \subsubsection{Agentes especializados}
-La Figura \ref{fig:eval_esp} ilustra la precisión para las métricas juez, citación, alucinación y gasto promedio en millares de tokens para los agentes especializados.
+La Figura \ref{fig:eval_esp} ilustra el rendimiento de los agentes especializados según las métricas de juez, citación y alucinación, así como su gasto promedio por cada ejemplo de ejecución en el dataset.
 
 \begin{figure}[hbtp]
 \centering
@@ -171,7 +164,7 @@ La Figura \ref{fig:eval_esp} ilustra la precisión para las métricas juez, cita
 % Primera fila con tres gráficos usando minipage
 \begin{minipage}{0.32\textwidth}
 \centering
-\subfloat[LLM Juez\label{fig:llm_juez}]{
+\subfloat[LLM juez\label{fig:llm_juez}]{
 \begin{tikzpicture}
 \begin{axis}[
     mybar,
@@ -206,7 +199,7 @@ La Figura \ref{fig:eval_esp} ilustra la precisión para las métricas juez, cita
 \end{minipage}
 \begin{minipage}{0.32\textwidth}
 \centering
-\subfloat[Precisión Citas\label{fig:precision_citas}]{
+\subfloat[Precisión citación\label{fig:precision_citas}]{
 \begin{tikzpicture}
 \begin{axis}[
     mybar,
@@ -241,7 +234,7 @@ La Figura \ref{fig:eval_esp} ilustra la precisión para las métricas juez, cita
 \end{minipage}
 \begin{minipage}{0.32\textwidth}
 \centering
-\subfloat[Precisión Herramientas\label{fig:precision_herramientas}]{
+\subfloat[Precisión de herramientas\label{fig:precision_herramientas}]{
 \begin{tikzpicture}
 \begin{axis}[
     mybar,
@@ -280,7 +273,7 @@ La Figura \ref{fig:eval_esp} ilustra la precisión para las métricas juez, cita
 % Segunda fila con dos gráficos centrados
 \begin{minipage}{0.32\textwidth}
 \centering
-\subfloat[Alucinación\label{fig:halucinacion}]{
+\subfloat[Alucinación (más es mejor)\label{fig:halucinacion}]{
 \begin{tikzpicture}
 \begin{axis}[
     mybar,
@@ -316,7 +309,7 @@ La Figura \ref{fig:eval_esp} ilustra la precisión para las métricas juez, cita
 \hspace{0.05\textwidth}
 \begin{minipage}{0.32\textwidth}
 \centering
-\subfloat[Tokens Utilizados (millares)\label{fig:tokens}]{
+\subfloat[Tokens por ejecución (millares)\label{fig:tokens}]{
 \begin{tikzpicture}
 \begin{axis}[
     mybar,
@@ -361,19 +354,19 @@ La Figura \ref{fig:eval_esp} ilustra la precisión para las métricas juez, cita
 \end{tikzpicture}
 \end{center}
 
-\caption{Comparación de métricas entre versión inicial y mejorada}
+\caption{Comparación de métricas entre versión inicial y mejorada de agentes especialistas}
 \label{fig:eval_esp}
 \end{figure}
 \vspace{-0.2cm} 
 
-Se observó que el gasto del agente de código era considerablemente superior a los demás. Esto se debe a que se realizan múltiples consultas RAG para la misma pregunta. Se ajustó el prompt y la cantidad de fragmentos extraídos, ya que gran parte del gasto procedía de ejecuciones individuales prolongadas.
+El agente de código presentó un gasto considerablemente superior debido a las múltiples consultas RAG realizadas para una misma pregunta. Se ajustó el prompt y la cantidad de fragmentos extraídos, reduciendo así el coste asociado a ejecuciones prolongadas.
 
-Por otro lado, la mejora del agente Confluence representa el agente enfocado en el prompt caching. Aunque la precisión en todas las métricas es similar, el enfoque en prompt caching redujo el uso y el gasto ligeramente.
+La mejora del agente Confluence incorporó el enfoque de prompt caching. Aunque la precisión en todas las métricas resultó similar, este enfoque redujo ligeramente tanto el consumo de tokens como el gasto económico.
 
-La mejora en el agente de sistema de ficheros representa la inclusión de la herramienta de RAG.
+La mejora en el agente de sistema de ficheros consistió en la inclusión de la herramienta de RAG.
 
 \subsubsection{Prompting few-shot}
-La Figura \ref{} ilustra la comparación para el agente planificador y orquestador tras incorporar el prompting few-shot. Como se puede observar, este mejoró considerablemente ambos agentes.
+La Figura \ref{fig:eval_fewshots} ilustra la comparación del agente planificador y orquestador tras incorporar el prompting few-shot. Los resultados muestran una mejora considerable en el rendimiento de ambos agentes.
 
 
 \begin{figure}[hbtp]
@@ -424,7 +417,7 @@ La Figura \ref{} ilustra la comparación para el agente planificador y orquestad
 \end{minipage}
 \begin{minipage}{0.32\textwidth}
 \centering
-\subfloat[Precisión de Herramientas\label{fig:tool_precision_agentes}]{
+\subfloat[Precisión herramientas\label{fig:tool_precision_agentes}]{
 \begin{tikzpicture}
 \begin{axis}[
     ylabel=,  
@@ -466,7 +459,7 @@ La Figura \ref{} ilustra la comparación para el agente planificador y orquestad
 \end{minipage}
 \begin{minipage}{0.32\textwidth}
 \centering
-\subfloat[Alucinación\label{fig:alucinacion_agentes}]{
+\subfloat[Alucinación (más es mejor)\label{fig:alucinacion_agentes}]{
 \begin{tikzpicture}
 \begin{axis}[
     ylabel=,  
@@ -519,14 +512,14 @@ La Figura \ref{} ilustra la comparación para el agente planificador y orquestad
 \end{center}
 
 \caption{Evaluación de agentes orquestador y planificador antes y después de prompting few-shot}
-\label{fig:comparacion_agentes}
+\label{fig:eval_fewshots}
 \end{figure}
 \vspace{-0.2cm}
 
 \subsection{Variaciones de orquestación}
-Esta evaluación compara los diferentes enfoques de orquestación: planificación dividida, planificación unificada y el sistema sin planificación. Adicionalmente se incluye la evaluación del sistema con planificación dividida antes de implementar las mejoras de la sección anterior. 
+Esta evaluación (Figura \ref{fig:eval_orch}) compara los diferentes enfoques de orquestación: planificación dividida, planificación unificada y el sistema sin planificación. Adicionalmente se incluye la evaluación del sistema con planificación dividida previo a las mejoras implementadas en la sección anterior.
 
-Como se puede observar en la Figra \ref{}, las mejoras de la sección anterior mejoraron significativamente el sistema general. El prompting few-shot en los agentes superiores redució la cantidad de agentes utilizados, mejorando significativamente el costo total.
+Los resultados muestran que las mejoras implementadas incrementaron significativamente el rendimiento del sistema respecto al inicial. El prompting few-shot en el orquestador y planificador redujo la cantidad de agentes utilizados, optimizando notablemente el coste total.
 
 \begin{figure}[hbtp]
 \centering
@@ -545,8 +538,8 @@ Como se puede observar en la Figra \ref{}, las mejoras de la sección anterior m
     enlarge x limits=0.15,
     ybar=4pt,
     bar width=8pt,
-    symbolic x coords={Inicial, Dividida, Fusionada, Sin Plan, Adaptativo},
-    xtick={Inicial, Dividida, Fusionada, Sin Plan, Adaptativo},
+    symbolic x coords={Sistema inicial, Plan. dividida, Plan. fusionada, Sin planificación, Sistema adaptativo},
+    xtick={Sistema inicial, Plan. dividida, Plan. fusionada, Sin planificación, Sistema adaptativo},
     x tick label style={rotate=45, anchor=north east, font=\scriptsize},
     yticklabel style={font=\tiny},
     width=5cm,
@@ -561,11 +554,11 @@ Como se puede observar en la Figra \ref{}, las mejoras de la sección anterior m
     draw=blue!80,
     line width=0.5pt
 ] coordinates {
-    (Inicial, 0.5183)
-    (Dividida, 0.7665)
-    (Fusionada, 0.7889)
-    (Sin Plan, 0.7126)
-    (Adaptativo, 0.7307)
+    (Sistema inicial, 0.5183)
+    (Plan. dividida, 0.7665)
+    (Plan. fusionada, 0.7889)
+    (Sin planificación, 0.7126)
+    (Sistema adaptativo, 0.7307)
 };
 \end{axis}
 \end{tikzpicture}
@@ -584,8 +577,8 @@ Como se puede observar en la Figra \ref{}, las mejoras de la sección anterior m
     enlarge x limits=0.15,
     ybar=4pt,
     bar width=8pt,
-    symbolic x coords={Inicial, Dividida, Fusionada, Sin Plan, Adaptativo},
-    xtick={Inicial, Dividida, Fusionada, Sin Plan, Adaptativo},
+    symbolic x coords={Sistema inicial, Plan. dividida, Plan. fusionada, Sin planificación, Sistema adaptativo},
+    xtick={Sistema inicial, Plan. dividida, Plan. fusionada, Sin planificación, Sistema adaptativo},
     x tick label style={rotate=45, anchor=north east, font=\scriptsize},
     yticklabel style={font=\tiny},
     width=5cm,
@@ -600,37 +593,38 @@ Como se puede observar en la Figra \ref{}, las mejoras de la sección anterior m
     draw=blue!80,
     line width=0.5pt
 ] coordinates {
-    (Inicial, 6.8)
-    (Dividida, 5.0)
-    (Fusionada, 4.5)
-    (Sin Plan, 1.4)
-    (Adaptativo, 4.5)
+    (Sistema inicial, 6.8)
+    (Plan. dividida, 5.0)
+    (Plan. fusionada, 4.5)
+    (Sin planificación, 1.4)
+    (Sistema adaptativo, 4.5)
 };
 \end{axis}
 \end{tikzpicture}
 }
 \end{minipage}
 
-\caption{Comparación de rendimiento LLM-juez y costo de tokens entre diferentes sistemas}
-\label{fig:comparacion_sistemas}
+\caption{Comparación de rendimiento y costo entre diferentes variaciones de orquestación}
+\label{fig:eval_orch}
 \end{figure}
 \vspace{-0.2cm}
 
+Los resultados de evaluación demuestran que el paso de planificación mejora el sistema. Específicamente, la planificación unificada supera a la dividida. Esto indica que, en este caso de uso, la división lógica del paso de planificación no resulta eficiente, siendo preferible que el agente planificador disponga directamente de la máxima información posible para fundamentar su plan.
 
-
-Los resultados de evaluación evidencian que el paso de planificación mejora le sistema. Más concretamente, la planificación unificada supera a la dividida. Esto significa que en este caso de uso, la divisió lógica del paso de planificació no es rentable, y es mejor que el agente planificador tenga directamente la máxima información posible para fundamentear su plan. 
+Finalmente, los resultados del enfoque adaptativo no cumplieron las expectativas. Aunque el rendimiento se situó en el rango esperado —superior al sistema sin planificación pero inferior a la planificación unificada— y el coste resultó menor que la planificación tradicional (al no emplear modelos razonadores pese al uso similar de tokens), la mejora económica resultó mínima mientras que la pérdida de rendimiento fue considerable. Estos resultados indican que el enfoque adaptativo no es adecuado para este caso de uso, siendo la planificación unificada la opción más eficiente.
 
 \subsection{Integración de memoria}
-Para la evaluación de este componente se ha dividido el dataset del agente principal en dos partes, en entrenamiento (80\%) y evaluación (20\%). El objetivo es analizar si las memorias de ejecuciones de las consultas del dataset de entrenamiento pueden mejorar el rendimiento en el dataset de evaluación. Por lo tanto, se ejecutó primero el sistema completo en el dataste de entrenamiento, acumulando memorias para este. Después, se ejecutó en el dataset de evaluación, para comparar el resultado con el sistema sin memoria.
+Para la evaluación de este componente se dividió el dataset del agente principal en entrenamiento (80\%) y evaluación (20\%). El objetivo consistió en analizar si las memorias acumuladas en la ejecución del dataset de entrenamiento mejoran el rendimiento en el de evaluación. Se ejecutó el sistema sobre ambos datasets secuencialmente, comparando el rendimiento con y sin memoria en el dataset de evaluación.
 
-Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclusión de memorias del dataset de entrenamiento realmente mejoró la precisión respecto al sistema sin memoria. Por otra parte, la Figura \ref{} muestra la evaluación repetida del conjunto de test, añadiendo en cada ejecución las memorias correspondientes a los mismos ejemplos. Estas resultaron menos prometedores, indicando que la memoria funciona mejor como información adicional que como una memoria caché. 
+La Figura \ref{fig:mem_train} muestra que la inclusión de memorias del dataset de entrenamiento mejoró la precisión respecto al sistema sin memoria. Por otra parte, la Figura \ref{fig:mem_test} presenta la evaluación repetida del conjunto de test, añadiendo en cada ejecución las memorias correspondientes a los mismos ejemplos. Estos resultados fueron menos prometedores, indicando que en este caso la memoria funciona mejor como información adicional que como memoria caché.
 
 \begin{figure}[hbtp]
 \centering
 % Primera fila con dos gráficos usando minipage
 \begin{minipage}{0.48\textwidth}
 \centering
-\subfloat[Comparación con/sin memoria\label{fig:memoria_comparacion}]{
+\subfloat[Memorias de entrenamiento en evaluación\label{fig:memoria_comparacion}]{
+\label{fig:mem_train}
 \begin{tikzpicture}
 \begin{axis}[
     ylabel=,  
@@ -650,6 +644,7 @@ Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclu
     grid style={dashed, gray!30},
     tick label style={font=\scriptsize},
     scale only axis,
+    width=4.85cm,
 ]
 \addplot[
     fill=blue!70,
@@ -665,12 +660,13 @@ Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclu
 \end{minipage}
 \begin{minipage}{0.44\textwidth}
 \centering
-\subfloat[Evolución en ejecuciones consecutivas\label{fig:evolucion_trials}]{
+\subfloat[Memorias de evaluación en evaluación repetidamente\label{fig:evolucion_trials}]{
+\label{fig:mem_test}
 \begin{tikzpicture}
 \begin{axis}[
     title={},
-    xlabel={ejecuciones consecutivas},
-    ylabel={precisión llm juez},
+    xlabel={Ejecuciones consecutivas},
+    ylabel={},
     xmin=1, xmax=3,
     ymin=65, ymax=130,
     xtick={1, 2, 3},
@@ -678,6 +674,7 @@ Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclu
     legend pos=north west,
     ymajorgrids=true,
     grid style=dashed,
+    width=8cm,
 ]
 % gráfico original trial 1
 \addplot[
@@ -720,6 +717,6 @@ Los resultados se ilustran en la Figura \ref{}. Como se puede observar, la inclu
 \end{tikzpicture}
 }
 \end{minipage}
-\caption{Comparación del impacto de la memoria y evolución en ejecuciones consecutivas}
+\caption{Resultados de evaluación para el sistema con y sin memoria}
 \label{fig:memoria_evolucion}
 \end{figure}

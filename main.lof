@@ -33,22 +33,22 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Método del codo sobre agrupación de clústeres}}}{71}{subfigure.3.2}%
 \addvspace {10pt}
 \contentsline {figure}{\numberline {9.1}{\ignorespaces Mecanismo de evaluación de agentes}}{77}{figure.9.1}%
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Comparación de métricas entre versión inicial y mejorada}}{81}{figure.9.2}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM Juez}}}{81}{subfigure.2.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión Citas}}}{81}{subfigure.2.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Precisión Herramientas}}}{81}{subfigure.2.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Alucinación}}}{81}{subfigure.2.4}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Tokens Utilizados (millares)}}}{81}{subfigure.2.5}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Comparación de métricas entre versión inicial y mejorada de agentes especialistas}}{81}{figure.9.2}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{81}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión citación}}}{81}{subfigure.2.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Precisión de herramientas}}}{81}{subfigure.2.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Alucinación (más es mejor)}}}{81}{subfigure.2.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Tokens por ejecución (millares)}}}{81}{subfigure.2.5}%
 \contentsline {figure}{\numberline {9.3}{\ignorespaces Evaluación de agentes orquestador y planificador antes y después de prompting few-shot}}{82}{figure.9.3}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{82}{subfigure.3.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión de Herramientas}}}{82}{subfigure.3.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Alucinación}}}{82}{subfigure.3.3}%
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Comparación de rendimiento LLM-juez y costo de tokens entre diferentes sistemas}}{82}{figure.9.4}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión herramientas}}}{82}{subfigure.3.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Alucinación (más es mejor)}}}{82}{subfigure.3.3}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Comparación de rendimiento y costo entre diferentes variaciones de orquestación}}{82}{figure.9.4}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM-juez}}}{82}{subfigure.4.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Costo total de tokens (millones)}}}{82}{subfigure.4.2}%
-\contentsline {figure}{\numberline {9.5}{\ignorespaces Comparación del impacto de la memoria y evolución en ejecuciones consecutivas}}{83}{figure.9.5}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Comparación con/sin memoria}}}{83}{subfigure.5.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Evolución en ejecuciones consecutivas}}}{83}{subfigure.5.2}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Resultados de evaluación para el sistema con y sin memoria}}{83}{figure.9.5}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Memorias de entrenamiento en evaluación}}}{83}{subfigure.5.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Memorias de evaluación en evaluación repetidamente}}}{83}{subfigure.5.2}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
