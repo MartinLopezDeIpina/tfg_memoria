@@ -115,7 +115,7 @@
 \contentsline {subsection}{\numberline {10.2.4}R5-Pérdida de recursos}{87}{subsection.10.2.4}%
 \contentsline {section}{\numberline {10.3}Gestión del tiempo}{87}{section.10.3}%
 \contentsline {subsection}{\numberline {10.3.1}Gestión de fechas}{87}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {10.3.2}Dedicaciones}{87}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.2}Dedicaciones}{88}{subsection.10.3.2}%
 \contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{91}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Diseño General}{91}{section.Alph1.1}%
 \contentsline {section}{\numberline {A.2}Conjunto de datos etiquetados}{92}{section.Alph1.2}%

@@ -1,0 +1,51 @@
+\newcommand{\logofile}{images/logo.png}           % Ruta al logo
+\newcommand{\mainimage}{images/portada.jpg}       % Ruta a imagen principal
+
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Logo en la esquina superior izquierda
+        \node[anchor=north west, xshift=0.5cm, yshift=-0.5cm] at (current page.north west) {
+            \includegraphics[width=3cm]{\logofile}
+        };
+    \end{tikzpicture}
+    
+    \vspace*{2cm}
+    
+    % Título principal
+    \begin{center}
+        {\Huge\bfseries \izenburua}  % Usa la variable ya definida
+        
+        \vspace{2cm}
+        
+        % Imagen principal
+        \includegraphics[width=0.6\textwidth]{\mainimage}
+        
+        \vspace{2cm}
+        
+        % Autor
+        {\Large\textbf{\egilea}}  % Usa la variable ya definida
+        
+        \vspace{1.5cm}
+        
+        % Directores
+        {\large
+        \textbf{Dirigido por:}\\[0.5cm]
+        \zuzendariak  % Usa la variable ya definida
+        }
+        
+        \vfill
+        
+        % Fecha y departamento
+        {\large \data}  % Usa la variable ya definida
+        
+        \vspace{0.5cm}
+        
+        {\normalsize 
+        Departamento de Ciencias de la Computación e Inteligencia Artificial\\[0.3cm]
+        Universidad del País Vasco / Euskal Herriko Unibertsitatea\\[0.3cm]
+        \ikasketak
+        \ifdef{\espezialitatea}{ -- \espezialitatea}{}
+        }
+        
+    \end{center}
+\end{titlepage}

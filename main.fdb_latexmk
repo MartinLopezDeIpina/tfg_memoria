@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1748470278.95556 "main.aux" "main.bbl" "main" 1748470355.94884 0
+["bibtex main"] 1748519759.50266 "main.aux" "main.bbl" "main" 1748519768.02823 0
   "./references/references.bib" 1747900183.5921 277802 4adc8c82e006a2961d80dc1b063c7590 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/urlbst/unsrturl.bst" 1675116457 30912 2cfc330ae0a68bbf7dc64e1666bbb15c ""
-  "main.aux" 1748470355.46493 73907 0cf68eba2c620102f8712fdeea54259d "pdflatex"
+  "main.aux" 1748519767.70427 74183 4614c2f880f61c07503a61cc45370ae0 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1748470347.56487 "main.tex" "main.pdf" "main" 1748470355.94914 0
+["pdflatex"] 1748519759.63069 "main.tex" "main.pdf" "main" 1748519768.02844 0
   "/etc/texmf/web2c/texmf.cnf" 1742662909.37475 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490131464 2933 9ad527ce78d7c5fa0a642dead095f172 ""
@@ -359,8 +359,8 @@
   "chapters/anexo_d.tex" 1746179224.68959 18519 fbf3d5e66ba0009c3ef4159132560b4b ""
   "chapters/anexo_f.tex" 1747923118.38132 6817 7dd68a40b1aa73b024ef29e856892660 ""
   "chapters/chap1.tex" 1744529083.91241 1 68b329da9893e34099c7d8ad5cb9c940 ""
-  "chapters/chap10.tex" 1748470346.71492 8098 975404146b23c07718b28af56ea7f110 ""
-  "chapters/chap2.tex" 1747728332.1057 29234 6caa476c431b1d14494773ed86d6cc2f ""
+  "chapters/chap10.tex" 1748514395.01911 8645 4c4cd99eb0b7d8516bb9722851aaa5ec ""
+  "chapters/chap2.tex" 1748511828.36248 29261 9175516caec57dc1653c5ea65f4cc863 ""
   "chapters/chap3plani.tex" 1746547133.55854 26673 6ab6d51cf82bd53dc8fc707806066506 ""
   "chapters/chap4.tex" 1746549197.66986 13056 e5bb9a1a325d4ecdc6f7156e095e0fbf ""
   "chapters/chap5.tex" 1747042584.46151 28667 8ed0d121624b5b9a7101ee0b8d5eb5f1 ""
@@ -383,7 +383,7 @@
   "figures/evaluacion.png" 1748333097.88971 150455 d8ad1cd8e9cdb4f963965a8edd56e289 ""
   "figures/herramienta.png" 1744533352.14192 96469 21d371535153d041d42c9fb31269e674 ""
   "figures/horas.png" 1745618935.72552 140296 7f640213c67652bd6e65fa031c82d5a8 ""
-  "figures/horas_real.png" 1748470035.40337 376642 636e2f74c9cb4119fcb33b168a4eca29 ""
+  "figures/horas_real.pdf" 1748513490.11227 66155 c2ca1275e6c1f55387a947c63d1acb02 ""
   "figures/mcp.png" 1744534159.8912 106340 e0ea5db1aef44ed5362feba5958423a7 ""
   "figures/memoria_1.png" 1747732675.80121 149689 cfcf2e92cf022eacf32828004c81344a ""
   "figures/memoria_2.png" 1747923656.73487 355510 0b4e5891471b60d860b391eb140880a7 ""
@@ -394,14 +394,14 @@
   "figures/planner.png" 1747133326.07137 117743 8836e8882e47630b0cd57a9e295397e1 ""
   "figures/specialized.png" 1746953630.44624 161147 1bc27e89a2f633f7956cda74bff43197 ""
   "ifcommands.sty" 1742662057.12428 4894 6fc6d38bd21ddafd256a754893d7696a ""
-  "main.aux" 1748470355.46493 73907 0cf68eba2c620102f8712fdeea54259d "pdflatex"
-  "main.bbl" 1748470279.09181 25714 271b065728986a98e19cce959ef3d162 "bibtex main"
-  "main.brf" 1748470355.47193 4423 814b577913e03d30377299f5c2ddcb0d "pdflatex"
-  "main.lof" 1748470355.47193 5654 0fdff03e354629a34e759f594b2de287 "pdflatex"
-  "main.lot" 1748470355.47193 1419 b36298dcbe03452e6af0d37a7bcda0de "pdflatex"
-  "main.out" 1748470355.47193 26109 c79d5364a7d8af3e31584c6ddc39e3f0 "pdflatex"
-  "main.tex" 1748353332.2056 7139 2c60abe33901183c36757c904d4e230f ""
-  "main.toc" 1748470355.47193 16409 1e877f541edaae7a1f241775ee6931d4 "pdflatex"
+  "main.aux" 1748519767.70427 74183 4614c2f880f61c07503a61cc45370ae0 "pdflatex"
+  "main.bbl" 1748519759.62222 25714 271b065728986a98e19cce959ef3d162 "bibtex main"
+  "main.brf" 1748519767.71027 4493 6b5c03659d93b8e11a2180990268d857 "pdflatex"
+  "main.lof" 1748519767.71127 5654 079bde3eef17174fd24dcc2929de20f6 "pdflatex"
+  "main.lot" 1748519767.71127 1419 b36298dcbe03452e6af0d37a7bcda0de "pdflatex"
+  "main.out" 1748519767.71027 26109 c79d5364a7d8af3e31584c6ddc39e3f0 "pdflatex"
+  "main.tex" 1748519751.71419 7149 931a18409cd47865a26040913079b48b ""
+  "main.toc" 1748519767.71127 16409 c5b1eed7d0eb30839a04db2ca3c7f40f "pdflatex"
   (generated)
   "main.aux"
   "main.brf"

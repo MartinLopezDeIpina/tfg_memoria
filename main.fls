@@ -790,11 +790,11 @@ INPUT ./figures/evaluacion.png
 INPUT ./figures/evaluacion.png
 INPUT ./figures/evaluacion.png
 INPUT chapters/chap10.tex
-INPUT ./figures/horas_real.png
-INPUT ./figures/horas_real.png
-INPUT ./figures/horas_real.png
-INPUT ./figures/horas_real.png
-INPUT ./figures/horas_real.png
+INPUT ./figures/horas_real.pdf
+INPUT ./figures/horas_real.pdf
+INPUT ./figures/horas_real.pdf
+INPUT ./figures/horas_real.pdf
+INPUT ./figures/horas_real.pdf
 INPUT chapters/anexo_a.tex
 INPUT chapters/anexo_b.tex
 INPUT chapters/anexo_d.tex
