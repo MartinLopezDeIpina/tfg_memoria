@@ -101,6 +101,7 @@ El protocolo ofrece dos modos de operación para establecer la comunicación ent
 La aplicación de escritorio Claude Desktop\footnote{Claude Desktop: \url{https://claude.ai/download}} de Anthropic constituye un reflejo del potencial del protocolo. Esta plataforma ofrece la posibilidad de interactuar con servidores mediante una configuración mínima. Implementando el protocolo STDIO, la aplicación ejecuta los servidores distribuidos por terceros a través de gestores de paquetes como uv\footnote{uv: \url{https://astral.sh/blog/uv}}, npx\footnote{npx: \url{https://docs.npmjs.com/cli/v8/commands/npx}} o Docker\footnote{Docker: \url{https://www.docker.com/}}. Al incorporar un cliente MCP en la aplicación, consigue integrar las herramientas disponibles en la interfaz de chat con los modelos de Anthropic.
 
 \section{Estado del arte en arquitecturas de agentes LLM}
+\label{sec:estado_arte}
 
 
 La comunidad científica ha diseñado diversas arquitecturas de agentes para optimizar el rendimiento de los modelos disponibles. La arquitectura RAG se distingue por complementar la entrada del modelo con información recuperada de documentos relevantes. Otras propuestas se centran en mejorar la comunicación y coordinación entre agentes.

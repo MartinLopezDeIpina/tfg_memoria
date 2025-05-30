@@ -1,0 +1,51 @@
+Completado el ciclo de desarrollo del proyecto, este capítulo ofrece una síntesis reflexiva del trabajo realizado. Se presentan las conclusiones principales y el repaso de los objetivos. Finalmente, se exponen las líneas futuras relacionadas con el proyecto y el ámbito de investigación.
+
+\section{Conclusiones}
+En este apartado se formulan las reflexiones obtenidas respecto al uso de los agentes LLM en el proceso de incorporación a proyectos software. Primero se presenta una valoración global, tras lo que se pasa a concluir sobre el protocolo MCP y los mecanismos de orquestación de agentes. 
+
+\subsection{Líneas generales}
+En términos generales, los agentes han demostrado la capacidad de responder con información valiosa a las preguntas formuladas. Constituyen una herramienta valiosa a la hora de buscar y sintetizar sobre una cantidad grande de información, tarea de gran importancia en incorporaciones que requieren de un proceso de aprendizaje. 
+
+Sin embargo, todo poder conlleva una gran responsabilidad. Este tipo de herramientas no están todavía a la altura de considerarse fuentes de información irrefutables. Algunas evaluaciones muestran que en ciertas ocasiones, los agentes no son capaces de encontrar todas las fuentes de información, y qué decir de las citas correctas o alucinaciones. Es por ello que este proyecto propone utilizar dichas herramientas como fuente de información adicionales o herramientas de búsqueda, sin omitir la revisión y reflexión humana.
+
+\subsection{Protocolo MCP}
+Este protocolo ha demostrado ser de gran utilidad, no haría falta dar gran justificación, ya que desde el inicio del presente proyecto este ha sido adoptado ampliamente en la industria \cite{}.  
+
+Dicha especificación ha resultado de gran utilidad a la hora de utilizar herramientas ya desarrolladas, como pueden ser las del agente Confluence, las cuales no ha sido necesario modificarlas. Cabe destacar la flexibilidad que proporciona, ya que al utilizar siempre el protocolo MCP, la inclusión y exclusión de herramientas es en todos los agentes igual. Es de destacar también su facilidad de uso, ya que con el kit de iniciación que ofrece su SDK es posible desarrollar clientes y servidores MCP con una mínima dedicación.
+
+\subsection{Orquestación de agentes}
+\label{sec:conc}
+Los resultados de evaluación dan pie a reflexionar sobre la división de la comunicación entre los agentes. Parece obvio que los agentes cuya labor es extraer información sobre una temática concreta, no deberían tener información sobre la perspectiva general de la consulta pertinente. Sin embargo la questión está en cuánta información deberían disponer los agentes cuya labor es distribuir la ejecución del sistema.
+
+El presente proyecto ha concluido que cuanta más información contenga el agente que toma decisiones, más meditadas serán estas. Sin embargo, al degradarse la precisión de los LLM cuanta más información contenga la entrada, esta estrategia no es viable para los casos más complejos. Queda por explorar entonces cuál es el punto óptimo donde separar la fase de orquestación o decisión en varias etapas independientes. 
+
+\section{Objetivos del proyecto}
+A continuación se presentan los objetivos establecidos al inicio del proyecto y su grado de cumplimiento:
+\begin{itemize}
+  \item\textbf{Estudio de arquitecturas agénticas: }se han considerado diversas arquitecturas presentadas en la Sección \ref{sec:estado_arte}, evaluando diversas aplicaciones de RAG, diferentes variacoines de planificación y orquestación y un módulo adicional de memoria. 
+  \item\textbf{Desarrollo de sistema de Onboarding: }el sistema expuesto ha sido implementado y evaluado satisfactoriamente. Para ello se ha seguido en la medida de lo posible la metodología de trabajo de LKS Next, utilizando los recursos propietarios disponibles y la licitación de preguntas realizada para su evaluación.
+  \item\textbf{Integración del Model Context Protocol: }se ha diseñado el sistema para la incorporación de dicho protocolo, utilizándolo y analizando sus beneficios en los agentes especializados. 
+  \item\textbf{Evaluación de agentes: }se ha desarrollado el sistema de evaluación automatizado expuesto en el capítulo \ref{ch:chap9}, mediante la evaluación de LangSmith y un dataset anotado manualmente, incorporando varias métricas personalizadas. 
+  \item\textbf{Valoración de ajuste de agentes: }se ha ajustado y evaluado un modelo simple para su integración en el flujo agéntico (véase Sección X). Dicha valoración ha proporcionado un ejemplo de integración sencilla que permite entrever el potencial detrás de este tipo de optimizaciones.
+\end{itemize}
+
+\section{Lecciones aprendidas}
+El desarrollo del presente proyecto ha conllevado una valiosa lección a la hora de gestionar un proyecto. Esta se basa en la gestión inteligente horaria, para focalizar los esfuerzos en lo más relevante para el cumplimiento del proyecto.
+
+Es común considerar un proyecto como una obra personal, y querer por lo tanto optimizar todos los aspectos de este para realizar el mejor trabajo posible. Dicha filosofía puede conllevar a centrar un esfuerzo excesivo en detalles que aunque importantes, no tienen el impacto final que otros detalles sí tienen. Es por ello que los esfuerzos deben centrarse en las tareas que resulten óptimas para la consecución de los objetivos, ya que, independientemente de la extensión dedicación horaria, los recursos disponibles son siempre limitados.
+
+Por ejemplo, en este proyecto se invirtió una cantidad considerable de tiempo investigando e implementando un agente de código cuya funcionalidad RAG considerase la estructura del código fuente. Si bien es cierto que esto ayudó a cumplir los objetivos del proyecto, desde una visión general, quizás un agente más simple hubiese realizado la misma labor exploratoria. 
+
+\section{Líneas futuras}
+A continuación se enumeran las posibles líneas futuras de trabajo e investigación.
+
+\paragraph{Exploración de embedders especializados} Este proyecto ha realizado una indexación del código junto a su contexto y documentación para una captura semántica contextualizada. Sin embargo, otras estrategias proponen el uso de embedders de código personalizados. Por ejemplo, el pasado x de mayo Mistral presentó un embedder específicamente ajustado para la captura semántica de código. 
+
+El ajuste fino de un embedder para su uso en un agente es indudablemente más preciso que uno tradicional, pero requiere de un trabajo adicional. Una exploración adicional podría comparar la estrategia del proyecto actual, un embedder genérico ajustado para código, y un embedder ajustado para la tarea concreta donde se le evalúa. 
+\paragraph{Optimización de orquestación} En la Sección \ref{sec:conc} se ha especulado sobre un punto  
+
+- poner lo de los embeddings de mixtral -> qué es mejor, utilizar el embedder de mixtral optimizado para código sólo con código? o utilizar el enfoque este de un embedder más general y pasarle las docs con el código? también se puede ajustar un embedder (pero claro eso es un sobrecoste) -> comentar que se requieren bastantes datos para evaluar si mejora un rag frente al otro.  
+- orquestación optimizada para casos más complejos -> mencionar conclusiones y metáfora con organización / dirección en personas. 
+- ajuste de agentes 
+
+

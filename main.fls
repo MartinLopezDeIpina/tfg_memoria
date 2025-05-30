@@ -703,11 +703,3 @@ INPUT ./figures/horas.png
 INPUT ./figures/horas.png
 INPUT ./figures/horas.png
 INPUT ./figures/horas.png
-INPUT chapters/chap4.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4r-0.tfm
-INPUT chapters/chap5.tex
-INPUT ./figures/agentes.png
-INPUT ./figures/agentes.png
-INPUT ./figures/agentes.png
-INPUT ./figures/agentes.png
-INPUT ./figures/agentes.png
