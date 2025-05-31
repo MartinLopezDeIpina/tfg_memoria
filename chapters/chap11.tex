@@ -1,4 +1,4 @@
-Habiendo finalizado la implementación del sistema, este capítulo destaca los principales retos técnicos que el proyecto ha supuesto. Se exponen tanto desafíos de análisis y diseño, y desafíos ligados a las tecnologías utilizadas. 
+Habiendo finalizado la implementación del sistema, este capítulo destaca los principales retos técnicos que el proyecto ha supuesto. Se exponen tanto desafíos de análisis y diseño como desafíos ligados a las tecnologías utilizadas. 
 
 \section{Análisis y diseño}
 Los agentes LLM son una tecnología relativamente emergente, con millares de trabajos explorando diferentes técnicas de aplicación. Es por ello que, independientemente de la implementación, uno de los principales desafíos radicó en qué es específicamente lo que se quiere hacer y cómo se va a hacer.
@@ -6,22 +6,29 @@ Los agentes LLM son una tecnología relativamente emergente, con millares de tra
 Dicho desafío se presentó inicialmente a la hora de establecer el alcance del proyecto, al ofrecer esta tecnología infinidad de aplicaciones, fue difícil elegir qué hacer específicamente. Posteriormente surgió también a la hora de escoger las arquitecturas a utilizar. El director empresarial dejó claro que quería que un agente delegase a otras tareas específicas, pero qué arquitecturas utilizar era parte del problema. 
 
 \section{Comportamiento de agentes}
-Deducir la causa del comportamiento de los agentes tras su evaluación no fue tampoco tarea trivial. A diferencia de las excepciones tradicionales, donde un error en el código se identifica en un punto específico, el comportamiento de un LLM es resultado de múltiples variables. 
+Deducir la causa del comportamiento de los agentes tras su evaluación no fue tampoco tarea trivial. A diferencia de las excepciones tradicionales, donde un error en el código se identifica en un punto específico, la conducta de un LLM es resultado de múltiples variables. 
 
-Si bien es cierto que se puede inducir el comportamiento específico de un LLM mediante el análisis de su estado interno, los modelos utilizados en este proyecto son de caja negra. Por ello, el proceso de depuramiento ha sido más bien un procedimiento de análisis y reflexión, en cierto modo con una connotación de alquimia. 
+Si bien es cierto que se puede inferir la causa específica de la respuesta de un LLM mediante el análisis de su estado interno, los modelos utilizados en este proyecto son de caja negra. Por ello, el proceso de depuramiento ha sido más bien un procedimiento de análisis y reflexión, en cierto modo con una connotación de alquimia. Las siguientes interrogantes ilustran las reflexiones más recurrentes durante este proceso:
 
-Por ejemplo, a la hora de evaluar el rendimiento de la inclusión del mecanismo de memoria, ciertos ejemplos de ejecución parecían no mejorar. Tras el análisis de las ejecuciones individuales, se observó que el agente no tenía en cuenta las memorias incluidas en el prompt. Se inferió que al incluir un prompt extenso, el modelo prestaba poca atención a dichas fragmentos de memoria. Como solución, se decidió incluir las memorias como mensajes individuales, dado que este tipo de modelos están ajustados para atender al estilo conversacional. 
+\begin{quote}
+\begin{itemize}
+    \item ¿Por qué \textit{bemoles} no citas las fuentes? 
+    \item ¿Por qué llamas a esa \textit{dichosa} herramienta?
+    \item ¿Por qué NO llamas a esa \textit{condenada} herramienta?
+    \item ¿Por qué \textit{caracoles} ignoras la memoria?
+\end{itemize}
+\end{quote}
+
+En relación a la última questión, a la hora de evaluar el rendimiento de la inclusión del mecanismo de memoria, ciertos ejemplos no mostraban mejoras. El análisis reveló que el agente ignoraba las memorias incluidas en el prompt, presumiblemente debido a que los prompts extensos reducían la atención a dichos fragmentos. Como solución, se implementaron las memorias como mensajes individuales, aprovechando que estos modelos están optimizados para el estilo conversacional.
+
 \section{Desafíos técnicos}
 Se han utilizado una variedad de tecnologías que han conllevado también desafíos de implementación, dado que el uso de estas en la carrera universitaria es más bien limitada.
 
 \paragraph{Manejo de conexiones}
-Conexiones tanto base de datos cuál elegir con qué abstracción + conexiones MCP cómo gestionarlos.
+El uso de diversas conexiones en el proyecto requirió de un diseño premeditado. Entre todas las posibilidades, para la interacción con PostgreSQL y PGVector, se seleccionó el ORM de SQLAlchemy complementado con las abstracciones de LangChain para operaciones básicas de lectura e inserción. Dicha comunicación se realizó mediante un pool de conexiones para optimizar el rendimiento asíncrono. Se descartó Flask al determinar que las funcionalidades web no eran necesarias para los objetivos del proyecto.
+
+La implementación del protocolo MCP implicó analizar las alternativas de comunicación SSE y STDIO. Como solución centralizada, tanto las conexiones MCP como el pool de base de datos se gestionan mediante un contexto asíncrono global, optimizando el uso de recursos compartidos entre múltiples tareas concurrentes.
 
 \paragraph{Contexto asíncrono}
-El hecho de unificar el contexto en uno global + tener varios niveles de asincronidad al mismo tiempo -> se ejecutan 10 evaluaciones al mismo tiempo, luego el orquestador dentro de un asíncrono puede ejecutar varios especialistas asíncronos, que a su vez llaman a x heramientas de forma asíncrona. 
-
-
-- El tema de manejar las conexiones a la base de datos supuso un reto porque era necesario conocer las diferentes abstracciones disponibles para su acceso. Claro está postgresql que se puede acceder mediante SQLAlchemy, el driver pg3, o directamente desde una abstracción superior desde LangChain. Hay que tener todos los niveles de abstracción en mente. 
-
-- El tema del manejo de los asíncrono, lo de crear un pool global que utilicen tanto las conexiones mcp como las conexiones a la base de datos.
+El costo computacional de los modelos LLM implica una latencia que requiere de la optimización de ejecuciones. De este modo, en ciertas ocasiones han sido necesarios varios niveles de concurrencia asíncrona. Por ejemplo, a la hora de ejecutar evaluaciones, se ejecutan 10 evaluaciones paralelas, en las cuales el orquestador puede decidir utilizar varios agentes concurrentes, los cuales a su vez pueden ejecutar varias herramientas a la vez. 
 

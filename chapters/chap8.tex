@@ -86,6 +86,7 @@ La Figura \ref{fig:clustering-analysis} ilustra el agrupamiento de 12 memorias d
 \end{figure}
 
 \section{Diseño adaptativo}
+\label{sec:adaptativo}
 Tras evaluar los enfoques expuestos en el capítulo anterior (véase Sección \colorbox{yellow}{\ref{}}), los resultados muestran que, aunque con un rendimiento superior, el paso de planificación añade una complejidad considerable frente al enfoque más simple. Mientras que el sistema simple es capaz de responder algunas preguntas con mayor rapidez, no consigue resolver las preguntas más difíciles. Es por ello que un sistema híbrido surge como la solución ideal \cite{jeong_adaptive-rag_2024}, utilizando la planificación para preguntas complejas y omitiéndola cuando no es necesario.
 
 La implementación de este enfoque se ha estructurado en tres fases: la determinación de criterios para identificar preguntas complejas, la ampliación del conjunto de evaluación para mejorar la precisión de evaluación, y el análisis comparativo entre un modelo especializado y un agente clasificador. Finalmente, se procedió a la integración del clasificador seleccionado en el flujo del sistema.
