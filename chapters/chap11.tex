@@ -1,9 +1,27 @@
-Habiendo finalizado la implementación del sistema, este capítulo destaca los principales retos técnicos que el proyecto ha supuesto. 
+Habiendo finalizado la implementación del sistema, este capítulo destaca los principales retos técnicos que el proyecto ha supuesto. Se exponen tanto desafíos de análisis y diseño, y desafíos ligados a las tecnologías utilizadas. 
 
-- El hecho de qué es lo que quiero implementar, hay tantas arquitecturas nuevas con tantas variantes que es difícil establecer el foco en vale hago esto. Supongo que es parte del trabajo el analizar y decidir qué es lo mejor para el caso de uso.
+\section{Análisis y diseño}
+Los agentes LLM son una tecnología relativamente emergente, con millares de trabajos explorando diferentes técnicas de aplicación. Es por ello que, independientemente de la implementación, uno de los principales desafíos radicó en qué es específicamente lo que se quiere hacer y cómo se va a hacer.
+
+Dicho desafío se presentó inicialmente a la hora de establecer el alcance del proyecto, al ofrecer esta tecnología infinidad de aplicaciones, fue difícil elegir qué hacer específicamente. Posteriormente surgió también a la hora de escoger las arquitecturas a utilizar. El director empresarial dejó claro que quería que un agente delegase a otras tareas específicas, pero qué arquitecturas utilizar era parte del problema. 
+
+\section{Comportamiento de agentes}
+Deducir la causa del comportamiento de los agentes tras su evaluación no fue tampoco tarea trivial. A diferencia de las excepciones tradicionales, donde un error en el código se identifica en un punto específico, el comportamiento de un LLM es resultado de múltiples variables. 
+
+Si bien es cierto que se puede inducir el comportamiento específico de un LLM mediante el análisis de su estado interno, los modelos utilizados en este proyecto son de caja negra. Por ello, el proceso de depuramiento ha sido más bien un procedimiento de análisis y reflexión, en cierto modo con una connotación de alquimia. 
+
+Por ejemplo, a la hora de evaluar el rendimiento de la inclusión del mecanismo de memoria, ciertos ejemplos de ejecución parecían no mejorar. Tras el análisis de las ejecuciones individuales, se observó que el agente no tenía en cuenta las memorias incluidas en el prompt. Se inferió que al incluir un prompt extenso, el modelo prestaba poca atención a dichas fragmentos de memoria. Como solución, se decidió incluir las memorias como mensajes individuales, dado que este tipo de modelos están ajustados para atender al estilo conversacional. 
+\section{Desafíos técnicos}
+Se han utilizado una variedad de tecnologías que han conllevado también desafíos de implementación, dado que el uso de estas en la carrera universitaria es más bien limitada.
+
+\paragraph{Manejo de conexiones}
+Conexiones tanto base de datos cuál elegir con qué abstracción + conexiones MCP cómo gestionarlos.
+
+\paragraph{Contexto asíncrono}
+El hecho de unificar el contexto en uno global + tener varios niveles de asincronidad al mismo tiempo -> se ejecutan 10 evaluaciones al mismo tiempo, luego el orquestador dentro de un asíncrono puede ejecutar varios especialistas asíncronos, que a su vez llaman a x heramientas de forma asíncrona. 
+
 
 - El tema de manejar las conexiones a la base de datos supuso un reto porque era necesario conocer las diferentes abstracciones disponibles para su acceso. Claro está postgresql que se puede acceder mediante SQLAlchemy, el driver pg3, o directamente desde una abstracción superior desde LangChain. Hay que tener todos los niveles de abstracción en mente. 
 
 - El tema del manejo de los asíncrono, lo de crear un pool global que utilicen tanto las conexiones mcp como las conexiones a la base de datos.
 
-- El hecho de que no es trivial si un agente no está funcionando decir por qué no está funcionando. Las trazas de LangSmith ayudan mucho, pero hay que realizar una reflexión que a veces conlleva tiempo, poner un ejemplo que no se vea claro por qué no funciona un agente. El ejemplo de que el agente ignoraba los ejemplos de la memoria. Se observó que no mejoraba el sistema al incorporar el proceso de memoria, y en un ejemplo en el que el agente disponía de la info necesaria como parte de la memoria, este no le hizo caso. De concluyó que el LLM no le estaba prestando suficiente atención si se incorporaban dentro de un prompt grande, por lo que al abstraerlos a mensajes individuales, pareció atenderles más. 

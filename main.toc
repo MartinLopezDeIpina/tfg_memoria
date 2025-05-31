@@ -117,6 +117,11 @@
 \contentsline {subsection}{\numberline {10.3.1}Gestión de fechas}{87}{subsection.10.3.1}%
 \contentsline {subsection}{\numberline {10.3.2}Dedicaciones}{88}{subsection.10.3.2}%
 \contentsline {chapter}{\chapternumberline {11}Retos}{91}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Análisis y diseño}{91}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Comportamiento de agentes}{91}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Desafíos técnicos}{92}{section.11.3}%
+\contentsline {paragraph}{Manejo de conexiones}{92}{section*.30}%
+\contentsline {paragraph}{Contexto asíncrono}{92}{section*.31}%
 \contentsline {chapter}{\chapternumberline {12}Conclusiones y líneas futuras}{93}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Conclusiones}{93}{section.12.1}%
 \contentsline {subsection}{\numberline {12.1.1}Líneas generales}{93}{subsection.12.1.1}%
@@ -125,9 +130,9 @@
 \contentsline {section}{\numberline {12.2}Objetivos del proyecto}{94}{section.12.2}%
 \contentsline {section}{\numberline {12.3}Lecciones aprendidas}{95}{section.12.3}%
 \contentsline {section}{\numberline {12.4}Líneas futuras}{96}{section.12.4}%
-\contentsline {paragraph}{Exploración de embedders especializados}{96}{section*.30}%
-\contentsline {paragraph}{Optimización de orquestación}{96}{section*.31}%
-\contentsline {paragraph}{Ajuste de agentes}{96}{section*.32}%
+\contentsline {paragraph}{Exploración de embedders especializados}{96}{section*.32}%
+\contentsline {paragraph}{Optimización de orquestación}{96}{section*.33}%
+\contentsline {paragraph}{Ajuste de agentes}{96}{section*.34}%
 \contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{97}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Diseño General}{97}{section.Alph1.1}%
 \contentsline {section}{\numberline {A.2}Conjunto de datos etiquetados}{98}{section.Alph1.2}%
@@ -190,4 +195,4 @@
 \contentsline {section}{\numberline {A.2}Estrategias de Entrenamiento}{126}{section.Alph4.2}%
 \contentsline {section}{\numberline {A.3}Metodología Experimental}{126}{section.Alph4.3}%
 \contentsline {section}{\numberline {A.4}Resultados}{127}{section.Alph4.4}%
-\contentsline {chapter}{Bibliografía}{129}{appendix*.41}%
+\contentsline {chapter}{Bibliografía}{129}{appendix*.43}%
