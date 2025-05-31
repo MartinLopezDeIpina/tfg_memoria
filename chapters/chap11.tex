@@ -1,1 +1,9 @@
-blah blah
+Habiendo finalizado la implementación del sistema, este capítulo destaca los principales retos técnicos que el proyecto ha supuesto. 
+
+- El hecho de qué es lo que quiero implementar, hay tantas arquitecturas nuevas con tantas variantes que es difícil establecer el foco en vale hago esto. Supongo que es parte del trabajo el analizar y decidir qué es lo mejor para el caso de uso.
+
+- El tema de manejar las conexiones a la base de datos supuso un reto porque era necesario conocer las diferentes abstracciones disponibles para su acceso. Claro está postgresql que se puede acceder mediante SQLAlchemy, el driver pg3, o directamente desde una abstracción superior desde LangChain. Hay que tener todos los niveles de abstracción en mente. 
+
+- El tema del manejo de los asíncrono, lo de crear un pool global que utilicen tanto las conexiones mcp como las conexiones a la base de datos.
+
+- El hecho de que no es trivial si un agente no está funcionando decir por qué no está funcionando. Las trazas de LangSmith ayudan mucho, pero hay que realizar una reflexión que a veces conlleva tiempo, poner un ejemplo que no se vea claro por qué no funciona un agente. El ejemplo de que el agente ignoraba los ejemplos de la memoria. Se observó que no mejoraba el sistema al incorporar el proceso de memoria, y en un ejemplo en el que el agente disponía de la info necesaria como parte de la memoria, este no le hizo caso. De concluyó que el LLM no le estaba prestando suficiente atención si se incorporaban dentro de un prompt grande, por lo que al abstraerlos a mensajes individuales, pareció atenderles más. 

@@ -331,4 +331,18 @@ Asier Gutiérrez-Fandiño, Jordi Armengol-Estapé, Marc Pàmies, Joan Llop-Palao
 \newblock {MarIA}: Spanish language models.
 \newblock URL: \url{https://arxiv.org/abs/2107.07253v5}, \href {https://doi.org/10.26342/2022-68-3} {\path{doi:10.26342/2022-68-3}}.
 
+\bibitem{noauthor_codestral_nodate}
+Codestral embed {\textbar} mistral {AI}.
+\newblock URL: \url{https://mistral.ai/news/codestral-embed}.
+
+\bibitem{xiong_approximate_2020}
+Lee Xiong, Chenyan Xiong, Ye~Li, Kwok-Fung Tang, Jialin Liu, Paul Bennett, Junaid Ahmed, and Arnold Overwijk.
+\newblock Approximate nearest neighbor negative contrastive learning for dense text retrieval.
+\newblock URL: \url{http://arxiv.org/abs/2007.00808}, \href {https://arxiv.org/abs/2007.00808 [cs]} {\path{arXiv:2007.00808 [cs]}}, \href {https://doi.org/10.48550/arXiv.2007.00808} {\path{doi:10.48550/arXiv.2007.00808}}.
+
+\bibitem{yu_augmentation-adapted_2023}
+Zichun Yu, Chenyan Xiong, Shi Yu, and Zhiyuan Liu.
+\newblock Augmentation-adapted retriever improves generalization of language models as generic plug-in.
+\newblock URL: \url{http://arxiv.org/abs/2305.17331}, \href {https://arxiv.org/abs/2305.17331 [cs]} {\path{arXiv:2305.17331 [cs]}}, \href {https://doi.org/10.48550/arXiv.2305.17331} {\path{doi:10.48550/arXiv.2305.17331}}.
+
 \end{thebibliography}
