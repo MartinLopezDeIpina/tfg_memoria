@@ -21,9 +21,9 @@
 \backcite {fischer_reflective_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {liang_unleashing_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {zhao_expel_2024}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {zhong_memorybank_2024}{{11}{2.4.2}{subsection.2.4.2}}
-\backcite {wang_survey_2024}{{11}{2.4.2}{subsection.2.4.2}}
-\backcite {park_generative_2023}{{11}{2.4.2}{subsection.2.4.2}}
+\backcite {zhong_memorybank_2024}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {wang_survey_2024}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {park_generative_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {wei_chain--thought_2023}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {liang_unleashing_2023}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {yao_tree_nodate}{{11}{2.4.2}{subsection.2.4.2}}
@@ -58,8 +58,8 @@
 \backcite {chen_fireact_2023}{{13}{2.6.2}{subsection.2.6.2}}
 \backcite {zeng_agenttuning_2023}{{13}{2.6.2}{subsection.2.6.2}}
 \backcite {chen_agent-flan_2024}{{13}{2.6.2}{subsection.2.6.2}}
-\backcite {hu_lora_2021}{{14}{2.6.3}{subsection.2.6.3}}
-\backcite {noauthor_c4_nodate}{{32}{4.2.1}{section*.9}}
+\backcite {hu_lora_2021}{{13}{2.6.3}{subsection.2.6.3}}
+\backcite {noauthor_c4_nodate}{{32}{4.2.1}{section*.10}}
 \backcite {luo_repoagent_2024}{{34}{4.3.2}{subsection.4.3.2}}
 \backcite {tam_let_2024}{{64}{7.1.2}{figure.7.1}}
 \backcite {brown_language_2020}{{67}{8.1}{section.8.1}}
@@ -68,5 +68,5 @@
 \backcite {liu_roberta_2019}{{72}{8.3.3}{subsection.8.3.3}}
 \backcite {gutierrez-fandino_maria_2021}{{72}{8.3.3}{subsection.8.3.3}}
 \backcite {ionescu_multi-agent_2025}{{86}{10.2.1}{subsection.10.2.1}}
-\backcite {noauthor_codestral_nodate}{{96}{12.4}{section*.32}}
-\backcite {khattab_relevance-guided_2021,xiong_approximate_2020,yu_augmentation-adapted_2023}{{96}{12.4}{section*.32}}
+\backcite {noauthor_codestral_nodate}{{96}{12.4}{section*.34}}
+\backcite {khattab_relevance-guided_2021,xiong_approximate_2020,yu_augmentation-adapted_2023}{{96}{12.4}{section*.34}}

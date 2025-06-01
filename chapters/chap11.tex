@@ -1,28 +1,31 @@
-Habiendo finalizado la implementación del sistema, este capítulo destaca los principales retos técnicos que el proyecto ha supuesto. Se exponen tanto desafíos de análisis y diseño como desafíos ligados a las tecnologías utilizadas. 
+Habiendo finalizado la implementación del sistema, este capítulo destaca los principales retos técnicos que el proyecto ha supuesto. Se exponen tanto desafíos de análisis y diseño como consideraciones ligadas a las tecnologías utilizadas. 
 
 \section{Análisis y diseño}
-Los agentes LLM son una tecnología relativamente emergente, con millares de trabajos explorando diferentes técnicas de aplicación. Es por ello que, independientemente de la implementación, uno de los principales desafíos radicó en qué es específicamente lo que se quiere hacer y cómo se va a hacer.
+Los agentes LLM constituyen una tecnología emergente con numerosos trabajos explorando diversas técnicas de aplicación. Uno de los principales desafíos consistió en determinar qué objetivos concretos perseguir y cómo abordar su desarrollo.
 
-Dicho desafío se presentó inicialmente a la hora de establecer el alcance del proyecto, al ofrecer esta tecnología infinidad de aplicaciones, fue difícil elegir qué hacer específicamente. Posteriormente surgió también a la hora de escoger las arquitecturas a utilizar. El director empresarial dejó claro que quería que un agente delegase a otras tareas específicas, pero qué arquitecturas utilizar era parte del problema. 
+Este desafío se manifestó al establecer el alcance, donde la multiplicidad de aplicaciones dificultó delimitar el enfoque específico. Posteriormente surgió al seleccionar las arquitecturas: aunque el director empresarial estableció la necesidad de un agente que delegase tareas a componentes especializados, la elección de arquitecturas concretas formaba parte del problema a resolver.
+
+\paragraph{Diseño del software}
+Con el fin de desarrollar un sistema extensible, se estableció un diseño premeditado antes de proceder con cualquier implementación. Entre los aspectos más relevantes se destacan el empleo de múltiples niveles de jerarquía de herencia en los agentes, la implementación de un flujo de indexación estructurado en varias etapas para el código del proyecto software, y la división estructural del código fuente mediante un patrón de estados.
 
 \section{Comportamiento de agentes}
-Deducir la causa del comportamiento de los agentes tras su evaluación no fue tampoco tarea trivial. A diferencia de las excepciones tradicionales, donde un error en el código se identifica en un punto específico, la conducta de un LLM es resultado de múltiples variables. 
+Deducir la causa del comportamiento de los agentes tras su evaluación constituyó otra dificultad. A diferencia de las excepciones tradicionales, donde un error se localiza en un punto específico del código, la conducta de un LLM resulta de múltiples variables.
 
-Si bien es cierto que se puede inferir la causa específica de la respuesta de un LLM mediante el análisis de su estado interno, los modelos utilizados en este proyecto son de caja negra. Por ello, el proceso de depuramiento ha sido más bien un procedimiento de análisis y reflexión, en cierto modo con una connotación de alquimia. Las siguientes interrogantes ilustran las reflexiones más recurrentes durante este proceso:
+Aunque es posible inferir las causas mediante el análisis del estado interno del modelo, los LLM utilizados son de caja negra. Por tanto, el proceso de depuración se asemejó más a un análisis forense, requiriendo reflexión ante comportamientos inesperados:
 
 \begin{quote}
 \begin{itemize}
-    \item ¿Por qué \textit{bemoles} no citas las fuentes? 
-    \item ¿Por qué llamas a esa \textit{dichosa} herramienta?
-    \item ¿Por qué NO llamas a esa \textit{condenada} herramienta?
-    \item ¿Por qué \textit{caracoles} ignoras la memoria?
+    \item ¿Por qué no citas las fuentes? 
+    \item ¿Por qué llamas a esa herramienta?
+    \item ¿Por qué NO llamas a esa herramienta?
+    \item ¿Por qué ignoras la memoria?
 \end{itemize}
 \end{quote}
 
-En relación a la última questión, a la hora de evaluar el rendimiento de la inclusión del mecanismo de memoria, ciertos ejemplos no mostraban mejoras. El análisis reveló que el agente ignoraba las memorias incluidas en el prompt, presumiblemente debido a que los prompts extensos reducían la atención a dichos fragmentos. Como solución, se implementaron las memorias como mensajes individuales, aprovechando que estos modelos están optimizados para el estilo conversacional.
+Respecto a la última cuestión, al evaluar el mecanismo de memoria, ciertos ejemplos no mostraban mejoras. El análisis reveló que el agente ignoraba las memorias incluidas en el prompt, presumiblemente porque los prompts extensos reducían la atención a dichos fragmentos. Como solución, se implementaron las memorias como mensajes individuales, aprovechando la optimización conversacional de estos modelos.
 
 \section{Desafíos técnicos}
-Se han utilizado una variedad de tecnologías que han conllevado también desafíos de implementación, dado que el uso de estas en la carrera universitaria es más bien limitada.
+Se han utilizado una variedad de tecnologías que han conllevado también desafíos de implementación, dado que el uso de este conjunto en específico en el grado universitario es más bien limitado.
 
 \paragraph{Manejo de conexiones}
 El uso de diversas conexiones en el proyecto requirió de un diseño premeditado. Entre todas las posibilidades, para la interacción con PostgreSQL y PGVector, se seleccionó el ORM de SQLAlchemy complementado con las abstracciones de LangChain para operaciones básicas de lectura e inserción. Dicha comunicación se realizó mediante un pool de conexiones para optimizar el rendimiento asíncrono. Se descartó Flask al determinar que las funcionalidades web no eran necesarias para los objetivos del proyecto.
