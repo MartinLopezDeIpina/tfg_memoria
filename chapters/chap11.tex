@@ -1,17 +1,17 @@
-Habiendo finalizado la implementación del sistema, este capítulo destaca los principales retos técnicos que el proyecto ha supuesto. Se exponen tanto desafíos de análisis y diseño como consideraciones ligadas a las tecnologías utilizadas. 
+Habiendo finalizado la implementación del sistema, este capítulo destaca los principales retos que el proyecto ha supuesto. Se exponen tanto desafíos de análisis y diseño como consideraciones ligadas a las tecnologías utilizadas. 
 
 \section{Análisis y diseño}
-Los agentes LLM constituyen una tecnología emergente con numerosos trabajos explorando diversas técnicas de aplicación. Uno de los principales desafíos consistió en determinar qué objetivos concretos perseguir y cómo abordar su desarrollo.
+Los agentes LLM presentan multiples aplicaciones posibles, con numerosos trabajos explorando técnicas diversas. Dado este extenso espectro, uno de los principales retos consistió en determinar qué objetivos concretos perseguir dentro del ámbito del onboarding y cómo abordar su desarrollo.
 
 Este desafío se manifestó al establecer el alcance, donde la multiplicidad de aplicaciones dificultó delimitar el enfoque específico. Posteriormente surgió al seleccionar las arquitecturas: aunque el director empresarial estableció la necesidad de un agente que delegase tareas a componentes especializados, la elección de arquitecturas concretas formaba parte del problema a resolver.
 
 \paragraph{Diseño del software}
-Con el fin de desarrollar un sistema extensible, se estableció un diseño premeditado antes de proceder con cualquier implementación. Entre los aspectos más relevantes se destacan el empleo de múltiples niveles de jerarquía de herencia en los agentes, la implementación de un flujo de indexación estructurado en varias etapas para el código del proyecto software, y la división estructural del código fuente mediante un patrón de estados.
+Con el fin de desarrollar un sistema extensible, se estableció un diseño premeditado antes de proceder con cualquier implementación. Destacan especialmente el empleo de múltiples niveles de jerarquía de herencia en los agentes, la implementación de un flujo de indexación estructurado en varias etapas para el código del proyecto software, y la división estructural del código fuente mediante un patrón de estados.
 
 \section{Comportamiento de agentes}
 Deducir la causa del comportamiento de los agentes tras su evaluación constituyó otra dificultad. A diferencia de las excepciones tradicionales, donde un error se localiza en un punto específico del código, la conducta de un LLM resulta de múltiples variables.
 
-Aunque es posible inferir las causas mediante el análisis del estado interno del modelo, los LLM utilizados son de caja negra. Por tanto, el proceso de depuración se asemejó más a un análisis forense, requiriendo reflexión ante comportamientos inesperados:
+Aunque es posible inferir las causas específicas mediante el análisis del estado interno del modelo, los LLM utilizados son de caja negra. Por tanto, el proceso de depuración se asemejó más a un análisis forense, requiriendo reflexión ante comportamientos inesperados:
 
 \begin{quote}
 \begin{itemize}
@@ -28,9 +28,9 @@ Respecto a la última cuestión, al evaluar el mecanismo de memoria, ciertos eje
 Se han utilizado una variedad de tecnologías que han conllevado también desafíos de implementación, dado que el uso de este conjunto en específico en el grado universitario es más bien limitado.
 
 \paragraph{Manejo de conexiones}
-El uso de diversas conexiones en el proyecto requirió de un diseño premeditado. Entre todas las posibilidades, para la interacción con PostgreSQL y PGVector, se seleccionó el ORM de SQLAlchemy complementado con las abstracciones de LangChain para operaciones básicas de lectura e inserción. Dicha comunicación se realizó mediante un pool de conexiones para optimizar el rendimiento asíncrono. Se descartó Flask al determinar que las funcionalidades web no eran necesarias para los objetivos del proyecto.
+La gestión de múltiples conexiones simultáneas presentó complejidades técnicas. Para la base de datos, se evaluaron varias alternativas tecnológicas, optando por un enfoque híbrido: el ORM SQLAlchemy para consultas complejas con PGVector, y las abstracciones de LangChain para operaciones básicas de lectura e inserción. Se descartaron tecnologías web como Flask al determinar que estas capacidades no eran necesarias para los objetivos del proyecto.
 
-La implementación del protocolo MCP implicó analizar las alternativas de comunicación SSE y STDIO. Como solución centralizada, tanto las conexiones MCP como el pool de base de datos se gestionan mediante un contexto asíncrono global, optimizando el uso de recursos compartidos entre múltiples tareas concurrentes.
+El protocolo MCP introdujo retos adicionales al requerir el análisis de las modalidades de comunicación SSE y STDIO para diferentes servidores. La sincronización entre las conexiones de base de datos y las conexiones MCP demandó una arquitectura coordinada, implementada mediante un contexto asíncrono global que gestiona de forma centralizada tanto el pool de conexiones de PostgreSQL como las sesiones MCP, optimizando el uso de recursos compartidos.
 
 \paragraph{Contexto asíncrono}
 El costo computacional de los modelos LLM implica una latencia que requiere de la optimización de ejecuciones. De este modo, en ciertas ocasiones han sido necesarios varios niveles de concurrencia asíncrona. Por ejemplo, a la hora de ejecutar evaluaciones, se ejecutan 10 evaluaciones paralelas, en las cuales el orquestador puede decidir utilizar varios agentes concurrentes, los cuales a su vez pueden ejecutar varias herramientas a la vez. 
