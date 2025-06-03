@@ -1,12 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{sim_ramp-up_1998}
-S.E. Sim and R.C. Holt.
-\newblock The ramp-up problem in software projects: a case study of how software immigrants naturalize.
-\newblock In {\em Proceedings of the 20th International Conference on Software Engineering}, pages 361--370.
-\newblock {ISSN}: 0270-5257.
-\newblock URL: \url{https://ieeexplore.ieee.org/abstract/document/671389}, \href {https://doi.org/10.1109/ICSE.1998.671389} {\path{doi:10.1109/ICSE.1998.671389}}.
-
 \bibitem{vaswani_attention_2023}
 Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
 \newblock Attention is all you need.
@@ -50,6 +43,13 @@ Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yi~Dai, Ji
 Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao.
 \newblock {ReAct}: Synergizing reasoning and acting in language models.
 \newblock URL: \url{http://arxiv.org/abs/2210.03629}, \href {https://arxiv.org/abs/2210.03629 [cs]} {\path{arXiv:2210.03629 [cs]}}, \href {https://doi.org/10.48550/arXiv.2210.03629} {\path{doi:10.48550/arXiv.2210.03629}}.
+
+\bibitem{sim_ramp-up_1998}
+S.E. Sim and R.C. Holt.
+\newblock The ramp-up problem in software projects: a case study of how software immigrants naturalize.
+\newblock In {\em Proceedings of the 20th International Conference on Software Engineering}, pages 361--370.
+\newblock {ISSN}: 0270-5257.
+\newblock URL: \url{https://ieeexplore.ieee.org/abstract/document/671389}, \href {https://doi.org/10.1109/ICSE.1998.671389} {\path{doi:10.1109/ICSE.1998.671389}}.
 
 \bibitem{ritz_artificial_2023}
 Eva Ritz, Fabio Donisi, Edona Elshan, and Roman Rietsche.

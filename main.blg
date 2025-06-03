@@ -38,10 +38,9 @@ Warning--entry type for "noauthor_codestral_nodate" isn't style-file defined
 --line 2287 of file references/references.bib
 Warning--entry type for "noauthor_design_nodate" isn't style-file defined
 --line 2296 of file references/references.bib
-Warning--I didn't find a database entry for "steinmacher_systematic_2015"
-Warning--empty year in sim_ramp-up_1998
 Warning--empty journal in singh_exploring_2023
 Warning--empty year in singh_exploring_2023
+Warning--empty year in sim_ramp-up_1998
 Warning--empty booktitle in ritz_artificial_2023
 Warning--empty year in ritz_artificial_2023
 Warning--empty year in azanza_can_2024
@@ -76,7 +75,7 @@ Warning--empty journal in du_improving_nodate
 Warning--empty year in du_improving_nodate
 You've used 73 entries,
             2616 wiz_defined-function locations,
-            1004 strings with 25077 characters,
+            1003 strings with 25050 characters,
 and the built_in function-call counts, 26800 in all, are:
 = -- 2214
 > -- 1616
@@ -115,4 +114,4 @@ warning$ -- 35
 while$ -- 82
 width$ -- 75
 write$ -- 737
-(There were 51 warnings)
+(There were 50 warnings)
