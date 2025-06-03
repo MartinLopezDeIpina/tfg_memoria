@@ -7,11 +7,49 @@ S.E. Sim and R.C. Holt.
 \newblock {ISSN}: 0270-5257.
 \newblock URL: \url{https://ieeexplore.ieee.org/abstract/document/671389}, \href {https://doi.org/10.1109/ICSE.1998.671389} {\path{doi:10.1109/ICSE.1998.671389}}.
 
-\bibitem{steinmacher_systematic_2015}
-Igor Steinmacher, Marco~Aurelio Graciotto~Silva, Marco~Aurelio Gerosa, and David~F. Redmiles.
-\newblock A systematic literature review on the barriers faced by newcomers to open source software projects.
-\newblock 59:67--85.
-\newblock URL: \url{https://www.sciencedirect.com/science/article/pii/S0950584914002390}, \href {https://doi.org/10.1016/j.infsof.2014.11.001} {\path{doi:10.1016/j.infsof.2014.11.001}}.
+\bibitem{vaswani_attention_2023}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
+\newblock URL: \url{http://arxiv.org/abs/1706.03762}, \href {https://arxiv.org/abs/1706.03762 [cs]} {\path{arXiv:1706.03762 [cs]}}, \href {https://doi.org/10.48550/arXiv.1706.03762} {\path{doi:10.48550/arXiv.1706.03762}}.
+
+\bibitem{noauthor_design_nodate}
+Design of a large language model for improving customer service in telecom operators - xiaoliang - 2024 - electronics letters - wiley online library.
+\newblock URL: \url{https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/ell2.13218}.
+
+\bibitem{singh_exploring_2023}
+Vasudha Singh.
+\newblock Exploring the role of large language model ({LLM})-based chatbots for human resources.
+\newblock URL: \url{https://repositories.lib.utexas.edu/items/b83506d4-f5ab-4ac3-8451-67e93fa89cec}.
+
+\bibitem{dong_self-collaboration_2024}
+Yihong Dong, Xue Jiang, Zhi Jin, and Ge~Li.
+\newblock Self-collaboration code generation via {ChatGPT}.
+\newblock URL: \url{http://arxiv.org/abs/2304.07590}, \href {https://arxiv.org/abs/2304.07590 [cs]} {\path{arXiv:2304.07590 [cs]}}, \href {https://doi.org/10.48550/arXiv.2304.07590} {\path{doi:10.48550/arXiv.2304.07590}}.
+
+\bibitem{qian_chatdev_2024}
+Chen Qian, Wei Liu, Hongzhang Liu, Nuo Chen, Yufan Dang, Jiahao Li, Cheng Yang, Weize Chen, Yusheng Su, Xin Cong, Juyuan Xu, Dahai Li, Zhiyuan Liu, and Maosong Sun.
+\newblock {ChatDev}: Communicative agents for software development.
+\newblock URL: \url{http://arxiv.org/abs/2307.07924}, \href {https://arxiv.org/abs/2307.07924 [cs]} {\path{arXiv:2307.07924 [cs]}}, \href {https://doi.org/10.48550/arXiv.2307.07924} {\path{doi:10.48550/arXiv.2307.07924}}.
+
+\bibitem{acharya_devin_2025}
+Kamal Acharya.
+\newblock Devin: A cautionary tale of the autonomous {AI} engineer.
+\newblock URL: \url{https://medium.com/@lotussavy/devin-a-cautionary-tale-of-the-autonomous-ai-engineer-e1339ede8f8a}.
+
+\bibitem{noauthor_aider-aiaider_2025}
+Aider-{AI}/aider.
+\newblock original-date: 2023-05-09T18:57:49Z.
+\newblock URL: \url{https://github.com/Aider-AI/aider}.
+
+\bibitem{gao_retrieval-augmented_2024}
+Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yi~Dai, Jiawei Sun, Meng Wang, and Haofen Wang.
+\newblock Retrieval-augmented generation for large language models: A survey.
+\newblock URL: \url{http://arxiv.org/abs/2312.10997}, \href {https://arxiv.org/abs/2312.10997 [cs]} {\path{arXiv:2312.10997 [cs]}}, \href {https://doi.org/10.48550/arXiv.2312.10997} {\path{doi:10.48550/arXiv.2312.10997}}.
+
+\bibitem{yao_react_2023}
+Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao.
+\newblock {ReAct}: Synergizing reasoning and acting in language models.
+\newblock URL: \url{http://arxiv.org/abs/2210.03629}, \href {https://arxiv.org/abs/2210.03629 [cs]} {\path{arXiv:2210.03629 [cs]}}, \href {https://doi.org/10.48550/arXiv.2210.03629} {\path{doi:10.48550/arXiv.2210.03629}}.
 
 \bibitem{ritz_artificial_2023}
 Eva Ritz, Fabio Donisi, Edona Elshan, and Roman Rietsche.
@@ -30,16 +68,6 @@ Andrei~Cristian Ionescu, Sergey Titov, and Maliheh Izadi.
 \newblock A multi-agent onboarding assistant based on large language models, retrieval augmented generation, and chain-of-thought.
 \newblock URL: \url{http://arxiv.org/abs/2503.23421}, \href {https://arxiv.org/abs/2503.23421 [cs]} {\path{arXiv:2503.23421 [cs]}}, \href {https://doi.org/10.48550/arXiv.2503.23421} {\path{doi:10.48550/arXiv.2503.23421}}.
 
-\bibitem{vaswani_attention_2023}
-Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
-\newblock Attention is all you need.
-\newblock URL: \url{http://arxiv.org/abs/1706.03762}, \href {https://arxiv.org/abs/1706.03762 [cs]} {\path{arXiv:1706.03762 [cs]}}, \href {https://doi.org/10.48550/arXiv.1706.03762} {\path{doi:10.48550/arXiv.1706.03762}}.
-
-\bibitem{yao_react_2023}
-Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao.
-\newblock {ReAct}: Synergizing reasoning and acting in language models.
-\newblock URL: \url{http://arxiv.org/abs/2210.03629}, \href {https://arxiv.org/abs/2210.03629 [cs]} {\path{arXiv:2210.03629 [cs]}}, \href {https://doi.org/10.48550/arXiv.2210.03629} {\path{doi:10.48550/arXiv.2210.03629}}.
-
 \bibitem{noauthor_model_nodate}
 Model context protocol ({MCP}).
 \newblock URL: \url{https://docs.anthropic.com/en/docs/agents-and-tools/mcp}.
@@ -48,11 +76,6 @@ Model context protocol ({MCP}).
 Fengbin Zhu, Wenqiang Lei, Chao Wang, Jianming Zheng, Soujanya Poria, and Tat-Seng Chua.
 \newblock Retrieving and reading: A comprehensive survey on open-domain question answering.
 \newblock URL: \url{http://arxiv.org/abs/2101.00774}, \href {https://arxiv.org/abs/2101.00774 [cs]} {\path{arXiv:2101.00774 [cs]}}, \href {https://doi.org/10.48550/arXiv.2101.00774} {\path{doi:10.48550/arXiv.2101.00774}}.
-
-\bibitem{gao_retrieval-augmented_2024}
-Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yi~Dai, Jiawei Sun, Meng Wang, and Haofen Wang.
-\newblock Retrieval-augmented generation for large language models: A survey.
-\newblock URL: \url{http://arxiv.org/abs/2312.10997}, \href {https://arxiv.org/abs/2312.10997 [cs]} {\path{arXiv:2312.10997 [cs]}}, \href {https://doi.org/10.48550/arXiv.2312.10997} {\path{doi:10.48550/arXiv.2312.10997}}.
 
 \bibitem{ma_query_nodate}
 Xinbei Ma, Yeyun Gong, Pengcheng He, Hai Zhao, and Nan Duan.
@@ -231,11 +254,6 @@ Mingchen Zhuge, Haozhe Liu, Francesco Faccio, Dylan~R. Ashley, Róbert Csordás,
 Yilun Du, Shuang Li, Antonio Torralba, Joshua~B Tenenbaum, and Igor Mordatch.
 \newblock Improving factuality and reasoning in language models through multiagent debate.
 
-\bibitem{qian_chatdev_2024}
-Chen Qian, Wei Liu, Hongzhang Liu, Nuo Chen, Yufan Dang, Jiahao Li, Cheng Yang, Weize Chen, Yusheng Su, Xin Cong, Juyuan Xu, Dahai Li, Zhiyuan Liu, and Maosong Sun.
-\newblock {ChatDev}: Communicative agents for software development.
-\newblock URL: \url{http://arxiv.org/abs/2307.07924}, \href {https://arxiv.org/abs/2307.07924 [cs]} {\path{arXiv:2307.07924 [cs]}}, \href {https://doi.org/10.48550/arXiv.2307.07924} {\path{doi:10.48550/arXiv.2307.07924}}.
-
 \bibitem{hong_metagpt_2024}
 Sirui Hong, Mingchen Zhuge, Jiaqi Chen, Xiawu Zheng, Yuheng Cheng, Ceyao Zhang, Jinlin Wang, Zili Wang, Steven Ka~Shing Yau, Zijuan Lin, Liyang Zhou, Chenyu Ran, Lingfeng Xiao, Chenglin Wu, and Jürgen Schmidhuber.
 \newblock {MetaGPT}: Meta programming for a multi-agent collaborative framework.
@@ -258,11 +276,6 @@ sourcegraph/scip.
 \bibitem{noauthor_sourcegraphsourcegraph-public-snapshot_nodate}
 sourcegraph/sourcegraph-public-snapshot: Code {AI} platform with code search \& cody.
 \newblock URL: \url{https://github.com/sourcegraph/sourcegraph-public-snapshot}.
-
-\bibitem{acharya_devin_2025}
-Kamal Acharya.
-\newblock Devin: A cautionary tale of the autonomous {AI} engineer.
-\newblock URL: \url{https://medium.com/@lotussavy/devin-a-cautionary-tale-of-the-autonomous-ai-engineer-e1339ede8f8a}.
 
 \bibitem{noauthor_building_2023}
 Building a better repository map with tree sitter.
