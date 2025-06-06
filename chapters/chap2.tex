@@ -1,22 +1,22 @@
 Una vez establecido el objetivo de este proyecto en la introducción, en este capítulo se describirán los conceptos generales necesarios para la comprensión de este documento. Para ello, en primer lugar se detalla el proceso de onboarding en proyectos software y las dificultades que presenta, junto con el trabajo previo realizado en este ámbito.
 
-Por otro lado, se explicará a grandes rasgos qué son los agentes basados en grandes modelos de lenguaje (conocidos también por el anglicismo Large Language Models o por sus siglas LLM), su arquitectura, funcionamiento e interacción con herramientas externas. Se introduce además el Model Context Protocol como estándar de comunicación entre estos componentes.
+Por otro lado, se explicará a grandes rasgos qué son los agentes basados en grandes modelos de lenguaje (conocidos también por el anglicismo Large Language Models o por sus siglas LLM), su funcionamiento e interacción con herramientas externas. Se introduce además el Model Context Protocol como estándar de comunicación entre estos componentes.
 
-Finalmente, se aborda el estado del arte en arquitecturas de agentes, sus aplicaciones en proyectos software y las técnicas de ajuste de modelos.
+Finalmente, se aborda el estado del arte en arquitecturas de agentes, sus aplicaciones en proyectos software, técnicas de evaluación y varias consideraciones sobre el ajuste de estos.
 
 \section{Onboarding en proyectos software}
-El proceso de incorporación (onboarding) de nuevos desarrolladores de software constituye un desafío persistente para las organizaciones tecnológicas, donde los recién incorporados enfrentan una sobrecarga informativa mientras los desarrolladores senior ven afectada su productividad al destinar tiempo considerable a actividades de formación y mentoría\cite{sim_ramp-up_1998}. 
+El proceso de incorporación (\textit{onboarding}) de nuevos desarrolladores de software constituye un desafío persistente para las organizaciones tecnológicas, donde los recién incorporados enfrentan una sobrecarga informativa mientras los desarrolladores senior ven afectada su productividad al destinar tiempo considerable a actividades de formación y mentoría \cite{sim_ramp-up_1998}. 
 
-Si bien prácticas como la designación de mentores han demostrado ser efectivas para facilitar la integración de nuevos miembros, estas incrementan significativamente la carga de trabajo sobre los profesionales experimentados, generando potenciales retrasos en los proyectos -> cita
+Si bien prácticas como la designación de mentores han demostrado ser efectivas para facilitar la integración de nuevos miembros, estas incrementan significativamente la carga de trabajo sobre los profesionales experimentados, generando potenciales retrasos en los proyectos \cite{steinmacher_systematic_2015}.
 
-En este contexto, los modelos de lenguaje de gran escala emergen como una alternativa prometedora para transformar el proceso de onboarding, ofreciendo orientación personalizada e instantánea que podría reducir la dependencia de los desarrolladores senior, preservar la productividad global de los equipos y facilitar una incorporación más eficiente y menos disruptiva\cite{ritz_artificial_2023}.
+En este contexto, los modelos de lenguaje de gran escala emergen como una alternativa prometedora para transformar el proceso de onboarding. Su capacidad para sintetizar y razonar sobre una cantidad de información cada vez mayor ofrece la promesa de una orientación personalizada e instantánea que podría reducir la dependencia de los desarrolladores senior, preservar la productividad global de los equipos, y facilitar una incorporación más eficiente \cite{ritz_artificial_2023}.
 
 \subsection{Trabajo previo}
 \label{sec:trabajo_previo}
 
-La Universidad del País Vasco, en colaboración con LKS NEXT, desarrolló el prototipo denominado I Need a Hero (INAH), diseñado para aprovechar el potencial de los LLM en la localización de expertos dentro de la organización\cite{azanza_can_2024}. INAH opera en dos fases: primero crea perfiles de ``héroes'' extrayendo información de currículos de empleados dispuestos a asistir; luego, ante una consulta, utiliza GPT-3.5 para identificar las competencias requeridas y localizar a los profesionales que las poseen.
+La Universidad del País Vasco, en colaboración con LKS NEXT, desarrolló el prototipo denominado I Need a Hero (INAH), diseñado para aprovechar el potencial de los LLM en la localización de expertos dentro de la organización \cite{azanza_can_2024}. INAH opera en dos fases: primero crea perfiles de ``héroes'' extrayendo información de currículos de empleados dispuestos a asistir; luego, ante una consulta, utiliza GPT-3.5 para identificar las competencias requeridas y localizar a los profesionales que las poseen.
 
-En una línea de estudio complementaria, un trabajo reciente ha presentado el sistema ``Onboarding Buddy'', el cual implementa una arquitectura multi-agente que organiza diversos componentes especializados para proporcionar asistencia contextualizada durante la incorporación de nuevos desarrolladores\cite{ionescu_multi-agent_2025}.
+En una línea de estudio complementaria, un trabajo reciente ha presentado el sistema ``Onboarding Buddy'', el cual implementa una arquitectura multiagente que organiza diversos componentes especializados para proporcionar asistencia contextualizada durante la incorporación de nuevos desarrolladores \cite{ionescu_multi-agent_2025}.
 
 El sistema fundamenta su funcionamiento en la generación dinámica de planes mediante cadena de pensamiento \ref{plani}, evaluados posteriormente para determinar su posible descomposición en sub-tareas procesadas en paralelo por otros agentes.
 
@@ -26,7 +26,7 @@ Los agentes de Inteligencia Artificial son programas informáticos que implement
 
 \subsection{Modelos LLM}
 
-Los Grandes Modelos de Lenguaje son redes neuronales especializadas en el procesamiento del lenguaje natural que funcionan mediante un mecanismo de entrada-salida de tokens \ref{token}. Estos modelos reciben secuencias de tokens como entrada, denominada comúnmente "prompt", y generan secuencias de tokens como salida, aplicando durante este proceso las representaciones y relaciones semánticas aprendidas durante su fase de entrenamiento con extensos corpus textuales \cite{vaswani_attention_2023}.
+Los Grandes Modelos de Lenguaje son redes neuronales especializadas en el procesamiento del lenguaje natural que funcionan mediante un mecanismo de entrada-salida de tokens \ref{token}. Estos modelos reciben secuencias de tokens como entrada, denominada comúnmente "prompt", y generan secuencias de tokens como salida, aplicando durante este proceso las representaciones y relaciones semánticas aprendidas durante su fase de entrenamiento con extensos corpus textuales  \cite{vaswani_attention_2023}.
 
 Para comprender el funcionamiento de estos agentes, resulta imprescindible asimilar previamente conceptos como la tokenización, las representaciones vectoriales del lenguaje y el ajuste de dichos modelos.
 
@@ -46,11 +46,11 @@ Los agentes basados en LLM implementan en su mayoría modelos \textit{instruct},
 \subsection{Interacción con herramientas externas}
 Los agentes LLM poseen la capacidad de interactuar con diversas herramientas como búsquedas web, bases de datos o interfaces de usuario. Fundamentalmente, este tipo de modelos solo genera tokens de texto, por lo que la integración de herramientas se implementa mediante palabras clave o tokens especiales que este puede incluir en su salida. Para ello, en el texto de entrada se especifica el esquema de la función a utilizar y, si decide emplearla, el modelo generará el texto correspondiente. Posteriormente, se procesa la respuesta para extraer llamadas a funciones si las hubiese.
 
-La interacción con herramientas es típicamente alternante. Tras realizar la llamada a la herramienta, la salida de esta se utilizará como entrada para el siguiente mensaje del modelo. La Figura \ref{fig:herramientas} ilustra el esquema de un agente con acceso a una API del clima. Como el modelo carece de información climática en tiempo real, se le indica en el prompt la posibilidad de invocar esta función. Al incluir la llamada en su texto de salida, se ejecuta la función y su respuesta se transmite al modelo para generar el resultado final.
+La interacción con herramientas sigue un patrón secuencial. Tras realizar la llamada a la herramienta, la salida de esta se utilizará como entrada para el siguiente mensaje del modelo. La Figura \ref{fig:herramientas} ilustra el esquema de un agente con acceso a una API del clima que consulta información meteorológica. Como el modelo carece de dicha información en tiempo real, se le indica en el prompt la posibilidad de invocar esta función. Al incluir la llamada en su texto de salida, se ejecuta la función y su respuesta se transmite al modelo para generar el resultado final.
 
 \begin{figure}[H]
   \centering
-  \hspace{-3.60cm}\includegraphics[width=1.25\linewidth]{figures/herramienta.png}
+  \includegraphics[width=1.05\linewidth]{figures/herramienta.png}
   \caption{Ejemplo de interacción de un modelo LLM con una herramienta externa.}
   \label{fig:herramientas}
 \end{figure}
@@ -58,7 +58,7 @@ La interacción con herramientas es típicamente alternante. Tras realizar la ll
 
 \subsubsection{Patrón ReAct}
 \label{sec:react}
-El agente Reasoning and Act (ReAct) constituye uno de los patrones más utilizados\cite{yao_react_2023}. Se basa en un ciclo de tres pasos fundamentales: el razonamiento como generación de pensamiento sobre posibles acciones, la acción como ejecución de la herramienta seleccionada y la observación como procesamiento del resultado obtenido. Este ciclo se repite iterativamente hasta que durante la fase de razonamiento se determina que la tarea ha sido completada.
+El agente Reasoning and Act (ReAct) constituye uno de los patrones más utilizados \cite{yao_react_2023}. Se basa en un ciclo de tres pasos fundamentales: el razonamiento como generación de pensamiento sobre posibles acciones, la acción como ejecución de la herramienta seleccionada y la observación como procesamiento del resultado obtenido. Este ciclo se repite iterativamente hasta que durante la fase de razonamiento se determina que la tarea ha sido completada.
 
 %xu_rewoo_2023 -> rewoo para no pasar observaciones a react ~orquestar
 %react todo
@@ -81,11 +81,11 @@ Para este trabajo utilizaremos fundamentalmente LangChain para la gestión de ll
 
 \section{Model Context Protocol}
 \label{sec:mcp_prots}
-El Model Context Protocol (MCP), desarrollado por Anthropic, estandariza la comunicación entre agentes LLM y herramientas. Permite que aplicaciones diversas ofrezcan herramientas a agentes externos sin exponer detalles de implementación\cite{noauthor_model_nodate}.
+El Model Context Protocol (MCP), desarrollado por Anthropic, estandariza la comunicación entre agentes LLM y herramientas. Permite que aplicaciones diversas ofrezcan herramientas a agentes externos sin exponer detalles de implementación \cite{noauthor_model_nodate}.
 
 La Figura \ref{fig:mcp} ilustra el esquema operativo del protocolo. Los desarrolladores de Jira\footnote{Jira: \url{https://www.atlassian.com/es/software/jira}} y GitHub\footnote{GitHub: \url{https://github.com/}} han implementado un servidor MCP que traduce las interacciones con sus APIs y proporciona herramientas al cliente MCP. Esto permite que el desarrollador del agente se enfoque exclusivamente en conectar las herramientas del cliente con el agente, sin necesidad de interactuar con APIs externas. Asimismo, el cliente MCP gestiona la comunicación entre servidores, facilitando al agente el acceso directo a múltiples herramientas.
 
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
   \includegraphics[width=1\linewidth]{figures/mcp.png}
   \caption{Esquema de funcionamiento del Model Context Protocol.}
@@ -98,11 +98,10 @@ El protocolo ofrece dos modos de operación para establecer la comunicación ent
   \item{\textbf{Comunicación SSE: } el protocolo Server-Sent Events (SSE) establece un canal de comunicación unidireccional sobre HTTP desde el servidor hacia el cliente. Proporciona actualizaciones en tiempo real con capacidad de streaming. En el protocolo MCP, el cliente efectúa solicitudes para la ejecución de herramientas en el servidor mediante HTTP, a lo que el servidor puede responder mediante eventos SSE.}
 \item{\textbf{Comunicación STDIO: } el protocolo de entrada y salida estándar (STDIO) facilita la comunicación bidireccional entre cliente y servidor a nivel de proceso en el sistema operativo. Este mecanismo permite el intercambio de información en formato JSON a través de los canales estándar del sistema. Su diseño, orientado principalmente a entornos locales, restringe la conexión a un único cliente por servidor al limitarse a la comunicación entre dos procesos.}
 \end{itemize}
-La aplicación de escritorio Claude Desktop\footnote{Claude Desktop: \url{https://claude.ai/download}} de Anthropic constituye un reflejo del potencial del protocolo. Esta plataforma ofrece la posibilidad de interactuar con servidores mediante una configuración mínima. Implementando el protocolo STDIO, la aplicación ejecuta los servidores distribuidos por terceros a través de gestores de paquetes como uv\footnote{uv: \url{https://astral.sh/blog/uv}}, npx\footnote{npx: \url{https://docs.npmjs.com/cli/v8/commands/npx}} o Docker\footnote{Docker: \url{https://www.docker.com/}}. Al incorporar un cliente MCP en la aplicación, consigue integrar las herramientas disponibles en la interfaz de chat con los modelos de Anthropic.
+La aplicación Claude Desktop\footnote{Claude Desktop: \url{https://claude.ai/download}} de Anthropic demuestra el potencial del protocolo. Esta plataforma permite integrar servidores MCP de terceros con configuración mínima mediante gestores de paquetes estándar, facilitando el acceso a múltiples herramientas en la interfaz de chat.
 
 \section{Estado del arte en arquitecturas de agentes LLM}
 \label{sec:estado_arte}
-
 
 La comunidad científica ha diseñado diversas arquitecturas de agentes para optimizar el rendimiento de los modelos disponibles. La arquitectura RAG se distingue por complementar la entrada del modelo con información recuperada de documentos relevantes. Otras propuestas se centran en mejorar la comunicación y coordinación entre agentes.
 
@@ -110,124 +109,77 @@ La comunidad científica ha diseñado diversas arquitecturas de agentes para opt
 
 Los modelos LLM poseen un conocimiento restringido a los datos con los que fueron entrenados. Para superar esta limitación, la arquitectura RAG (Retrieval-Augmented Generation) complementa la generación del LLM mediante la recuperación de información relevante desde repositorios de conocimiento externos. La Figura \ref{fig:rag} ilustra un ejemplo de su funcionamiento.    
 
-\begin{figure}[H]
+\begin{figure}[hbtp]
   \centering
   \includegraphics[width=0.75\linewidth]{figures/RAG.png}
   \caption{Esquema de funcionamiento de la arquitectura RAG en un LLM \href{https://www.clarifai.com/blog/what-is-rag-retrieval-augmented-generation}{Fuente}.}
   \label{fig:rag}
 \end{figure}
 
-La recuperación de documentos relevantes se puede implementar mediate recuperadores dispersos: expresiones regulares, búsqueda de n-gramas, palabras clave, entre otras. No obstante, el enfoque predominante consiste en el uso de recuperadores densos, conocidos como indexación vectorial. En este método, los documentos se transforman en vectores, generalmente mediante LLMs especializados en codificación, denominados Embedders. Al representar los documentos en un espacio vectorial, es posible recuperar aquellos semánticamente más pertinentes mediante la comparación del vector de consulta con los vectores de los documentos indexados, utilizando métricas como la distancia coseno \ref{anexo:dis_cos}.
+La recuperación de documentos relevantes se puede implementar mediate recuperadores dispersos: expresiones regulares, búsqueda de n-gramas, palabras clave, entre otras. No obstante, el enfoque predominante consiste en el uso de recuperadores densos \cite{gao_retrieval-augmented_2024}, conocidos como indexación vectorial. En este método, los documentos se transforman en vectores, generalmente mediante LLMs especializados en codificación, denominados \textit{embedders}. Al representar los documentos en un espacio vectorial, es posible recuperar aquellos semánticamente más pertinentes mediante la comparación del vector de consulta con los vectores de los documentos indexados, utilizando métricas como la distancia coseno \ref{anexo:dis_cos}.
 
 \subsubsection{Estrategias RAG avanzadas}
 \label{sec:estr_rag}
-La optimización del rendimiento en arquitecturas RAG ha sido ampliamente estudiada \cite{zhu_retrieving_2021}\cite{gao_retrieval-augmented_2024}, enfocándose en tres áreas principales: el procesado de documentos, los sistemas de recuperación y la mejora del flujo de generación.
-\begin{itemize}
-  \item {\textbf{Procesado de documentos:}} la calidad de la indexación documental determina la eficacia del sistema. Entre las estrategias destacadas figuran la eliminación de ruido textual, el ajuste del tamaño óptimo de los segmentos indexados, y la técnica de ventana solapada. Esta última superpone fragmentos para preservar los datos situados en las intersecciones de los segmentos. 
+La optimización del rendimiento en arquitecturas RAG ha sido ampliamente estudiada \cite{zhu_retrieving_2021, gao_retrieval-augmented_2024}, enfocándose en tres áreas principales: el procesado de documentos, los sistemas de recuperación y la mejora del flujo de generación.
 
-\item {\textbf{Sistemas de recuperación:}} los recuperadores densos basados en representaciones, ilustrados en la Figura \ref{fig:rag}, precalculan las representaciones vectoriales de los documentos mediante una indexación independiente de las consultas. Por otro lado, los recuperadores basados en interacción, proponen calcular el vector para cada documento junto al vector de consulta durante el tiempo de ejecución, obteniendo así una representación más rica que captura las relaciones contextuales específicas entre ambos elementos\cite{ma_query_nodate}\cite{levine_standing_2022}.
+Dentro del procesado de documentos, la ventana solapada (Figura \ref{fig:rag_1}) superpone fragmentos de texto al dividir documentos largos en segmentos indexables para evitar pérdida de información en los límites entre fragmentos. En cuanto a la mejora del flujo de generación, los sistemas de salto múltiple (Figura \ref{fig:rag_2}) alternan entre recuperación y generación para abordar tareas complejas \cite{khattab_demonstrate-search-predict_2023, shao_enhancing_2023, qi_answering_2021, zheng_take_2024, trivedi_interleaving_2023}.
 
-Para contrarrestar el sobrecoste computacional de este enfoque, se han desarrollado técnicas de indexación híbridas que combinan ambos métodos. Estas técnicas permiten realizar una búsqueda inicial utilizando representaciones vectoriales y posteriormente refinar los resultados mediante la extracción interactiva\cite{khattab_relevance-guided_2021}. 
-  
-\item {\textbf{Optimización del flujo de generación:}} para tareas que requieren reflexión documentada, se han desarrollado sistemas de salto múltiple que alternan entre recuperación y generación\cite{khattab_demonstrate-search-predict_2023}\cite{shao_enhancing_2023}\cite{qi_answering_2021}\cite{zheng_take_2024}\cite{trivedi_interleaving_2023}. Estos flujos permiten al sistema examinar críticamente la información inicialmente recuperada, identificar lagunas informativas, y formular las consultas correspondientes para subsanar dichas carencias.
+\begin{figure}[h]
+\centering
+\makebox[\textwidth][c]{%
+  \subfloat[Ventana solapada para segmentación\label{fig:rag_1}]{\includegraphics[width=0.35\textwidth]{figures/overlap.png}}
+  \hfill
+  \subfloat[Iteración de recuperación y generación mediante RAG\label{fig:rag_2}]{\includegraphics[width=0.75\textwidth]{figures/multihop.png}}
+}
+\caption{Técnicas avanzadas de RAG}
+\label{fig:rag_avanzado}
+\end{figure}
 
-\end{itemize}
-
-%lazaridou_internet-augmented_2022 -> rag con internet
-%cheng_uprise_2023 -> rag sobre prompts
-
-%li_structure-aware_2023 -> datos estructurados aprender a lenguaje natural
-
-
-%kang_knowledge_2023 -> combinar RAG con GNN para relaciones 
 
 \subsection{Arquitecturas de interacción entre agentes}
-La interacción entre agentes LLM constituye un campo de investigación activo, distinguiéndose diversos avances en módulos de memoria, planificación e interacción multiagente\cite{wang_survey_2024}.
+La interacción entre agentes LLM constituye un campo de investigación activo, distinguiéndose diversos avances en módulos de memoria, planificación e interacción multiagente \cite{wang_survey_2024}.
 \begin{itemize}
   \label{sec:modulos_memoria}
-  \item{\textbf{Módulos de memoria}}: en una interacción conversacional, el modelo procesa todos los mensajes previos, pudiendo generar un contexto excesivamente amplio. Para mitigar este problema, se han desarrollados módulos de memoria que almacenan información relevante de interacciones pasadas de forma resumida\cite{zhang_building_2024-1}\cite{fischer_reflective_2023}\cite{liang_unleashing_2023}. Esta memoria puede consultarse posteriormente mediante RAG, permitiendo recuperar los elementos más relevantes según el contexto\cite{zhao_expel_2024}.
+  \item{\textbf{Módulos de memoria}}: en una interacción conversacional, el modelo procesa todos los mensajes previos, pudiendo generar un contexto excesivamente amplio. Para mitigar este problema, se han desarrollados módulos de memoria que almacenan información relevante de interacciones pasadas de forma resumida \cite{zhang_building_2024-1, fischer_reflective_2023, liang_unleashing_2023}. Esta memoria puede consultarse posteriormente mediante RAG, permitiendo recuperar los elementos más relevantes según el contexto \cite{zhao_expel_2024}.
 
-Algunos módulos se inspiran en la estructura de la memoria humana\cite{zhong_memorybank_2024}, incorporando mecanismos que almacenan información con distintas temporalidades y niveles de relevancia\cite{wang_survey_2024}\cite{park_generative_2023}.
+Algunos módulos se inspiran en la estructura de la memoria humana \cite{zhong_memorybank_2024}, incorporando mecanismos que almacenan información con distintas temporalidades y niveles de relevancia \cite{wang_survey_2024, park_generative_2023}.
 
 
 \item{\textbf{Planificación}}\label{plani}: los mecanismos de planificación potencian el razonamiento de los agentes sobre sus acciones futuras.
 
-  Entre estos mecanismos destaca el prompting de cadena de pensamiento (Chain of Thought)\cite{wei_chain--thought_2023}, que instruye al modelo para elaborar un razonamiento secuencial previo a su decisión final, permitiendo así descomponer problemas complejos paso a paso.
-Partiendo de este enfoque, estrategias avanzadas como la autoconsciencia\cite{liang_unleashing_2023} lo amplían mediante la generación de múltiples cadenas de razonamiento independientes y la posterior selección de la respuesta óptima entre ellas\cite{yao_tree_nodate}\cite{wang_recmind_2024}.
+  Entre estos mecanismos destaca el prompting de cadena de pensamiento (Chain of Thought) \cite{wei_chain--thought_2023}, que instruye al modelo para elaborar un razonamiento secuencial previo a su decisión final, permitiendo así descomponer problemas complejos paso a paso.
+Partiendo de este enfoque, estrategias avanzadas como la autoconsciencia \cite{liang_unleashing_2023} lo amplían mediante la generación de múltiples cadenas de razonamiento independientes y la posterior selección de la respuesta óptima entre ellas \cite{yao_tree_nodate, wang_recmind_2024}.
 
-De manera complementaria, las técnicas de reflexión\cite{shinn_reflexion_nodate}\cite{madaan_self-refine_nodate}\cite{miao_selfcheck_2023} implementan un proceso iterativo donde el propio modelo evalúa y refina sus respuestas.
+De manera complementaria, las técnicas de reflexión \cite{shinn_reflexion_nodate, madaan_self-refine_nodate, miao_selfcheck_2023} implementan un proceso iterativo donde el propio modelo evalúa y refina sus respuestas.
 
-Por otro lado, la estructuración de acciones constituye una metodología ampliamente adoptada en la planificación\cite{lin_swiftsage_nodate}\cite{huang_language_nodate}\cite{wang_describe_2024}. Esta técnica permite definir planes de alto nivel que posteriormente se desglosan en acciones específicas ejecutables por los agentes\cite{zhu_ghost_2023}\cite{song_llm-planner_2023}\cite{wang_voyager_2023}\cite{liu_odyssey_2024}. Adicionalmente, la definición de interdependencias entre estas acciones permite verificar la validez de los planes generados\cite{raman_planning_nodate}\cite{liu_llmp_2023}\cite{dagan_dynamic_2023}.
+Por otro lado, la estructuración de acciones constituye una metodología ampliamente adoptada en la planificación \cite{lin_swiftsage_nodate, huang_language_nodate, wang_describe_2024}. Esta técnica permite definir planes de alto nivel que posteriormente se desglosan en acciones específicas ejecutables por los agentes \cite{zhu_ghost_2023, song_llm-planner_2023, wang_voyager_2023, liu_odyssey_2024}. Adicionalmente, la definición de interdependencias entre estas acciones permite verificar la validez de los planes generados \cite{raman_planning_nodate, liu_llmp_2023, dagan_dynamic_2023}.
 
-Los modelos razonadores como o1 de OpenAI o DeepSeek-R1 incorporan estas técnicas de forma nativa\cite{noauthor_deepseek-r1deepseek_r1pdf_nodate}. Estos han sido entrenados con datos que incluye ejemplos de razonamiento y planificación, lo que les permite generar respuestas que incluyen dichas estructuras.
+Los modelos razonadores como o1 de OpenAI o DeepSeek-R1 incorporan estas técnicas de forma nativa \cite{noauthor_deepseek-r1deepseek_r1pdf_nodate}. Estos han sido entrenados con datos que incluyen ejemplos de razonamiento y planificación, lo que les permite generar respuestas que siguen dichas estructuras.
 
 
-\item{\textbf{Interacción entre agentes: }}los sistemas multi-agente implementan una arquitectura donde diversos agentes especializados son coordinados por un componente central denominado orquestador\cite{karpas_mrkl_2022}\cite{ge_openagi_nodate}. En este paradigma, cada agente se especializa en una función particular, como la búsqueda de información, la ejecución de herramientas o la generación de texto. El orquestador evalúa las consultas entrantes y las dirige hacia el agente más competente para resolverlas.
+\item{\textbf{Interacción entre agentes: }}los sistemas multiagente implementan una arquitectura donde diversos agentes especializados son coordinados por un componente central denominado orquestador \cite{karpas_mrkl_2022, ge_openagi_nodate}. En este paradigma, cada agente se especializa en una función particular, como la búsqueda de información, la ejecución de herramientas o la generación de texto. El orquestador evalúa las consultas entrantes y las dirige hacia el agente más competente para resolverlas.
 
-Enfoques complementarios proponen la interacción directa entre agentes especializados como mecanismo de retroalimentación\cite{zhuge_mindstorms_2023}\cite{du_improving_nodate}. Por ejemplo, ChatDev\cite{qian_chatdev_2024} establece un sistema de colaboración entre agentes programadores, testers y gestores para abordar problemas de ingeniería de software. MetaGPT\cite{hong_metagpt_2024} refina esta propuesta al implementar un protocolo de comunicación basado en el patrón publicador/suscriptor entre los agentes, permitiéndoles difundir información de forma selectiva. 
+Enfoques complementarios proponen la interacción directa entre agentes especializados como mecanismo de retroalimentación \cite{zhuge_mindstorms_2023, du_improving_nodate}. Por ejemplo, ChatDev \cite{qian_chatdev_2024} establece un sistema de colaboración entre agentes programadores, testers y gestores para abordar problemas de ingeniería de software. MetaGPT \cite{hong_metagpt_2024} refina esta propuesta al implementar un protocolo de comunicación basado en el patrón publicador/suscriptor entre los agentes, permitiéndoles difundir información de forma selectiva. 
 \end{itemize}
 
+\subsection{Evaluación de agentes}
+La evaluación del rendimiento de agentes permite comparar su eficacia en diferentes dominios y configuraciones. Se han desarrollado diversas estrategias que abordan desde la calidad de las respuestas hasta comportamientos específicos como la selección de herramientas.
+
+Las métricas de dominio constituyen el enfoque más directo, utilizando bancos de pruebas con preguntas y respuestas anotadas para comparar programáticamente los resultados obtenidos \cite{jimenez_swe-bench_2024, liu_agentbench_2023, zhou_webarena_2024}. Complementariamente, es posible evaluar la correcta utilización de herramientas mediante conjuntos de datos específicos como ToolLLM \cite{qin_toolllm_2023}, que anota qué herramientas son necesarias en cada caso para determinar si el agente evaluado realiza las llamadas apropiadas \cite{li_api-bank_2023, song_restgpt_2023}.
+
+LangSmith proporciona un marco de evaluación personalizable que permite definir métricas específicas y conjuntos de datos orientados al uso de agentes. Esta plataforma ofrece una interfaz web que facilita la ejecución y visualización de evaluaciones, habiendo sido objeto de estudio en el TFG de Mikel Lonbide en LKS Next.
 
 \section{Agentes LLM en proyectos software}
+La integración de agentes en proyectos software ha sido objeto de estudio enfocándose principalmente en el ámbito de la generación automática de código. Se pueden destacar tres niveles de autonomía en los productos desarrollados: sugerencias de autocompletado, asistentes de programación y agentes autónomos.
 
-La integración de agentes en proyectos software ha sido objeto de estudio enfocándose principalmente en el ámbito de la generación automática de código. Se pueden destacar tres niveles de autonomía en los productos desarrrollados: sugerencias de autocompletado, asistentes de programación y agentes autónomos. 
+\textbf{Sugerencias de autocompletado:} GitHub Copilot\footnote{GitHub Copilot: \url{https://github.com/features/copilot}} o Cursor\footnote{Cursor: \url{https://www.cursor.com/}} ofrecen sugerencias de código en tiempo real integradas directamente en el entorno de desarrollo. Estas herramientas han demostrado eficacia para aumentar la productividad en tareas repetitivas \cite{kalliamvakou_research_2022}, aunque presentan limitaciones en razonamiento profundo debido a su enfoque en rapidez de respuesta.
 
-\begin{itemize}
-  \item {\textbf{Sugerencias de autocompletado:}} GitHub Copilot\footnote{GitHub Copilot: \url{https://github.com/features/copilot}} o Cursor\footnote{Cursor: \url{https://www.cursor.com/}} ofrecen la integración de un modelo LLM ajustado para generación de código directamente al entorno del desarrollador. De esta forma, el desarrollador recibe sugerencias de autocompletado en tiempo real mientras escribe el código.  
+\textbf{Asistentes de programación:} Herramientas como GitHub Copilot Chat, Cursor o Cody\footnote{Cody: \url{https://sourcegraph.com/cody}} de SourceGraph\footnote{SourceGraph: \url{https://sourcegraph.com/}} proporcionan interfaces de chat interactivas para consultas específicas sobre código \cite{noauthor_github_nodate}. SourceGraph implementa un sistema que combina análisis estructural del código mediante grafos de dependencias con mecanismos RAG para generar respuestas contextualizadas \cite{noauthor_sourcegraphscip_2025,noauthor_sourcegraphsourcegraph-public-snapshot_nodate}.
 
-Este tipo de herramientas han demostrado ser eficaces para aumentar la productividad de los desarrolladores en tareas de programación repetitivas\cite{kalliamvakou_research_2022}. Sin embargo, debido a su enfoque en la rapidez de respuesta, presentan limitaciones en la aplicación de razonamiento profundo.
-
-\item {\textbf{Asistentes de programación:}} principalmente en aplicaciones en forma de chat, herramientas como GitHub Copilot Chat, Cursor o Cody\footnote{Cody: \url{https://sourcegraph.com/cody}} de SourceGraph\footnote{SourceGraph: \url{https://sourcegraph.com/}} ofrecen un sistema de chat interactivo que permite al desarrollador realizar preguntas específicas sobre el código\cite{noauthor_github_nodate}.
-  
-Cabe destacar el proyecto SourceGraph, el cual al ser inicialmente de código abierto ha publicado una explicación de su funcionamiento. Proporciona un sistema avanzado de navegación de código que permite la integración del agente LLM denominado Cody.
-
-La arquitectura de este sistema opera en dos etapas: en primera instancia, los servidores de lenguaje específicos para cada lenguaje de programación analizan la estructura del código fuente, generando un grafo de dependencias que representa las relaciones jerárquicas entre los distintos elementos del código (funciones, clases, métodos, interfaces, entre otros)\cite{noauthor_sourcegraphscip_2025}. Posteriormente, el sistema implementa un mecanismo RAG basado en trigramas sobre el grafo del proyecto, cuyos fragmentos son suministrados al agente Cody, que procesa esta información estructurada y elabora respuestas contextualizadas a las consultas del desarrollador\cite{noauthor_sourcegraphsourcegraph-public-snapshot_nodate}.
-
-\item {\textbf{Agentes autónomos:}} con un enfoque más ambicioso, soluciones como Aider\footnote{Aider: \url{https://aider.chat/}} o DevinAI\footnote{DeviAI: \url{https://devin.ai/}} persiguen la automatización del ciclo completo de desarrollo de software. Debido a la complejidad inherente a dicha tarea, estas herramientas permanecen en una fase incipiente\cite{acharya_devin_2025}.
-
-  El funcionamiento de Aider presenta similitudes con SourceGraph\cite{noauthor_building_2023}. En primera instancia, analiza el código fuente mediante la biblioteca Tree-sitter\footnote{Tree-sitter: \url{https://tree-sitter.github.io/tree-sitter/}}, generando un grafo de dependencias que representa las definiciones (funciones, clases, interfaces, etc.) y las referencias entre estas. Posteriormente, implementa un algoritmo de clasificación de grafos para determinar la relevancia de cada nodo respecto al contexto actual. De este modo, incorpora dicho contexto junto con un mapa de los ficheros del proyecto en la entrada del agente LLM.  
-
-\end{itemize}
+\textbf{Agentes autónomos:} Soluciones como Aider\footnote{Aider: \url{https://aider.chat/}} o DevinAI\footnote{DeviAI: \url{https://devin.ai/}} buscan automatizar el ciclo completo de desarrollo, aunque permanecen en fase experimental debido a su complejidad \cite{acharya_devin_2025}. Aider utiliza Tree-sitter\footnote{Tree-sitter: \url{https://tree-sitter.github.io/tree-sitter/}} para analizar código fuente y generar grafos de dependencias, implementando algoritmos de clasificación para determinar la relevancia contextual \cite{noauthor_building_2023}.
 
 \section{Ajuste de modelos para agentes LLM}
-\subsection{Limitaciones de los modelos actuales}
-Los modelos \textit{instruct} del estado del arte poseen la capacidad de resolver tareas que requieren comportamiento agéntico gracias a su amplio conocimiento general. No obstante, su eficiencia es cuestionable, puesto que para tareas específicas pueden carecer de ciertos conocimientos particulares, mientras que disponen de una cantidad considerable de información superflua. Se estima que los modelos más avanzados en la actualidad, como GPT-4o o Claude 3.7 Sonnet, contienen cientos de miles de millones de parámetros\cite{noauthor_number_2024}, lo que los convierte en prohibitivamente costosos para su ejecución en entornos locales.
 
-Debido a estas limitaciones y por tratarse de modelos propietarios, estos están disponibles únicamente a través de API. Este modelo de acceso requiere enviar los datos a servidores externos, planteando así preocupaciones sobre la privacidad y la seguridad de la información. Esta restricción es especialmente relevante en el ámbito del desarrollo de software, donde los datos pueden incluir información sensible o confidencial.
+Los modelos instruct del estado del arte, aunque capaces de resolver tareas agénticas, presentan limitaciones significativas para aplicaciones especializadas. Su gran tamaño (cientos de miles de millones de parámetros) los hace costosos computacionalmente \cite{noauthor_number_2024}, mientras que su acceso únicamente vía API plantea preocupaciones de privacidad al requerir envío de datos a servidores externos, especialmente relevante en desarrollo de software con información sensible.
 
-\subsection{Enfoques de ajuste fino para agentes específicos}
-Como consecuencia de estas limitación, diversos proyectos de investigación han propuesto el ajuste fino de modelos de menor dimensión para tareas agénticas específicas. Mediante esta aproximación, es posible obtener modelos con mayor precisión en las tareas requeridas, pero con una fracción del coste.
-
-Enfoques como FireAct\cite{chen_fireact_2023} y AgentTuning\cite{zeng_agenttuning_2023} proponen el entrenamiento de dichos modelos mediante una estrategia de destilación. Esto consiste en previamente utilizar un modelo instruct de gran tamaño para generar un conjunto de datos sintéticos para las respuestas del agente. Posteriormente, se ajusta un modelo de menor tamaño utilizando este conjunto de datos, de forma que el conocimiento del modelo grande se destila en el modelo pequeño.
-
-Adicionalmente, Agent-FLAN\cite{chen_agent-flan_2024} propone la división de dichos datos de entrenamiento en varios conjuntos de aprendizaje. Debido a que los modelos aprenden antes a interpretar el formato de entrada que a razonar sobre la acción a realizar, se propone modificar parte de las trazas de entrenamiento para que estas tengan una estructura conversacional.
-De esta forma, al ajustar el modelo con las trazas originales, este aprende la estructura de entrada y llamada de herramientas, mientras que en las trazas conversacionales, el modelo aprende a razonar sobre la acción a realizar.
-
-\subsection{Técnicas de entrenamiento eficiente}
-El entrenamiento de estos modelos se realiza mediante el ajuste de los pesos de la red neuronal. Debido a que el ajuste fino del modelo completo es costoso, en contextos de bajo coste se propone el uso de la técnica de entrenamiento Low Rank Adaptation (LoRA)\cite{hu_lora_2021}. Esta técnica consiste en ajustar únicamente un subconjunto de los pesos de la red neuronal, lo que permite reducir significativamente el coste computacional del ajuste fino.
-
-
-
-
-%todo en capitulo agente código:
-%rana_sayplan_2023 -> robot con path de la casa -> similar a repo
-%gramopadhye_generating_2023 -> mejora al anterior con few shots entorno
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Para abordar estas limitaciones, diversos enfoques como FireAct \cite{chen_fireact_2023}, AgentTuning \cite{zeng_agenttuning_2023} y Agent-FLAN \cite{chen_agent-flan_2024} proponen el ajuste fino de modelos menores mediante destilación: utilizan un modelo grande para generar datos sintéticos de entrenamiento, que posteriormente se emplean para especializar modelos más pequeños en tareas específicas, obteniendo precisión similar con una fracción del costo computacional.

@@ -4,53 +4,56 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Ejemplo de interacción de un modelo LLM con una herramienta externa.}}{6}{figure.2.1}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Esquema de funcionamiento del Model Context Protocol.}}{7}{figure.2.2}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Esquema de funcionamiento de la arquitectura RAG en un LLM \href {https://www.clarifai.com/blog/what-is-rag-retrieval-augmented-generation}{Fuente}.}}{9}{figure.2.3}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Técnicas avanzadas de RAG}}{10}{figure.2.4}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ventana solapada para segmentación}}}{10}{subfigure.4.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Iteración de recuperación y generación mediante RAG}}}{10}{subfigure.4.2}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de Gantt del proyecto}}{21}{figure.3.3}%
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Estructura de Descomposición de Trabajo (EDT) del proyecto}}{26}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Dependencias entre tareas del proyecto}}{27}{figure.3.2}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Estimación horaria de cada tarea}}{28}{figure.3.4}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de Gantt del proyecto}}{19}{figure.3.3}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Estructura de Descomposición de Trabajo (EDT) del proyecto}}{24}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Dependencias entre tareas del proyecto}}{25}{figure.3.2}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Estimación horaria de cada tarea}}{26}{figure.3.4}%
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Estructura de directorios principales del proyecto}}{36}{figure.5.1}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Diagrama de clases UML de del sistema de agentes.}}{38}{figure.5.2}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Estructura de directorios principales del proyecto}}{34}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Diagrama de clases UML de del sistema de agentes.}}{36}{figure.5.2}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Grafo de ejecución de agentes especializados}}{50}{figure.6.1}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Diagrama de funcionamiento del sistema de citas}}{52}{figure.6.2}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Diagrama relacional de la base de datos con el código fuente del proyecto software}}{54}{figure.6.3}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Algoritmo de chunking considerando definiciones de funciones y clases en el código fuente}}{55}{figure.6.4}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Comparación de agente Confluence estándar y enfocado en el cacheo del prompt}}{58}{figure.6.5}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Grafo de ejecución de agentes especializados}}{48}{figure.6.1}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Diagrama de funcionamiento del sistema de citas}}{50}{figure.6.2}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Diagrama relacional de la base de datos con el código fuente del proyecto software}}{52}{figure.6.3}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Algoritmo de chunking considerando definiciones de funciones y clases en el código fuente}}{53}{figure.6.4}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Comparación de agente Confluence estándar y enfocado en el cacheo del prompt}}{56}{figure.6.5}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Flujo operativo del agente planificador}}{63}{figure.7.1}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Variaciones de orquestación principales experimentadas}}{65}{figure.7.2}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sistema con planificador y orquestador independientes}}}{65}{subfigure.2.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sistema con planificador y orquestador fusionados}}}{65}{subfigure.2.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Sistema con orquestador como agente ReAct}}}{65}{subfigure.2.3}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Flujo operativo del agente planificador}}{61}{figure.7.1}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Variaciones de orquestación principales experimentadas}}{63}{figure.7.2}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sistema con planificador y orquestador independientes}}}{63}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sistema con planificador y orquestador fusionados}}}{63}{subfigure.2.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Sistema con orquestador como agente ReAct}}}{63}{subfigure.2.3}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Flujo operativo del sistema de memoria de los agentes especializados}}{69}{figure.8.1}%
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Agrupación de memoria por clústeres}}{70}{figure.8.2}%
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Agrupación de 3 clústeres}}{71}{figure.8.3}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualización de clústeres en dos dimensiones}}}{71}{subfigure.3.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Método del codo sobre agrupación de clústeres}}}{71}{subfigure.3.2}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Flujo operativo del sistema de memoria de los agentes especializados}}{67}{figure.8.1}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Agrupación de memoria por clústeres}}{68}{figure.8.2}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Agrupación de 3 clústeres}}{69}{figure.8.3}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualización de clústeres en dos dimensiones}}}{69}{subfigure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Método del codo sobre agrupación de clústeres}}}{69}{subfigure.3.2}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Mecanismo de evaluación de agentes}}{77}{figure.9.1}%
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Comparación de métricas entre versión inicial y mejorada de agentes especialistas}}{81}{figure.9.2}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{81}{subfigure.2.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión citación}}}{81}{subfigure.2.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Precisión de herramientas}}}{81}{subfigure.2.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Alucinación (más es mejor)}}}{81}{subfigure.2.4}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Tokens por ejecución (millares)}}}{81}{subfigure.2.5}%
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Evaluación de agentes orquestador y planificador antes y después de prompting few-shot}}{82}{figure.9.3}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{82}{subfigure.3.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión herramientas}}}{82}{subfigure.3.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Alucinación (más es mejor)}}}{82}{subfigure.3.3}%
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Comparación de rendimiento y costo entre diferentes variaciones de orquestación}}{82}{figure.9.4}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{82}{subfigure.4.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Costo total de tokens (millones)}}}{82}{subfigure.4.2}%
-\contentsline {figure}{\numberline {9.5}{\ignorespaces Resultados de evaluación para el sistema con y sin memoria}}{83}{figure.9.5}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Evaluación con memorias de entrenamiento sobre conjunto de evaluación}}}{83}{subfigure.5.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Evaluación con memorias de evaluación sobre conjunto de evaluación}}}{83}{subfigure.5.2}%
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Mecanismo de evaluación de agentes}}{75}{figure.9.1}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Comparación de métricas entre versión inicial y mejorada de agentes especialistas}}{79}{figure.9.2}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{79}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión citación}}}{79}{subfigure.2.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Precisión de herramientas}}}{79}{subfigure.2.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Alucinación (más es mejor)}}}{79}{subfigure.2.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Tokens por ejecución (millares)}}}{79}{subfigure.2.5}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Evaluación de agentes orquestador y planificador antes y después de prompting few-shot}}{80}{figure.9.3}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{80}{subfigure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión herramientas}}}{80}{subfigure.3.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Alucinación (más es mejor)}}}{80}{subfigure.3.3}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Comparación de rendimiento y costo entre diferentes variaciones de orquestación}}{80}{figure.9.4}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{80}{subfigure.4.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Costo total de tokens (millones)}}}{80}{subfigure.4.2}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Resultados de evaluación para el sistema con y sin memoria}}{81}{figure.9.5}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Evaluación con memorias de entrenamiento sobre conjunto de evaluación}}}{81}{subfigure.5.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Evaluación con memorias de evaluación sobre conjunto de evaluación}}}{81}{subfigure.5.2}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Comparación de dedicación horaria estimada y real}}{89}{figure.10.1}%
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Comparación de dedicación horaria estimada y real}}{87}{figure.10.1}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

@@ -681,6 +681,19 @@ INPUT ./figures/RAG.png
 INPUT ./figures/RAG.png
 INPUT ./figures/RAG.png
 INPUT ./figures/RAG.png
+INPUT ./figures/overlap.png
+INPUT ./figures/overlap.png
+INPUT ./figures/overlap.png
+INPUT ./figures/overlap.png
+INPUT ./figures/overlap.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-t1.tfm
+INPUT ./figures/multihop.png
+INPUT ./figures/multihop.png
+INPUT ./figures/multihop.png
+INPUT ./figures/multihop.png
+INPUT ./figures/multihop.png
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTB-tlf-t1.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-t1--base.tfm
 INPUT chapters/chap3plani.tex
 INPUT ./figures/paquetes.png
 INPUT ./figures/paquetes.png
@@ -760,7 +773,6 @@ INPUT ./figures/orch_1.png
 INPUT ./figures/orch_1.png
 INPUT ./figures/orch_1.png
 INPUT ./figures/orch_1.png
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-t1.tfm
 INPUT ./figures/orch_2.png
 INPUT ./figures/orch_2.png
 INPUT ./figures/orch_2.png
@@ -771,8 +783,6 @@ INPUT ./figures/orch_3.png
 INPUT ./figures/orch_3.png
 INPUT ./figures/orch_3.png
 INPUT ./figures/orch_3.png
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTB-tlf-t1.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-t1--base.tfm
 INPUT chapters/chap8.tex
 INPUT ./figures/memoria_1.png
 INPUT ./figures/memoria_1.png
