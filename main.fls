@@ -712,11 +712,11 @@ INPUT ./figures/dependencias_2.png
 INPUT ./figures/dependencias_2.png
 INPUT ./figures/dependencias_2.png
 INPUT ./figures/dependencias_2.png
-INPUT ./figures/horas.png
-INPUT ./figures/horas.png
-INPUT ./figures/horas.png
-INPUT ./figures/horas.png
-INPUT ./figures/horas.png
+INPUT ./figures/horas.pdf
+INPUT ./figures/horas.pdf
+INPUT ./figures/horas.pdf
+INPUT ./figures/horas.pdf
+INPUT ./figures/horas.pdf
 INPUT chapters/chap4.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4r-0.tfm
 INPUT chapters/chap5.tex

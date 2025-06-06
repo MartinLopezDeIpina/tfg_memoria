@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1749206543.51272 "main.aux" "main.bbl" "main" 1749206543.61414 2
+["bibtex main"] 1749212260.95667 "main.aux" "main.bbl" "main" 1749212491.46179 2
   "./references/references.bib" 1749194916.06358 298122 12a47e840f97bfcc5696ea0b0d4ed44d ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/urlbst/unsrturl.bst" 1675116457 30912 2cfc330ae0a68bbf7dc64e1666bbb15c ""
-  "main.aux" 1749206543.17773 78628 45aadd15afca8988db655e7e164e62b6 "pdflatex"
+  "main.aux" 1749212491.12797 78506 e8dfa474c185a2125a03cd23d26a8b96 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1749206536.04285 "main.tex" "main.pdf" "main" 1749206543.61428 0
+["pdflatex"] 1749212483.39975 "main.tex" "main.pdf" "main" 1749212491.46203 0
   "/etc/texmf/web2c/texmf.cnf" 1742662909.37475 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490131464 2933 9ad527ce78d7c5fa0a642dead095f172 ""
@@ -363,7 +363,7 @@
   "chapters/chap11.tex" 1748937095.4778 4638 4ebc5a14c15b7b57911f7970f7590433 ""
   "chapters/chap12.tex" 1748765661.14167 8734 b3b704572a31f2d563557094ddaa8d6a ""
   "chapters/chap2.tex" 1749206535.5717 24914 c6523b4a357434eca458425a052145df ""
-  "chapters/chap3plani.tex" 1749028283.59139 26673 775108927074cc783571fafd4050fd0e ""
+  "chapters/chap3plani.tex" 1749212482.34676 26683 f12f43fcfe2c8aa944fa18984e35aeb1 ""
   "chapters/chap4.tex" 1746549197.66986 13056 e5bb9a1a325d4ecdc6f7156e095e0fbf ""
   "chapters/chap5.tex" 1747042584.46151 28667 8ed0d121624b5b9a7101ee0b8d5eb5f1 ""
   "chapters/chap6.tex" 1747733305.14048 22533 b0a496ecb11ff2d3bf0c84b55a461dc8 ""
@@ -385,7 +385,7 @@
   "figures/dependencias_2.png" 1745651716.59438 318564 67e449cdcdef5b516eaa8ddbef2ccdcb ""
   "figures/evaluacion.png" 1748333097.88971 150455 d8ad1cd8e9cdb4f963965a8edd56e289 ""
   "figures/herramienta.png" 1749115444.0048 187612 e7f3a396b79a75ac556b5f5ebdb42d6e ""
-  "figures/horas.png" 1745618935.72552 140296 7f640213c67652bd6e65fa031c82d5a8 ""
+  "figures/horas.pdf" 1749209802.51941 64286 69fe02e9b20117a15d11e8251cda90d9 ""
   "figures/horas_real.pdf" 1748513490.11227 66155 c2ca1275e6c1f55387a947c63d1acb02 ""
   "figures/mcp.png" 1749115902.97925 218429 4644d1e2d6cce34b7ebc60a6ffab1742 ""
   "figures/memoria_1.png" 1747732675.80121 149689 cfcf2e92cf022eacf32828004c81344a ""
@@ -400,14 +400,14 @@
   "figures/portada.png" 1748515732.10762 2155491 8620dcb0706734ebf25abf098ea7f9a5 ""
   "figures/specialized.png" 1746953630.44624 161147 1bc27e89a2f633f7956cda74bff43197 ""
   "ifcommands.sty" 1742662057.12428 4894 6fc6d38bd21ddafd256a754893d7696a ""
-  "main.aux" 1749206543.17773 78628 45aadd15afca8988db655e7e164e62b6 "pdflatex"
-  "main.bbl" 1749206543.61173 29678 f3048d7dabdce959f817ad0c110a286a "bibtex main"
-  "main.brf" 1749206543.18273 4134 62cb8541cb85a222b52773988d081e38 "pdflatex"
-  "main.lof" 1749206543.18373 6046 138ca515c0edd5de006ff5a055884605 "pdflatex"
-  "main.lot" 1749206543.18373 1455 e5e500a4868d88037973ba29f15f3250 "pdflatex"
-  "main.out" 1749206543.18273 27287 c22349852cd1e2e8068b376d38dc58eb "pdflatex"
-  "main.tex" 1749107529.36488 8780 70edfc746a39920fa10fd6b96018e512 ""
-  "main.toc" 1749206543.18373 17583 34b11b2055db7850b01296989151467f "pdflatex"
+  "main.aux" 1749212491.12797 78506 e8dfa474c185a2125a03cd23d26a8b96 "pdflatex"
+  "main.bbl" 1749212261.0594 29678 f3048d7dabdce959f817ad0c110a286a "bibtex main"
+  "main.brf" 1749212491.13297 4134 62cb8541cb85a222b52773988d081e38 "pdflatex"
+  "main.lof" 1749212491.13297 6046 14712298b389dc9dfead9c29a3435f6d "pdflatex"
+  "main.lot" 1749212491.13297 1455 351d37b5d50fcd8a0075bdcb33e7315c "pdflatex"
+  "main.out" 1749212491.13297 27174 5d21118a79a2724cc9ae69de68c92133 "pdflatex"
+  "main.tex" 1749210834.47315 8780 70edfc746a39920fa10fd6b96018e512 ""
+  "main.toc" 1749212491.13297 17502 05a470bf5a7905d93c167d32ebd886e4 "pdflatex"
   (generated)
   "main.aux"
   "main.brf"

@@ -17,7 +17,7 @@ Para facilitar el logro del objetivo principal, se han identificado y definido l
 
 \begin{itemize}
   \item\textbf{Estudio de arquitecturas agénticas: }realizar un análisis de las diversas arquitecturas de agentes, considerando distintas estrategias de interacción y mecanismos de acceso a fuentes de información.
-  \item\textbf{Desarrollo de sistema de onboarding: }implementar las arquitecturas propuestas en un proyecto software corporativo, con el propósito de analizar su eficacia en la asistencia a nuevos integrantes durante su proceso de incorporación a la empresa.
+  \item\textbf{Desarrollo de sistema de onboarding: }Implementar un prototipo de las arquitecturas propuestas en un proyecto software corporativo como parte de un proyecto mayor en la organización en este ámbito, con el propósito de analizar su eficacia en la asistencia a nuevos integrantes durante su proceso de incorporación a la empresa.
   \item\textbf{Integración del Model Context Protocol: }exploración de las características y beneficios que aporta la implementación del protocolo MCP, con el objetivo de realizar una valoración objetiva para su posible integración en el entorno profesional de la empresa.
   \item\textbf{Evaluación de agentes: }desarrollar un sistema de evaluación para proporcionar métricas comparativas cuantificables sobre el rendimiento de los diferentes enfoques de agentes. 
   \item\textbf{Valoración de ajuste de agentes: }analizar la relación coste-beneficio asociada al proceso de ajuste fino de modelos LLM para su aplicación en agentes concretos.
@@ -25,24 +25,21 @@ Para facilitar el logro del objetivo principal, se han identificado y definido l
 
 Adicionalmente, el proyecto contempla desarrollar el sistema de onboarding incorporando en la medida de lo posible en su base de conocimiento la metodología de trabajo implementada en la empresa. Mediante la adhesión a los estándares definidos en un entorno profesional real, se pretende garantizar que los resultados obtenidos constituyan un reflejo de la viabilidad de implementación y eficacia de proyectos similares en un sistema de explotación. 
 
-\subsection{Requisitos}
-Los requisitos del proyecto se detallan en profundidad en la Sección \ref{ch:chap4}
-
 \subsection{Fases del proyecto}
 Tal y como se ha mencionado anteriormente, el alcance del proyecto no está completamente definido debido a su naturaleza exploratoria. Consecuentemente, se propone un ciclo de vida iterativo-incremental con iteraciones de aproximadamente dos semanas de duración, permitiendo una adaptación progresiva a los requisitos emergentes.
 
-La primera iteración se centra en la captura de requisitos del proyecto, donde se explorará y definirá el alcance del sistema de agentes a desarrollar. Tras establecer estas bases, la segunda iteración abordará la implementación de un sistema de agentes mínimo que contenga la estructura general del sistema, proporcionando un marco operativo inicial.
+La primera iteración se centra en la captura de requisitos del proyecto, donde se explorará y definirá el alcance del sistema de agentes a desarrollar. Complementariamente, se realizará un estudio de las arquitecturas de agentes más relevantes para determinar los enfoques técnicos óptimos para la implementación. Tras establecer estas bases, la segunda iteración abordará la implementación de un sistema de agentes mínimo que contenga la estructura general del sistema, proporcionando un marco operativo inicial.
 
-Con este sistema mínimo implementado, la tercera iteración corresponderá al desarrollo de un mecanismo de evaluación, con el objetivo de establecer métricas que permitan mejorar el sistema en la cuarta iteración, donde se aplicarán las optimizaciones identificadas. La quinta iteración se dedicará a la implementación de arquitecturas de agentes exploratorias, evaluando su rendimiento mediante las métricas previamente establecidas.
+Con este sistema mínimo implementado, la tercera iteración corresponderá al desarrollo de un mecanismo de evaluación, con el objetivo de establecer métricas que permitan mejorar el sistema en la cuarta iteración, donde se aplicarán las optimizaciones identificadas. 
 
-Finalmente, la sexta iteración contemplará el ajuste fino de un modelo LLM para su integración en un agente específico del sistema, así como su evaluación contextualizada dentro del entorno funcional del proyecto.
+Finalmente, la quinta iteración se dedicará a la implementación de mejoras sobre el sistema base. Se contemplan tanto arquitecturas de agentes adicionales como el ajuste fino de un modelo LLM para su integración en el flujo agéntico. 
 
 Gracias a la implementación del ciclo de vida iterativo, se logra la consecución de los objetivos del proyecto de forma progresiva y estructurada. Este enfoque permite obtener retroalimentación constante por parte de los directores del proyecto durante cada iteración, facilitando así la posibilidad de reorientar la dirección del trabajo ante la aparición de posibles contratiempos.
 
 \subsection{Descomposición de tareas}
 La Estructura de Descomposición de Trabajo (EDT) del proyecto se ha creado considerando el ciclo de vida iterativo-incremental del proyecto. La Figura \ref{fig:edt} ilustra un diagrama de esta. 
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
   \centering
   \rotatebox{90}{
     \includegraphics[scale=0.135]{figures/paquetes.png}
@@ -55,7 +52,7 @@ La Estructura de Descomposición de Trabajo (EDT) del proyecto se ha creado cons
 Se divide en los siguientes paquetes:
 
 \begin{itemize}
-  \item\textbf{1ª iteración:}
+  \item\textbf{1ª iteración - Definición de alcance, requisitos y bases del proyecto: }establecimiento de los fundamentos teóricos y prácticos del proyecto.
     \begin{itemize}
       \item\textbf{Captura de requisitos (CR):} actividades orientadas a la definición de los requisitos necesarios para el desarrollo del proyecto.
             \begin{itemize}
@@ -73,7 +70,7 @@ Se divide en los siguientes paquetes:
           \item\textbf{Exploración de proyectos similares:} estudio de implementaciones similares en proyectos software y procesos de onboarding.
     \end{itemize}
       \end{itemize}
-  \item\textbf{2ª iteración:}
+  \item\textbf{2ª iteración - Implementación del sistema base: }desarrollo del núcleo funcional del sistema con las capacidades mínimas necesarias.
     \begin{itemize}
       \item\textbf{Sistema de agentes (SA):} actividades centradas en el diseño e implementación de un sistema de agentes LLM para asistencia en proyectos software.
         \begin{itemize}
@@ -87,7 +84,7 @@ Se divide en los siguientes paquetes:
         \item\textbf{Integración continua:} implementación de un flujo de trabajo automatizado para la ejecución de pruebas unitarias.
       \end{itemize}
     \end{itemize}
-  \item\textbf{3ª iteración:}
+  \item\textbf{3ª iteración - Desarrollo de capacidades de evaluación: }establecimiento de mecanismos de medición y evaluación para cuantificar el rendimiento y guiar las mejoras posteriores del sistema.
     \begin{itemize}
       \item\textbf{Sistema de agentes (SA):} actividades centradas en el diseño e implementación de un sistema de agentes LLM para asistencia en proyectos software.
         \begin{itemize}
@@ -99,7 +96,7 @@ Se divide en los siguientes paquetes:
           \item\textbf{Evaluación del sistema mínimo: } ejecución de evaluaciones automatizadas e identificación de elementos clave para mejoras posteriores.
         \end{itemize}
     \end{itemize}
-  \item\textbf{4ª iteración:}
+  \item\textbf{4ª iteración - Optimización y refinamiento: }Mejora del sistema existente mediante la aplicación de optimizaciones identificadas a través de la evaluación previa.
     \begin{itemize}
       \item\textbf{Sistema de agentes (SA):} actividades centradas en el diseño, implementación y evaluación de un sistema de agentes LLM para asistencia en proyectos software.
         \begin{itemize}
@@ -111,34 +108,24 @@ Se divide en los siguientes paquetes:
           \item\textbf{Evaluación comparativa:} ejecución de evaluaciones automatizadas y análisis comparativo respecto a la iteración anterior.
         \end{itemize}
     \end{itemize}
-  \item\textbf{5ª iteración:}
+\item\textbf{5ª iteración - Exploración de mejoras: }implementación de técnicas especializadas y arquitecturas alternativas para maximizar las capacidades del sistema.
     \begin{itemize}
       \item\textbf{Sistema de agentes (SA):} actividades centradas en el diseño e implementación de un sistema de agentes LLM para asistencia en proyectos software.
         \begin{itemize}
           \item\textbf{Arquitecturas de interacción alternativas:} implementación y evaluación de mecanismos adicionales de interacción entre agentes.
           \item\textbf{Módulos de memoria:} integración de sistemas de memoria y evaluación de su impacto en el rendimiento global. 
           \item\textbf{Agentes avanzados:} desarrollo de un agente con un proceso de ejecución extenso para el análisis del coste-beneficio.
+          \item\textbf{Incorporación del modelo ajustado:} desarrollo de adaptadores e integración del modelo en el sistema existente.
         \end{itemize}
-      \item\textbf{Pruebas y evaluación (P):} actividades destinadas a verificar y analizar el rendimiento de los módulos implementados.
-        \begin{itemize}
-          \item\textbf{Evaluación comparativa: } análisis del rendimiento de las nuevas características respecto al sistema precedente.
-        \end{itemize}
-    \end{itemize}
-  \item\textbf{6ª iteración:}
-    \begin{itemize}
       \item\textbf{Ajuste de modelo (AM):} actividades orientadas al entrenamiento especializado de un modelo para un agente específico.
       \begin{itemize}
         \item\textbf{Selección del agente:} identificación justificada del agente candidato para el ajuste del modelo.
-        \item\textbf{Extracción de datos:} recopilación automatizada de datos de entrenamiento mediante un modelo de alto rendimiento.
+        \item\textbf{Extracción de datos:} recopilación automatizada de datos de entrenamiento.
         \item\textbf{Entrenamiento del modelo:} diseño y ejecución del ciclo de entrenamiento del modelo LLM seleccionado.
       \end{itemize}
-      \item\textbf{Sistema de agentes (SA):} actividades centradas en el diseño e implementación de un sistema de agentes LLM para asistencia en proyectos software.
-        \begin{itemize}
-          \item\textbf{Incorporación del modelo ajustado:} desarrollo de adaptadores e integración del modelo en el sistema existente.
-        \end{itemize}
       \item\textbf{Pruebas y evaluación (P):} actividades destinadas a verificar y analizar el rendimiento de los módulos implementados.
         \begin{itemize}
-          \item\textbf{Evaluación comparativa: } análisis del rendimiento del sistema con el modelo ajustado frente a versiones anteriores.
+          \item\textbf{Evaluación comparativa: } análisis del rendimiento de las nuevas características respecto al sistema precedente.
         \end{itemize}
     \end{itemize}
   \item\textbf{Gestión (G):} 
@@ -158,6 +145,7 @@ En este apartado se detallan las dependencias entre las diferentes tareas, así 
 
 \subsection{Dependencias entre tareas}
 Las dependencias de los paquetes de trabajo del proyecto requieren una ejecución secuencial planificada. La Figura \ref{fig:dependencias} ilustra dichas dependencias.
+
 
 \begin{figure}[h]
   \centering
@@ -188,7 +176,8 @@ La Figura \ref{fig:gantt} muestra el diagrama de Gantt, donde se visualiza de ma
 \definecolor{amcolor}{HTML}{674ea7}
 \definecolor{mdcolor}{HTML}{6d9eeb}
 
-\begin{figure}[H]
+\clearpage
+\begin{figure}[hbtp]
   \noindent\hspace*{-1.75cm}
   \begin{ganttchart}[
     vgrid,
@@ -217,7 +206,6 @@ La Figura \ref{fig:gantt} muestra el diagrama de Gantt, donde se visualiza de ma
   \ganttmilestone{}{2025-04-01} 
   \ganttmilestone{}{2025-04-15} 
   \ganttmilestone{}{2025-04-29} 
-  \ganttmilestone{}{2025-05-13} 
   \ganttmilestone{}{2025-05-27} 
   \ganttmilestone{}{2025-06-14} \\
   
@@ -249,7 +237,7 @@ En la Tabla \ref{tab:hitos} se detallan los hitos establecidos para el desarroll
 % M(#c9daf8): 20/03 -> 14/06/2025
 % D(#c9daf8): 14/06 -> 30/06
 
-\begin{table}[H]\centering
+\begin{table}[hbtp]\centering
 \begin{tabular}{|l|c|}
 \hline
 \multicolumn{1}{|c|}{\textbf{Hito}} & \multicolumn{1}{c|}{\textbf{Fecha}} \\
@@ -264,9 +252,7 @@ Fin Iteración 3 & 15/04/2025 \\
 \hline
 Fin Iteración 4 & 29/04/2025 \\
 \hline
-Fin Iteración 5 & 13/05/2025 \\
-\hline
-Fin Iteración 6 & 27/05/2025 \\
+Fin Iteración 5 & 27/05/2025 \\
 \hline
 Fin memoria & 14/06/2025 \\
 \hline
@@ -285,7 +271,7 @@ La estimación específica de cada tarea se puede ver en la Tabla \ref{fig:horas
 
 \begin{figure}[h]
   \centering
-  \adjustimage{width=1.3\textwidth,center}{figures/horas.png}
+  \adjustimage{width=1.3\textwidth,center}{figures/horas.pdf}
   \caption{Estimación horaria de cada tarea}
   \label{fig:horas}
 \end{figure}
