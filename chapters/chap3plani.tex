@@ -4,7 +4,7 @@ En este capítulo se presenta la planificación del proyecto, abordando el alcan
 
 \section{Alcance}
 
-Este proyecto aborda el desarrollo de un sistema basado en agentes LLM implementado sobre una solución software propia de LKS NEXT, con el propósito de investigar el comportamiento de diversas arquitecturas de agentes definidas en el Capítulo \ref{ch:chap2} y evaluar su viabilidad para su futura incorporación en los procesos productivos de la empresa.
+Este proyecto aborda el desarrollo de un sistema basado en agentes LLM implementado sobre una solución software propia de LKS Next, el cual deberá responder a consultas formuladas en lenguaje natural que un desarrollador recién incorporado podría plantear durante su proceso de integración al proyecto. Con ello se pretende investigar el comportamiento de diversas arquitecturas de agentes definidas en el Capítulo \ref{ch:chap2} y evaluar su viabilidad para su futura incorporación en los procesos productivos de la empresa.
 
 En dicho sistema, se implementarán diversas modalidades de interacción entre agentes especializados en fuentes de datos específicas, evaluando la eficacia de los distintos patrones de comunicación entre dichos componentes.
 
@@ -17,7 +17,7 @@ Para facilitar el logro del objetivo principal, se han identificado y definido l
 
 \begin{itemize}
   \item\textbf{Estudio de arquitecturas agénticas: }realizar un análisis de las diversas arquitecturas de agentes, considerando distintas estrategias de interacción y mecanismos de acceso a fuentes de información.
-  \item\textbf{Desarrollo de sistema de onboarding: }Implementar un prototipo de las arquitecturas propuestas en un proyecto software corporativo como parte de un proyecto mayor en la organización en este ámbito, con el propósito de analizar su eficacia en la asistencia a nuevos integrantes durante su proceso de incorporación a la empresa.
+\item\textbf{Desarrollo de sistema de onboarding: }implementar un prototipo que simule una aplicación integrada en la empresa como parte de una iniciativa organizacional más amplia en este ámbito, aplicando las arquitecturas propuestas sobre un proyecto software corporativo. El objetivo consiste en analizar su eficacia en la asistencia a nuevos integrantes durante su proceso de incorporación a la empresa.
   \item\textbf{Integración del Model Context Protocol: }exploración de las características y beneficios que aporta la implementación del protocolo MCP, con el objetivo de realizar una valoración objetiva para su posible integración en el entorno profesional de la empresa.
   \item\textbf{Evaluación de agentes: }desarrollar un sistema de evaluación para proporcionar métricas comparativas cuantificables sobre el rendimiento de los diferentes enfoques de agentes. 
   \item\textbf{Valoración de ajuste de agentes: }analizar la relación coste-beneficio asociada al proceso de ajuste fino de modelos LLM para su aplicación en agentes concretos.
@@ -37,27 +37,22 @@ Finalmente, la quinta iteración se dedicará a la implementación de mejoras so
 Gracias a la implementación del ciclo de vida iterativo, se logra la consecución de los objetivos del proyecto de forma progresiva y estructurada. Este enfoque permite obtener retroalimentación constante por parte de los directores del proyecto durante cada iteración, facilitando así la posibilidad de reorientar la dirección del trabajo ante la aparición de posibles contratiempos.
 
 \subsection{Descomposición de tareas}
-La Estructura de Descomposición de Trabajo (EDT) del proyecto se ha creado considerando el ciclo de vida iterativo-incremental del proyecto. La Figura \ref{fig:edt} ilustra un diagrama de esta. 
+La Estructura de Descomposición de Trabajo (EDT) se ha diseñado considerando el ciclo de vida iterativo-incremental adoptado. La Figura \ref{fig:edt} ilustra un diagrama de los paquetes de trabajo, seguido de la explicación detallada de las tareas individuales de cada paquete.
 
 \begin{figure}[hbtp]
   \centering
-  \rotatebox{90}{
-    \includegraphics[scale=0.135]{figures/paquetes.png}
-  }
+  \includegraphics[scale=0.6]{figures/edt_mod.pdf}
   \caption{Estructura de Descomposición de Trabajo (EDT) del proyecto}
   \label{fig:edt}
 \end{figure}
-
-
-Se divide en los siguientes paquetes:
 
 \begin{itemize}
   \item\textbf{1ª iteración - Definición de alcance, requisitos y bases del proyecto: }establecimiento de los fundamentos teóricos y prácticos del proyecto.
     \begin{itemize}
       \item\textbf{Captura de requisitos (CR):} actividades orientadas a la definición de los requisitos necesarios para el desarrollo del proyecto.
             \begin{itemize}
-          \item\textbf{Definición de requisitos principales:} identificación y documentación de los requisitos del proyecto, validados con los directores al inicio del mismo.
-          \item\textbf{Elicitación de requisitos:} recopilación de preguntas potenciales para el sistema desarrollado mediante cuestionario electrónico y análisis posterior de las respuestas.
+          \item\textbf{Definición de requisitos del sistema:} identificación y documentación de los requisitos funcionales y no funcionales que debe cumplir el proyecto, validados con los directores al inicio del mismo.
+          \item\textbf{Elicitación de requisitos del dominio:} recopilación de las tipologías de consultas que el sistema debe resolver mediante cuestionario electrónico dirigido al personal técnico para definir el alcance funcional del sistema.
         \end{itemize}
       \item\textbf{Recopilación de recursos disponibles (RR):} actividades centradas en la selección y generación de recursos esenciales para el desarrollo.
         \begin{itemize}
@@ -149,20 +144,20 @@ Las dependencias de los paquetes de trabajo del proyecto requieren una ejecució
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.165]{figures/dependencias_2.png}%
+  \hspace{-3.45cm}\includegraphics[scale=0.4325]{figures/dep_mod.pdf}%
   \caption{Dependencias entre tareas del proyecto}
   \label{fig:dependencias}
 \end{figure}
 
-El proyecto se inicia con una primera iteración centrada en la captura de requisitos, invertiendo un tiempo significativo en alinear los objetivos con las necesidades empresariales. Esta fase comprende la captura de requisitos (CR), la recopilación de recursos disponibles (RR) y la definición del alcance y requisitos del sistema de agentes (DA).
+El proyecto se inicia con la elaboración de la planificación general, estableciendo el alcance del proyecto, fechas y recursos horarios disponibles. La primera iteración aborda la captura de requisitos del proyecto (CR), que define los requisitos del sistema (DRP) y procede posteriormente con los paquetes DA, ER y RR.
 
-Las iteraciones intermedias desarrollan progresivamente el paquete Sistema de agentes (SA) mediante fases complementarias. La segunda iteración implementa su diseño conceptual, agentes especializados y un sistema de comunicación mínima. Posteriormente, en la tercera iteración, el sistema evoluciona incorporando mecanismos de evaluación y captura de datos. La cuarta iteración optimiza los agentes existentes y explora variaciones en la orquestación, mientras que la quinta implementa arquitecturas de interacción alternativas, módulos de memoria y agentes de procesamiento avanzado.
+La segunda iteración desarrolla el sistema base de agentes (SA), comenzando por el diseño (DS) para continuar con la implementación (IAE, ISA). Una vez implementado, se ejecutan las pruebas automatizadas (PA) y su integración continua (IC).
 
-La sexta iteración introduce el paquete Ajuste de modelo (AM), que comprende la selección del agente candidato, extracción de datos y entrenamiento especializado. Simultáneamente, el paquete SA aborda actividades de integración del modelo ajustado en la arquitectura existente.
+Las iteraciones tercera y cuarta mantienen una estructura similar, comenzando con la implementación (SA) seguida de pruebas (P). La tercera iteración se centra en el sistema de evaluación, desarrollando primero el mecanismo (SE) para posteriormente anotar los datos de evaluación correspondientes (CDE). La cuarta iteración realiza inicialmente la mejora de agentes (MA) y posteriormente las variaciones de orquestación (VO), manteniendo este orden secuencial para evitar que las mejoras de agentes individuales introduzcan sesgos en los resultados de las variaciones de orquestación. Es importante completar la tercera iteración antes de iniciar la cuarta, ya que modificar los datos de evaluación comprometería la objetividad del análisis.
 
-Transversalmente, se establecen los paquetes de Gestión (G), que abarca actividades de planificación y seguimiento mediante reuniones bisemanales, y Trabajo académico (TA), orientado a la elaboración de la memoria y preparación de la defensa.
+La quinta iteración comprende cuatro tareas independientes (AIA, MM, AA, AM) que se evalúan individualmente (P) antes de realizar la comparación con las demás versiones del sistema (EC).
 
-Cabe destacar que a partir de la segunda iteración, cada fase incorpora el paquete de Pruebas y evaluación (P), destinado a verificar y analizar el rendimiento de los módulos implementados. Este paquete evoluciona progresivamente desde pruebas automatizadas básicas hasta evaluaciones comparativas que contrastan el rendimiento entre iteraciones sucesivas.
+Paralelamente, tras finalizar la planificación inicial se inician el seguimiento y control (SC) y la redacción de la memoria (M). Una vez completada la memoria y validado el proyecto durante el proceso de seguimiento y control, se procede con la preparación de la defensa (D).
 
 \subsection{Diagrama de Gantt}
 
@@ -178,7 +173,7 @@ La Figura \ref{fig:gantt} muestra el diagrama de Gantt, donde se visualiza de ma
 
 \clearpage
 \begin{figure}[hbtp]
-  \noindent\hspace*{-1.75cm}
+  \noindent\hspace*{-2.5cm}
   \begin{ganttchart}[
     vgrid,
     hgrid,
@@ -189,6 +184,7 @@ La Figura \ref{fig:gantt} muestra el diagrama de Gantt, donde se visualiza de ma
     y unit title=0.7cm,
     y unit chart=0.6cm,
     time slot format=isodate,
+    bar label node/.style={rotate=30, anchor=east},  % Inclina las etiquetas 45 grados
     milestone/.style={
         shape=diamond,
         inner sep=2pt,
@@ -210,26 +206,32 @@ La Figura \ref{fig:gantt} muestra el diagrama de Gantt, donde se visualiza de ma
   \ganttmilestone{}{2025-06-14} \\
   
   % Barras regulares
-  \ganttbar[bar/.style={fill=crcolor!70}]{PL}{2025-02-25}{2025-02-28} \\
-  \ganttbar[bar/.style={fill=crcolor!70}]{SC}{2025-02-28}{2025-06-14} \\
-  \ganttbar[bar/.style={fill=crcolor!70}]{CR}{2025-02-28}{2025-03-20} \\
-  \ganttbar[bar/.style={fill=rrcolor!70}]{RR}{2025-02-28}{2025-03-20} \\
-  \ganttbar[bar/.style={fill=dacolor!70}]{DA}{2025-02-28}{2025-03-20} \\
-  \ganttbar[bar/.style={fill=sacolor!70}]{SA}{2025-03-20}{2025-05-27} \\
-  \ganttbar[bar/.style={fill=pcolor!70}]{P}{2025-03-20}{2025-05-27} \\
-  \ganttbar[bar/.style={fill=amcolor!70}]{AM}{2025-05-13}{2025-05-27} \\
-  \ganttbar[bar/.style={fill=mdcolor!70}]{M}{2025-03-20}{2025-06-14} \\
-  \ganttbar[bar/.style={fill=mdcolor!70}]{D}{2025-06-14}{2025-06-30} \\
+  \ganttbar[bar/.style={fill=crcolor!70}]{Planif.}{2025-02-25}{2025-02-28} \\
+  \ganttbar[bar/.style={fill=crcolor!70}]{Seg. y cont.}{2025-02-28}{2025-06-14} \\
+  \ganttbar[bar/.style={fill=crcolor!70}]{C. requisitos}{2025-02-28}{2025-03-20} \\
+  \ganttbar[bar/.style={fill=rrcolor!70}]{R. recursos}{2025-02-28}{2025-03-20} \\
+  \ganttbar[bar/.style={fill=dacolor!70}]{D. alcance}{2025-02-28}{2025-03-20} \\
+  \ganttbar[bar/.style={fill=sacolor!70}]{S. agentes}{2025-03-20}{2025-05-27} \\
+  \ganttbar[bar/.style={fill=pcolor!70}]{Pruebas}{2025-03-20}{2025-05-27} \\
+  \ganttbar[bar/.style={fill=amcolor!70}]{A. modelo}{2025-05-13}{2025-05-27} \\
+  \ganttbar[bar/.style={fill=mdcolor!70}]{Memoria}{2025-03-20}{2025-06-14} \\
+  \ganttbar[bar/.style={fill=mdcolor!70}]{Defensa}{2025-06-14}{2025-06-30} \\
   
   \end{ganttchart}
   \caption{Diagrama de Gantt del proyecto}
   \label{fig:gantt}
 \end{figure}
+El proyecto se inicia con el paquete de planificación, seguido de la activación del seguimiento y control del proyecto junto con la primera iteración.
 
+A partir de la segunda iteración se desarrollan los paquetes del sistema de agentes y evaluación, que se extienden hasta la quinta iteración. Paralelamente se inicia la redacción de la memoria, al disponerse de material suficiente para los primeros capítulos.
+
+El paquete de ajuste de modelo está planificado para la segunda mitad de la quinta iteración, correspondiente a las últimas dos semanas de implementación. Finalmente, se dedican dos semanas exclusivamente a la memoria, seguidas de la preparación de la defensa.
+
+Esta distribución temporal permite enfocar los esfuerzos según las prioridades de cada fase: planificación y definición del alcance inicialmente, implementación del sistema en la fase intermedia, y trabajo académico al final, manteniendo una redacción continua de la memoria a lo largo del desarrollo.
 
 \subsection{Hitos}\label{sec:hitos}
 
-En la Tabla \ref{tab:hitos} se detallan los hitos establecidos para el desarrollo del proyecto. La finalización de la fase de implementación ha sido programada para el 31 de mayo, tras lo cual se destinarán dos semanas íntegramente a la elaboración de la memoria hasta el 14 de junio, proporcionando así un margen de 8 días previos a la fecha límite de entrega. Este período de contingencia está planificado para abordar posibles contratiempos que pudieran surgir durante el transcurso del proyecto.
+En la Tabla \ref{tab:hitos} se detallan los hitos establecidos para el desarrollo del proyecto. Estos hitos intermedios permiten evaluar el progreso alcanzado y ajustar el alcance en caso necesario, aspecto fundamental dada la incertidumbre inherente al carácter exploratorio del proyecto. La finalización de la fase de implementación ha sido programada para el 31 de mayo, tras lo cual se destinarán dos semanas íntegramente a la elaboración de la memoria hasta el 14 de junio, proporcionando así un margen de 8 días previos a la fecha límite de entrega. Este período de contingencia está planificado para abordar posibles contratiempos que pudieran surgir durante el transcurso del proyecto.
 
 % CR(#d9ead3) / RR(#d0e0e3) / DA(#cfe2f3): 25/02 -> 20/03  
 % SA(#fff2cc) / P(#f4cccc)  20/03 -> 27/05 
@@ -269,6 +271,12 @@ Se ha gestionado el tiempo disponible para el proyecto considerando el alcance d
 \subsection{Estimación de cada tarea}
 La estimación específica de cada tarea se puede ver en la Tabla \ref{fig:horas}
 
+Se ha asignado un tiempo considerable a la primera iteración para definir el alcance y requisitos del sistema (35 horas). Dado el carácter exploratorio del proyecto y su alcance inicialmente ambiguo, resulta indispensable establecer un enfoque adecuadamente fundamentado para evitar rectificaciones en fases posteriores.
+
+La segunda iteración requiere una estimación de 63 horas al comprender el desarrollo de un sistema base completo. El sistema de evaluación se ha estimado en 30 horas, mientras que la mejora de agentes individuales y las variaciones de orquestación se han cuantificado en 15 horas cada una, dado que únicamente requieren modificaciones sobre los agentes existentes.
+
+Se ha destinado el tiempo restante (95 horas) a las mejoras del sistema, con estimaciones preliminares para cada componente. La gestión del proyecto se ha cuantificado en 30 horas totales, suficientes para las reuniones bisemanales y el desarrollo de la planificación. La redacción de la memoria se ha estimado en 60 horas conforme a las recomendaciones institucionales, y la preparación de la defensa en 10 horas.
+
 \begin{figure}[h]
   \centering
   \adjustimage{width=1.3\textwidth,center}{figures/horas.pdf}
@@ -278,32 +286,50 @@ La estimación específica de cada tarea se puede ver en la Tabla \ref{fig:horas
 
 \section{Gestión de riesgos}
 
-Debido al enfoque exploratorio del proyecto, la gestión de riesgos cobra especial importancia. Se han identificado los siguientes riesgos con su correspondiente plan de contingencia: 
-
 \begin{itemize}
-  \item\textbf{R1- Concurrencia exploratoria: }dado que el proyecto está enfocado en tecnologías emergentes, existe la posibilidad de que durante el período de desarrollo emerjan iniciativas paralelas que aborden la misma problemática.  
+  \item\textbf{R1- Concurrencia exploratoria: }dado que el proyecto está enfocado en tecnologías emergentes, existe la posibilidad de que durante el período de desarrollo emerjan iniciativas paralelas que aborden la misma problemática.
+  \begin{itemize}
+    \item \textbf{Prevención: }investigación de soluciones existentes antes de implementar cada módulo del sistema.
+    \item \textbf{Contingencia: }convocatoria de reunión de seguimiento y control con los directores del proyecto para evaluar el estado del desarrollo y decidir si mantener la solución actual o reorientar el enfoque.
+  \end{itemize}
+  
+  \item\textbf{R2- Variabilidad del alcance: }al ser un proyecto exploratorio con un alcance inicialmente ambiguo, podría sufrir alteraciones no planificadas que ocasionen sobrecoste horario y obliguen a replanificar el alcance para no sobrepasar los recursos disponibles.
+  \begin{itemize}
+    \item \textbf{Prevención: }implementación de seguimiento y control mediante reuniones quincenales para evaluar la correcta evolución de las actividades.
+    \item \textbf{Contingencia: }reajuste del alcance y replanificación temporal en caso necesario para garantizar la viabilidad del trabajo dentro de los plazos establecidos.
+  \end{itemize}
+  
+  \item\textbf{R3- Dependencia de sistemas externos: }la implementación del proyecto depende significativamente de sistemas externos (modelos LLM via APIs y servidores MCP). Cualquier alteración o interrupción en estos servicios podría comprometer la funcionalidad del sistema implementado.
+  \begin{itemize}
+    \item \textbf{Prevención: }diseño de arquitectura modular y sistema con manejo robusto de excepciones que garantice la continuidad operativa.
+  \item \textbf{Contingencia: }integración de servicios alternativos o desacoplamiento temporal de componentes afectados según la necesidad.
+  \end{itemize}
+  
+  \item\textbf{R4- Filtrado de credenciales: }el acceso a recursos externos requiere claves secretas susceptibles de ser detectadas por algoritmos de rastreo automatizados en plataformas públicas. La exposición inadvertida podría ocasionar pérdidas económicas o comprometer la seguridad corporativa.
+  \begin{itemize}
+    \item \textbf{Prevención: }gestión de credenciales mediante variables de entorno, evitando su inclusión en código fuente, y mantenimiento de repositorios en modo privado como medida adicional de protección.
+    \item \textbf{Contingencia: }revocación de credenciales comprometidas y regeneración de claves de acceso.
+  \end{itemize}
+  
+  \item\textbf{R5- Pérdida de recursos: }el desarrollo se fundamenta en múltiples recursos esenciales (código fuente, documentación, artefactos y memoria académica). La pérdida de cualquiera debido a fallos técnicos podría ocasionar retrasos significativos.
+  \begin{itemize}
+    \item \textbf{Prevención: }implementación de sistemas de respaldo automático con copias de seguridad actualizadas diariamente en la nube según se describe en la Sección \ref{sec:sys_info}.
+\item \textbf{Contingencia: }restauración de la información desde las copias de seguridad en la nube limitando, la pérdida máxima al trabajo de una jornada.
+  \end{itemize}
+\end{itemize}
 
-Para abordar este riesgo, se realizará una previa investigación de soluciones existentes antes de implementar cada módulo del sistema, así como un análisis periódico que permita identificar mejoras inspiradas en avances externos.
-
-\item\textbf{R2- Variabilidad del alcance: }al ser un proyecto exploratorio, con un alcance inicialmente ambiguo, podría sufrir alteraciones no planificadas. Estos contratiempos podrían suponer un sobrecoste horario, lo que obligaría a replanificar el alcance para no sobrepasar ampliamente los recursos disponibles.
-
-Para mitigar este riesgo, se implementará un seguimiento y control mediante reuniones quincenales que permitirán evaluar la correcta evolución de las actividades y, en caso necesario, adoptar medidas correctivas para garantizar la viabilidad del trabajo dentro de los plazos establecidos.
-
-
-\item\textbf{R3- Dependencia de sistemas externos: }la implementación del proyecto depende significativamente de sistemas externos, tanto por los modelos de lenguaje accedidos a través de APIs como por los servicios proporcionados por los servidores MCP. Cualquier alteración o interrupción en estos servicios podría comprometer la funcionalidad del sistema implementado.
-
-Para prevenir este riesgo, se diseñará un sistema con un manejo de excepciones robusto que garantice la continuidad operativa incluso cuando alguno de los módulos experimente fallos. Complementariamente, se adoptará una arquitectura de desarrollo modular que facilite la integración o desacoplamiento de componentes según las necesidades evolutivas del proyecto.
-
-\item\textbf{R4- Filtrado de credenciales: }el acceso a recursos externos sobre el que se desarrolla el proyecto requiere de claves secretas. Es necesario considerar que existen algoritmos de rastreo automatizados que analizan plataformas públicas en busca de credenciales expuestas para su uso fraudulento. La publicación inadvertida de estas claves en entornos públicos podría ocasionar pérdidas económicas considerables o comprometer la seguridad del sistema corporativo.
-
-Para contrarrestar este riesgo, se implementará una política de gestión de credenciales mediante variables de entorno, evitando su inclusión directa en el código fuente o su transferencia a plataformas en la nube. Adicionalmente, se mantendrán todos los repositorios y sistemas posibles en modo de visibilidad privada.
-
-\item\textbf{R5- Pérdida de recursos: }el desarrollo del proyecto se fundamenta en múltiples recursos esenciales, incluyendo el código fuente del sistema, la documentación de requisitos, los diversos artefactos generados durante el proceso de desarrollo y la propia memoria académica. La pérdida de cualquiera de estos elementos debido a fallos técnicos o incidentes fortuitos podría ocasionar un retraso significativo.
-
-Para mitigar este riesgo, se han implementado los sistemas de información descritos en la Sección \ref{sec:sys_info} que garantizan el mantenimiento de copias de seguridad actualizadas diariamente en la nube. Mediante esta estrategia preventiva, cualquier eventualidad que afecte al dispositivo principal de desarrollo supondría, como máximo, la pérdida del trabajo correspondiente a una jornada.
+\section{Gestión de interesados}
+El desarrollo del presente trabajo comprende los siguientes interesados: 
+\begin{itemize}
+  \item \textbf{Autor: }cuya graduación universitaria depende de la consecución exitosa del proyecto.
+  \item \textbf{Directores: }se consideran los dos directores académicos y el director empresarial, para quienes la supervisión de esta iniciativa constituye parte de sus responsabilidades profesionales.  
+\item \textbf{LKS Next: }organización que financia parte del desarrollo y se beneficiará mediante la propiedad intelectual generada, así como por la contribución a sus objetivos de innovación en soluciones de IA aplicada.
+  \item \textbf{Universidad UPV/EHU: }institución académica responsable del desarrollo. Se beneficia como parte del conjunto de trabajos de investigación aplicada que contribuyen a su misión formativa e investigadora.
+  \item \textbf{Tribunal evaluador: }conjunto de profesores responsables de la evaluación académica del trabajo, cuyo interés se centra en la comprensibilidad y organización del trabajo para optimizar el proceso evaluativo.
 \end{itemize}
 
 \section{Gestión de Comunicaciones e Información}
+La gestión eficaz de la información y comunicación constituye un elemento fundamental para garantizar el desarrollo exitoso del proyecto.
 
 \subsection{Sistema de información}\label{sec:sys_info}
 
@@ -320,8 +346,8 @@ Esta estructura de gestión de la información aporta diversos beneficios al pro
 La comunicación eficaz entre alumno, director empresarial y directores académicos resulta imprescindible para el correcto seguimiento y control del proyecto. Las herramientas a utilizar son:
 \begin{itemize}
 \item\textbf{Correo electrónico: }canal principal para consultas con los directores del proyecto y comunicación formal con otros miembros de la empresa.
-\item\textbf{Google Meet: }plataforma destinada a la realización de reuniones telemáticas entre los participantes.
-\item\textbf{Google Chat: }herramienta complementaria para resolución de consultas rápidas con el director empresarial.
+\item\textbf{Google Meet\footnote{Google Meet: \url{https://meet.google.com}}: }plataforma destinada a la realización de reuniones telemáticas entre los participantes.
+\item\textbf{Google Chat\footnote{Google Chat: \url{https://mail.google.com/chat}}: }herramienta complementaria para resolución de consultas rápidas con el director empresarial.
 \end{itemize}
 
 \section{Herramientas disponibles}

@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1749212260.95667 "main.aux" "main.bbl" "main" 1749212491.46179 2
+["bibtex main"] 1749292666.24587 "main.aux" "main.bbl" "main" 1749292666.3431 2
   "./references/references.bib" 1749194916.06358 298122 12a47e840f97bfcc5696ea0b0d4ed44d ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/urlbst/unsrturl.bst" 1675116457 30912 2cfc330ae0a68bbf7dc64e1666bbb15c ""
-  "main.aux" 1749212491.12797 78506 e8dfa474c185a2125a03cd23d26a8b96 "pdflatex"
+  "main.aux" 1749292665.90123 78635 f8bbfb18c1ff3cd8361b75f7c45a843d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1749212483.39975 "main.tex" "main.pdf" "main" 1749212491.46203 0
+["pdflatex"] 1749292657.65429 "main.tex" "main.pdf" "main" 1749292666.3433 0
   "/etc/texmf/web2c/texmf.cnf" 1742662909.37475 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490131464 2933 9ad527ce78d7c5fa0a642dead095f172 ""
@@ -363,7 +363,7 @@
   "chapters/chap11.tex" 1748937095.4778 4638 4ebc5a14c15b7b57911f7970f7590433 ""
   "chapters/chap12.tex" 1748765661.14167 8734 b3b704572a31f2d563557094ddaa8d6a ""
   "chapters/chap2.tex" 1749206535.5717 24914 c6523b4a357434eca458425a052145df ""
-  "chapters/chap3plani.tex" 1749212482.34676 26683 f12f43fcfe2c8aa944fa18984e35aeb1 ""
+  "chapters/chap3plani.tex" 1749292656.58822 30386 4d198e663f91130a8100f3d9e3f28089 ""
   "chapters/chap4.tex" 1746549197.66986 13056 e5bb9a1a325d4ecdc6f7156e095e0fbf ""
   "chapters/chap5.tex" 1747042584.46151 28667 8ed0d121624b5b9a7101ee0b8d5eb5f1 ""
   "chapters/chap6.tex" 1747733305.14048 22533 b0a496ecb11ff2d3bf0c84b55a461dc8 ""
@@ -382,7 +382,8 @@
   "figures/codo.png" 1747813688.17843 68866 04c7ae8f9b5852291811de21964401e7 ""
   "figures/confluences.png" 1747041332.12143 218953 a22ba38d31580ee5b44d912252869040 ""
   "figures/db.png" 1746713480.47726 105498 1e930e9fee36ebecd571c8854aa475f8 ""
-  "figures/dependencias_2.png" 1745651716.59438 318564 67e449cdcdef5b516eaa8ddbef2ccdcb ""
+  "figures/dep_mod.pdf" 1749290772.04783 58981 d510ed857bb2bde521da2c0b5664db79 ""
+  "figures/edt_mod.pdf" 1749291482.76137 22732 70fba1cb149f005a1bd3d8b961f08502 ""
   "figures/evaluacion.png" 1748333097.88971 150455 d8ad1cd8e9cdb4f963965a8edd56e289 ""
   "figures/herramienta.png" 1749115444.0048 187612 e7f3a396b79a75ac556b5f5ebdb42d6e ""
   "figures/horas.pdf" 1749209802.51941 64286 69fe02e9b20117a15d11e8251cda90d9 ""
@@ -395,19 +396,18 @@
   "figures/orch_2.png" 1747207704.63007 244634 ea3faa4fdc4ce7c32cebcad8210b14bc ""
   "figures/orch_3.png" 1747207723.76696 219564 6ee3709e24a49904ec13ebf772227562 ""
   "figures/overlap.png" 1749203473.2944 75761 91310a225a6f12b3aeb8a32201bb307d ""
-  "figures/paquetes.png" 1745651681.57865 301457 96eaade45bac7105d02709097d442a1f ""
   "figures/planner.png" 1747133326.07137 117743 8836e8882e47630b0cd57a9e295397e1 ""
   "figures/portada.png" 1748515732.10762 2155491 8620dcb0706734ebf25abf098ea7f9a5 ""
   "figures/specialized.png" 1746953630.44624 161147 1bc27e89a2f633f7956cda74bff43197 ""
   "ifcommands.sty" 1742662057.12428 4894 6fc6d38bd21ddafd256a754893d7696a ""
-  "main.aux" 1749212491.12797 78506 e8dfa474c185a2125a03cd23d26a8b96 "pdflatex"
-  "main.bbl" 1749212261.0594 29678 f3048d7dabdce959f817ad0c110a286a "bibtex main"
-  "main.brf" 1749212491.13297 4134 62cb8541cb85a222b52773988d081e38 "pdflatex"
-  "main.lof" 1749212491.13297 6046 14712298b389dc9dfead9c29a3435f6d "pdflatex"
-  "main.lot" 1749212491.13297 1455 351d37b5d50fcd8a0075bdcb33e7315c "pdflatex"
-  "main.out" 1749212491.13297 27174 5d21118a79a2724cc9ae69de68c92133 "pdflatex"
+  "main.aux" 1749292665.90123 78635 f8bbfb18c1ff3cd8361b75f7c45a843d "pdflatex"
+  "main.bbl" 1749292666.34023 29678 f3048d7dabdce959f817ad0c110a286a "bibtex main"
+  "main.brf" 1749292665.90723 4134 ea5fda662ed30a6cd40889cfad0a6336 "pdflatex"
+  "main.lof" 1749292665.90723 6046 7fcfa72d365c61d1e34c2b9cdc4aa477 "pdflatex"
+  "main.lot" 1749292665.90723 1455 2311f19867de55e4ea0b728b0c587af8 "pdflatex"
+  "main.out" 1749292665.90623 27349 8df7a359967eec487897c6e3d83b7b9f "pdflatex"
   "main.tex" 1749210834.47315 8780 70edfc746a39920fa10fd6b96018e512 ""
-  "main.toc" 1749212491.13297 17502 05a470bf5a7905d93c167d32ebd886e4 "pdflatex"
+  "main.toc" 1749292665.90723 17587 e1723beeb123947188158b608a804d43 "pdflatex"
   (generated)
   "main.aux"
   "main.brf"
