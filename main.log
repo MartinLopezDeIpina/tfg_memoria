@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  8 JUN 2025 12:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  8 JUN 2025 14:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1846,105 +1846,42 @@ Package pdftex.def Info: figures/design.png  used on input line 40.
 LaTeX Info: Redefining \. on input line 56.
 LaTeX Info: Redefining \% on input line 56.
  [36 <./figures/design.png>]
-
-LaTeX Warning: Reference `' on page 37 undefined on input line 56.
-
-
-LaTeX Warning: Reference `:west' on page 37 undefined on input line 61.
-
-
-LaTeX Warning: Reference `' on page 37 undefined on input line 61.
-
-
-LaTeX Warning: Reference `sec' on page 37 undefined on input line 62.
-
-
-LaTeX Warning: Reference `sec' on page 37 undefined on input line 63.
-
-
-LaTeX Warning: Reference `sec' on page 37 undefined on input line 64.
-
-
-LaTeX Warning: Reference `sec' on page 37 undefined on input line 65.
-
-LaTeX Info: Redefining \. on input line 72.
-LaTeX Info: Redefining \% on input line 72.
-[37]
+LaTeX Info: Redefining \. on input line 74.
+LaTeX Info: Redefining \% on input line 74.
+ [37]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 82.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 10.0pt on input line 82.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 7.0pt on input line 83.
-LaTeX Info: Redefining \. on input line 93.
-LaTeX Info: Redefining \% on input line 93.
+LaTeX Info: Redefining \. on input line 103.
+LaTeX Info: Redefining \% on input line 103.
  [38]
-
-LaTeX Warning: Reference `sec' on page 39 undefined on input line 103.
-
-LaTeX Info: Redefining \. on input line 125.
-LaTeX Info: Redefining \% on input line 125.
-[39]
+LaTeX Info: Redefining \. on input line 139.
+LaTeX Info: Redefining \% on input line 139.
+ [39]
 LaTeX Info: Redefining \. on input line 165.
 LaTeX Info: Redefining \% on input line 165.
  [40]
-
-LaTeX Warning: Reference `sec:' on page 41 undefined on input line 165.
-
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 181.
-
-Overfull \hbox (0.92271pt too wide) in paragraph at lines 181--181
-[][][] 
- []
-
-
-Overfull \hbox (0.92271pt too wide) in paragraph at lines 181--181
-[][][] 
- []
-
-LaTeX Info: Redefining \. on input line 194.
-LaTeX Info: Redefining \% on input line 194.
-[41]
-LaTeX Info: Redefining \. on input line 223.
-LaTeX Info: Redefining \% on input line 223.
+LaTeX Info: Redefining \. on input line 193.
+LaTeX Info: Redefining \% on input line 193.
+ [41]
+LaTeX Info: Redefining \. on input line 231.
+LaTeX Info: Redefining \% on input line 231.
  [42]
-Overfull \hbox (0.92271pt too wide) in paragraph at lines 236--236
-[][][] 
- []
-
-
-Overfull \hbox (0.92271pt too wide) in paragraph at lines 236--236
-[][][] 
- []
-
-LaTeX Info: Redefining \. on input line 252.
-LaTeX Info: Redefining \% on input line 252.
-[43]
-LaTeX Info: Redefining \. on input line 292.
-LaTeX Info: Redefining \% on input line 292.
- [44]
 \Size=\skip273
 
 
-LaTeX Warning: Float too large for page by 138.10489pt on input line 430.
+LaTeX Warning: Float too large for page by 138.10489pt on input line 371.
 
 )
-Overfull \hbox (21.59819pt too wide) in paragraph at lines 434--261
-[]\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) Los di-rec-to-rios $\T1/zi4/m/n/10.95 servidor _ mcp _ bd _ codigo$\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) , $\T1/zi4/m/n/10.95 servidor _ mcp _ confluence$ \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) y $\T1/zi4/m/n/10.95 servidor _ mcp _ google _
- []
-
 LaTeX Info: Redefining \. on input line 261.
 LaTeX Info: Redefining \% on input line 261.
-[45]
+ [43]
 LaTeX Info: Redefining \. on input line 261.
 LaTeX Info: Redefining \% on input line 261.
- [46]
-LaTeX Info: Redefining \. on input line 261.
-LaTeX Info: Redefining \% on input line 261.
- [47] [48
-
-
-] (./chapters/chap6.tex
-<figures/specialized.png, id=1843, 1156.32pt x 448.074pt>
+ [44] (./chapters/chap6.tex
+<figures/specialized.png, id=1764, 1156.32pt x 448.074pt>
 File: figures/specialized.png Graphic file (type png)
 <use figures/specialized.png>
 Package pdftex.def Info: figures/specialized.png  used on input line 10.
@@ -1953,81 +1890,85 @@ Package pdftex.def Info: figures/specialized.png  used on input line 10.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[49]
+[45
+
+
+]
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
- [50 <./figures/specialized.png (PNG copy)>]
-<figures/citations.png, id=1878, 1133.9163pt x 314.3745pt>
+ [46 <./figures/specialized.png (PNG copy)>]
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 49.
+<figures/citations.png, id=1799, 1133.9163pt x 314.3745pt>
 File: figures/citations.png Graphic file (type png)
 <use figures/citations.png>
-Package pdftex.def Info: figures/citations.png  used on input line 63.
+Package pdftex.def Info: figures/citations.png  used on input line 64.
 (pdftex.def)             Requested size: 473.0077pt x 131.13934pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 68.
-LaTeX Info: Redefining \% on input line 68.
-[51]
+LaTeX Info: Redefining \. on input line 69.
+LaTeX Info: Redefining \% on input line 69.
+[47]
 
-LaTeX Warning: Reference `' on page 52 undefined on input line 83.
+LaTeX Warning: Reference `' on page 48 undefined on input line 84.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 88.
-LaTeX Info: Redefining \% on input line 88.
- [52 <./figures/citations.png (PNG copy)>]
-LaTeX Info: Redefining \. on input line 101.
-LaTeX Info: Redefining \% on input line 101.
- [53]
-<figures/db.png, id=1917, 942.4008pt x 483.4863pt>
+LaTeX Info: Redefining \. on input line 89.
+LaTeX Info: Redefining \% on input line 89.
+ [48 <./figures/citations.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 102.
+LaTeX Info: Redefining \% on input line 102.
+ [49]
+<figures/db.png, id=1838, 942.4008pt x 483.4863pt>
 File: figures/db.png Graphic file (type png)
 <use figures/db.png>
-Package pdftex.def Info: figures/db.png  used on input line 119.
+Package pdftex.def Info: figures/db.png  used on input line 120.
 (pdftex.def)             Requested size: 408.50307pt x 209.57709pt.
-LaTeX Info: Redefining \. on input line 128.
-LaTeX Info: Redefining \% on input line 128.
- [54 <./figures/db.png (PNG copy)>]
-<figures/chunks.png, id=1939, 4400.44pt x 1650.165pt>
+LaTeX Info: Redefining \. on input line 129.
+LaTeX Info: Redefining \% on input line 129.
+ [50 <./figures/db.png (PNG copy)>]
+<figures/chunks.png, id=1860, 4400.44pt x 1650.165pt>
 File: figures/chunks.png Graphic file (type png)
 <use figures/chunks.png>
-Package pdftex.def Info: figures/chunks.png  used on input line 131.
+Package pdftex.def Info: figures/chunks.png  used on input line 132.
 (pdftex.def)             Requested size: 580.50887pt x 217.6764pt.
-LaTeX Info: Redefining \. on input line 140.
-LaTeX Info: Redefining \% on input line 140.
- [55 <./figures/chunks.png>]
-LaTeX Info: Redefining \. on input line 164.
-LaTeX Info: Redefining \% on input line 164.
- [56]
-LaTeX Info: Redefining \. on input line 190.
-LaTeX Info: Redefining \% on input line 190.
- [57]
-Overfull \hbox (29.17943pt too wide) in paragraph at lines 191--192
+LaTeX Info: Redefining \. on input line 141.
+LaTeX Info: Redefining \% on input line 141.
+ [51 <./figures/chunks.png>]
+LaTeX Info: Redefining \. on input line 165.
+LaTeX Info: Redefining \% on input line 165.
+ [52]
+LaTeX Info: Redefining \. on input line 191.
+LaTeX Info: Redefining \% on input line 191.
+ [53]
+Overfull \hbox (29.17943pt too wide) in paragraph at lines 192--193
 []\T1/LinuxLibertineT-TLF/b/n/10.95 (-20) Implementación es-tán-dar[] \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) En es-ta im-ple-men-ta-ción es-tán-dar, $\T1/zi4/m/n/10.95 prepare _ prompt()$ \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) uti-li-za $\T1/zi4/m/n/10.95 confluence _
  []
 
-<figures/confluences.png, id=1992, 1306.6416pt x 495.7722pt>
+<figures/confluences.png, id=1914, 1306.6416pt x 495.7722pt>
 File: figures/confluences.png Graphic file (type png)
 <use figures/confluences.png>
-Package pdftex.def Info: figures/confluences.png  used on input line 197.
+Package pdftex.def Info: figures/confluences.png  used on input line 198.
 (pdftex.def)             Requested size: 365.50655pt x 138.6791pt.
 
-Overfull \hbox (5.84183pt too wide) in paragraph at lines 205--206
+Overfull \hbox (5.84183pt too wide) in paragraph at lines 207--208
 []$\T1/zi4/m/n/10.95 get _ gitlab _ project _ commits(user _ name ,[] since ,[] until ,[] result _ limit) :$ \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) Re-cu-pe-ra con-
  []
 
-LaTeX Info: Redefining \. on input line 211.
-LaTeX Info: Redefining \% on input line 211.
-[58 <./figures/confluences.png (PNG copy)>])
+LaTeX Info: Redefining \. on input line 213.
+LaTeX Info: Redefining \% on input line 213.
+[54 <./figures/confluences.png (PNG copy)>])
 LaTeX Info: Redefining \. on input line 264.
 LaTeX Info: Redefining \% on input line 264.
- [59] [60
+ [55] [56
 
 
 ] (./chapters/chap7.tex
 
-LaTeX Warning: Reference `anexo:design' on page 61 undefined on input line 1.
+LaTeX Warning: Reference `anexo:design' on page 57 undefined on input line 1.
 
 
 Overfull \hbox (0.92271pt too wide) in paragraph at lines 1--1
@@ -2035,14 +1976,14 @@ Overfull \hbox (0.92271pt too wide) in paragraph at lines 1--1
  []
 
 
-LaTeX Warning: Reference `anexo:design' on page 61 undefined on input line 1.
+LaTeX Warning: Reference `anexo:design' on page 57 undefined on input line 1.
 
 
 Overfull \hbox (0.92271pt too wide) in paragraph at lines 1--1
 [][][] 
  []
 
-[61]
+[57]
 Overfull \hbox (0.92271pt too wide) in paragraph at lines 41--41
 [][][] 
  []
@@ -2054,39 +1995,39 @@ Overfull \hbox (0.92271pt too wide) in paragraph at lines 41--41
 
 LaTeX Info: Redefining \. on input line 46.
 LaTeX Info: Redefining \% on input line 46.
-[62]
-<figures/planner.png, id=2063, 1292.9103pt x 149.5989pt>
+[58]
+<figures/planner.png, id=1984, 1292.9103pt x 149.5989pt>
 File: figures/planner.png Graphic file (type png)
 <use figures/planner.png>
-Package pdftex.def Info: figures/planner.png  used on input line 73.
+Package pdftex.def Info: figures/planner.png  used on input line 74.
 (pdftex.def)             Requested size: 537.50577pt x 62.19423pt.
-LaTeX Info: Redefining \. on input line 78.
-LaTeX Info: Redefining \% on input line 78.
- [63 <./figures/planner.png (PNG copy)>]
-<figures/orch_1.png, id=2089, 1542.76375pt x 1156.32pt>
+LaTeX Info: Redefining \. on input line 79.
+LaTeX Info: Redefining \% on input line 79.
+ [59 <./figures/planner.png (PNG copy)>]
+<figures/orch_1.png, id=2011, 1542.76375pt x 1156.32pt>
 File: figures/orch_1.png Graphic file (type png)
 <use figures/orch_1.png>
-Package pdftex.def Info: figures/orch_1.png  used on input line 92.
+Package pdftex.def Info: figures/orch_1.png  used on input line 94.
 (pdftex.def)             Requested size: 279.50037pt x 209.4872pt.
-<figures/orch_2.png, id=2090, 1281.78876pt x 1379.1525pt>
+<figures/orch_2.png, id=2012, 1281.78876pt x 1379.1525pt>
 File: figures/orch_2.png Graphic file (type png)
 <use figures/orch_2.png>
-Package pdftex.def Info: figures/orch_2.png  used on input line 94.
+Package pdftex.def Info: figures/orch_2.png  used on input line 96.
 (pdftex.def)             Requested size: 215.0023pt x 231.31725pt.
-<figures/orch_3.png, id=2091, 1281.78876pt x 1193.45876pt>
+<figures/orch_3.png, id=2013, 1281.78876pt x 1193.45876pt>
 File: figures/orch_3.png Graphic file (type png)
 <use figures/orch_3.png>
-Package pdftex.def Info: figures/orch_3.png  used on input line 96.
+Package pdftex.def Info: figures/orch_3.png  used on input line 98.
 (pdftex.def)             Requested size: 215.0023pt x 200.1719pt.
-LaTeX Info: Redefining \. on input line 105.
-LaTeX Info: Redefining \% on input line 105.
- [64]
-LaTeX Info: Redefining \. on input line 105.
-LaTeX Info: Redefining \% on input line 105.
- [65 <./figures/orch_1.png> <./figures/orch_2.png> <./figures/orch_3.png>])
+LaTeX Info: Redefining \. on input line 107.
+LaTeX Info: Redefining \% on input line 107.
+ [60]
+LaTeX Info: Redefining \. on input line 107.
+LaTeX Info: Redefining \% on input line 107.
+ [61 <./figures/orch_1.png> <./figures/orch_2.png> <./figures/orch_3.png>])
 LaTeX Info: Redefining \. on input line 267.
 LaTeX Info: Redefining \% on input line 267.
- [66] (./chapters/chap8.tex [67
+ [62] (./chapters/chap8.tex [63
 
 
 ]
@@ -2096,26 +2037,26 @@ Overfull \hbox (39.80113pt too wide) in paragraph at lines 45--46
 
 LaTeX Info: Redefining \. on input line 46.
 LaTeX Info: Redefining \% on input line 46.
-[68]
-<figures/memoria_1.png, id=2154, 2294.5725pt x 549.05125pt>
+[64]
+<figures/memoria_1.png, id=2075, 2294.5725pt x 549.05125pt>
 File: figures/memoria_1.png Graphic file (type png)
 <use figures/memoria_1.png>
 Package pdftex.def Info: figures/memoria_1.png  used on input line 49.
 (pdftex.def)             Requested size: 430.00462pt x 102.8882pt.
 LaTeX Info: Redefining \. on input line 62.
 LaTeX Info: Redefining \% on input line 62.
- [69 <./figures/memoria_1.png>]
-<figures/memoria_2.png, id=2163, 3550.26375pt x 1107.13625pt>
+ [65 <./figures/memoria_1.png>]
+<figures/memoria_2.png, id=2085, 3550.26375pt x 1107.13625pt>
 File: figures/memoria_2.png Graphic file (type png)
 <use figures/memoria_2.png>
 Package pdftex.def Info: figures/memoria_2.png  used on input line 65.
 (pdftex.def)             Requested size: 537.50577pt x 167.61748pt.
-<figures/cluster_2.png, id=2167, 707.64375pt x 494.84875pt>
+<figures/cluster_2.png, id=2089, 707.64375pt x 494.84875pt>
 File: figures/cluster_2.png Graphic file (type png)
 <use figures/cluster_2.png>
 Package pdftex.def Info: figures/cluster_2.png  used on input line 80.
 (pdftex.def)             Requested size: 171.99922pt x 120.27628pt.
-<figures/codo.png, id=2168, 1152.305pt x 548.0475pt>
+<figures/codo.png, id=2090, 1152.305pt x 548.0475pt>
 File: figures/codo.png Graphic file (type png)
 <use figures/codo.png>
 Package pdftex.def Info: figures/codo.png  used on input line 83.
@@ -2129,20 +2070,20 @@ Overfull \hbox (32.44492pt too wide) in paragraph at lines 80--84
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `' on page 70 undefined on input line 90.
+LaTeX Warning: Reference `' on page 66 undefined on input line 90.
 
 LaTeX Info: Redefining \. on input line 91.
 LaTeX Info: Redefining \% on input line 91.
-[70 <./figures/memoria_2.png>]
+[66 <./figures/memoria_2.png>]
 
-LaTeX Warning: Reference `' on page 71 undefined on input line 96.
+LaTeX Warning: Reference `' on page 67 undefined on input line 96.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 102.
 LaTeX Info: Redefining \% on input line 102.
- [71 <./figures/cluster_2.png> <./figures/codo.png>]
+ [67 <./figures/cluster_2.png> <./figures/codo.png>]
 Overfull \hbox (0.92271pt too wide) in paragraph at lines 115--115
 [][][] 
  []
@@ -2154,15 +2095,15 @@ Overfull \hbox (0.92271pt too wide) in paragraph at lines 115--115
 
 LaTeX Info: Redefining \. on input line 123.
 LaTeX Info: Redefining \% on input line 123.
-[72])
+[68])
 LaTeX Info: Redefining \. on input line 270.
 LaTeX Info: Redefining \% on input line 270.
- [73] [74
+ [69] [70
 
 
 ] (./chapters/chap9.tex
 
-LaTeX Warning: Reference `' on page 75 undefined on input line 11.
+LaTeX Warning: Reference `' on page 71 undefined on input line 11.
 
 
 Overfull \hbox (0.92271pt too wide) in paragraph at lines 12--12
@@ -2174,8 +2115,8 @@ Overfull \hbox (0.92271pt too wide) in paragraph at lines 12--12
 [][][] 
  []
 
-[75]
-<figures/evaluacion.png, id=2229, 2387.92125pt x 599.23875pt>
+[71]
+<figures/evaluacion.png, id=2151, 2387.92125pt x 599.23875pt>
 File: figures/evaluacion.png Graphic file (type png)
 <use figures/evaluacion.png>
 Package pdftex.def Info: figures/evaluacion.png  used on input line 39.
@@ -2186,16 +2127,16 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Info: Redefining \. on input line 45.
 LaTeX Info: Redefining \% on input line 45.
-[76]
+[72]
 LaTeX Info: Redefining \. on input line 72.
 LaTeX Info: Redefining \% on input line 72.
- [77 <./figures/evaluacion.png>]
+ [73 <./figures/evaluacion.png>]
 LaTeX Info: Redefining \. on input line 109.
 LaTeX Info: Redefining \% on input line 109.
- [78]
+ [74]
 LaTeX Info: Redefining \. on input line 128.
 LaTeX Info: Redefining \% on input line 128.
- [79]
+ [75]
 NOTE: coordinate (G. Drive, nan) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 NOTE: coordinate (GitLab, nan) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 
@@ -2260,13 +2201,13 @@ Overfull \hbox (8.26178pt too wide) in paragraph at lines 500--501
 
 LaTeX Info: Redefining \. on input line 609.
 LaTeX Info: Redefining \% on input line 609.
-[80]
+[76]
 LaTeX Info: Redefining \. on input line 609.
 LaTeX Info: Redefining \% on input line 609.
- [81]
+ [77]
 LaTeX Info: Redefining \. on input line 613.
 LaTeX Info: Redefining \% on input line 613.
- [82]
+ [78]
 Overfull \hbox (31.94093pt too wide) in paragraph at lines 718--719
  [][] 
  []
@@ -2274,16 +2215,16 @@ Overfull \hbox (31.94093pt too wide) in paragraph at lines 718--719
 )
 LaTeX Info: Redefining \. on input line 273.
 LaTeX Info: Redefining \% on input line 273.
- [83] [84
+ [79] [80
 
 
-] (./chapters/chap10.tex [85]
+] (./chapters/chap10.tex [81]
 LaTeX Info: Redefining \. on input line 36.
 LaTeX Info: Redefining \% on input line 36.
- [86]
+ [82]
 LaTeX Info: Redefining \. on input line 78.
 LaTeX Info: Redefining \% on input line 78.
- [87]
+ [83]
 Overfull \hbox (0.92271pt too wide) in paragraph at lines 80--80
 [][][] 
  []
@@ -2293,7 +2234,7 @@ Overfull \hbox (0.92271pt too wide) in paragraph at lines 80--80
 [][][] 
  []
 
-<figures/horas_real.pdf, id=2357, 781.4997pt x 570.4311pt>
+<figures/horas_real.pdf, id=2279, 781.4997pt x 570.4311pt>
 File: figures/horas_real.pdf Graphic file (type pdf)
 <use figures/horas_real.pdf>
 Package pdftex.def Info: figures/horas_real.pdf  used on input line 85.
@@ -2304,79 +2245,79 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 )
 LaTeX Info: Redefining \. on input line 276.
 LaTeX Info: Redefining \% on input line 276.
- [88]
+ [84]
 LaTeX Info: Redefining \. on input line 276.
 LaTeX Info: Redefining \% on input line 276.
- [89 <./figures/horas_real.pdf>] [90
+ [85 <./figures/horas_real.pdf>] [86
 
 
-] (./chapters/chap11.tex [91])
+] (./chapters/chap11.tex [87])
 LaTeX Info: Redefining \. on input line 279.
 LaTeX Info: Redefining \% on input line 279.
- [92] (./chapters/chap12.tex
+ [88] (./chapters/chap12.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--12
 [][] [][][]\T1/LinuxLibertineT-TLF/m/n/9 (+20) Google re-co-mien-da MCP: [][]$\T1/zi4/m/n/9 https : / / cloud . google . com / blog / products / ai -[] machine -[] learning / build -[]
  []
 
-[93
+[89
 
 
 ]
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
- [94]
+ [90]
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
- [95])
+ [91])
 LaTeX Info: Redefining \. on input line 282.
 LaTeX Info: Redefining \% on input line 282.
- [96] (./chapters/anexo_a.tex
+ [92] (./chapters/anexo_a.tex
 Underfull \vbox (badness 3199) has occurred while \output is active []
 
- [97
+ [93
 
 
 ])
 LaTeX Info: Redefining \. on input line 297.
 LaTeX Info: Redefining \% on input line 297.
- [98] (./chapters/anexo_b.tex [99
+ [94] (./chapters/anexo_b.tex [95
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 89.
 LaTeX Info: Redefining \% on input line 89.
+ [96]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [97]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 142.
+LaTeX Info: Redefining \% on input line 142.
+ [98]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [99]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 193.
+LaTeX Info: Redefining \% on input line 193.
  [100]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [101]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 142.
-LaTeX Info: Redefining \% on input line 142.
+LaTeX Info: Redefining \. on input line 249.
+LaTeX Info: Redefining \% on input line 249.
  [102]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [103]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 193.
-LaTeX Info: Redefining \% on input line 193.
- [104]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [105]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 249.
-LaTeX Info: Redefining \% on input line 249.
- [106]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [107])
+ [103])
 LaTeX Info: Redefining \. on input line 299.
 LaTeX Info: Redefining \% on input line 299.
- [108] (./chapters/anexo_d.tex [109
+ [104] (./chapters/anexo_d.tex [105
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 47--56
@@ -2385,10 +2326,10 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 47--56
 
 LaTeX Info: Redefining \. on input line 61.
 LaTeX Info: Redefining \% on input line 61.
-[110]
+[106]
 LaTeX Info: Redefining \. on input line 95.
 LaTeX Info: Redefining \% on input line 95.
- [111
+ [107
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 111--120
@@ -2397,10 +2338,10 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 111--120
 
 LaTeX Info: Redefining \. on input line 125.
 LaTeX Info: Redefining \% on input line 125.
-[112]
+[108]
 LaTeX Info: Redefining \. on input line 161.
 LaTeX Info: Redefining \% on input line 161.
- [113
+ [109
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 164--173
@@ -2409,10 +2350,10 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 164--173
 
 LaTeX Info: Redefining \. on input line 178.
 LaTeX Info: Redefining \% on input line 178.
-[114]
+[110]
 LaTeX Info: Redefining \. on input line 217.
 LaTeX Info: Redefining \% on input line 217.
- [115
+ [111
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 221--230
@@ -2421,22 +2362,22 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 221--230
 
 LaTeX Info: Redefining \. on input line 235.
 LaTeX Info: Redefining \% on input line 235.
-[116]
+[112]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 274--281
  [][] 
  []
 
 LaTeX Info: Redefining \. on input line 282.
 LaTeX Info: Redefining \% on input line 282.
-[117
+[113
 
 ]
 LaTeX Info: Redefining \. on input line 284.
 LaTeX Info: Redefining \% on input line 284.
- [118]
+ [114]
 LaTeX Info: Redefining \. on input line 323.
 LaTeX Info: Redefining \% on input line 323.
- [119
+ [115
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 332--339
@@ -2445,10 +2386,10 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 332--339
 
 LaTeX Info: Redefining \. on input line 344.
 LaTeX Info: Redefining \% on input line 344.
-[120]
+[116]
 LaTeX Info: Redefining \. on input line 379.
 LaTeX Info: Redefining \% on input line 379.
- [121
+ [117
 
 ]
 Overfull \hbox (5.93391pt too wide) in paragraph at lines 389--398
@@ -2458,12 +2399,12 @@ Overfull \hbox (5.93391pt too wide) in paragraph at lines 389--398
 )
 LaTeX Info: Redefining \. on input line 301.
 LaTeX Info: Redefining \% on input line 301.
- [122] (./chapters/anexo_f.tex [123
+ [118] (./chapters/anexo_f.tex [119
 
 ]
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
- [124]
+ [120]
 Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []|\T1/LinuxLibertineT-TLF/b/n/10.95 (+20) Primera Bús-
  []
@@ -2489,7 +2430,7 @@ Overfull \hbox (15.43279pt too wide) in paragraph at lines 49--66
 
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [125] [126
+ [121] [122
 
 ]
 bibitemlist
@@ -2505,27 +2446,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--31
 
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 10.0pt on input line 53.
-[127]
+[123]
 LaTeX Info: Redefining \. on input line 117.
 LaTeX Info: Redefining \% on input line 117.
- [128]
+ [124]
 LaTeX Info: Redefining \. on input line 179.
 LaTeX Info: Redefining \% on input line 179.
- [129]
+ [125]
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 230.
 LaTeX Info: Redefining \. on input line 235.
 LaTeX Info: Redefining \% on input line 235.
- [130]
+ [126]
 LaTeX Info: Redefining \. on input line 283.
 LaTeX Info: Redefining \% on input line 283.
- [131]
+ [127]
 LaTeX Info: Redefining \. on input line 348.
 LaTeX Info: Redefining \% on input line 348.
- [132])
+ [128])
 LaTeX Info: Redefining \. on input line 312.
 LaTeX Info: Redefining \% on input line 312.
- [133]
+ [129]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -2551,22 +2492,22 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2005A775A7BDEC7937D7C47ED6B218C2;27390.
+(rerunfilecheck)             Checksum: A2BE630A5885C2F8B7B967A972097478;27390.
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: 9F9384209C46E0621B3CEC3180D917C1;4139.
+(rerunfilecheck)             Checksum: B47A74D0E86E873F2BD613854D46D0A8;4139.
  ) 
 Here is how much of TeX's memory you used:
- 67795 strings out of 474222
- 1518077 string characters out of 5748733
- 2353177 words of memory out of 5000000
- 87385 multiletter control sequences out of 15000+600000
+ 67688 strings out of 474222
+ 1516518 string characters out of 5748733
+ 2347845 words of memory out of 5000000
+ 87334 multiletter control sequences out of 15000+600000
  731199 words of font info for 474 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  142i,23n,148p,1601b,4115s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (147 pages, 7005664 bytes).
+Output written on main.pdf (143 pages, 6986640 bytes).
 PDF statistics:
- 3484 PDF objects out of 3580 (max. 8388607)
- 1159 named destinations out of 1200 (max. 500000)
+ 3392 PDF objects out of 3580 (max. 8388607)
+ 1103 named destinations out of 1200 (max. 500000)
  113053 words of extra memory for PDF output out of 128383 (max. 10000000)
 

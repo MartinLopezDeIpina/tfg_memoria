@@ -56,6 +56,7 @@ Algunas herramientas proporcionadas por los servidores MCP resultan innecesarias
 Por otra parte, algunos servidores MCP no proporcionan todas las funcionalidades requeridas. Para obtener estas herramientas adicionales, la función \opus{add_additional_tools()} incorpora, cuando es necesario, herramientas complementarias específicas para cada agente.
 
 \subsection{Sistema de citas}
+\label{sec:citas}
 Para que el usuario final obtenga las fuentes de información utilizadas en la respuesta a su consulta, los agentes especializados deben referenciar los documentos consultados. Un sistema sencillo podría solicitar en el prompt que el agente indique la ruta o nombre del archivo, pero sería propenso a errores debido a que las direcciones URL de cada fuente de datos siguen patrones diferenciados. Para garantizar que los documentos citados siempre existan y contengan una dirección válida, se ha implementado el sistema ilustrado en la Figura \ref{fig:citations}.
 
 \begin{figure}[h]
@@ -200,6 +201,7 @@ Esta versión incorpora toda la documentación directamente en el contexto de en
 \end{figure}
 
 \subsection{Agente GitLab}
+\label{sec:agente_gitlab}
 El agente recibe inicialmente mediante \opus{prepare_prompt()} estadísticas del repositorio obtenidas a través de la herramienta \opus{get_gitlab_project_statistics()}, incluyendo datos sobre contribuciones, usuarios e incidencias. Posteriormente, puede emplear las siguientes herramientas:
 \begin{itemize}
   \item\opus{get_gitlab_project_commits(user_name, since, until, result_limit):} Recupera contribuciones (\textit{commits}) con opciones de filtrado por usuario, fechas o cantidad.

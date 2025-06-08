@@ -17,45 +17,45 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Esquema de implementación de patrón ReAct en Langgraph}}{34}{figure.5.1}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Diagrama de clases UML de del sistema de agentes.}}{35}{figure.5.2}%
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Esquema general de agentes del sistema}}{36}{figure.5.3}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Estructura de directorios principales del proyecto}}{46}{figure.5.4}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Estructura de directorios principales del proyecto}}{44}{figure.5.4}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Grafo de ejecución de agentes especializados}}{50}{figure.6.1}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Diagrama de funcionamiento del sistema de citas}}{52}{figure.6.2}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Diagrama relacional de la base de datos con el código fuente del proyecto software}}{54}{figure.6.3}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Algoritmo de chunking considerando definiciones de funciones y clases en el código fuente}}{55}{figure.6.4}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Comparación de agente Confluence estándar y enfocado en el cacheo del prompt}}{58}{figure.6.5}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Grafo de ejecución de agentes especializados}}{46}{figure.6.1}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Diagrama de funcionamiento del sistema de citas}}{48}{figure.6.2}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Diagrama relacional de la base de datos con el código fuente del proyecto software}}{50}{figure.6.3}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Algoritmo de chunking considerando definiciones de funciones y clases en el código fuente}}{51}{figure.6.4}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Comparación de agente Confluence estándar y enfocado en el cacheo del prompt}}{54}{figure.6.5}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Flujo operativo del agente planificador}}{63}{figure.7.1}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Variaciones de orquestación principales experimentadas}}{65}{figure.7.2}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sistema con planificador y orquestador independientes}}}{65}{subfigure.2.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sistema con planificador y orquestador fusionados}}}{65}{subfigure.2.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Sistema con orquestador como agente ReAct}}}{65}{subfigure.2.3}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Flujo operativo del agente planificador}}{59}{figure.7.1}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Variaciones de orquestación principales experimentadas}}{61}{figure.7.2}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sistema con planificador y orquestador independientes}}}{61}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sistema con planificador y orquestador fusionados}}}{61}{subfigure.2.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Sistema con orquestador como agente ReAct}}}{61}{subfigure.2.3}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Flujo operativo del sistema de memoria de los agentes especializados}}{69}{figure.8.1}%
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Agrupación de memoria por clústeres}}{70}{figure.8.2}%
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Agrupación de 3 clústeres}}{71}{figure.8.3}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualización de clústeres en dos dimensiones}}}{71}{subfigure.3.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Método del codo sobre agrupación de clústeres}}}{71}{subfigure.3.2}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Flujo operativo del sistema de memoria de los agentes especializados}}{65}{figure.8.1}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Agrupación de memoria por clústeres}}{66}{figure.8.2}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Agrupación de 3 clústeres}}{67}{figure.8.3}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualización de clústeres en dos dimensiones}}}{67}{subfigure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Método del codo sobre agrupación de clústeres}}}{67}{subfigure.3.2}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Mecanismo de evaluación de agentes}}{77}{figure.9.1}%
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Comparación de métricas entre versión inicial y mejorada de agentes especialistas}}{81}{figure.9.2}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{81}{subfigure.2.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión citación}}}{81}{subfigure.2.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Precisión de herramientas}}}{81}{subfigure.2.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Alucinación (más es mejor)}}}{81}{subfigure.2.4}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Tokens por ejecución (millares)}}}{81}{subfigure.2.5}%
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Evaluación de agentes orquestador y planificador antes y después de prompting few-shot}}{82}{figure.9.3}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{82}{subfigure.3.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión herramientas}}}{82}{subfigure.3.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Alucinación (más es mejor)}}}{82}{subfigure.3.3}%
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Comparación de rendimiento y costo entre diferentes variaciones de orquestación}}{82}{figure.9.4}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{82}{subfigure.4.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Costo total de tokens (millones)}}}{82}{subfigure.4.2}%
-\contentsline {figure}{\numberline {9.5}{\ignorespaces Resultados de evaluación para el sistema con y sin memoria}}{83}{figure.9.5}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Evaluación con memorias de entrenamiento sobre conjunto de evaluación}}}{83}{subfigure.5.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Evaluación con memorias de evaluación sobre conjunto de evaluación}}}{83}{subfigure.5.2}%
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Mecanismo de evaluación de agentes}}{73}{figure.9.1}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Comparación de métricas entre versión inicial y mejorada de agentes especialistas}}{77}{figure.9.2}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{77}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión citación}}}{77}{subfigure.2.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Precisión de herramientas}}}{77}{subfigure.2.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Alucinación (más es mejor)}}}{77}{subfigure.2.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Tokens por ejecución (millares)}}}{77}{subfigure.2.5}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Evaluación de agentes orquestador y planificador antes y después de prompting few-shot}}{78}{figure.9.3}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{78}{subfigure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Precisión herramientas}}}{78}{subfigure.3.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Alucinación (más es mejor)}}}{78}{subfigure.3.3}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Comparación de rendimiento y costo entre diferentes variaciones de orquestación}}{78}{figure.9.4}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LLM juez}}}{78}{subfigure.4.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Costo total de tokens (millones)}}}{78}{subfigure.4.2}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Resultados de evaluación para el sistema con y sin memoria}}{79}{figure.9.5}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Evaluación con memorias de entrenamiento sobre conjunto de evaluación}}}{79}{subfigure.5.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Evaluación con memorias de evaluación sobre conjunto de evaluación}}}{79}{subfigure.5.2}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Comparación de dedicación horaria estimada y real}}{89}{figure.10.1}%
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Comparación de dedicación horaria estimada y real}}{85}{figure.10.1}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

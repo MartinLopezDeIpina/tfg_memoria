@@ -64,6 +64,7 @@ El Listado \ref{lst:structured_output} muestra la implementación mediante el ad
         ...
 \end{lstlisting}
 \subsection{Agente Planificador}
+\label{sec:agente_planificador}
 Este agente establece planes de alto nivel para estructurar el proceso de respuesta mediante un procedimiento lógico secuencial. Adicionalmente, incorpora la capacidad de modificar dinámicamente dichos planes en función del estado de ejecución actual.
 
 El flujo operativo del agente se ilustra en la Figura \ref{fig:planner}. En primera instancia, se verifica que el plan no esté finalizado mediante el condicional \opus{check_current_plan()}. Se considera que un plan ha concluido cuando la ejecución del planificador previo así lo ha determinado o cuando se ha excedido el límite de iteraciones establecido. En caso de detectarse la finalización del plan, se termina inmediatamente la ejecución del planificador.
@@ -79,6 +80,7 @@ Posteriormente, un agente razonador procesa la consulta del usuario junto con un
 Cabe destacar que el razonador no estructura directamente su plan, puesto que los agentes razonadores han sido optimizados para generar respuestas sin un formato predeterminado, habiéndose demostrado que imponer restricciones de formato reduce la precisión del razonamiento \cite{tam_let_2024}. Por consiguiente, otro agente, denominado estructurador, transforma el plan textual elaborado por el razonador a un modelo de Pydantic. Este plan consiste en un objeto Python representado como una lista de pasos textuales con un argumento booleano que indica si el plan ha finalizado.
 
 \section{Agente orquestador}
+\label{sec:agente_orquestador}
 Este agente recibe una tarea específica, ya sea derivada de un paso del plan establecido o formulada como consulta directa por el usuario, y determina qué agentes especializados deben ejecutarse de forma asíncrona.
 
 Para fundamentar su toma de decisiones, su prompt incorpora una descripción detallada de cada agente disponible, incluyendo una síntesis del tipo de información que gestiona cada uno. Este contexto se construye dinámicamente en función de los agentes integrados en el sistema, almacenando dicha caracterización en cada objeto \opus{SpecializedAgent}.
