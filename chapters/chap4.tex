@@ -4,7 +4,7 @@ La captura de requisitos se ha estructurado en tres fases: en primer lugar, la d
 
 \section{Requisitos principales}
 
-El sistema agéntico implementado debe tener las siguientes características para cumplir con las necesidades del director empresarial: 
+El sistema agéntico implementado debe tener las siguientes características para cumplir con las necesidades del director en la empresa: 
 
 \subsection{Requisitos funcionales}
 \begin{itemize}
@@ -12,28 +12,28 @@ El sistema agéntico implementado debe tener las siguientes características par
 \item\textbf{Fuentes de información: }los agentes del sistema dispondrán de acceso a un conjunto de recursos que incluirá el repositorio de código del proyecto software, una documentación externa y un sistema de gestión de tareas. Al menos una de estas fuentes deberá ser accedida mediante una implementación RAG.
 \item\textbf{Orquestación: }se requiere un agente coordinador cuya función sea decidir a qué agente especializado delegar una acción a realizar.
 \item\textbf{Protocolo MCP: }la implementación priorizará el uso del protocolo MCP: Al menos uno de los agentes especializados empleará dicho protocolo para obtener las herramientas a utilizar.
-\item\textbf{Evaluación de agentes: }se implementará un sistema de evaluación objetiva para determinar si la mejora de agentes incrementa la precisión del sistema. Dado un agente y su mejora, será posible determinar cuál de los dos responde mejor a las preguntas realizadas, utilizando para ello una métrica cuantificable.
+\item\textbf{Evaluación de agentes: }se implementará un sistema de evaluación objetiva para determinar si la mejora de agentes incrementa la precisión del sistema. Dado un agente y su mejora, será posible determinar cuál de los dos responde mejor a las preguntas realizadas, utilizando para ello una métrica cuantificable. 
 \item\textbf{Enfoque del sistema: }la finalidad principal del sistema consistirá en responder preguntas sobre un proyecto software, logrando una tasa de precisión mínima del 75\% sobre un conjunto predefinido de no menos de 25 preguntas, aprobado por los directores del proyecto. Esta precisión se medirá utilizando una métrica cuantificable previamente establecida.
 \item\textbf{Librerías utilizadas: }el desarrollo se sustentará en tres librerías especializadas: LangChain para el control de modelos y gestión de prompts (empleada en al menos el 75\% de las ejecuciones), LangGraph para estructurar el flujo lógico (requiriendo que mínimo tres cuartas partes de los agentes operen sobre un grafo compilado de dicha librería), y LangSmith como herramienta de monitorización (garantizando la visualización de todas las llamadas a modelos en la plataforma).
 \end{itemize}
+
+Es importante señalar que el director en la empresa únicamente requería una evaluación manual del sistema, mientras que el uso de un sistema de evaluación automatizado, así como la precisión mínima asociada, se incluyeron en los requisitos tras identificarse como una mejora significativa para el proyecto.
 \subsection{Requisitos no funcionales}
 \begin{itemize}
 \item\textbf{Control de excepciones: }el sistema incorporará un control de excepciones que garantice la ejecución aún si un agente o una herramienta genera una excepción. Se contempla la captura de excepciones de todos los agentes y todas las herramientas utilizadas.
 \item\textbf{Control del tiempo: }la ejecución completa del sistema para un caso de uso no excederá los 5 minutos.
-\item\textbf{Control del presupuesto: }se establece un límite máximo de 25 céntimos por ejecución de un caso de uso para el coste de API de modelos.
+\item\textbf{Control del presupuesto: }se establece un límite máximo de 25 céntimos por ejecución de un caso de uso para el coste de API de modelos. El director en la empresa no especificó una cantidad concreta, sino que instó al uso razonable de los recursos; por ello, se ha elegido esta cifra como límite que no debe sobrepasarse.
 \item\textbf{Independencia de modelos: }la arquitectura garantizará independencia respecto a un único proveedor de modelos LLM. La sustitución de los modelos utilizados será posible en menos de 5 minutos.
 \item\textbf{Modularidad del sistema: }el orquestador funcionará de manera desacoplada respecto a los agentes especializados. La adición o eliminación de un agente especializado requerirá menos de 5 minutos de desarrollo.
 \end{itemize}
 
 \section{Dominios de conocimiento}
-De acuerdo con los objetivos previamente establecidos en la Sección \ref{chap3:objetivos}, es necesario alinear el sistema con la metodología de desarrollo implementada en la organización. Con este propósito, se ha efectuado una recopilación de las posibles interrogantes dirigidas al sistema, procediendo posteriormente a realizar un análisis de la metodología actualmente vigente en el entorno empresarial.
+De acuerdo con los objetivos previamente establecidos en la Sección \ref{chap3:objetivos}, es necesario alinear el sistema con la metodología de desarrollo implementada en la organización. Con este propósito, se ha efectuado una recopilación de las posibles interrogantes que una nueva incorporación plantearía al sistema durante su integración a un proyecto software, procediendo posteriormente a realizar un análisis de la metodología actualmente vigente en el entorno empresarial.
 
 \subsection{Anotación de preguntas}
-Se ha llevado a cabo una elicitación de requisitos mediante la implementación de un cuestionario electrónico dirigido al personal técnico de la sede de Zuatzu en LKS Next. En dicho cuestionario, se solicitó a los profesionales que, acorde a su ámbito de especialización, anotasen las interrogantes que formularían a un sistema de onboarding hipotético.
+Se ha llevado a cabo una elicitación de requisitos mediante la implementación de un cuestionario electrónico dirigido al personal técnico de la sede de Zuatzu en LKS Next, incluyendo coordinadores de equipo con experiencia en la incorporación de desarrolladores junior. En dicho cuestionario, se solicitó a los profesionales que, acorde a su ámbito de especialización, anotasen las interrogantes que formularían a un sistema de onboarding hipotético.
 
 Se recabaron un total de 63 interrogantes aportadas por 8 profesionales del ámbito del desarrollo software. Posteriormente, dichas cuestiones fueron ampliadas y categorizadas mediante la utilización del modelo Claude 3.7 Sonnet\footnote{Claude 3.7 Sonnet: \url{https://www.anthropic.com/claude/sonnet}} en su versión razonadora, tras lo cual se procedió a una anotación manual para eliminar elementos redundantes. La compilación clasificada final puede consultarse en el Listado \ref{listado:preguntas}, donde se han identificado los siguientes dominios de conocimiento:
-
-\todo[inline]{En este párrafo tengo dudas con los tiempos verbales. He puesto "se recabaron", "fueron ampliadas", "se procedió", y luego el pretérito perfecto compuesto "se han identificado". Es como mejor me suena, pero no sé si el cambio contrasta demasiado.}
 
 \begin{itemize}
 \item\textbf{Información general: }objetivo, finalidad y contexto del proyecto.
@@ -50,6 +50,8 @@ Se recabaron un total de 63 interrogantes aportadas por 8 profesionales del ámb
 \item Diagrama de clases e interfaces de cada componente
 \end{itemize}
 \end{itemize}
+
+A modo de ejemplo, la siguiente pregunta se ha clasificado como parte de la gestión del proyecto: \texttt{¿Dónde puedo encontrar la descripción detallada de las tareas asignadas o disponibles?}
 
 \subsection{Metodología empresarial}
 La metodología implementada ha sido consultada directamente con los desarrolladores de LKS Next. Al tratarse de una empresa consultora, la metodología aplicada presenta variaciones en función del cliente específico al que se presta servicio. No obstante, se ha identificado que dicha metodología se fundamenta en las siguientes directrices comunes:
@@ -73,7 +75,7 @@ Debido a las restricciones legales existentes, no es viable la utilización de p
 
 Se dispone de acceso completo al repositorio de GitLab del proyecto, lo que proporciona información detallada sobre todos los usuarios, contribuciones realizadas, gestión de incidencias y administración de tareas. Asimismo, se dispone de las maquetas HTML utilizadas para crear la interfaz de usuario. 
 
-Cabe destacar que la metodología de gestión implementada difiere ligeramente de la empleada en proyectos orientados directamente a clientes. En este caso, el desarrollador principal es Aritz Galdos (director empresarial del presente proyecto), quien coordina reuniones tanto presenciales como virtuales con los contribuyentes del proyecto. Debido a las restricciones legales mencionadas anteriormente, no se dispone de acceso a la aplicación de gestión horaria del proyecto.
+Cabe destacar que la metodología de gestión implementada difiere ligeramente de la empleada en proyectos orientados directamente a clientes. En este caso, el desarrollador principal es Aritz Galdos (supervisor en la empresa para el presente proyecto), quien coordina reuniones tanto presenciales como virtuales con los contribuyentes del proyecto. Debido a las restricciones legales mencionadas anteriormente, no se dispone de acceso a la aplicación de gestión horaria del proyecto.
 
 \subsection{Recursos generados}
 Con el objetivo de una evaluación detallada del sistema, se ha procedido a la generación de documentación que replica con la mayor fidelidad posible las características del proyecto original. Para este propósito, se ha empleado nuevamente el modelo Claude 3.7 Sonnet, utilizando como datos de entrada toda la información de gestión previamente mencionada, así como ficheros clave extraídos del repositorio del código fuente. Posteriormente, se ha realizado un proceso de refinamiento manual de la documentación generada con el objetivo de eliminar imprecisiones e información errónea.
@@ -82,13 +84,11 @@ En una primera fase, se han elaborado tres documentos específicos relacionados 
 
 Seguidamente, se han desarrollado trece documentos que constituyen una simulación de la ``documentación oficial'' del proyecto. Estos documentos recogen los elementos necesarios para la comprensión de la gestión, diseño y metodología de contribución del proyecto: \opus{arquitectura-software.md}, \opus{despliegue.md}, \opus{equipo-y-comunicacion.md}, \opus{estandares-codigo.md}, \opus{flujos-trabajo.md}, \opus{guia-contribucion.md}, \opus{informacion-cliente.md}, \opus{metodologia.md}, \opus{modelo-negocio.md}, \opus{onboarding.md}, \opus{README.md}, \opus{referencias-tecnicas.md} y \opus{sistema-gestion-tareas.md}.
 
-Por último, se ha generado la ``Documentación API'' del proyecto mediante la utilización del agente RepoAgent\cite{luo_repoagent_2024}. Esta documentación contiene explicaciones detalladas de todas las clases y métodos implementados en Python, que conforman la estructura  del dominio y del modelo de negocio. El uso de este agente externo se explica detalladamente en la sección \colorbox{yellow}{\ref{sec}}.
+Por último, se ha generado la ``Documentación API'' del proyecto mediante la utilización del agente RepoAgent\cite{luo_repoagent_2024}. Esta documentación contiene explicaciones detalladas de todas las clases y métodos implementados en Python, que conforman la estructura  del dominio y del modelo de negocio. El uso de este agente externo se explica detalladamente en la sección \ref{sec:herramientas_codigo}.
 
-\todo[inline]{Como he usado la documentación API para indexar los chunks de código, creo que lo mejor es explicarlo en esa sección.}
+Esta infraestructura documental permite simular el proceso de onboarding de un nuevo desarrollador en el proyecto IA-core-tools, evaluando las respuestas del sistema agéntico ante las interrogantes típicas identificadas en los dominios de conocimiento.
 
-
-
-
+Una vez definidos los requisitos y recursos del sistema, el siguiente capítulo comienza con la descripción de la implementación.
 
 
 

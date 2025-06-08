@@ -1,14 +1,3 @@
-\section{Diseño General}
-\label{anexo:design}
-El sistema implementado explora arquitecturas aplicables a entornos con restricciones significativas de procesamiento, orientándose a responder consultas mediante el acceso eficiente a múltiples fuentes de datos. El diseño contempla las siguientes restricciones: 
-\begin{itemize}
-\item\textbf{Ventana de contexto limitada: }los proyectos en producción pueden contener millones de líneas de código y documentación de comparable magnitud. Los modelos del estado del arte carecen de capacidad para procesar tal volumen textual.
-  \item\textbf{Costo asociado: }incluso cuando el texto cabe en la ventana de contexto, las iteraciones con grandes volúmenes textuales generan un gasto computacional prohibitivo en entornos productivos. Esto crea la necesidad de optimizar selectivamente el acceso a la información.
-\end{itemize}
-Para abordar estas limitaciones, el sistema adopta un enfoque distribuido. La arquitectura reparte el procesamiento entre agentes especializados, cada uno interactuando exclusivamente con su fuente asignada. Estos agentes procesan los documentos originales y sintetizan únicamente la información pertinente, evitando así que niveles superiores procesen detalles irrelevantes. El agente orquestador analiza una operación y determina qué especialistas deben intervenir según las fuentes más apropiadas.
-
-Complementariamente, se implementa una coordinación de alto nivel mediante el agente planificador, que establece la secuencia lógica de operaciones. Por ejemplo, ante una consulta sobre ejemplos de aplicación de la guía de estilos, se priorizaría localizar dicha guía para posteriormente examinar implementaciones específicas en el código fuente.
-
 \section{Conjunto de datos etiquetados}
 \label{anexo:datos_et}
 Un conjunto de datos etiquetado es una colección estructurada de información donde cada elemento o instancia está asociado a una o más categorías, clases o valores objetivo, denominados etiquetas. Estas etiquetas representan la información que se desea predecir o clasificar mediante un modelo de aprendizaje automático.
