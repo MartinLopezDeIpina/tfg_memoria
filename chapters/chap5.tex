@@ -25,15 +25,15 @@ La Figura \ref{fig:uml} ilustra esta arquitectura de clases, donde se observa la
   \label{fig:uml}
 \end{figure}
 
-El funcionamiento específico de cada tipo de agente se detalla en las Secciones \colorbox{yellow}{\ref{sec:agentes_especializados} y \ref{sec:agentes_coordinacion}}.
+El funcionamiento específico de cada tipo de agente se detalla en la Sección \ref{sec:diagrama_agentes}.
 
 \section{Arquitectura del sistema}
-El sistema implementado explora arquitecturas aplicables a entornos con restricciones significativas de procesamiento, orientándose a responder consultas mediante el acceso eficiente a múltiples fuentes de datos. El diseño contempla las siguientes restricciones:
+El sistema implementado explora arquitecturas aplicables a entornos con restricciones de procesamiento, orientándose a responder consultas mediante el acceso eficiente a múltiples fuentes de datos. El diseño contempla las siguientes restricciones:
 \begin{itemize}
 \item\textbf{Ventana de contexto limitada: }los proyectos en producción pueden contener millones de líneas de código y documentación de comparable magnitud. Los modelos del estado del arte no poseen todavía la capacidad para procesar dicho volumen textual.
 \item\textbf{Costo asociado: }incluso cuando el texto cabe en la ventana de contexto, las iteraciones con grandes volúmenes textuales generan un gasto computacional prohibitivo en entornos productivos. Esto crea la necesidad de optimizar selectivamente el acceso a la información.
 \end{itemize}
-Para abordar estas limitaciones, el sistema adopta un enfoque distribuido ilustrado en la Figura \ref{fig:agentes}. La arquitectura distribuye el procesamiento entre agentes especializados, cada uno interactuando exclusivamente con su fuente asignada.
+Para abordar estas limitaciones, el sistema adopta un enfoque distribuido ilustrado en la Figura \ref{fig:agentes}. La arquitectura reparte el procesamiento entre agentes especializados, cada uno interactuando exclusivamente con su fuente asignada.
 Estos agentes procesan los documentos originales y sintetizan únicamente la información pertinente, evitando así que niveles superiores deban procesar detalles irrelevantes. El agente orquestador analiza una operación y determina qué especialistas deben intervenir según las fuentes más apropiadas.
 \begin{figure}[h]
 \centering
@@ -44,9 +44,10 @@ Estos agentes procesan los documentos originales y sintetizan únicamente la inf
 
 Adicionalmente, se implementa una coordinación de alto nivel mediante el agente planificador, que establece la secuencia lógica de operaciones. Por ejemplo, ante una consulta sobre ejemplos de aplicación de la guía de estilos, se priorizaría localizar dicha guía para posteriormente examinar implementaciones específicas en el código fuente.
 
-Este esquema representa el funcionamiento general del sistema; el Capítulo \ref{ch:chap7} explica en mayor profundidad cada variación implementada.
+Una vez explicado el funcionamiento general del sistema; el Capítulo \ref{ch:chap7} explica en mayor profundidad cada variación implementada.
 
 \subsection{Diagrama de agentes}
+\label{sec:diagrama_agentes}
 
 Como se puede observar en el diagrama de clases (Figura \ref{fig:uml}), la clase abstracta \opus{BaseAgent} constituye la base de la que heredan todos los agentes. Dicha clase establece las funcionalidades comunes que implementan todos los agentes del sistema:
 
@@ -159,7 +160,7 @@ Mediante este procedimiento, se han utilizado los siguientes servidores:
   \item\textbf{Servidor Sistema de ficheros local: }proporciona acceso a un directorio específico, que simula el repositorio de la ``documentación oficial'' del proyecto. Se ha utilizado el servidor de Anthropic FileSystem\footnote{FileSystem: \url{https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem}}, ejecutándolo mediante el comando npx con el paquete del registro npm\footnote{Npm: \url{https://www.npmjs.com/}} \opus{@modelcontextprotocol/server-filesystem}\footnote{Server-filesystem: \url{https://www.npmjs.com/package/@modelcontextprotocol/server-filesystem}}.
 
   \label{sec:gitlab_mcp}
-  \item\textbf{Servidor GitLab: }facilita el acceso al repositorio de GitLab con funcionalidades para leer o modificar ficheros, incidencias, usuarios y contribuciones. Se ejecuta utilizando el paquete npm \opus{@modelcontextprotocol/server-gitlab}\footnote{Server-gitlab: \url{https://www.npmjs.com/package/@modelcontextprotocol/server-gitlab}}. Debido a que no ofrece capacidades específicas para la lectura de ciertos recursos, se han desarrollado herramientas accediendo manualmente a la API de GitLab, detallas en la Sección \ref{sec:agente_gitlab}.
+  \item\textbf{Servidor GitLab: }facilita el acceso al repositorio de GitLab con funcionalidades para leer o modificar ficheros, incidencias, usuarios y contribuciones. Se ejecuta utilizando el paquete npm \opus{@modelcontextprotocol/server-gitlab}\footnote{Server-gitlab: \url{https://www.npmjs.com/package/@modelcontextprotocol/server-gitlab}}. Debido a que no ofrece capacidades específicas para la lectura de ciertos recursos, se han desarrollado herramientas complementarias accediendo manualmente a la API de GitLab, detallas en la Sección \ref{sec:agente_gitlab}.
 
 \item\textbf{Servidor Google Drive: }proporciona acceso a un directorio de Google Drive, donde se alojan las maquetas HTML del proyecto software. A pesar de existir un repositorio oficial de MCP para la conexión con Google Drive, este no ofrece todas las funcionalidades requeridas, por lo que se ha empleado una modificación desarrollada en JavaScript\footnote{Servidor MCP Google Drive: \url{https://github.com/felores/gdrive-mcp-server/blob/main/index.ts}}. En consecuencia, en lugar de especificar el paquete a utilizar en la instancia \opus{StdioServerParameters}, se indica la ruta del script a ejecutar. También se ha modificado la herramienta de listar ficheros para mostrar recursivamente todos los ficheros dentro de los directorios listados.
 
@@ -256,7 +257,7 @@ Finalmente, ambos protocolos ejecutan \opus{_initialize_session_and_load_tools()
 \end{lstlisting}
 
 \section{Estructura del proyecto}
-El repositorio se estructura en cuatro componentes independientes, cada uno con su propio entorno virtual de Python, como ilustra la Figura \ref{fig:dir_principales}. El componente principal \opus{sistema_agentes} contiene todos los agentes desarrollados y los clientes MCP, organizando el código fuente en \opus{src}, los prompts y documentación en \opus{static}, las variables de configuración en \opus{config.py} y \opus{.env}, y la lógica principal en \opus{main.py}.
+El repositorio se estructura en cuatro componentes independientes, cada uno con su propio entorno virtual de Python, como ilustra la Figura \ref{fig:dir_principales}. El componente principal \opus{sistema_agentes} contiene todos los agentes desarrollados y el cliente MCP, organizando el código fuente en \opus{src}, los prompts y documentación en \opus{static}, las variables de configuración en \opus{config.py} y \opus{.env}, y la lógica principal en \opus{main.py}.
 
 Los tres componentes restantes (\opus{servidor_mcp_bd_codigo}, \opus{servidor_mcp_confluence} y \opus{servidor_mcp_google_drive}) contienen cada uno un servidor MCP independiente.
 

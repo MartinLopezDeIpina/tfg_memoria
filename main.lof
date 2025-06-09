@@ -20,10 +20,11 @@
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Estructura de directorios principales del proyecto}}{44}{figure.5.4}%
 \addvspace {10pt}
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Grafo de ejecución de agentes especializados}}{46}{figure.6.1}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Diagrama de funcionamiento del sistema de citas}}{48}{figure.6.2}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Diagrama relacional de la base de datos con el código fuente del proyecto software}}{50}{figure.6.3}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Algoritmo de chunking considerando definiciones de funciones y clases en el código fuente}}{51}{figure.6.4}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Comparación de agente Confluence estándar y enfocado en el cacheo del prompt}}{54}{figure.6.5}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Diagrama de funcionamiento del sistema de citas}}{47}{figure.6.2}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Flujo operativo del agente de código}}{49}{figure.6.3}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Diagrama relacional de la base de datos con el código fuente del proyecto software}}{51}{figure.6.4}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Algoritmo de chunking considerando definiciones de funciones y clases en el código fuente}}{52}{figure.6.5}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Comparación de agente Confluence estándar y enfocado en el cacheo del prompt}}{54}{figure.6.6}%
 \addvspace {10pt}
 \contentsline {figure}{\numberline {7.1}{\ignorespaces Flujo operativo del agente planificador}}{59}{figure.7.1}%
 \contentsline {figure}{\numberline {7.2}{\ignorespaces Variaciones de orquestación principales experimentadas}}{61}{figure.7.2}%

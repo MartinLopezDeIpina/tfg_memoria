@@ -63,16 +63,16 @@
 \contentsline {section}{\numberline {6.1}Estructura SpecializedAgent}{45}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Gestión de herramientas}{47}{subsection.6.1.1}%
 \contentsline {subsection}{\numberline {6.1.2}Sistema de citas}{47}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}Agentes implementados}{49}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Agente código}{49}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.2}Agentes implementados}{48}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Agente código}{48}{subsection.6.2.1}%
 \contentsline {subsubsection}{\numberline {6.2.1.1}Herramientas de acceso a código}{49}{subsubsection.6.2.1.1}%
-\contentsline {paragraph}{Procedimiento de chunking}{50}{section*.11}%
-\contentsline {paragraph}{Procedimiento de indexación}{51}{section*.12}%
-\contentsline {subsection}{\numberline {6.2.2}Agente Google Drive}{52}{subsection.6.2.2}%
+\contentsline {paragraph}{Procedimiento de chunking}{50}{section*.10}%
+\contentsline {paragraph}{Procedimiento de indexación}{51}{section*.11}%
+\contentsline {subsection}{\numberline {6.2.2}Agente Google Drive}{53}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.2.3}Agente Sistema de Ficheros}{53}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Agente Confluence}{53}{subsection.6.2.4}%
-\contentsline {paragraph}{Implementación estándar}{54}{section*.13}%
-\contentsline {paragraph}{Enfocado en el cacheo del prompt}{54}{section*.14}%
+\contentsline {subsection}{\numberline {6.2.4}Agente Confluence}{54}{subsection.6.2.4}%
+\contentsline {paragraph}{Implementación estándar}{54}{section*.12}%
+\contentsline {paragraph}{Enfocado en el cacheo del prompt}{54}{section*.13}%
 \contentsline {subsection}{\numberline {6.2.5}Agente GitLab}{54}{subsection.6.2.5}%
 \contentsline {chapter}{\chapternumberline {7}Orquestación de agentes}{57}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Agente Principal}{57}{section.7.1}%
@@ -93,10 +93,10 @@
 \contentsline {chapter}{\chapternumberline {9}Evaluación}{71}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Sistema de evaluación}{71}{section.9.1}%
 \contentsline {subsection}{\numberline {9.1.1}Métricas de evaluación}{71}{subsection.9.1.1}%
-\contentsline {paragraph}{LLM juez}{71}{section*.19}%
-\contentsline {paragraph}{Precisión de herramientas}{72}{section*.20}%
-\contentsline {paragraph}{Precisión de alucinación}{72}{section*.21}%
-\contentsline {paragraph}{Precisión de citación}{72}{section*.22}%
+\contentsline {paragraph}{LLM juez}{71}{section*.18}%
+\contentsline {paragraph}{Precisión de herramientas}{72}{section*.19}%
+\contentsline {paragraph}{Precisión de alucinación}{72}{section*.20}%
+\contentsline {paragraph}{Precisión de citación}{72}{section*.21}%
 \contentsline {subsection}{\numberline {9.1.2}Implementación de evaluación}{72}{subsection.9.1.2}%
 \contentsline {subsection}{\numberline {9.1.3}Dataset anotado}{74}{subsection.9.1.3}%
 \contentsline {section}{\numberline {9.2}Resultados obtenidos}{75}{section.9.2}%
@@ -117,11 +117,11 @@
 \contentsline {subsection}{\numberline {10.3.2}Dedicaciones}{84}{subsection.10.3.2}%
 \contentsline {chapter}{\chapternumberline {11}Retos}{87}{chapter.11}%
 \contentsline {section}{\numberline {11.1}Análisis y diseño}{87}{section.11.1}%
-\contentsline {paragraph}{Diseño del software}{87}{section*.25}%
+\contentsline {paragraph}{Diseño del software}{87}{section*.24}%
 \contentsline {section}{\numberline {11.2}Comportamiento de agentes}{88}{section.11.2}%
 \contentsline {section}{\numberline {11.3}Desafíos técnicos}{88}{section.11.3}%
-\contentsline {paragraph}{Manejo de conexiones}{88}{section*.26}%
-\contentsline {paragraph}{Contexto asíncrono}{88}{section*.27}%
+\contentsline {paragraph}{Manejo de conexiones}{88}{section*.25}%
+\contentsline {paragraph}{Contexto asíncrono}{88}{section*.26}%
 \contentsline {chapter}{\chapternumberline {12}Conclusiones y líneas futuras}{89}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Conclusiones}{89}{section.12.1}%
 \contentsline {subsection}{\numberline {12.1.1}Líneas generales}{89}{subsection.12.1.1}%
@@ -130,9 +130,9 @@
 \contentsline {section}{\numberline {12.2}Objetivos del proyecto}{90}{section.12.2}%
 \contentsline {section}{\numberline {12.3}Lecciones aprendidas}{91}{section.12.3}%
 \contentsline {section}{\numberline {12.4}Líneas futuras}{91}{section.12.4}%
-\contentsline {paragraph}{Exploración de embedders especializados}{91}{section*.28}%
-\contentsline {paragraph}{Optimización de orquestación}{92}{section*.29}%
-\contentsline {paragraph}{Ajuste de agentes}{92}{section*.30}%
+\contentsline {paragraph}{Exploración de embedders especializados}{91}{section*.27}%
+\contentsline {paragraph}{Optimización de orquestación}{92}{section*.28}%
+\contentsline {paragraph}{Ajuste de agentes}{92}{section*.29}%
 \contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{93}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Conjunto de datos etiquetados}{93}{section.Alph1.1}%
 \contentsline {section}{\numberline {A.2}Entrenamiento de redes neuronales}{93}{section.Alph1.2}%
@@ -194,4 +194,4 @@
 \contentsline {section}{\numberline {A.2}Estrategias de Entrenamiento}{120}{section.Alph4.2}%
 \contentsline {section}{\numberline {A.3}Metodología Experimental}{120}{section.Alph4.3}%
 \contentsline {section}{\numberline {A.4}Resultados}{121}{section.Alph4.4}%
-\contentsline {chapter}{Bibliografía}{123}{appendix*.39}%
+\contentsline {chapter}{Bibliografía}{123}{appendix*.38}%

@@ -7,14 +7,14 @@ El grafo común de este agente comprende tres pasos principales: la configuraci�
 
 \begin{figure}[h]
   \centering
-  \adjustbox{center=\textwidth}{\hspace{-1.2cm}\includegraphics[width=1.2\linewidth]{figures/specialized.png}}
+  \adjustbox{center=\textwidth}{\hspace{-1.2cm}\includegraphics[width=1.2\linewidth]{figures/specialized_graph.png}}
   \caption{Grafo de ejecución de agentes especializados}
   \label{fig:specialized}
 \end{figure}
 
 El grafo ReAct se ha implementado utilizando el agente prefabricado \opus{create_react_agent()} de LangGraph. Este agente acepta una serie de herramientas y un prompt inicial, entrando en un bucle de ejecución donde el agente invoca herramientas y observa sus resultados. El grafo finaliza cuando el mensaje del agente no contiene llamadas a herramientas, es decir, cuando incluye la respuesta final.
 
-Se ha establecido un límite de iteraciones para el grafo ReAct, ya que se ha observado que ocasionalmente entra en un bucle excesivamente extenso al no encontrar la información requerida. Cuando se alcanza dicho límite, un agente resumidor genera una respuesta con la información disponible, observando todas las ejecuciones de las herramientas. 
+Se ha establecido un límite de iteraciones para el grafo ReAct, ya que se ha observado que ocasionalmente entra en un bucle excesivamente extenso al no encontrar la información requerida. Cuando se alcanza dicho límite, un agente resumidor genera una respuesta con la información disponible, observando todas las ejecuciones de las herramientas. En caso de no llegar a dicho límite, la respuesta del agente especialista será el último mensaje del grafo ReAct.
 
 El Listado \ref{lst:spec_graph} ilustra la creación del grafo para los agentes especialistas, añadiendo un nodo para cada etapa mencionada. El condicional \opus{check_react_recursion_limit} dirige la ejecución al nodo resumidor en caso de haber sobrepasado el límite de pasos en el agente ReAct.
 
@@ -44,50 +44,55 @@ El Listado \ref{lst:spec_graph} ilustra la creación del grafo para los agentes 
       return graph_builder.compile()
 \end{lstlisting}
 
-Para acceder al estado de ejecución del agente ReAct tras finalizar abruptamente por el límite de mensajes, se utiliza el sistema de autoguardado de LangGraph. En la inicialización del agente se crea un objeto \opus{AsyncPostgresSaver}, vinculado a la base de datos PostgreSQL\footnote{PostgreSQL: \url{https://www.postgresql.org/}} mediante un pool de conexión asíncrono \ref{anexo:pool} y al contexto de cierre asíncrono \opus{global_exit_stack}. De este modo, todos los estados de ejecución se almacenan en una colección de PostgreSQL y son accesibles mediante su identificador. 
-
-\todo[inline]{Ese último párrafo creo que queda un poco denso. ¿Debería sustituirlo por este otro que omite conceptos pero es más simple?:}
-
 Para acceder al estado de ejecución del agente ReAct tras finalizar abruptamente por el límite de mensajes, se utiliza el sistema de autoguardado de LangGraph. Mediante la clase \opus{AsyncPostgresSaver}, todos los estados de ejecución se almacenan en una colección de PostgreSQL y son accesibles mediante su identificador. 
 
 \subsection{Gestión de herramientas}
-Algunas herramientas proporcionadas por los servidores MCP resultan innecesarias o contraproducentes para determinados agentes. Para evitar incluir contenido innecesario en los prompts, se debe indicar al instanciar un agente el nombre de las herramientas que se utilizarán, filtrando posteriormente las herramientas en el cliente.
+Algunas herramientas proporcionadas por los servidores MCP resultan innecesarias o contraproducentes para determinados agentes. Para evitar incluir contenido innecesario en los prompts, se indica al instanciar un agente el nombre de las herramientas que se utilizarán, filtrando posteriormente las herramientas en el cliente.
 
 Por otra parte, algunos servidores MCP no proporcionan todas las funcionalidades requeridas. Para obtener estas herramientas adicionales, la función \opus{add_additional_tools()} incorpora, cuando es necesario, herramientas complementarias específicas para cada agente.
 
 \subsection{Sistema de citas}
 \label{sec:citas}
-Para que el usuario final obtenga las fuentes de información utilizadas en la respuesta a su consulta, los agentes especializados deben referenciar los documentos consultados. Un sistema sencillo podría solicitar en el prompt que el agente indique la ruta o nombre del archivo, pero sería propenso a errores debido a que las direcciones URL de cada fuente de datos siguen patrones diferenciados. Para garantizar que los documentos citados siempre existan y contengan una dirección válida, se ha implementado el sistema ilustrado en la Figura \ref{fig:citations}.
+
+Para que el usuario final obtenga las fuentes de información utilizadas en la respuesta a su consulta, los agentes especializados deben referenciar los documentos consultados. Un enfoque directo consistiría en solicitar al agente que indique la ruta o nombre del archivo en el prompt, pero resultaría propenso a errores debido a que las direcciones URL de cada fuente de datos siguen patrones diferenciados. Para garantizar que los documentos citados siempre existan y contengan una dirección válida, se ha implementado el sistema ilustrado en la Figura \ref{fig:citations}.
 
 \begin{figure}[h]
-  \centering
-  \adjustbox{center=\textwidth}{\includegraphics[width=1.1\linewidth]{figures/citations.png}}
-  \caption{Diagrama de funcionamiento del sistema de citas}
-  \label{fig:citations}
+\centering
+\adjustbox{center=\textwidth}{\includegraphics[width=1.1\linewidth]{figures/citations.png}}
+\caption{Diagrama de funcionamiento del sistema de citas}
+\label{fig:citations}
 \end{figure}
-El sistema proporciona a cada agente una herramienta para citar documentos dinámicamente construida según las fuentes a las que tiene acceso. Se implementa mediante la clase \opus{DataSource} (Listado \ref{lst:data_src}), que se inicializa utilizando herramientas específicas del servidor MCP para listar todos los documentos citables, como \opus{confluence_search()} para la fuente de datos de Confluence. Durante esta inicialización, un \opus{ResponseParser} personalizado adapta la salida de estas herramientas para extraer y catalogar los documentos en el \opus{DataSource}.
 
-Cada \opus{DataSource} almacena la información necesaria para crear las rutas de los documentos, ensamblando automáticamente la URL completa cuando un agente necesita citar alguno de ellos. Por ejemplo, en el caso de Confluence, cada documento tiene asociado un prefijo constituido por un tipo de documento y un ID numérico en su estructura URL (\opus{url_base/tipo/id/nombre}). El \opus{DataSource} combina estos elementos para construir el enlace completo.
+El sistema proporciona a cada agente una herramienta para citar documentos construida dinámicamente según las fuentes a las que tiene acceso. Cada fuente de datos se representa mediante una instancia \opus{DataSource} (Listado \ref{lst:data_src}), asignada a los agentes durante su inicialización. Al inicializar el agente, cada \opus{DataSource} identifica las herramientas disponibles para obtener documentos citables y construye una estructura indexada. Debido a que las herramientas tienen una salida no estructurada, cada \opus{DataSource} incorpora un adaptador (\opus{ResponseParser}) para convertir la salida de la herramienta en la lista de documentos esperados.
 
 \begin{lstlisting}[caption={\protect\opus{DataSource}: clase destinada a almacenar los documentos citables para una fuente de datos}, label={lst:data_src}]
-class DataSource(ABC):
-    url: str
-    # Nombre de herramienta para obtener la lista de documentos disponibles
-    get_documents_tool_name: str | List[str]
-    # Nombre documento -> prefijo url: {"doc_confluence.md": "page/id_9238"} 
-    available_documents: dict[str, str]
-    # Identificador de la fuente de datos
-    docs_id: str
-    parser: ResponseParser
+  class DataSource(ABC):
+  url: str
+  # Nombre de herramienta para obtener la lista de documentos disponibles
+  get_documents_tool_name: str | List[str]
+  # Nombre documento -> prefijo url: {"doc_confluence.md": "page/id_9238"}
+  available_documents: dict[str, str]
+  # Identificador de la fuente de datos
+  docs_id: str
+  parser: ResponseParser
 \end{lstlisting}
 
-Por lo tanto, el agente dispondrá de una herramienta donde bastará con indicar el nombre del documento a citar, pudiendo referenciar también la propia fuente de datos mediante el nombre especificado en la descripción de la herramienta. Las citas se propagarán mediante objetos estructurados por toda la arquitectura de agentes para imprimir finalmente las citas empleadas, como se explica en la Sección \colorbox{yellow}{\ref{}}.
+Cada \opus{DataSource} almacena la información necesaria para construir automáticamente las URL completas cuando un agente necesita citar documentos. Esto se implementa mediante la combinación de una URL base compartida y un diccionario que mapea cada documento con su prefijo específico en la URL. La Figura \ref{fig:citations} muestra el ejemplo concreto del agente Confluence. En este caso, cada documento tiene asociado un prefijo constituido por el tipo de documento y un ID numérico en su estructura URL (\opus{url_base/tipo/id/nombre}). El \opus{DataSource} combina estos elementos para construir el enlace completo.
+
+En consecuencia, el agente dispondrá de una herramienta donde bastará con indicar el nombre del documento a citar, pudiendo referenciar también la propia fuente de datos mediante el nombre especificado en la descripción de la herramienta. Las citas se propagarán mediante objetos estructurados por toda la arquitectura de agentes para imprimir finalmente las citas empleadas.
 
 \section{Agentes implementados}
 En esta sección se detallan los cinco agentes desarrollados que extienden las funcionalidades descritas en la sección anterior.
 
 \subsection{Agente código}
-El flujo de este agente comprende el siguiente proceso: mediante \opus{prepare_prompt()} se incluye en el prompt del sistema el árbol de directorios del repositorio obtenido con la herramienta \opus{get_repository_tree_tool()} y fragmentos de código, denominados \textit{chunks}, relevantes para la consulta actual obtenidos mediante la herramienta \opus{get_code_repository_rag_docs_from_query_tool()}. Tras concatenar la consulta al agente mediante un \opus{HumanMessage}, este debe decidir si buscar chunks adicionales sobre un subdirectorio concreto indicando otra consulta, buscar archivos específicos con la herramienta \opus{get_file_from_repository_tool()} indicando su ruta relativa, o responder directamente a la consulta.
+El flujo de este agente comprende el proceso ilustrado en la Figura \ref{fig:agente_codigo}: mediante \opus{prepare_prompt()} se incluye en el prompt del sistema el árbol de directorios del repositorio obtenido con la herramienta \opus{get_repository_tree_tool()} y fragmentos de código, denominados \textit{chunks}, relevantes para la consulta actual, obtenidos mediante la herramienta \opus{get_code_repository_rag_docs_from_query_tool()}. Tras concatenar la consulta al agente mediante un \opus{HumanMessage}, este debe decidir si buscar chunks adicionales sobre un subdirectorio concreto indicando otra consulta, buscar archivos específicos con la herramienta \opus{get_file_from_repository_tool()} indicando su ruta relativa, o responder directamente a la consulta.
+
+\begin{figure}[h]
+\centering
+\adjustbox{center=\textwidth}{\includegraphics[width=1\linewidth]{figures/agente_codigo.png}}
+\caption{Flujo operativo del agente de código}
+\label{fig:agente_codigo}
+\end{figure}
 
 Los chunks devueltos por dicha herramienta contienen tanto el código como la ruta relativa del archivo donde se declaran, permitiendo buscar en dicho archivo si fuese necesario. Adicionalmente, al extraer un chunk, se incluyen chunks referenciados o que referencian ese fragmento. Se define que un chunk referencia a otro cuando llama a una función o instancia una clase definida en el otro chunk. 
 
@@ -95,7 +100,7 @@ Los chunks devueltos por dicha herramienta contienen tanto el código como la ru
 \label{sec:herramientas_codigo}
 Para implementar las herramientas del agente, en el componente \opus{servidor_mc_bd_codigo} se han dividido los ficheros del proyecto GitLab en chunks y se han indexado en la base de datos PostgreSQL. El sistema RAG implementado utiliza la extensión PGVector\footnote{PGVector: \url{https://github.com/pgvector/pgvector}} sobre PostgreSQL, que permite integrar vectores embeddings en tablas SQL convencionales, facilitando operaciones de búsqueda semántica combinadas con consultas SQL. 
 
-Se ha definido el modelo relacional mostrado en la Figura \ref{fig:relacional}, utilizando el ORM SQLAlchemy\footnote{SQLAlchemy: \url{https://www.sqlalchemy.org/}} sobre Python. La estructura se basa en una tabla \opus{FileSystem} para cada fichero o directorio, que puede contener múltiples \opus{FileChunk} indexados en la columna \opus{embedding} de tipo \opus{Vector}. Cada \opus{FileChunk} puede referenciar o ser referenciado por otros \opus{FileChunk} mediante la relación muchos-a-muchos \opus{ChunkReference}. La tabla \opus{Ancestor} implementa un patrón de tabla de cierre para acceder eficientemente a los ficheros dentro de cualquier subdirectorio.
+Se ha definido el modelo relacional mostrado en la Figura \ref{fig:relacional}, utilizando el ORM SQLAlchemy\footnote{SQLAlchemy: \url{https://www.sqlalchemy.org/}} sobre Python. La estructura se basa en una tabla \opus{FileSystem} para cada fichero o directorio, que puede contener múltiples \opus{FileChunk} indexados en la columna \opus{embedding} de tipo \opus{Vector}. Cada \opus{FileChunk} puede referenciar o ser referenciado por otros \opus{FileChunk} mediante la relación muchos-a-muchos \opus{ChunkReference}. La tabla \opus{Ancestor} implementa un patrón \opus{closure table} para acceder eficientemente a los ficheros dentro de cualquier subdirectorio.
 
 El Listado \ref{lst:rag_chunks} muestra cómo se obtienen los fragmentos más relevantes para una consulta específica. El proceso comienza desde una entrada del sistema de ficheros (\opus{FSEntry}), utiliza la tabla \opus{Ancestor} para filtrar todos los ficheros descendientes, realiza una operación de join con la tabla \opus{FileChunk} para obtener todos los fragmentos contenidos en dichos ficheros, y finalmente los ordena según su relevancia semántica respecto a la consulta del usuario.
 
@@ -187,7 +192,7 @@ Como muestra el Listado \ref{lst:pgvector_store}, se crean colecciones mediante 
 \subsection{Agente Confluence}
 Para este agente se han implementado dos versiones alternativas: una estándar y otra con un enfoque en el cacheo del prompt.
 
-El \textit{prompt caching} almacena la representación interna del LLM para secuencias de texto iniciales repetidas, evitando cálculos redundantes en consultas posteriores. APIs como OpenAI ofrecen descuentos significativos cuando se cachea gran parte de la entrada. La Figura \ref{fig:caching} compara ambos enfoques, donde las secciones resaltadas en rojo representan fragmentos del prompt inicial que se repiten entre diferentes llamadas y son cacheados. En ambos casos el cacheo finaliza al incorporar la consulta específica del usuario, dado que esta varía en cada interacción. Sin embargo, la segunda implementación logra cachear un volumen de texto considerablemente mayor.
+El \textit{prompt caching} almacena la representación interna del LLM para secuencias de texto iniciales repetidas, evitando cálculos redundantes en consultas posteriores. APIs como OpenAI ofrecen descuentos significativos cuando se cachea gran parte de la entrada. La Figura \ref{fig:caching} compara ambos enfoques, donde las secciones enmascaradas representan fragmentos del prompt inicial que se repiten entre diferentes llamadas y son cacheados. En ambos casos el cacheo finaliza al incorporar la consulta específica del usuario, dado que esta varía en cada interacción. Sin embargo, la segunda implementación logra cachear un volumen de texto considerablemente mayor.
 \paragraph{Implementación estándar}
 En esta implementación estándar, \opus{prepare_prompt()} utiliza \opus{confluence_search()} para identificar los documentos disponibles en la documentación del estilo visual, permitiendo al agente acceder posteriormente a documentos específicos mediante \opus{confluence_get_page()}.
 \paragraph{Enfocado en el cacheo del prompt}
