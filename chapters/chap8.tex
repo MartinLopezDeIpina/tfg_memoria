@@ -87,13 +87,13 @@ La Figura \ref{fig:clustering-analysis} ilustra el agrupamiento de 12 memorias d
 
 \section{Diseño adaptativo}
 \label{sec:adaptativo}
-Tras evaluar los enfoques expuestos en el capítulo anterior (véase Sección \colorbox{yellow}{\ref{}}), los resultados muestran que, aunque con un rendimiento superior, el paso de planificación añade una complejidad considerable frente al enfoque más simple. Mientras que el sistema simple es capaz de responder algunas preguntas con mayor rapidez, no consigue resolver las preguntas más difíciles. Es por ello que un sistema híbrido surge como la solución ideal \cite{jeong_adaptive-rag_2024}, utilizando la planificación para preguntas complejas y omitiéndola cuando no es necesario.
+Tras evaluar las diferentes variaciones de orquestación (véase Capítulo \ref{ch:chap9}), los resultados muestran que, aunque con un rendimiento superior, el paso de planificación añade una complejidad considerable frente al enfoque más simple. Mientras que el sistema simple es capaz de responder algunas preguntas con mayor rapidez, no consigue resolver las preguntas más difíciles. Es por ello que un sistema híbrido surge como la solución ideal \cite{jeong_adaptive-rag_2024}, utilizando la planificación para preguntas complejas y omitiéndola cuando no es necesario.
 
 La implementación de este enfoque se ha estructurado en tres fases: la determinación de criterios para identificar preguntas complejas, la ampliación del conjunto de evaluación para mejorar la precisión de evaluación, y el análisis comparativo entre un modelo especializado y un agente clasificador. Finalmente, se procedió a la integración del clasificador seleccionado en el flujo del sistema.
 
 \subsection{Criterios de clasificación}
 
-Para determinar qué tipos de preguntas clasificar como difíciles, se han utilizado las evaluaciones detalladas en la Sección \colorbox{yellow}{\ref{}}. Se consideran difíciles aquellas preguntas en las que se cumple cualquiera de estas condiciones: el rendimiento de evaluación es inferior en la orquestación simple que en la compleja, o el resultado de evaluación es menor a 0.5 en cualquiera de las dos orquestaciones. Esto resultó en un total de 19 preguntas difíciles y 27 fáciles.
+Para determinar qué tipos de preguntas clasificar como difíciles, se han utilizado las evaluaciones detalladas en la Sección \ref{sec:eval_orch}. Se consideran difíciles aquellas preguntas en las que se cumple cualquiera de estas condiciones: el rendimiento de evaluación es inferior en la orquestación simple que en la compleja, o el resultado de evaluación es menor a 0.5 en cualquiera de las dos orquestaciones. Esto resultó en un total de 19 preguntas difíciles y 27 fáciles.
 
 Tras analizar ambos conjuntos, se evidenció que las consultas que más desafían al sistema son aquellas cuyas fuentes de información no son fácilmente accesibles. Por ejemplo, el sistema resuelve eficazmente preguntas genéricas de gestión, ya que determinar qué agente contiene dicha información es sencillo. Por el contrario, la información sobre módulos o implementaciones específicas es más difícil de ubicar: \texttt{¿Dónde puedo encontrar la documentación técnica actualizada para las tecnologías o herramientas específicas?}. La ubicación de esta información no es clara, podría estar en la documentación general, en Confluence, o incluso en el repositorio de código.
 
@@ -110,9 +110,7 @@ Para clasificar las consultas del usuario por dificultad, se han utilizado dos e
 \begin{itemize}
 \item\textbf{Agente clasificador: }Añadiendo en el prompt los criterios de clasificación y 5 ejemplos representativos de cada clase, el agente debe determinar mediante una salida estructurada la dificultad de la pregunta.
 \item\textbf{Modelo clasificador: }Se ha utilizado el modelo especializado en clasificación RoBERTa-base \cite{liu_roberta_2019}, en su versión entrenada con un corpus textual derivado de la biblioteca nacional de España \cite{gutierrez-fandino_maria_2021}. Dicho modelo se ha ajustado con el dataset mencionado en la sección anterior. Los detalles del entrenamiento están disponibles en el anexo \ref{anexo:entrenamiento}, mientras que el modelo está públicamente disponible en HuggingFace\footnote{Modelo: \url{https://huggingface.co/MartinElMolon/RoBERTa_question_difficulty_classifier}}.
-\todo{Todo el tema del entrenamiento lo he sacado al anexo para no tener que explicar demasiados conceptos externos a la ingeniería del software. 
 
-Supongo que podría omitirlo directamente también.}
 
 \end{itemize}
 \subsubsection{Evaluación de ambos enfoques}

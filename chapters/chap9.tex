@@ -1,20 +1,25 @@
 Tras exponer la implementación de los diferentes módulos del sistema, este capítulo detalla su evaluación y la comparación entre las diferentes versiones propuestas.
 
-Con este propósito, inicialmente se explica el sistema de evaluación automatizado implementado, tras lo que se exponen los resultados obtenidos y las conclusiones derivadas de dichos resultados. 
+Con este propósito, inicialmente se explica el sistema de evaluación implementado, tras lo que se exponen los resultados obtenidos y las conclusiones derivadas de dichos resultados. 
 
 \section{Sistema de evaluación}
-La validación del sistema plantea un reto inherente al lenguaje natural: ¿cómo determinar si la respuesta a una pregunta es correcta? La solución adoptada comprende una serie de métricas (Sección \ref{sec:metricas}), evaluadas mediante el SDK de LangSmith (Sección \ref{sec:langsmith}) sobre un dataset \textit{ground truth} anotado manualmente (Sección \ref{sec:dataset}).
+La solución adoptada sigue los principios establecidos en la Sección \ref{sec:antecedentes_evaluacion}: se evalúa de forma automatizada una serie de métrcias cuantificables (Sección \ref{sec:metricas}) mediante el SDK de LangSmith (Sección \ref{sec:langsmith}) sobre un dataset \textit{ground truth} anotado manualmente (Sección \ref{sec:dataset}) en el dominio del onboarding.
+
+Se ha seleccionado esta metodología de evaluación considerando los múltiples tópicos a los que el sistema debe responder y todas las variaciones implementadas. Frente a una evaluación manual, esta metodología permite ejecutar en pocos minutos las 46 preguntas anotadas, posibilitando su repetida ejecución para todas las mejoras implementadas.
+
+No obstante, la validación automática del sistema plantea un reto inherente al lenguaje natural: ¿cómo determinar si la respuesta a una pregunta es correcta? Para ello se ha utilizado un LLM como juez, estrategia que consiste en utilizar un agente evaluador cuya función consiste en valorar el resultado obtenido por el agente evaluado.
+
+Para minimizar la tasa de error del juez, se han anotado las respuestas esperadas como listas textuales con los conceptos esenciales a incluir en la respuesta del agente. El agente juez genera una respuesta estructurada con un argumento booleano para cada concepto requerido, indicando si se incluye en la respuesta generada. 
 
 \subsection{Métricas de evaluación}
-
 \label{sec:metricas}
-Siguiendo los principios establecidos en la Sección \colorbox{yellow}{\ref{}}, se han implementado las siguientes métricas para cada agente sobre una pregunta anotada: 
-\todo{Aquí creo que debería referenciar una sección de antecedentes que introduzca el tema de evaluación de agentes LLM y mencione el TFG de Mikel Lonbide.}
-\paragraph{LLM juez} Consiste en utilizar un agente evaluador cuya función sea valorar el resultado obtenido por el agente evaluado. Para minimizar la tasa de error del juez, se han anotado las respuestas esperadas como listas textuales con los conceptos necesarios a incluir en la respuesta del agente. El agente juez genera una respuesta estructurada con un argumento booleano para cada concepto requerido, indicando si se incluye en la respuesta generada. Esto permite calcular una precisión cuantificable.
+Se han implementado las siguientes métricas para la evaluación de agentes sobre las preguntas anotadas, aplicándose un subconjunto específico de estas según el tipo de agente evaluado:
+
+\paragraph{Precisión del LLM juez} Corresponde al porcentaje de conceptos totales que el LLM juez ha determinado que se incluyen en la respuesta, métrica fundamental para evaluar si la respuesta aborda adecuadamente la pregunta formulada.
 
 Cabe destacar que el juez marcará como incorrecto todo concepto más abstracto que el anotado, aún si conceptualmente el significado es equivalente. Por ejemplo, si se anota que la función del proyecto es proporcionar herramientas de modelos de lenguaje generativos para el equipo de desarrolladores, una respuesta sobre proporcionar herramientas de inteligencia artificial para el equipo sería considerada incorrecta.
 
-\paragraph{Precisión de herramientas} Se comparan las herramientas utilizadas por un agente para responder una pregunta con el listado de herramientas anotado como ideal, calculando dos métricas posibles:
+\paragraph{Precisión de herramientas} Se comparan las herramientas utilizadas por un agente para responder una pregunta con el listado de herramientas anotado como ideal, lo cual permite identificar comportamientos erróneos cuando el agente no invoca las herramientas necesarias. Se calculan dos métricas posibles:
 
 \begin{itemize}
 \item Precisión de herramientas necesarias: indica la cantidad de herramientas necesarias utilizadas, favoreciendo el uso de estas.
@@ -27,8 +32,9 @@ A modo de ejemplo, un agente podría tener 5 herramientas disponibles, de las cu
 
 Esto es evaluado mediante un agente juez, el cual determina si la respuesta del agente realmente intenta responder a la pregunta o, por el contrario, reconoce que no se dispone de la información suficiente.
 
-\paragraph{Precisión de citación} Constituye la cantidad de documentos citados en la respuesta que estaban anotados como necesarios.
+\paragraph{Precisión de citación} Constituye la cantidad de documentos citados en la respuesta que estaban anotados como necesarios, métrica que permite evaluar el funcionamiento del sistema de citas.
 
+\paragraph{Uso de tokens y costo económico} Las evaluaciones de LangSmith facilitan la consulta del número de tokens empleados (tanto de entrada como de salida) en las evaluaciones, así como el cálculo de su costo económico según el precio de la API utilizada. Esta métrica resulta relevante ya que, ante dos sistemas con idéntica eficacia, el de menor costo será preferible en un entorno de producción.
 
 \subsection{Implementación de evaluación}
 \label{sec:langsmith}
@@ -97,17 +103,16 @@ class CiteEvaluator(BaseEvaluator):
 \end{lstlisting}
 
 
-\subsection{Dataset anotado}
+\subsection{Dataset ground truth}
 \label{sec:dataset}
 La captura del conjunto de datos se ha realizado en una hoja de cálculo de Google Drive. Este documento se ha descargado posteriormente en formato de valores separados por coma (CSV) y se ha exportado como conjunto de datos a la plataforma LangSmith.
 
 La captura comprende 46 ejemplos para el agente principal (el sistema completo) y aproximadamente 10 ejemplos para cada agente individual. Para ello se han utilizado las preguntas anotadas en la captura de requisitos, filtrando y modificando en algunos casos las preguntas para ser lo suficientemente específicas como para tener una respuesta exacta, pero a su vez con cierto grado de complejidad que requiera un razonamiento sobre la consulta. Se han utilizado las siguientes consideraciones sobre cada agente:
 
 \begin{itemize}
-\item\textbf{Agente principal: }comprende tres tipos de preguntas según su complejidad: consultas respondibles mediante una única fuente de datos, las que requieren múltiples fuentes, y las que necesitan múltiples fuentes en orden secuencial con dependencias entre ellas.
+  \item\textbf{Agente principal: }comprende tres tipos de preguntas según su complejidad: consultas respondibles mediante una única fuente de datos, las que requieren múltiples fuentes, y las que necesitan múltiples fuentes en orden secuencial con dependencias entre ellas. Una pregunta del último tipo es: \texttt{¿Quién ha implementado la funcionalidad de embeddings de Mistral?} 
 
-\item\textbf{Planificador: }para este agente se ha anotado la respuesta como el plan generado para un ejemplo de ejecución, incluyendo la pregunta y el estado de ejecución actual. Se han identificado tres escenarios: preguntas donde se requiere un solo paso, preguntas donde se requieren varios pasos, y preguntas a medio completar donde se requiere que el agente genere el siguiente paso o decida finalizar el plan.
-
+  \item\textbf{Planificador: }para este agente se ha anotado la respuesta como el plan generado para un ejemplo de ejecución, incluyendo la pregunta y el estado de ejecución actual. Se han identificado tres escenarios: preguntas donde se requiere un solo paso, preguntas donde se requieren varios pasos, y preguntas a medio completar donde se requiere que el agente genere el siguiente paso o decida finalizar el plan. Por ejemplo, en el siguiente ejemplo se ha anotado también un plan a medio completar donde el agente recibe las funcionalidades marcadas por implementar, con el objetivo de que el planificador indique que se deben buscar las issues relacionadas en el siguiente paso: \texttt{¿Existe alguna issue para las funcionalidades marcadas en la documentación por implementar?} 
 \item\textbf{Orquestador: }este agente se ha evaluado considerando los agentes seleccionados para ejecutar como herramientas. Con tal fin, se han incluido preguntas de todas las temáticas, evaluando qué agentes llamar en cada caso:
 
 \begin{itemize}
@@ -116,9 +121,9 @@ La captura comprende 46 ejemplos para el agente principal (el sistema completo) 
 \item \textbf{Tareas multi-agente:} las consultas de información general y documentación requieren principalmente el \opus{file_system_agent}, mientras que las de entorno y despliegue combinan este con el \opus{code_agent}. Las preguntas sobre arquitectura del sistema utilizan ambos agentes, y las de gestión del proyecto emplean el \opus{file_system_agent} junto con otros según el contexto específico. Para estándares y prácticas se añade el \opus{confluence_agent} cuando involucran frontend, y las tareas específicas de frontend combinan los agentes \opus{confluence_agent} y \opus{google_drive_agent}.
 
 \end{itemize}
-\item\textbf{Agentes sistema de ficheros, Confluence y Google Drive}: en los casos sencillos es necesario únicamente la herramienta de lectura de páginas. En los más desafiantes se requiere de las herramientas de búsqueda.
-\item\textbf{Agente GitLab: }incluye ejemplos donde este debe llamar primero a la herramienta de obtener información sobre los usuarios para posteriormente utilizar esos nombres de usuario como parámetros en otras herramientas.
-\item\textbf{Agente código: }en los casos sencillos los fragmentos relevantes deberían estar incluidos en el prompt de entrada, mientras que en los más complejos debería buscar información adicional.
+\item\textbf{Agentes sistema de ficheros, Confluence y Google Drive}: en los casos sencillos es necesario únicamente la herramienta de lectura de páginas. En los más desafiantes se requiere de las herramientas de búsqueda: \texttt{¿Cuáles son los colores principales y secundarios de la aplicación?}
+\item\textbf{Agente GitLab: }incluye ejemplos donde este debe llamar primero a la herramienta de obtener información sobre los usuarios para posteriormente utilizar esos nombres de usuario como parámetros en otras herramientas. Por ejemplo, en la siguiente consulta el agente deberá buscar cuál es el nombre de usuario de ``Mikel'': \texttt{¿Cuál es el id del último commit de Mikel en 2024?}
+\item\textbf{Agente código: }en los casos sencillos los fragmentos relevantes deberían estar incluidos en el prompt de entrada, mientras que en los más complejos debería buscar información adicional: \texttt{¿Puedes mostrarme la jerarquía completa de llamadas para el método invoke\_rag\_with\_repo en ModelTools?}
 \end{itemize}
 
 \section{Resultados obtenidos}
@@ -517,6 +522,7 @@ La Figura \ref{fig:eval_fewshots} ilustra la comparación del agente planificado
 \vspace{-0.2cm}
 
 \subsection{Variaciones de orquestación}
+\label{sec:eval_orch}
 Esta evaluación (Figura \ref{fig:eval_orch}) compara los diferentes enfoques de orquestación: planificación dividida, planificación unificada, el sistema sin planificación y el sistema adaptativo. Adicionalmente se incluye la evaluación del sistema con planificación dividida previo a las mejoras implementadas en la sección anterior.
 
 Los resultados muestran que las mejoras implementadas incrementaron significativamente el rendimiento del sistema inicial. El prompting few-shot en el orquestador y planificador redujo la cantidad de agentes utilizados, optimizando notablemente el coste total.

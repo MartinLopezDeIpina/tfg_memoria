@@ -1,6 +1,13 @@
 Una vez definido el diseño general del sistema, en este capítulo se detallan los agentes especializados que acceden a las fuentes de datos del proyecto software.
 
-Para ello, se introduce primero la estructura de la clase base \opus{SpecializedAgent}, junto al sistema de citas integrado. Posteriormente, se detallan las herramientas y la lógica de ejecución de los cinco agentes especialistas que extienden esta base.
+Para ello, se introduce primero la estructura de la clase base \opus{SpecializedAgent}, junto al sistema de citas integrado. Posteriormente, se detallan las herramientas y la lógica de ejecución de los cinco agentes especialistas que extienden esta base. La Figura \ref{fig:esquema_agentes_full} muestra un esquema general de dichos agentes junto a sus respectivas fuentes de datos.
+
+\begin{figure}[h]
+  \centering
+  \adjustbox{center=\textwidth}{\hspace{-1.2cm}\includegraphics[width=0.9\linewidth]{figures/esquema_agentes.png}}
+  \caption{Agentes especialistas junto a sus respectivas fuentes de datos}
+  \label{fig:esquema_agentes_full}
+\end{figure}
 
 \section{Estructura SpecializedAgent}
 El grafo común de este agente comprende tres pasos principales: la configuración del prompt inicial mediante la función \opus{prepare_prompt()}, heredada de \opus{BaseAgent} y posteriormente extendida por cada agente especialista, la ejecución de un subgrafo que implementa el patrón ReAct (véase la Sección \ref{sec:react}) y la ejecución de un agente resumidor cuando sea necesario. La Figura \ref{fig:specialized} ilustra dicho flujo de ejecución.

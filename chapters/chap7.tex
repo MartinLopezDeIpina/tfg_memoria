@@ -1,4 +1,3 @@
-\todo{Voy a añadir una sección al capítulo de ``Diseño del sistema'' donde se explique la lógica detrás de separar los agentes. He pensado en algo como el anexo \ref{anexo:design}}
 Habiendo abordado tanto el diseño del sistema como el funcionamiento de los agentes especialistas, este capítulo se centra en los mecanismos de coordinación que permiten la operación del sistema completo.
 
 Para ello se introducirá la lógica del agente principal (MainAgent), el agente planificador y el agente orquestador. Posteriormente se detallarán las variaciones exploradas en dicho marco de coordinación, concluyendo con el análisis de un caso práctico de ejecución.
@@ -35,13 +34,9 @@ Considerando el desarrollo de múltiples versiones de planificadores y orquestad
 \end{lstlisting}
 
 \subsection{Respuesta estructurada}
-\todo{Esta sección la he puesto aquí pero no sé si es el lugar más adecuado.
-
-Es donde primero menciono la salida estructurada, pero queda un poco raro en medio de ``agente principal''.
-}
 El sistema necesita interpretar las respuestas de los agentes de forma programática en varios escenarios. Para conseguir este objetivo, se implementan respuestas estructuradas que permiten procesar información de manera automatizada dentro de la arquitectura del sistema. Por ejemplo, el agente formateador puede separar claramente el texto de la respuesta de las citas utilizadas, mientras que el orquestador puede generar listas de agentes especializados en un formato directamente utilizable por el código.
 
-El Listado \ref{lst:structured_output} muestra la implementación mediante el adaptador \opus{with_structured_output}, que incorpora en el prompt un esquema JSON específico que guía al modelo a generar una salida estructurada. Esta salida, gracias a los modelos Pydantic\footnote{Pydantic: \url{https://docs.pydantic.dev/latest/}}, puede ser automáticamente deserializada a objetos Python para su procesamiento. En los casos donde el modelo no logra producir la estructura correcta, se implementa un mecanismo de recuperación utilizando un \opus{RetryOutputParser} de LangChain, que emplea un segundo modelo para reformular la respuesta según el formato requerido.
+El Listado \ref{lst:structured_output} muestra la implementación mediante el adaptador \opus{with_structured_output}, que incorpora en el prompt un esquema JSON específico que guía al modelo a generar una salida estructurada. Esta salida, gracias a los modelos Pydantic\footnote{Pydantic: \url{https://docs.pydantic.dev/latest/}}, puede ser automáticamente deserializada a objetos Python para su procesamiento. En los casos donde el modelo no logra producir la estructura correcta, se implementa un mecanismo de recuperación utilizando un \opus{RetryOutputParser} de LangChain, que emplea un segundo modelo para reformular la respuesta según el formato requerido. Si este segundo intento también falla, el proceso se repite hasta obtener una salida válida o llegar al máximo de repeticiones.
 
 \begin{lstlisting}[caption={Validación de la salida estructurada de un LLM},label={lst:structured_output}]
   async def execute_structured_llm_with_validator_handling(prompt: str | Sequence[BaseMessage], output_schema: Type[BaseModel], max_retries: int, llm: BaseChatModel) -> BaseModel:
@@ -50,19 +45,32 @@ El Listado \ref{lst:structured_output} muestra la implementación mediante el ad
     parser = PydanticOutputParser(pydantic_object=output_schema)
     retry_parser = RetryOutputParser.from_llm(parser=parser, llm=default_llm)
 
+    last_exception: Optional[Exception] = None
+    raw_response: Optional[str] = None
+
     for _ in range(max_retries):
         try:
             response = await structured_model.ainvoke(prompt)
+            # Validación programática de la salida del modelo 
             raw_response = response if isinstance(response, str) else None
-            # Si no sigue la estructura intentar convertirla directamente 
             if not isinstance(response, output_schema):
                 response = output_schema.model_validate(response)
+            return response
 
         except Exception as e:
-          # Si no se convierte intentar parsear la respuesta con otro LLM  
-          response = retry_parser.parse(raw_response)
-        ...
+            last_exception = e
+            if raw_response is not None:
+                try:
+                    # Reintento mediante un modelo parseador
+                    response = retry_parser.parse(raw_response)
+                    if not isinstance(response, output_schema):
+                        response = output_schema.model_validate(response)
+                    return response
+                except Exception as retry_e:
+                    last_exception = retry_e
+    raise last_exception
 \end{lstlisting}
+
 \subsection{Agente Planificador}
 \label{sec:agente_planificador}
 Este agente establece planes de alto nivel para estructurar el proceso de respuesta mediante un procedimiento lógico secuencial. Adicionalmente, incorpora la capacidad de modificar dinámicamente dichos planes en función del estado de ejecución actual.

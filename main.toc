@@ -60,14 +60,14 @@
 \contentsline {section}{\numberline {5.4}Cliente MCP}{41}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Estructura del proyecto}{43}{section.5.5}%
 \contentsline {chapter}{\chapternumberline {6}Agentes especializados}{45}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Estructura SpecializedAgent}{45}{section.6.1}%
+\contentsline {section}{\numberline {6.1}Estructura SpecializedAgent}{46}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Gestión de herramientas}{47}{subsection.6.1.1}%
 \contentsline {subsection}{\numberline {6.1.2}Sistema de citas}{47}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}Agentes implementados}{48}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Agente código}{48}{subsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.1.1}Herramientas de acceso a código}{49}{subsubsection.6.2.1.1}%
-\contentsline {paragraph}{Procedimiento de chunking}{50}{section*.10}%
-\contentsline {paragraph}{Procedimiento de indexación}{51}{section*.11}%
+\contentsline {section}{\numberline {6.2}Agentes implementados}{49}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Agente código}{49}{subsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.1}Herramientas de acceso a código}{50}{subsubsection.6.2.1.1}%
+\contentsline {paragraph}{Procedimiento de chunking}{51}{section*.10}%
+\contentsline {paragraph}{Procedimiento de indexación}{52}{section*.11}%
 \contentsline {subsection}{\numberline {6.2.2}Agente Google Drive}{53}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.2.3}Agente Sistema de Ficheros}{53}{subsection.6.2.3}%
 \contentsline {subsection}{\numberline {6.2.4}Agente Confluence}{54}{subsection.6.2.4}%
@@ -80,118 +80,119 @@
 \contentsline {subsection}{\numberline {7.1.2}Agente Planificador}{59}{subsection.7.1.2}%
 \contentsline {section}{\numberline {7.2}Agente orquestador}{60}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Variaciones de orquestación}{60}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Caso práctico}{62}{subsection.7.3.1}%
-\contentsline {chapter}{\chapternumberline {8}Mejoras introducidas}{63}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Prompting Few-Shot}{63}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Memoria persistente}{64}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}Agrupación de memoria}{65}{subsection.8.2.1}%
-\contentsline {section}{\numberline {8.3}Diseño adaptativo}{66}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Criterios de clasificación}{67}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}Aumento de datos}{68}{subsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.3.3}Clasificación de preguntas}{68}{subsection.8.3.3}%
-\contentsline {subsubsection}{\numberline {8.3.3.1}Evaluación de ambos enfoques}{68}{subsubsection.8.3.3.1}%
-\contentsline {chapter}{\chapternumberline {9}Evaluación}{71}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Sistema de evaluación}{71}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}Métricas de evaluación}{71}{subsection.9.1.1}%
-\contentsline {paragraph}{LLM juez}{71}{section*.18}%
-\contentsline {paragraph}{Precisión de herramientas}{72}{section*.19}%
-\contentsline {paragraph}{Precisión de alucinación}{72}{section*.20}%
-\contentsline {paragraph}{Precisión de citación}{72}{section*.21}%
-\contentsline {subsection}{\numberline {9.1.2}Implementación de evaluación}{72}{subsection.9.1.2}%
-\contentsline {subsection}{\numberline {9.1.3}Dataset anotado}{74}{subsection.9.1.3}%
-\contentsline {section}{\numberline {9.2}Resultados obtenidos}{75}{section.9.2}%
-\contentsline {subsection}{\numberline {9.2.1}Mejora de versión inicial}{76}{subsection.9.2.1}%
-\contentsline {subsubsection}{\numberline {9.2.1.1}Agentes especializados}{76}{subsubsection.9.2.1.1}%
-\contentsline {subsubsection}{\numberline {9.2.1.2}Planificador y orquestador}{76}{subsubsection.9.2.1.2}%
-\contentsline {subsection}{\numberline {9.2.2}Variaciones de orquestación}{76}{subsection.9.2.2}%
-\contentsline {subsection}{\numberline {9.2.3}Integración de memoria}{79}{subsection.9.2.3}%
-\contentsline {chapter}{\chapternumberline {10}Seguimiento y control}{81}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Gestión del alcance}{81}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Gestión de riesgos}{82}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}R1-Concurrencia exploratoria}{82}{subsection.10.2.1}%
-\contentsline {subsection}{\numberline {10.2.2}R2-Variabilidad del alcance}{82}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}R4-Filtrado de credenciales}{82}{subsection.10.2.3}%
-\contentsline {subsection}{\numberline {10.2.4}R5-Pérdida de recursos}{83}{subsection.10.2.4}%
-\contentsline {section}{\numberline {10.3}Gestión del tiempo}{83}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}Gestión de fechas}{83}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {10.3.2}Dedicaciones}{84}{subsection.10.3.2}%
-\contentsline {chapter}{\chapternumberline {11}Retos}{87}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Análisis y diseño}{87}{section.11.1}%
-\contentsline {paragraph}{Diseño del software}{87}{section*.24}%
-\contentsline {section}{\numberline {11.2}Comportamiento de agentes}{88}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Desafíos técnicos}{88}{section.11.3}%
-\contentsline {paragraph}{Manejo de conexiones}{88}{section*.25}%
-\contentsline {paragraph}{Contexto asíncrono}{88}{section*.26}%
-\contentsline {chapter}{\chapternumberline {12}Conclusiones y líneas futuras}{89}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Conclusiones}{89}{section.12.1}%
-\contentsline {subsection}{\numberline {12.1.1}Líneas generales}{89}{subsection.12.1.1}%
-\contentsline {subsection}{\numberline {12.1.2}Protocolo MCP}{90}{subsection.12.1.2}%
-\contentsline {subsection}{\numberline {12.1.3}Orquestación de agentes}{90}{subsection.12.1.3}%
-\contentsline {section}{\numberline {12.2}Objetivos del proyecto}{90}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Lecciones aprendidas}{91}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Líneas futuras}{91}{section.12.4}%
-\contentsline {paragraph}{Exploración de embedders especializados}{91}{section*.27}%
-\contentsline {paragraph}{Optimización de orquestación}{92}{section*.28}%
-\contentsline {paragraph}{Ajuste de agentes}{92}{section*.29}%
-\contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{93}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Conjunto de datos etiquetados}{93}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Entrenamiento de redes neuronales}{93}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Distancia coseno}{94}{section.Alph1.3}%
-\contentsline {section}{\numberline {A.4}Tokenizador}{94}{section.Alph1.4}%
-\contentsline {section}{\numberline {A.5}Pool de conexiones asíncronas}{94}{section.Alph1.5}%
-\contentsline {appendix}{\chapternumberline {B}Elicitación de preguntas}{95}{appendix.Alph2}%
-\contentsline {appendix}{\chapternumberline {C}Actas de reuniones}{105}{appendix.Alph3}%
-\contentsline {section}{\numberline {A.1}Acta de reunión TFG (25/02/2025)}{105}{section.Alph3.1}%
-\contentsline {subsection}{\numberline {A.1.1}Orden del día}{105}{subsection.Alph3.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Resumen de la reunión}{106}{subsection.Alph3.1.2}%
-\contentsline {subsection}{\numberline {A.1.3}Estado del proyecto}{106}{subsection.Alph3.1.3}%
-\contentsline {subsection}{\numberline {A.1.4}Decisiones}{106}{subsection.Alph3.1.4}%
-\contentsline {subsubsection}{\numberline {A.1.4.1}Decisiones adoptadas}{106}{subsubsection.Alph3.1.4.1}%
-\contentsline {subsubsection}{\numberline {A.1.4.2}Asignación de tareas a realizar}{106}{subsubsection.Alph3.1.4.2}%
-\contentsline {section}{\numberline {A.2}Acta de reunión TFG (12/03/2025)}{107}{section.Alph3.2}%
-\contentsline {subsection}{\numberline {A.2.1}Orden del día}{107}{subsection.Alph3.2.1}%
-\contentsline {subsection}{\numberline {A.2.2}Resumen de la reunión}{107}{subsection.Alph3.2.2}%
-\contentsline {subsection}{\numberline {A.2.3}Estado del proyecto}{108}{subsection.Alph3.2.3}%
-\contentsline {subsection}{\numberline {A.2.4}Decisiones}{108}{subsection.Alph3.2.4}%
-\contentsline {subsubsection}{\numberline {A.2.4.1}Decisiones adoptadas}{108}{subsubsection.Alph3.2.4.1}%
-\contentsline {subsubsection}{\numberline {A.2.4.2}Asignación de tareas a realizar}{108}{subsubsection.Alph3.2.4.2}%
-\contentsline {section}{\numberline {A.3}Acta de reunión TFG (20/03/2025)}{109}{section.Alph3.3}%
-\contentsline {subsection}{\numberline {A.3.1}Orden del día}{109}{subsection.Alph3.3.1}%
-\contentsline {subsection}{\numberline {A.3.2}Resumen de la reunión}{109}{subsection.Alph3.3.2}%
-\contentsline {subsection}{\numberline {A.3.3}Estado del proyecto}{109}{subsection.Alph3.3.3}%
-\contentsline {subsection}{\numberline {A.3.4}Decisiones}{110}{subsection.Alph3.3.4}%
-\contentsline {subsubsection}{\numberline {A.3.4.1}Decisiones adoptadas}{110}{subsubsection.Alph3.3.4.1}%
-\contentsline {subsubsection}{\numberline {A.3.4.2}Asignación de tareas a realizar}{110}{subsubsection.Alph3.3.4.2}%
-\contentsline {section}{\numberline {A.4}Acta de reunión TFG (02/04/2025)}{111}{section.Alph3.4}%
-\contentsline {subsection}{\numberline {A.4.1}Orden del día}{111}{subsection.Alph3.4.1}%
-\contentsline {subsection}{\numberline {A.4.2}Resumen de la reunión}{111}{subsection.Alph3.4.2}%
-\contentsline {subsection}{\numberline {A.4.3}Estado del proyecto}{111}{subsection.Alph3.4.3}%
-\contentsline {subsection}{\numberline {A.4.4}Decisiones}{112}{subsection.Alph3.4.4}%
-\contentsline {subsubsection}{\numberline {A.4.4.1}Decisiones adoptadas}{112}{subsubsection.Alph3.4.4.1}%
-\contentsline {subsubsection}{\numberline {A.4.4.2}Asignación de tareas a realizar}{112}{subsubsection.Alph3.4.4.2}%
-\contentsline {section}{\numberline {A.5}Acta de reunión TFG (04/04/2025)}{113}{section.Alph3.5}%
-\contentsline {subsection}{\numberline {A.5.1}Orden del día}{113}{subsection.Alph3.5.1}%
-\contentsline {subsection}{\numberline {A.5.2}Resumen de la reunión}{113}{subsection.Alph3.5.2}%
-\contentsline {subsection}{\numberline {A.5.3}Decisiones}{113}{subsection.Alph3.5.3}%
-\contentsline {subsubsection}{\numberline {A.5.3.1}Decisiones adoptadas}{113}{subsubsection.Alph3.5.3.1}%
-\contentsline {subsubsection}{\numberline {A.5.3.2}Asignación de tareas a realizar}{114}{subsubsection.Alph3.5.3.2}%
-\contentsline {section}{\numberline {A.6}Acta de reunión TFG (15/04/2025)}{115}{section.Alph3.6}%
-\contentsline {subsection}{\numberline {A.6.1}Orden del día}{115}{subsection.Alph3.6.1}%
-\contentsline {subsection}{\numberline {A.6.2}Resumen de la reunión}{115}{subsection.Alph3.6.2}%
-\contentsline {subsection}{\numberline {A.6.3}Estado del proyecto}{115}{subsection.Alph3.6.3}%
-\contentsline {subsection}{\numberline {A.6.4}Decisiones}{116}{subsection.Alph3.6.4}%
-\contentsline {subsubsection}{\numberline {A.6.4.1}Decisiones adoptadas}{116}{subsubsection.Alph3.6.4.1}%
-\contentsline {subsubsection}{\numberline {A.6.4.2}Asignación de tareas a realizar}{116}{subsubsection.Alph3.6.4.2}%
-\contentsline {section}{\numberline {A.7}Acta de reunión TFG (29/04/2025)}{117}{section.Alph3.7}%
-\contentsline {subsection}{\numberline {A.7.1}Orden del día}{117}{subsection.Alph3.7.1}%
-\contentsline {subsection}{\numberline {A.7.2}Resumen de la reunión}{117}{subsection.Alph3.7.2}%
-\contentsline {subsection}{\numberline {A.7.3}Estado del proyecto}{118}{subsection.Alph3.7.3}%
-\contentsline {subsection}{\numberline {A.7.4}Decisiones}{118}{subsection.Alph3.7.4}%
-\contentsline {subsubsection}{\numberline {A.7.4.1}Decisiones adoptadas}{118}{subsubsection.Alph3.7.4.1}%
-\contentsline {subsubsection}{\numberline {A.7.4.2}Asignación de tareas a realizar}{118}{subsubsection.Alph3.7.4.2}%
-\contentsline {appendix}{\chapternumberline {D}Detalles de entrenamiento}{119}{appendix.Alph4}%
-\contentsline {section}{\numberline {A.1}Configuración del Dataset y Arquitectura del Modelo}{119}{section.Alph4.1}%
-\contentsline {section}{\numberline {A.2}Estrategias de Entrenamiento}{120}{section.Alph4.2}%
-\contentsline {section}{\numberline {A.3}Metodología Experimental}{120}{section.Alph4.3}%
-\contentsline {section}{\numberline {A.4}Resultados}{121}{section.Alph4.4}%
-\contentsline {chapter}{Bibliografía}{123}{appendix*.38}%
+\contentsline {subsection}{\numberline {7.3.1}Caso práctico}{61}{subsection.7.3.1}%
+\contentsline {chapter}{\chapternumberline {8}Mejoras introducidas}{65}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Prompting Few-Shot}{65}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Memoria persistente}{66}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Agrupación de memoria}{67}{subsection.8.2.1}%
+\contentsline {section}{\numberline {8.3}Diseño adaptativo}{68}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Criterios de clasificación}{69}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Aumento de datos}{70}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Clasificación de preguntas}{70}{subsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.3.1}Evaluación de ambos enfoques}{70}{subsubsection.8.3.3.1}%
+\contentsline {chapter}{\chapternumberline {9}Evaluación}{73}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Sistema de evaluación}{73}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Métricas de evaluación}{74}{subsection.9.1.1}%
+\contentsline {paragraph}{Precisión del LLM juez}{74}{section*.14}%
+\contentsline {paragraph}{Precisión de herramientas}{74}{section*.15}%
+\contentsline {paragraph}{Precisión de alucinación}{74}{section*.16}%
+\contentsline {paragraph}{Precisión de citación}{75}{section*.17}%
+\contentsline {paragraph}{Uso de tokens y costo económico}{75}{section*.18}%
+\contentsline {subsection}{\numberline {9.1.2}Implementación de evaluación}{75}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}Dataset ground truth}{77}{subsection.9.1.3}%
+\contentsline {section}{\numberline {9.2}Resultados obtenidos}{78}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Mejora de versión inicial}{78}{subsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.1.1}Agentes especializados}{78}{subsubsection.9.2.1.1}%
+\contentsline {subsubsection}{\numberline {9.2.1.2}Planificador y orquestador}{80}{subsubsection.9.2.1.2}%
+\contentsline {subsection}{\numberline {9.2.2}Variaciones de orquestación}{80}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}Integración de memoria}{81}{subsection.9.2.3}%
+\contentsline {chapter}{\chapternumberline {10}Seguimiento y control}{83}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Gestión del alcance}{83}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Gestión de riesgos}{84}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}R1-Concurrencia exploratoria}{84}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}R2-Variabilidad del alcance}{84}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}R4-Filtrado de credenciales}{84}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}R5-Pérdida de recursos}{85}{subsection.10.2.4}%
+\contentsline {section}{\numberline {10.3}Gestión del tiempo}{85}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Gestión de fechas}{85}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Dedicaciones}{86}{subsection.10.3.2}%
+\contentsline {chapter}{\chapternumberline {11}Retos}{89}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Análisis y diseño}{89}{section.11.1}%
+\contentsline {paragraph}{Diseño del software}{89}{section*.21}%
+\contentsline {section}{\numberline {11.2}Comportamiento de agentes}{90}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Desafíos técnicos}{90}{section.11.3}%
+\contentsline {paragraph}{Manejo de conexiones}{90}{section*.22}%
+\contentsline {paragraph}{Contexto asíncrono}{90}{section*.23}%
+\contentsline {chapter}{\chapternumberline {12}Conclusiones y líneas futuras}{91}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Conclusiones}{91}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Líneas generales}{91}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}Protocolo MCP}{92}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}Orquestación de agentes}{92}{subsection.12.1.3}%
+\contentsline {section}{\numberline {12.2}Objetivos del proyecto}{92}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Lecciones aprendidas}{93}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Líneas futuras}{93}{section.12.4}%
+\contentsline {paragraph}{Exploración de embedders especializados}{93}{section*.24}%
+\contentsline {paragraph}{Optimización de orquestación}{94}{section*.25}%
+\contentsline {paragraph}{Ajuste de agentes}{94}{section*.26}%
+\contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{95}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Conjunto de datos etiquetados}{95}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Entrenamiento de redes neuronales}{95}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Distancia coseno}{96}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Tokenizador}{96}{section.Alph1.4}%
+\contentsline {section}{\numberline {A.5}Pool de conexiones asíncronas}{96}{section.Alph1.5}%
+\contentsline {appendix}{\chapternumberline {B}Elicitación de preguntas}{97}{appendix.Alph2}%
+\contentsline {appendix}{\chapternumberline {C}Actas de reuniones}{107}{appendix.Alph3}%
+\contentsline {section}{\numberline {A.1}Acta de reunión TFG (25/02/2025)}{107}{section.Alph3.1}%
+\contentsline {subsection}{\numberline {A.1.1}Orden del día}{107}{subsection.Alph3.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Resumen de la reunión}{108}{subsection.Alph3.1.2}%
+\contentsline {subsection}{\numberline {A.1.3}Estado del proyecto}{108}{subsection.Alph3.1.3}%
+\contentsline {subsection}{\numberline {A.1.4}Decisiones}{108}{subsection.Alph3.1.4}%
+\contentsline {subsubsection}{\numberline {A.1.4.1}Decisiones adoptadas}{108}{subsubsection.Alph3.1.4.1}%
+\contentsline {subsubsection}{\numberline {A.1.4.2}Asignación de tareas a realizar}{108}{subsubsection.Alph3.1.4.2}%
+\contentsline {section}{\numberline {A.2}Acta de reunión TFG (12/03/2025)}{109}{section.Alph3.2}%
+\contentsline {subsection}{\numberline {A.2.1}Orden del día}{109}{subsection.Alph3.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}Resumen de la reunión}{109}{subsection.Alph3.2.2}%
+\contentsline {subsection}{\numberline {A.2.3}Estado del proyecto}{110}{subsection.Alph3.2.3}%
+\contentsline {subsection}{\numberline {A.2.4}Decisiones}{110}{subsection.Alph3.2.4}%
+\contentsline {subsubsection}{\numberline {A.2.4.1}Decisiones adoptadas}{110}{subsubsection.Alph3.2.4.1}%
+\contentsline {subsubsection}{\numberline {A.2.4.2}Asignación de tareas a realizar}{110}{subsubsection.Alph3.2.4.2}%
+\contentsline {section}{\numberline {A.3}Acta de reunión TFG (20/03/2025)}{111}{section.Alph3.3}%
+\contentsline {subsection}{\numberline {A.3.1}Orden del día}{111}{subsection.Alph3.3.1}%
+\contentsline {subsection}{\numberline {A.3.2}Resumen de la reunión}{111}{subsection.Alph3.3.2}%
+\contentsline {subsection}{\numberline {A.3.3}Estado del proyecto}{111}{subsection.Alph3.3.3}%
+\contentsline {subsection}{\numberline {A.3.4}Decisiones}{112}{subsection.Alph3.3.4}%
+\contentsline {subsubsection}{\numberline {A.3.4.1}Decisiones adoptadas}{112}{subsubsection.Alph3.3.4.1}%
+\contentsline {subsubsection}{\numberline {A.3.4.2}Asignación de tareas a realizar}{112}{subsubsection.Alph3.3.4.2}%
+\contentsline {section}{\numberline {A.4}Acta de reunión TFG (02/04/2025)}{113}{section.Alph3.4}%
+\contentsline {subsection}{\numberline {A.4.1}Orden del día}{113}{subsection.Alph3.4.1}%
+\contentsline {subsection}{\numberline {A.4.2}Resumen de la reunión}{113}{subsection.Alph3.4.2}%
+\contentsline {subsection}{\numberline {A.4.3}Estado del proyecto}{113}{subsection.Alph3.4.3}%
+\contentsline {subsection}{\numberline {A.4.4}Decisiones}{114}{subsection.Alph3.4.4}%
+\contentsline {subsubsection}{\numberline {A.4.4.1}Decisiones adoptadas}{114}{subsubsection.Alph3.4.4.1}%
+\contentsline {subsubsection}{\numberline {A.4.4.2}Asignación de tareas a realizar}{114}{subsubsection.Alph3.4.4.2}%
+\contentsline {section}{\numberline {A.5}Acta de reunión TFG (04/04/2025)}{115}{section.Alph3.5}%
+\contentsline {subsection}{\numberline {A.5.1}Orden del día}{115}{subsection.Alph3.5.1}%
+\contentsline {subsection}{\numberline {A.5.2}Resumen de la reunión}{115}{subsection.Alph3.5.2}%
+\contentsline {subsection}{\numberline {A.5.3}Decisiones}{115}{subsection.Alph3.5.3}%
+\contentsline {subsubsection}{\numberline {A.5.3.1}Decisiones adoptadas}{115}{subsubsection.Alph3.5.3.1}%
+\contentsline {subsubsection}{\numberline {A.5.3.2}Asignación de tareas a realizar}{116}{subsubsection.Alph3.5.3.2}%
+\contentsline {section}{\numberline {A.6}Acta de reunión TFG (15/04/2025)}{117}{section.Alph3.6}%
+\contentsline {subsection}{\numberline {A.6.1}Orden del día}{117}{subsection.Alph3.6.1}%
+\contentsline {subsection}{\numberline {A.6.2}Resumen de la reunión}{117}{subsection.Alph3.6.2}%
+\contentsline {subsection}{\numberline {A.6.3}Estado del proyecto}{117}{subsection.Alph3.6.3}%
+\contentsline {subsection}{\numberline {A.6.4}Decisiones}{118}{subsection.Alph3.6.4}%
+\contentsline {subsubsection}{\numberline {A.6.4.1}Decisiones adoptadas}{118}{subsubsection.Alph3.6.4.1}%
+\contentsline {subsubsection}{\numberline {A.6.4.2}Asignación de tareas a realizar}{118}{subsubsection.Alph3.6.4.2}%
+\contentsline {section}{\numberline {A.7}Acta de reunión TFG (29/04/2025)}{119}{section.Alph3.7}%
+\contentsline {subsection}{\numberline {A.7.1}Orden del día}{119}{subsection.Alph3.7.1}%
+\contentsline {subsection}{\numberline {A.7.2}Resumen de la reunión}{119}{subsection.Alph3.7.2}%
+\contentsline {subsection}{\numberline {A.7.3}Estado del proyecto}{120}{subsection.Alph3.7.3}%
+\contentsline {subsection}{\numberline {A.7.4}Decisiones}{120}{subsection.Alph3.7.4}%
+\contentsline {subsubsection}{\numberline {A.7.4.1}Decisiones adoptadas}{120}{subsubsection.Alph3.7.4.1}%
+\contentsline {subsubsection}{\numberline {A.7.4.2}Asignación de tareas a realizar}{120}{subsubsection.Alph3.7.4.2}%
+\contentsline {appendix}{\chapternumberline {D}Detalles de entrenamiento}{121}{appendix.Alph4}%
+\contentsline {section}{\numberline {A.1}Configuración del Dataset y Arquitectura del Modelo}{121}{section.Alph4.1}%
+\contentsline {section}{\numberline {A.2}Estrategias de Entrenamiento}{122}{section.Alph4.2}%
+\contentsline {section}{\numberline {A.3}Metodología Experimental}{122}{section.Alph4.3}%
+\contentsline {section}{\numberline {A.4}Resultados}{123}{section.Alph4.4}%
+\contentsline {chapter}{Bibliografía}{125}{appendix*.35}%
