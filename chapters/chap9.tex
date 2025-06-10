@@ -34,7 +34,7 @@ Esto es evaluado mediante un agente juez, el cual determina si la respuesta del 
 
 \paragraph{Precisión de citación} Constituye la cantidad de documentos citados en la respuesta que estaban anotados como necesarios, métrica que permite evaluar el funcionamiento del sistema de citas.
 
-\paragraph{Uso de tokens y costo económico} Las evaluaciones de LangSmith facilitan la consulta del número de tokens empleados (tanto de entrada como de salida) en las evaluaciones, así como el cálculo de su costo económico según el precio de la API utilizada. Esta métrica resulta relevante ya que, ante dos sistemas con idéntica eficacia, el de menor costo será preferible en un entorno de producción.
+\paragraph{Uso de tokens y costo económico} Las evaluaciones de LangSmith permiten consultar el número de tokens empleados (tanto de entrada como de salida) en las evaluaciones, así como calcular su costo económico según los precios de la API correspondiente. Esta métrica resulta relevante ya que, entre sistemas de idéntica eficacia, el de menor costo será preferible en un entorno de producción.
 
 \subsection{Implementación de evaluación}
 \label{sec:langsmith}
@@ -127,7 +127,7 @@ La captura comprende 46 ejemplos para el agente principal (el sistema completo) 
 \end{itemize}
 
 \section{Resultados obtenidos}
-En esta sección se presentan los resultados obtenidos mediante el sistema implementado. En primera instancia, se exponen los resultados de evaluación correspondientes a la versión inicial de cada agente, contrastados con una segunda versión mejorada. Posteriormente se evalúan los distintos sistemas de orquestación desarrollados. Finalmente se analizan las mejoras introducidas en el sistema.
+En esta sección se presentan los resultados obtenidos mediante el sistema implementado. Inicialmente, se exponen los resultados de evaluación correspondientes a la versión inicial de cada agente, contrastados con una segunda versión mejorada. A continuación se evalúan los distintos sistemas de orquestación desarrollados. Finalmente se analizan las mejoras introducidas en el sistema. Los datos completos de todas las evaluaciones realizadas están públicamente disponibles en el repositorio del proyecto en GitHub para su consulta y reproducibilidad. Dichos datos corresponden a archivos CSV exportados directamente desde la plataforma LangSmith, que incluyen la traza completa de respuestas y los valores de precisión obtenidos para cada métrica.
 
 Cabe destacar que los LLM utilizados no son deterministas: una misma pregunta puede generar respuestas diferentes. Además, al evaluar estas respuestas mediante otro modelo, se introduce una segunda capa de indeterminismo. Esto implica que el sistema presenta una tasa de error variable.
 
@@ -364,13 +364,15 @@ La Figura \ref{fig:eval_esp} ilustra el rendimiento de los agentes especializado
 \end{figure}
 \vspace{-0.2cm} 
 
-El agente de código presentó un gasto considerablemente superior debido a las múltiples consultas RAG realizadas para una misma pregunta. Se ajustó el prompt y la cantidad de fragmentos extraídos, reduciendo así el coste asociado a ejecuciones prolongadas.
+\paragraph{Agente de código}Este presentó un gasto considerablemente superior debido a las múltiples consultas RAG realizadas para una misma pregunta. Se ajustó el prompt y la cantidad de fragmentos extraídos, reduciendo así el coste asociado a ejecuciones prolongadas.
 
-La mejora del agente Confluence incorporó el enfoque de prompt caching. Aunque la precisión en todas las métricas resultó similar, este enfoque redujo ligeramente tanto el consumo de tokens como el gasto económico.
+\paragraph{Agente Confluence} Se identificó que la tarea de este agente consistía invariablemente en elegir qué fichero leer y responder basándose en su contenido. Se incorporó el enfoque de prompt caching, ya que al limitarse exclusivamente a leer y responder, el acceso directo a todos los documentos podría reducir los errores derivados de no leer los documentos necesarios. Aunque la precisión en todas las métricas resultó similar, este enfoque redujo el consumo de tokens y el gasto económico.
 
-La mejora en el agente de sistema de ficheros consistió en la inclusión de la herramienta de RAG.
+\paragraph{Agente sistema de ficheros} Al requerir la selección entre múltiples ficheros, cuyos nombres en ciertas situaciones no describían adecuadamente todo su contenido, este agente fallaba al identificar siempre los necesarios. Por ello, la mejora implementada consistió en la inclusión de la herramienta RAG. Cuando existe incertidumbre sobre cuál fichero leer, la herramienta RAG proporciona varios fragmentos relacionados junto al nombre del fichero, facilitando así la localización de la información requerida.
 
 \subsubsection{Planificador y orquestador}
+El principal problema identificado en estos agentes radicaba en su incumplimiento del comportamiento esperado. Mientras que el agente planificador tendía a realizar pasos innecesarios en el plan, el agente orquestador invocaba un número excesivo de agentes especializados. La mejora implementada consistió en incorporar varios ejemplos del comportamiento esperado en los prompts correspondientes.
+
 La Figura \ref{fig:eval_fewshots} ilustra la comparación del agente planificador y orquestador tras incorporar el prompting few-shot. Los resultados muestran una mejora considerable en el rendimiento de ambos agentes.
 
 
@@ -525,7 +527,7 @@ La Figura \ref{fig:eval_fewshots} ilustra la comparación del agente planificado
 \label{sec:eval_orch}
 Esta evaluación (Figura \ref{fig:eval_orch}) compara los diferentes enfoques de orquestación: planificación dividida, planificación unificada, el sistema sin planificación y el sistema adaptativo. Adicionalmente se incluye la evaluación del sistema con planificación dividida previo a las mejoras implementadas en la sección anterior.
 
-Los resultados muestran que las mejoras implementadas incrementaron significativamente el rendimiento del sistema inicial. El prompting few-shot en el orquestador y planificador redujo la cantidad de agentes utilizados, optimizando notablemente el coste total.
+Los resultados muestran que las mejoras implementadas incrementaron significativamente el rendimiento del sistema mejorado en comparación con la versión inicial. El prompting few-shot en el orquestador y planificador redujo la cantidad de agentes utilizados, optimizando notablemente el costo total.
 
 \begin{figure}[hbtp]
 \centering
@@ -562,7 +564,7 @@ Los resultados muestran que las mejoras implementadas incrementaron significativ
 ] coordinates {
     (Sistema inicial, 0.5183)
     (Plan. dividida, 0.7665)
-    (Plan. fusionada, 0.7889)
+    (Plan. fusionada, 0.805)
     (Sin planificación, 0.7126)
     (Sistema adaptativo, 0.7307)
 };

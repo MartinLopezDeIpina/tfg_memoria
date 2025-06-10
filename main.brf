@@ -15,8 +15,8 @@
 \backcite {zhu_retrieving_2021, gao_retrieval-augmented_2024}{{9}{2.4.1.1}{subsubsection.2.4.1.1}}
 \backcite {khattab_demonstrate-search-predict_2023, shao_enhancing_2023, qi_answering_2021, zheng_take_2024, trivedi_interleaving_2023}{{9}{2.4.1.1}{subsubsection.2.4.1.1}}
 \backcite {wang_survey_2024}{{9}{2.4.2}{subsection.2.4.2}}
-\backcite {zhang_building_2024-1, fischer_reflective_2023, liang_unleashing_2023}{{9}{2.4.2}{subsection.2.4.2}}
-\backcite {zhao_expel_2024}{{9}{2.4.2}{subsection.2.4.2}}
+\backcite {zhang_building_2024-1, fischer_reflective_2023, liang_unleashing_2023}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {zhao_expel_2024}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {zhong_memorybank_2024}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {wang_survey_2024, park_generative_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {wei_chain--thought_2023}{{10}{2.4.2}{subsection.2.4.2}}
@@ -26,7 +26,7 @@
 \backcite {lin_swiftsage_nodate, huang_language_nodate, wang_describe_2024}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {zhu_ghost_2023, song_llm-planner_2023, wang_voyager_2023, liu_odyssey_2024}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {raman_planning_nodate, liu_llmp_2023, dagan_dynamic_2023}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {noauthor_deepseek-r1deepseek_r1pdf_nodate}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {noauthor_deepseek-r1deepseek_r1pdf_nodate}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {karpas_mrkl_2022, ge_openagi_nodate}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {zhuge_mindstorms_2023, du_improving_nodate}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {qian_chatdev_2024}{{11}{2.4.2}{subsection.2.4.2}}
@@ -52,5 +52,5 @@
 \backcite {liu_roberta_2019}{{70}{8.3.3}{subsection.8.3.3}}
 \backcite {gutierrez-fandino_maria_2021}{{70}{8.3.3}{subsection.8.3.3}}
 \backcite {ionescu_multi-agent_2025}{{84}{10.2.1}{subsection.10.2.1}}
-\backcite {noauthor_codestral_nodate}{{94}{12.4}{section*.24}}
-\backcite {khattab_relevance-guided_2021,xiong_approximate_2020,yu_augmentation-adapted_2023}{{94}{12.4}{section*.24}}
+\backcite {noauthor_codestral_nodate}{{94}{12.4}{section*.27}}
+\backcite {khattab_relevance-guided_2021,xiong_approximate_2020,yu_augmentation-adapted_2023}{{94}{12.4}{section*.27}}

@@ -9,13 +9,13 @@
 \contentsline {subsection}{\numberline {2.1.1}Trabajo previo}{4}{subsection.2.1.1}%
 \contentsline {section}{\numberline {2.2}Agentes de Grandes Modelos de Lenguaje (LLM)}{4}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Modelos LLM}{4}{subsection.2.2.1}%
-\contentsline {paragraph}{Tokens}{4}{section*.6}%
+\contentsline {paragraph}{Tokens}{5}{section*.6}%
 \contentsline {paragraph}{Representaciones vectoriales}{5}{section*.7}%
 \contentsline {paragraph}{Ajuste de modelos instruct}{5}{section*.8}%
 \contentsline {subsection}{\numberline {2.2.2}Interacción con herramientas externas}{5}{subsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.2.1}Patrón ReAct}{6}{subsubsection.2.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.3}Abstracciones en frameworks}{6}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Model Context Protocol}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Model Context Protocol (MCP)}{7}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Estado del arte en arquitecturas de agentes LLM}{8}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Arquitectura RAG}{8}{subsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.1.1}Estrategias RAG avanzadas}{9}{subsubsection.2.4.1.1}%
@@ -102,10 +102,13 @@
 \contentsline {subsection}{\numberline {9.1.3}Dataset ground truth}{77}{subsection.9.1.3}%
 \contentsline {section}{\numberline {9.2}Resultados obtenidos}{78}{section.9.2}%
 \contentsline {subsection}{\numberline {9.2.1}Mejora de versión inicial}{78}{subsection.9.2.1}%
-\contentsline {subsubsection}{\numberline {9.2.1.1}Agentes especializados}{78}{subsubsection.9.2.1.1}%
+\contentsline {subsubsection}{\numberline {9.2.1.1}Agentes especializados}{79}{subsubsection.9.2.1.1}%
+\contentsline {paragraph}{Agente de código}{79}{section*.19}%
+\contentsline {paragraph}{Agente Confluence}{80}{section*.20}%
+\contentsline {paragraph}{Agente sistema de ficheros}{80}{section*.21}%
 \contentsline {subsubsection}{\numberline {9.2.1.2}Planificador y orquestador}{80}{subsubsection.9.2.1.2}%
-\contentsline {subsection}{\numberline {9.2.2}Variaciones de orquestación}{80}{subsection.9.2.2}%
-\contentsline {subsection}{\numberline {9.2.3}Integración de memoria}{81}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.2}Variaciones de orquestación}{81}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}Integración de memoria}{82}{subsection.9.2.3}%
 \contentsline {chapter}{\chapternumberline {10}Seguimiento y control}{83}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Gestión del alcance}{83}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Gestión de riesgos}{84}{section.10.2}%
@@ -118,11 +121,11 @@
 \contentsline {subsection}{\numberline {10.3.2}Dedicaciones}{86}{subsection.10.3.2}%
 \contentsline {chapter}{\chapternumberline {11}Retos}{89}{chapter.11}%
 \contentsline {section}{\numberline {11.1}Análisis y diseño}{89}{section.11.1}%
-\contentsline {paragraph}{Diseño del software}{89}{section*.21}%
+\contentsline {paragraph}{Diseño del software}{89}{section*.23}%
 \contentsline {section}{\numberline {11.2}Comportamiento de agentes}{90}{section.11.2}%
 \contentsline {section}{\numberline {11.3}Desafíos técnicos}{90}{section.11.3}%
-\contentsline {paragraph}{Manejo de conexiones}{90}{section*.22}%
-\contentsline {paragraph}{Contexto asíncrono}{90}{section*.23}%
+\contentsline {paragraph}{Manejo de conexiones}{90}{section*.24}%
+\contentsline {paragraph}{Contexto asíncrono}{90}{section*.25}%
 \contentsline {chapter}{\chapternumberline {12}Conclusiones y líneas futuras}{91}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Conclusiones}{91}{section.12.1}%
 \contentsline {subsection}{\numberline {12.1.1}Líneas generales}{91}{subsection.12.1.1}%
@@ -131,9 +134,10 @@
 \contentsline {section}{\numberline {12.2}Objetivos del proyecto}{92}{section.12.2}%
 \contentsline {section}{\numberline {12.3}Lecciones aprendidas}{93}{section.12.3}%
 \contentsline {section}{\numberline {12.4}Líneas futuras}{93}{section.12.4}%
-\contentsline {paragraph}{Exploración de embedders especializados}{93}{section*.24}%
-\contentsline {paragraph}{Optimización de orquestación}{94}{section*.25}%
-\contentsline {paragraph}{Ajuste de agentes}{94}{section*.26}%
+\contentsline {paragraph}{Evaluación en diferentes proyectos software}{93}{section*.26}%
+\contentsline {paragraph}{Exploración de embedders especializados}{94}{section*.27}%
+\contentsline {paragraph}{Optimización de orquestación}{94}{section*.28}%
+\contentsline {paragraph}{Ajuste de agentes}{94}{section*.29}%
 \contentsline {appendix}{\chapternumberline {A}Definición de términos técnicos}{95}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Conjunto de datos etiquetados}{95}{section.Alph1.1}%
 \contentsline {section}{\numberline {A.2}Entrenamiento de redes neuronales}{95}{section.Alph1.2}%
@@ -195,4 +199,4 @@
 \contentsline {section}{\numberline {A.2}Estrategias de Entrenamiento}{122}{section.Alph4.2}%
 \contentsline {section}{\numberline {A.3}Metodología Experimental}{122}{section.Alph4.3}%
 \contentsline {section}{\numberline {A.4}Resultados}{123}{section.Alph4.4}%
-\contentsline {chapter}{Bibliografía}{125}{appendix*.35}%
+\contentsline {chapter}{Bibliografía}{125}{appendix*.38}%
