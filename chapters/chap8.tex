@@ -42,13 +42,13 @@ La memoria persistente consiste en proporcionar al agente información de ejecuc
 
 Este enfoque se ha implementado en los agentes especializados con el objetivo de mejorar la búsqueda de información. De esta forma, el agente obtendrá resúmenes de respuestas anteriores que sean relevantes para la consulta actual, proporcionando información complementaria que el agente podría no haber extraído correctamente.
 
-La Figura \ref{fig:mem_1} ilustra el funcionamiento de dicho mecanismo. En primer lugar, se añaden al prompt del agente memorias relevantes realizando una búsqueda RAG sobre un objeto \opus{AsyncPostgresSaver}. Este objeto representa una abstracción de LangChain para guardar elementos en PostgreSQL, similar a \opus{PGVector} utilizado en la Sección \ref{sec:agente_filesystem}. Una vez el agente ha generado su respuesta, un agente resumidor comprime el resultado en aproximadamente 75 caracteres. Este resumen se indexa en la base de datos utilizando dicha abstracción, guardando adicionalmente las citas referenciadas. 
+La Figura \ref{fig:memoria_1} ilustra el funcionamiento de dicho mecanismo. En primer lugar, se añaden al prompt del agente memorias relevantes realizando una búsqueda RAG sobre un objeto \opus{AsyncPostgresSaver}. Este objeto representa una abstracción de LangChain para guardar elementos en PostgreSQL, similar a \opus{PGVector} utilizado en la Sección \ref{sec:agente_filesystem}. Una vez el agente ha generado su respuesta, un agente resumidor comprime el resultado en aproximadamente 75 caracteres. Este resumen se indexa en la base de datos utilizando dicha abstracción, guardando adicionalmente las citas referenciadas. 
 
 \begin{figure}[h]
 \centering
 \adjustbox{center=\textwidth}{\includegraphics[width=1\linewidth]{figures/memoria_1.png}}
 \caption{Flujo operativo del sistema de memoria de los agentes especializados}
-\label{fig:mem_1}
+\label{fig:memoria_1}
 \end{figure}
 
 Es de destacar que las memorias recuperadas se insertan como mensajes \opus{AIMessage} entre el mensaje del sistema y la consulta del usuario, ya que al incluirlas en el \opus{SystemMessage} se observó que el agente tendía a ignorarlas.

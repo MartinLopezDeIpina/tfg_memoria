@@ -839,6 +839,10 @@ INPUT ./figures/horas_real.pdf
 INPUT chapters/chap11.tex
 INPUT chapters/chap12.tex
 INPUT chapters/anexo_a.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTBI-tlf-t1.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTBI-tlf-t1.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTBI-tlf-t1--base.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
 INPUT chapters/anexo_b.tex
 INPUT chapters/anexo_d.tex
 INPUT chapters/anexo_f.tex
@@ -868,6 +872,7 @@ INPUT ./main.brf
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb

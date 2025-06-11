@@ -8,7 +8,7 @@ Este agente establece la lógica de enrutamiento entre el planificador y el orqu
 
 El proceso se inicia con la ejecución del agente planificador, que genera un plan de alto nivel compuesto por múltiples pasos secuenciales, donde cada paso constituye una cadena de texto que define específicamente qué información buscar. Posteriormente, se activa el agente orquestador con el primer paso del plan generado, cuya función consiste en determinar qué agentes especializados deben ejecutarse para dicha etapa. Los agentes seleccionados son ejecutados de forma asíncrona, generando cada uno un \opus{CitedAIMessage}, estructura que integra tanto el contenido de la respuesta como una lista de citas referentes a los documentos consultados.
 
-Este ciclo se itera hasta que el planificador establece la finalización del plan. A continuación, el agente formateador estructura el contenido en un formato estandarizado, consistente en un mensaje markdown y un índice de identificadores que referencia solo las citas empleadas de entre todas las generadas en las respuestas de los agentes.
+Este ciclo se itera hasta que el planificador establece la finalización del plan. A continuación, el agente formateador estructura el contenido en un formato estandarizado, consistente en un mensaje con formato de marcado estructurado (\textit{Markdown}) y un índice de identificadores que referencia solo las citas empleadas de entre todas las generadas en las respuestas de los agentes.
 
 Considerando el desarrollo de múltiples versiones de planificadores y orquestadores, se ha implementado un patrón Builder para facilitar la construcción del sistema a partir de los agentes especificados, permitiendo así las variaciones detalladas en la Sección \ref{sec:vars}. El Listado \ref{lst:builder} muestra la creación, inicialización y ejecución del sistema mínimo con los cinco agentes especialistas.
 
@@ -99,7 +99,7 @@ El sistema base sigue la estructura descrita en la sección \ref{sec:principal},
 
 \begin{figure}[hbtp]
 \centering
-\subfloat[Sistema con planificador y orquestador independientes\label{fig:orch_1}]{\includegraphics[width=0.65\textwidth]{figures/orch_1.png}}
+\subfloat[Sistema con planificador y orquestador independientes\label{fig:orch_1}]{\includegraphics[width=0.6\textwidth]{figures/orch_1.png}}
 \hfill
 \subfloat[Sistema con planificador y orquestador fusionados\label{fig:orch_2}]{\includegraphics[width=0.5\textwidth]{figures/orch_2.png}}
 \hfill

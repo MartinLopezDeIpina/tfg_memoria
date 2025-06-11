@@ -28,4 +28,12 @@ Un tokenizador es el componente algorítmico encargado de segmentar el texto en 
 \label{anexo:pool}
 Un pool de conexiones asíncronas en PostgreSQL constituye un mecanismo de gestión eficiente que mantiene un conjunto predefinido de conexiones a la base de datos. Cuando una aplicación requiere conectarse a la base de datos, en lugar de crear una nueva conexión, solicita una al pool, que le proporciona una de las conexiones ya establecidas y disponibles. Su naturaleza asíncrona permite ejecutar operaciones sin bloquear el hilo principal, reduciendo la sobrecarga asociada al establecimiento repetitivo de conexiones.
 
+\section{Tabla de cierre (\textit{Closure Table})}
+\label{anexo:closure_table}
+Una tabla de cierre constituye un patrón de diseño de base de datos utilizado para representar y consultar eficientemente estructuras jerárquicas. Este enfoque almacena todas las relaciones ancestro-descendiente posibles en una tabla auxiliar, incluyendo tanto las relaciones directas (padre-hijo) como las indirectas (ancestro-descendiente a cualquier nivel).
+
+En este proyecto, la tabla \opus{Ancestor} implementa este patrón para representar la jerarquía del sistema de ficheros. Incluye las columnas ancestor\_id y descendant\_id que referencian entradas de la tabla \opus{FileSystem}, almacenando todas las relaciones jerárquicas entre directorios y ficheros. Esta estructura permite consultar eficientemente todos los ficheros contenidos dentro de cualquier subdirectorio mediante una simple operación de filtrado por ancestor\_id.
+
+Las ventajas principales de este patrón incluyen la posibilidad de ejecutar consultas de subárboles completos mediante operaciones SQL directas, eliminando la necesidad de recursión costosa y permitiendo la obtención de rutas jerárquicas con complejidad temporal constante. Como contrapartida, este enfoque requiere mayor espacio de almacenamiento debido a la redundancia de relaciones.
+
 
