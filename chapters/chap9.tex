@@ -5,7 +5,7 @@ Con este propósito, inicialmente se explica el sistema de evaluación implement
 \section{Sistema de evaluación}
 La solución adoptada sigue los principios establecidos en la Sección \ref{sec:antecedentes_evaluacion}: se evalúa de forma automatizada una serie de métrcias cuantificables (Sección \ref{sec:metricas}) mediante el SDK de LangSmith (Sección \ref{sec:langsmith}) sobre un dataset \textit{ground truth} anotado manualmente (Sección \ref{sec:dataset}) en el dominio del onboarding.
 
-Se ha seleccionado esta metodología de evaluación considerando los múltiples tópicos a los que el sistema debe responder y todas las variaciones implementadas. Frente a una evaluación manual, esta metodología permite ejecutar en pocos minutos las 46 preguntas anotadas, posibilitando su repetida ejecución para todas las mejoras implementadas.
+Se ha seleccionado esta metodología de evaluación dada la diversidad de tópicos a los que el sistema debe responder y el conjunto de variaciones implementadas. Frente a una evaluación manual, esta metodología permite ejecutar en pocos minutos las 46 preguntas anotadas, facilitando su ejecución repetida ante cada mejora implementada con una dedicación mínima de recursos.
 
 No obstante, la validación automática del sistema plantea un reto inherente al lenguaje natural: ¿cómo determinar si la respuesta a una pregunta es correcta? Para ello se ha utilizado un LLM como juez, estrategia que consiste en utilizar un agente evaluador cuya función consiste en valorar el resultado obtenido por el agente evaluado.
 
@@ -30,11 +30,11 @@ A modo de ejemplo, un agente podría tener 5 herramientas disponibles, de las cu
 
 \paragraph{Precisión de alucinación} Los modelos tienden a responder las consultas realizadas aún si no contienen el conocimiento necesario para ello. Para evaluar esto, se han anotado algunas preguntas que son imposibles de responder con la información a la que el agente tiene acceso. Ante la consulta: \texttt{¿Qué flujo de despliegue continuo se utiliza?}, el agente no podrá responder correctamente porque no existe dicho flujo.
 
-Esto es evaluado mediante un agente juez, el cual determina si la respuesta del agente realmente intenta responder a la pregunta o, por el contrario, reconoce que no se dispone de la información suficiente.
+Esto es evaluado mediante un agente juez, el cual determina si la respuesta del agente realmente intenta responder a la pregunta o, por el contrario, reconoce que no se dispone de la información suficiente. Esta métrica evalúa, por tanto, el porcentaje de preguntas marcadas como imposibles ante las cuales el sistema se abstiene correctamente de responder.
 
 \paragraph{Precisión de citación} Constituye la cantidad de documentos citados en la respuesta que estaban anotados como necesarios, métrica que permite evaluar el funcionamiento del sistema de citas.
 
-\paragraph{Uso de tokens y costo económico} Las evaluaciones de LangSmith permiten consultar el número de tokens empleados (tanto de entrada como de salida) en las evaluaciones, así como calcular su costo económico según los precios de la API correspondiente. Esta métrica resulta relevante ya que, entre sistemas de idéntica eficacia, el de menor costo será preferible en un entorno de producción.
+\paragraph{Uso de tokens y costo económico} Las evaluaciones de LangSmith permiten consultar el número de tokens empleados (tanto de entrada como de salida) en las evaluaciones, así como calcular su costo económico según los precios de la API correspondiente. Esta métrica resulta relevante ya que un sistema con menor consumo de tokens representa un sistema con menor redundancia y, por tanto, mayor simplicidad.
 
 \subsection{Implementación de evaluación}
 \label{sec:langsmith}
@@ -112,7 +112,7 @@ La captura comprende 46 ejemplos para el agente principal (el sistema completo) 
 \begin{itemize}
   \item\textbf{Agente principal: }comprende tres tipos de preguntas según su complejidad: consultas respondibles mediante una única fuente de datos, las que requieren múltiples fuentes, y las que necesitan múltiples fuentes en orden secuencial con dependencias entre ellas. Una pregunta del último tipo es: \texttt{¿Quién ha implementado la funcionalidad de embeddings de Mistral?} 
 
-  \item\textbf{Planificador: }para este agente se ha anotado la respuesta como el plan generado para un ejemplo de ejecución, incluyendo la pregunta y el estado de ejecución actual. Se han identificado tres escenarios: preguntas donde se requiere un solo paso, preguntas donde se requieren varios pasos, y preguntas a medio completar donde se requiere que el agente genere el siguiente paso o decida finalizar el plan. Por ejemplo, en el siguiente ejemplo se ha anotado también un plan a medio completar donde el agente recibe las funcionalidades marcadas por implementar, con el objetivo de que el planificador indique que se deben buscar las issues relacionadas en el siguiente paso: \texttt{¿Existe alguna issue para las funcionalidades marcadas en la documentación por implementar?} 
+  \item\textbf{Planificador: }para este agente se ha anotado la respuesta como el plan generado para un ejemplo de ejecución, incluyendo la pregunta y el estado de ejecución actual. Se han identificado tres escenarios: preguntas donde se requiere un solo paso, preguntas donde se requieren varios pasos, y preguntas a medio completar donde se requiere que el agente genere el siguiente paso o decida finalizar el plan. Por ejemplo, en el siguiente ejemplo se ha anotado también un plan a medio completar donde el agente recibe las funcionalidades marcadas por implementar, con el objetivo de que el planificador indique que se deben buscar las incidencias relacionadas en el siguiente paso: \texttt{¿Existe alguna issue para las funcionalidades marcadas en la documentación por implementar?} 
 \item\textbf{Orquestador: }este agente se ha evaluado considerando los agentes seleccionados para ejecutar como herramientas. Con tal fin, se han incluido preguntas de todas las temáticas, evaluando qué agentes llamar en cada caso:
 
 \begin{itemize}
@@ -368,10 +368,11 @@ La Figura \ref{fig:eval_esp} ilustra el rendimiento de los agentes especializado
 
 \paragraph{Agente Confluence} Se identificó que la tarea de este agente consistía invariablemente en elegir qué fichero leer y responder basándose en su contenido. Se incorporó el enfoque de prompt caching, ya que al limitarse exclusivamente a leer y responder, el acceso directo a todos los documentos podría reducir los errores derivados de no leer los documentos necesarios. Aunque la precisión en todas las métricas resultó similar, este enfoque redujo el consumo de tokens y el gasto económico.
 
-\paragraph{Agente sistema de ficheros} Al requerir la selección entre múltiples ficheros, cuyos nombres en ciertas situaciones no describían adecuadamente todo su contenido, este agente fallaba al identificar siempre los necesarios. Por ello, la mejora implementada consistió en la inclusión de la herramienta RAG. Cuando existe incertidumbre sobre cuál fichero leer, la herramienta RAG proporciona varios fragmentos relacionados junto al nombre del fichero, facilitando así la localización de la información requerida.
+\paragraph{Agente sistema de ficheros}
+Al requerir la selección entre múltiples ficheros, cuyos nombres en ciertas situaciones no describían adecuadamente todo su contenido, este agente presentaba dificultades para identificar los documentos necesarios. Por ello, la mejora implementada consistió en la inclusión de la herramienta RAG. Cuando existe incertidumbre sobre cuál fichero leer, esta herramienta proporciona varios fragmentos relacionados junto al nombre del fichero, facilitando así la localización de la información requerida.
 
 \subsubsection{Planificador y orquestador}
-El principal problema identificado en estos agentes radicaba en su incumplimiento del comportamiento esperado. Mientras que el agente planificador tendía a realizar pasos innecesarios en el plan, el agente orquestador invocaba un número excesivo de agentes especializados. La mejora implementada consistió en incorporar varios ejemplos del comportamiento esperado en los prompts correspondientes.
+El principal problema identificado en estos agentes radicaba en su incumplimiento del comportamiento esperado. Mientras que el agente planificador tendía a incluir pasos innecesarios, el agente orquestador invocaba un número excesivo de agentes especializados. La mejora implementada consistió en incorporar varios ejemplos del comportamiento esperado en los prompts correspondientes.
 
 La Figura \ref{fig:eval_fewshots} ilustra la comparación del agente planificador y orquestador tras incorporar el prompting few-shot. Los resultados muestran una mejora considerable en el rendimiento de ambos agentes.
 
@@ -525,7 +526,7 @@ La Figura \ref{fig:eval_fewshots} ilustra la comparación del agente planificado
 
 \subsection{Variaciones de orquestación}
 \label{sec:eval_orch}
-Esta evaluación (Figura \ref{fig:eval_orch}) compara los diferentes enfoques de orquestación: planificación dividida, planificación unificada, el sistema sin planificación y el sistema adaptativo. Adicionalmente se incluye la evaluación del sistema con planificación dividida previo a las mejoras implementadas en la sección anterior.
+Esta evaluación (Figura \ref{fig:eval_orch}) compara los diferentes enfoques de orquestación: planificación dividida, planificación unificada, el sistema sin planificación y el sistema adaptativo. Adicionalmente, se incluye la evaluación del sistema inicial (planificación dividida previa a las mejoras implementadas en la sección anterior).
 
 Los resultados muestran que las mejoras implementadas incrementaron significativamente el rendimiento del sistema mejorado en comparación con la versión inicial. El prompting few-shot en el orquestador y planificador redujo la cantidad de agentes utilizados, optimizando notablemente el costo total.
 

@@ -11,7 +11,7 @@ Con el fin de desarrollar un sistema extensible, se estableció un diseño preme
 \section{Comportamiento de agentes}
 Deducir la causa del comportamiento de los agentes tras su evaluación constituyó otra dificultad. A diferencia de las excepciones tradicionales, donde un error se localiza en un punto específico del código, la conducta de un LLM resulta de múltiples variables.
 
-Aunque es posible inferir las causas específicas mediante el análisis del estado interno del modelo, los LLM utilizados son de caja negra. Por tanto, el proceso de depuración se asemejó más a un análisis forense, requiriendo reflexión ante comportamientos inesperados: ¿por qué no citas las fuentes?, ¿por qué llamas a esa herramienta?, ¿por qué NO llamas a esa herramienta?, ¿por qué ignoras la memoria?
+Aunque es posible inferir las causas específicas mediante el análisis del estado interno del modelo, los LLM utilizados son de caja negra. Por tanto, el proceso de depuración se asemejó más a un análisis forense, requiriendo reflexión ante comportamientos inesperados: ¿por qué no citas las fuentes?, ¿por qué llamas a esa herramienta?, ¿por qué \textit{NO} llamas a esa herramienta?, ¿por qué ignoras la memoria?
 
 Respecto a la última cuestión, al evaluar el mecanismo de memoria, ciertos ejemplos no mostraban mejoras. El análisis reveló que el agente ignoraba las memorias incluidas en el prompt del sistema junto a las demás instrucciones, presumiblemente porque la extensión del prompt reducía la atención hacia estos fragmentos específicos. Para solucionar este problema, se reimplementaron las memorias como mensajes individuales, aprovechando así la optimización conversacional de estos modelos.
 

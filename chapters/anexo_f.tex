@@ -25,9 +25,9 @@ Para evaluar distintos enfoques de entrenamiento, se han implementado cinco nive
   \item \textbf{Nivel 4:} congelación de los módulos de embedding y codificador completo, ajustando únicamente el clasificador. 
 \end{itemize}
 
-Respecto a la configuración del prompt, se han evaluado tres alternativas distintas. La primera configuración consistió en una implementación sin prompt como referencia. Posteriormente se implementó un prompt breve que incorporaba explícitamente el criterio de clasificación (mostrado en el Listado \ref{lst:template}), lo que resultó en una mejora significativa de la precisión. En un tercer experimento, se evaluó la incorporación de tokens especiales delimitadores al inicio y final de la consulta para indicar la posición de la pregunta, pero esta aproximación fue descartada tras registrar resultados inferiores.
+Respecto a la configuración del prompt, se han evaluado tres alternativas distintas. La primera configuración consistió en una implementación sin prompt como referencia. Posteriormente se implementó un prompt breve que incorporaba explícitamente el criterio de clasificación (mostrado en el Listado \ref{lst:template_anexo}), lo que resultó en una mejora significativa de la precisión. En un tercer experimento, se evaluó la incorporación de tokens especiales delimitadores al inicio y final de la consulta para indicar la posición de la pregunta, pero esta aproximación fue descartada tras registrar resultados inferiores.
 
-\begin{lstlisting}[caption={Plantilla del prompt para ejemplos del modelo clasificador},label={lst:template}]
+\begin{lstlisting}[caption={Plantilla del prompt para ejemplos del modelo clasificador},label={lst:template_anexo}]
   prompt_template = """Clasificar dificultad: {consulta}
 
   FACIL: información general, bien documentada, fundamental
@@ -45,7 +45,7 @@ Para la optimización, se han evaluado cinco hiperparámetros: tasa de aprendiza
 \begin{table}[htbp]
     \centering
     \caption{Proceso de búsqueda de hiperparámetros y resultados óptimos}
-    \label{tabla:hiperparametros}
+    \label{tabla:hiperparametros_entrenamiento}
     \begin{tabular}{|l|p{2.6cm}|p{2.6cm}|p{2.6cm}|p{2cm}|}
         \hline
         \textbf{Hiperparámetro} & \textbf{Primera Búsqueda} & \textbf{Segunda Búsqueda} & \textbf{Tercera Búsqueda} & \textbf{Valores Óptimos} \\
@@ -74,5 +74,5 @@ Para la segunda iteración, se acotaron los rangos basándose en los resultados 
 
 En la tercera y última iteración, se refinaron aún más los rangos de búsqueda manteniendo 6 épocas por ensayo y aumentando a 50 ensayos totales. El nivel 1 de congelación (preservando únicamente el módulo de embedding) ofrecía el mejor rendimiento, por lo que esta fase se centró exclusivamente en dicha configuración.
 
-La configuración óptima de hiperparámetros, correspondiente al ensayo 20 de la tercera búsqueda, logró una precisión del 93,67\% en el conjunto de validación y 88\% en el conjunto de prueba. Los valores específicos pueden consultarse en la columna "Valores Óptimos" de la Tabla \ref{tabla:hiperparametros}, con una tasa de aprendizaje de 8.5e-06, un decaimiento de pesos de 3.44e-05, un dropout de 0.399, 16 pasos de calentamiento, y un nivel de congelación 1 con 3 épocas de entrenamiento.
+La configuración óptima de hiperparámetros, correspondiente al ensayo 20 de la tercera búsqueda, logró una precisión del 93,67\% en el conjunto de validación y 88\% en el conjunto de prueba. Los valores específicos pueden consultarse en la columna "Valores Óptimos" de la Tabla \ref{tabla:hiperparametros_entrenamiento}, con una tasa de aprendizaje de 8.5e-06, un decaimiento de pesos de 3.44e-05, un dropout de 0.399, 16 pasos de calentamiento, y un nivel de congelación 1 con 3 épocas de entrenamiento.
 

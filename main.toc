@@ -195,8 +195,16 @@
 \contentsline {subsection}{\numberline {A.7.4}Decisiones}{122}{subsection.Alph3.7.4}%
 \contentsline {subsubsection}{\numberline {A.7.4.1}Decisiones adoptadas}{122}{subsubsection.Alph3.7.4.1}%
 \contentsline {subsubsection}{\numberline {A.7.4.2}Asignación de tareas a realizar}{122}{subsubsection.Alph3.7.4.2}%
-\contentsline {appendix}{\chapternumberline {D}Detalles de entrenamiento}{123}{appendix.Alph4}%
-\contentsline {section}{\numberline {A.1}Configuración del Dataset y Arquitectura del Modelo}{123}{section.Alph4.1}%
-\contentsline {section}{\numberline {A.2}Estrategias de Entrenamiento}{124}{section.Alph4.2}%
-\contentsline {section}{\numberline {A.3}Metodología Experimental}{124}{section.Alph4.3}%
-\contentsline {section}{\numberline {A.4}Resultados}{125}{section.Alph4.4}%
+\contentsline {section}{\numberline {A.8}Acta de reunión TFG (30/05/2025)}{123}{section.Alph3.8}%
+\contentsline {subsection}{\numberline {A.8.1}Orden del día}{123}{subsection.Alph3.8.1}%
+\contentsline {subsection}{\numberline {A.8.2}Resumen de la reunión}{123}{subsection.Alph3.8.2}%
+\contentsline {subsection}{\numberline {A.8.3}Estado del proyecto}{123}{subsection.Alph3.8.3}%
+\contentsline {subsection}{\numberline {A.8.4}Decisiones}{123}{subsection.Alph3.8.4}%
+\contentsline {subsubsection}{\numberline {A.8.4.1}Decisiones adoptadas}{123}{subsubsection.Alph3.8.4.1}%
+\contentsline {subsubsection}{\numberline {A.8.4.2}Asignación de tareas a realizar}{124}{subsubsection.Alph3.8.4.2}%
+\contentsline {appendix}{\chapternumberline {D}Detalles de entrenamiento}{125}{appendix.Alph4}%
+\contentsline {section}{\numberline {A.1}Configuración del Dataset y Arquitectura del Modelo}{125}{section.Alph4.1}%
+\contentsline {section}{\numberline {A.2}Estrategias de Entrenamiento}{126}{section.Alph4.2}%
+\contentsline {section}{\numberline {A.3}Metodología Experimental}{126}{section.Alph4.3}%
+\contentsline {section}{\numberline {A.4}Resultados}{127}{section.Alph4.4}%
+\contentsline {chapter}{Bibliografía}{129}{appendix*.39}%
