@@ -1,56 +1,55 @@
-\backcite {vaswani_attention_2023}{{1}{1}{chapter.1}}
-\backcite {noauthor_design_nodate, singh_exploring_2023, dong_self-collaboration_2024}{{1}{1}{chapter.1}}
-\backcite {qian_chatdev_2024, acharya_devin_2025, noauthor_aider-aiaider_2025}{{1}{1}{chapter.1}}
+\backcite {vaswani_attention_2017}{{1}{1}{chapter.1}}
+\backcite {xiaoliang_design_2024, dong_self-collaboration_2024}{{1}{1}{chapter.1}}
+\backcite {qian_chatdev_2024, acharya_devin_2025}{{1}{1}{chapter.1}}
 \backcite {gao_retrieval-augmented_2024}{{1}{1}{chapter.1}}
 \backcite {yao_react_2023}{{1}{1}{chapter.1}}
 \backcite {sim_ramp-up_1998}{{3}{2.1}{section.2.1}}
 \backcite {steinmacher_systematic_2015}{{3}{2.1}{section.2.1}}
 \backcite {ritz_artificial_2023}{{4}{2.1}{section.2.1}}
 \backcite {azanza_can_2024}{{4}{2.1.1}{subsection.2.1.1}}
-\backcite {ionescu_multi-agent_2025}{{4}{2.1.1}{subsection.2.1.1}}
-\backcite {vaswani_attention_2023}{{4}{2.2.1}{subsection.2.2.1}}
+\backcite {cristian_ionescu_multi-agent_2025}{{4}{2.1.1}{subsection.2.1.1}}
+\backcite {vaswani_attention_2017}{{4}{2.2.1}{subsection.2.2.1}}
 \backcite {yao_react_2023}{{6}{2.2.2.1}{subsubsection.2.2.2.1}}
-\backcite {noauthor_model_nodate}{{7}{2.3}{section.2.3}}
+\backcite {anthropic_model_2024}{{7}{2.3}{section.2.3}}
 \backcite {gao_retrieval-augmented_2024}{{8}{2.4.1}{figure.2.3}}
 \backcite {zhu_retrieving_2021, gao_retrieval-augmented_2024}{{9}{2.4.1.1}{subsubsection.2.4.1.1}}
-\backcite {khattab_demonstrate-search-predict_2023, shao_enhancing_2023, qi_answering_2021, zheng_take_2024, trivedi_interleaving_2023}{{9}{2.4.1.1}{subsubsection.2.4.1.1}}
+\backcite {khattab_demonstrate-search-predict_2022, shao_enhancing_2023, qi-etal-2021-answering, zheng_take_2023, trivedi_interleaving_2023}{{9}{2.4.1.1}{subsubsection.2.4.1.1}}
 \backcite {wang_survey_2024}{{9}{2.4.2}{subsection.2.4.2}}
-\backcite {zhang_building_2024-1, fischer_reflective_2023, liang_unleashing_2023}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {zhang_building_2023, fischer_reflective_2023, liang_unleashing_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {zhao_expel_2024}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {zhong_memorybank_2024}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {wang_survey_2024, park_generative_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {wei_chain--thought_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {liang_unleashing_2023}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {yao_tree_nodate, wang_recmind_2024}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {shinn_reflexion_nodate, madaan_self-refine_nodate, miao_selfcheck_2023}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {lin_swiftsage_nodate, huang_language_nodate, wang_describe_2024}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {zhu_ghost_2023, song_llm-planner_2023, wang_voyager_2023, liu_odyssey_2024}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {raman_planning_nodate, liu_llmp_2023, dagan_dynamic_2023}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {noauthor_deepseek-r1deepseek_r1pdf_nodate}{{11}{2.4.2}{subsection.2.4.2}}
-\backcite {karpas_mrkl_2022, ge_openagi_nodate}{{11}{2.4.2}{subsection.2.4.2}}
-\backcite {zhuge_mindstorms_2023, du_improving_nodate}{{11}{2.4.2}{subsection.2.4.2}}
+\backcite {yao_tree_2023, wang_recmind_2024}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {shinn_reflexion_2023, madaan_self-refine_2023, miao_selfcheck_2023}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {lin_swiftsage_2023, huang_language_2022, wang_describe_2023}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {zhu_ghost_2023, song_llm-planner_2023, wang_voyager_2023, liu_odyssey_2025}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {raman_planning_2022, liu_llmp_2023, dagan_dynamic_2024}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {deepseek-ai_deepseek-r1_2025}{{11}{2.4.2}{subsection.2.4.2}}
+\backcite {karpas_mrkl_2022, ge_openagi_2023}{{11}{2.4.2}{subsection.2.4.2}}
+\backcite {zhuge_mindstorms_2025, du_improving_2024}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {qian_chatdev_2024}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {hong_metagpt_2024}{{11}{2.4.2}{subsection.2.4.2}}
-\backcite {jimenez_swe-bench_2024, liu_agentbench_2023, zhou_webarena_2024}{{11}{2.4.3}{subsection.2.4.3}}
+\backcite {jimenez_swe-bench_2023, liu_agentbench_2023, zhou_webarena_2023}{{11}{2.4.3}{subsection.2.4.3}}
 \backcite {qin_toolllm_2023}{{11}{2.4.3}{subsection.2.4.3}}
 \backcite {li_api-bank_2023, song_restgpt_2023}{{11}{2.4.3}{subsection.2.4.3}}
 \backcite {kalliamvakou_research_2022}{{12}{2.5}{section.2.5}}
-\backcite {noauthor_github_nodate}{{12}{2.5}{section.2.5}}
-\backcite {noauthor_sourcegraphscip_2025,noauthor_sourcegraphsourcegraph-public-snapshot_nodate}{{12}{2.5}{section.2.5}}
+\backcite {sourcegraph2024cody}{{12}{2.5}{section.2.5}}
 \backcite {acharya_devin_2025}{{12}{2.5}{section.2.5}}
-\backcite {noauthor_building_2023}{{12}{2.5}{section.2.5}}
+\backcite {gauthier_building_2023}{{12}{2.5}{section.2.5}}
 \backcite {noauthor_number_2024}{{12}{2.6}{section.2.6}}
 \backcite {chen_fireact_2023}{{12}{2.6}{section.2.6}}
-\backcite {zeng_agenttuning_2023}{{12}{2.6}{section.2.6}}
+\backcite {zeng_agenttuning_2024}{{12}{2.6}{section.2.6}}
 \backcite {chen_agent-flan_2024}{{12}{2.6}{section.2.6}}
-\backcite {noauthor_c4_nodate}{{30}{4.2.1}{subsection.4.2.1}}
+\backcite {brown_c4_2018}{{30}{4.2.1}{subsection.4.2.1}}
 \backcite {luo_repoagent_2024}{{32}{4.3.2}{subsection.4.3.2}}
 \backcite {tam_let_2024}{{60}{7.1.2}{figure.7.1}}
 \backcite {brown_language_2020}{{65}{8.1}{section.8.1}}
 \backcite {jeong_adaptive-rag_2024}{{69}{8.3}{section.8.3}}
 \backcite {wei_eda_2019}{{70}{8.3.2}{subsection.8.3.2}}
 \backcite {liu_roberta_2019}{{70}{8.3.3}{subsection.8.3.3}}
-\backcite {gutierrez-fandino_maria_2021}{{70}{8.3.3}{subsection.8.3.3}}
-\backcite {ionescu_multi-agent_2025}{{84}{10.2.1}{subsection.10.2.1}}
-\backcite {noauthor_codestral_nodate}{{94}{12.4}{section*.27}}
+\backcite {gutierrez-fandino_maria_2022}{{70}{8.3.3}{subsection.8.3.3}}
+\backcite {cristian_ionescu_multi-agent_2025}{{84}{10.2.1}{subsection.10.2.1}}
+\backcite {mistral_codestral_2025}{{94}{12.4}{section*.27}}
 \backcite {khattab_relevance-guided_2021,xiong_approximate_2020,yu_augmentation-adapted_2023}{{94}{12.4}{section*.27}}

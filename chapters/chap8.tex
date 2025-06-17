@@ -108,7 +108,7 @@ Para clasificar las consultas del usuario por dificultad, se han utilizado dos e
 
 \begin{itemize}
 \item\textbf{Agente clasificador: }añadiendo en el prompt los criterios de clasificación y 5 ejemplos representativos de cada clase, el agente debe determinar mediante una salida estructurada la dificultad de la pregunta.
-\item\textbf{Modelo clasificador: }se ha utilizado el modelo especializado en clasificación RoBERTa-base \cite{liu_roberta_2019}, en su versión entrenada con un corpus textual derivado de la biblioteca nacional de España \cite{gutierrez-fandino_maria_2021}. Dicho modelo se ha ajustado con el dataset mencionado en la sección anterior. Los detalles del entrenamiento están disponibles en el Anexo \ref{anexo:entrenamiento}, mientras que el modelo está públicamente disponible en HuggingFace\footnote{Modelo: \url{https://huggingface.co/MartinElMolon/RoBERTa_question_difficulty_classifier}}.
+\item\textbf{Modelo clasificador: }se ha utilizado el modelo especializado en clasificación RoBERTa-base \cite{liu_roberta_2019}, en su versión entrenada con un corpus textual derivado de la biblioteca nacional de España \cite{gutierrez-fandino_maria_2022}. Dicho modelo se ha ajustado con el dataset mencionado en la sección anterior. Los detalles del entrenamiento están disponibles en el Anexo \ref{anexo:entrenamiento}, mientras que el modelo está públicamente disponible en HuggingFace\footnote{Modelo: \url{https://huggingface.co/MartinElMolon/RoBERTa_question_difficulty_classifier}}.
 
 
 \end{itemize}
