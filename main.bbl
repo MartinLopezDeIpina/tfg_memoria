@@ -9,12 +9,11 @@ Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N
 Ma~Xiaoliang, Zhao {RuQiang}, Liu Ying, Deng Congjian, and Du~Dequan.
 \newblock Design of a large language model for improving customer service in telecom operators.
 \newblock {\em Electronics Letters}, 60(10):e13218, 2024.
-\newblock \_eprint: https://digital-library.theiet.org/doi/pdf/10.1049/ell2.13218.
 
 \bibitem{dong_self-collaboration_2024}
 Yihong Dong, Xue Jiang, Zhi Jin, and Ge~Li.
 \newblock Self-collaboration code generation via {ChatGPT}.
-\newblock {\em {ACM} Trans. Softw. Eng. Methodol.}, 33(7):189:1--189:38, 2024, file = {Full Text PDF:/home/martin/Zotero/storage/2XUHKKID/Dong et al. - 2024 - Self-Collaboration Code Generation via ChatGPT.pdf:application/pdf},.
+\newblock {\em {ACM} Trans. Softw. Eng. Methodol.}, 33(7):189:1--189:38, 2024.
 
 \bibitem{qian_chatdev_2024}
 Chen Qian, Wei Liu, Hongzhang Liu, Nuo Chen, Yufan Dang, Jiahao Li, Cheng Yang, Weize Chen, Yusheng Su, Xin Cong, Juyuan Xu, Dahai Li, Zhiyuan Liu, and Maosong Sun.
@@ -24,6 +23,7 @@ Chen Qian, Wei Liu, Hongzhang Liu, Nuo Chen, Yufan Dang, Jiahao Li, Cheng Yang, 
 \bibitem{acharya_devin_2025}
 Kamal Acharya.
 \newblock Devin: A cautionary tale of the autonomous {AI} engineer, 2025.
+\newblock Disponible en: \url{https://medium.com/@lotussavy/devin-a-cautionary-tale-of-the-autonomous-ai-engineer-e1339ede8f8a}.
 
 \bibitem{gao_retrieval-augmented_2024}
 Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yi~Dai, Jiawei Sun, Meng Wang, and Haofen Wang.
@@ -62,8 +62,8 @@ Andrei Cristian~Ionescu, Sergey Titov, and Maliheh Izadi.
 
 \bibitem{anthropic_model_2024}
 {Anthropic}.
-\newblock {\em Model Context Protocol ({MCP})}.
-\newblock Anthropic, 2024.
+\newblock Model context protocol ({MCP}), 2024.
+\newblock Disponible en: \url{https://docs.anthropic.com/en/docs/agents-and-tools/mcp}.
 
 \bibitem{zhu_retrieving_2021}
 Fengbin Zhu, Wenqiang Lei, Chao Wang, Jianming Zheng, Soujanya Poria, and Tat-Seng Chua.
@@ -193,19 +193,6 @@ Guanzhi Wang, Yuqi Xie, Yunfan Jiang, Ajay Mandlekar, Chaowei Xiao, Yuke Zhu, Li
 Shunyu Liu, Yaoru Li, Kongcheng Zhang, Zhenyu Cui, Wenkai Fang, Yuxuan Zheng, Tongya Zheng, and Mingli Song.
 \newblock Odyssey: Empowering minecraft agents with open-world skills, 2025.
 
-\bibitem{raman_planning_2022}
-Shreyas~Sundara Raman, Vanya Cohen, Eric Rosen, Ifrah Idrees, David Paulius, and Stefanie Tellex.
-\newblock Planning with large language models via corrective re-prompting.
-\newblock In {\em {NeurIPS} 2022 Foundation Models for Decision Making Workshop}, 2022.
-
-\bibitem{liu_llmp_2023}
-{LLM}+p: Empowering large language models with optimal planning proficiency.
-
-\bibitem{dagan_dynamic_2024}
-Gautier Dagan, Frank Keller, and Alex Lascarides.
-\newblock Dynamic planning with a {LLM}.
-\newblock In {\em Language Gamification - {NeurIPS} 2024 Workshop}, 2024.
-
 \bibitem{deepseek-ai_deepseek-r1_2025}
 {DeepSeek-AI}.
 \newblock {DeepSeek}-r1: Incentivizing reasoning capability in {LLMs} via reinforcement learning, 2025.
@@ -268,19 +255,22 @@ Yifan Song, Weimin Xiong, Dawei Zhu, Wenhao Wu, Han Qian, Mingbo Song, Hailiang 
 Eirini Kalliamvakou.
 \newblock Research: quantifying {GitHub} copilot’s impact on developer productivity and happiness.
 \newblock {\em The {GitHub} Blog}, 2022.
+\newblock Disponible en: \url{https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/}.
 
 \bibitem{sourcegraph2024cody}
 Sourcegraph.
 \newblock How cody understands your codebase, 2024.
-\newblock Accessed June 17, 2025.
+\newblock Disponible en: \url{https://sourcegraph.com/blog/how-cody-understands-your-codebase}.
 
 \bibitem{gauthier_building_2023}
 Paul Gauthier.
 \newblock Building a better repository map with tree sitter, 2023.
+\newblock Disponible en: \url{https://aider.chat/2023/10/22/repomap.html}.
 
 \bibitem{noauthor_number_2024}
 Josh Howarth.
 \newblock Number of parameters in {GPT}-4 (latest data), 2024.
+\newblock Disponible en: \url{https://explodingtopics.com/blog/gpt-parameters}.
 
 \bibitem{chen_fireact_2023}
 Baian Chen, Chang Shu, Ehsan Shareghi, Nigel Collier, Karthik Narasimhan, and Shunyu Yao.
@@ -299,7 +289,7 @@ Zehui Chen, Kuikun Liu, Qiuchen Wang, Wenwei Zhang, Jiangning Liu, Dahua Lin, Ka
 \bibitem{brown_c4_2018}
 Simon Brown.
 \newblock The c4 model for software architecture, 2018.
-\newblock Publisher: {InfoQ}.
+\newblock Publisher: {InfoQ}. Disponible en: \url{https://www.infoq.com/articles/C4-architecture-model}.
 
 \bibitem{luo_repoagent_2024}
 Qinyu Luo, Yining Ye, Shihao Liang, Zhong Zhang, Yujia Qin, Yaxi Lu, Yesai Wu, Xin Cong, Yankai Lin, Yingli Zhang, Xiaoyin Che, Zhiyuan Liu, and Maosong Sun.
@@ -339,6 +329,7 @@ Asier Gutiérrez-Fandiño, Jordi Armengol-Estapé, Marc Pàmies, Joan Llop-Palao
 \bibitem{mistral_codestral_2025}
 {Mistral AI}.
 \newblock Codestral embed {\textbar} mistral {AI}.
+\newblock Disponible en: \url{https://mistral.ai/news/codestral-embed}.
 
 \bibitem{khattab_relevance-guided_2021}
 Omar Khattab, Christopher Potts, and Matei Zaharia.

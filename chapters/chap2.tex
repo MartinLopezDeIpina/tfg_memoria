@@ -3,7 +3,7 @@ Una vez establecido el objetivo de este proyecto en la introducción, en este ca
 Por otro lado, se explicará a grandes rasgos qué son los agentes basados en grandes modelos de lenguaje (\textit{Large Language Models}), su funcionamiento e interacción con herramientas externas. Se introduce además el Model Context Protocol como estándar de comunicación entre estos componentes.
 
 
-Finalmente, se aborda el estado del arte en arquitecturas de agentes, sus aplicaciones en proyectos software, técnicas de evaluación y varias consideraciones sobre el ajuste de estos.
+Finalmente, se aborda el estado del arte en arquitecturas de agentes, sus aplicaciones en proyectos software, técnicas de evaluación y consideraciones sobre el ajuste de estos.
 
 \section{Onboarding en proyectos software}
 El proceso de incorporación de nuevos desarrolladores de software constituye un desafío persistente para las organizaciones tecnológicas, donde los recién incorporados se enfrentan a una sobrecarga informativa mientras los desarrolladores senior ven afectada su productividad al destinar tiempo considerable a actividades de formación y mentoría \cite{sim_ramp-up_1998}. 
@@ -17,9 +17,9 @@ En este contexto, los modelos de lenguaje de gran escala emergen como una altern
 
 La Universidad del País Vasco, en colaboración con LKS Next, desarrolló el prototipo denominado I Need a Hero (INAH), diseñado para aprovechar el potencial de los LLM en la localización de expertos dentro de la organización \cite{azanza_can_2024}. INAH opera en dos fases: primero crea perfiles de ``héroes'' extrayendo información de currículos de empleados dispuestos a asistir; luego, ante una consulta, utiliza GPT-3.5 para identificar las competencias requeridas y localizar a los profesionales que las poseen.
 
-En una línea de estudio complementaria, un trabajo reciente ha presentado el sistema ``Onboarding Buddy'', el cual implementa una arquitectura multiagente que organiza diversos componentes especializados para proporcionar asistencia contextualizada durante la incorporación de nuevos desarrolladores \cite{cristian_ionescu_multi-agent_2025}. El sistema fundamenta su funcionamiento en la generación dinámica de planes mediante cadena de pensamiento \ref{plani}, evaluados posteriormente para determinar su posible descomposición en sub-tareas procesadas en paralelo por otros agentes.
+En una línea de estudio complementaria, un trabajo reciente ha presentado el sistema ``Onboarding Buddy'', el cual implementa una arquitectura multiagente que organiza diversos componentes especializados para proporcionar asistencia contextualizada durante la incorporación de nuevos desarrolladores \cite{cristian_ionescu_multi-agent_2025}. El sistema fundamenta su funcionamiento en la generación dinámica de planes mediante cadena de pensamiento (véase Sección \ref{plani}), evaluados posteriormente para determinar su posible descomposición en sub-tareas procesadas en paralelo por otros agentes.
 
-Aunque las investigaciones anteriores han demostrado el potencial de los agentes en este ámbito, dichas propuestas se limitan a obtener información de una única fuente de datos. Por tanto, el presente trabajo pretende explorar el potencial de dichos sistemas en escenarios similares a entornos productivos, donde la información se encuentra distribuida entre múltiples fuentes.
+Aunque las investigaciones anteriores han demostrado el potencial de los agentes en este ámbito, estas propuestas se limitan a obtener información de una única fuente de datos. Por tanto, el presente trabajo pretende explorar el potencial de dichos sistemas en escenarios similares a entornos productivos, donde la información se encuentra distribuida entre múltiples fuentes.
 
 \section{Agentes de Grandes Modelos de Lenguaje (LLM)}
 
@@ -32,7 +32,7 @@ Los Grandes Modelos de Lenguaje son redes neuronales especializadas en el proces
 Para comprender el funcionamiento de estos agentes, resulta imprescindible asimilar previamente conceptos como la tokenización, las representaciones vectoriales del lenguaje y el ajuste de dichos modelos.
 
 \paragraph{Tokens}\label{token}
-Los tokens constituyen la unidad mínima de texto que el modelo puede procesar. Dado que dichos modelos operan sobre estructuras matemáticas, requieren transformar el lenguaje natural en representaciones matriciales. Para lograr esta conversión, el texto se segmenta en dichas unidades mínimas, que pueden corresponder a caracteres individuales, fragmentos de texto o palabras completas. El conjunto íntegro de estas unidades reconocibles por el modelo configura su vocabulario. 
+Los tokens constituyen la unidad mínima de texto que el modelo puede procesar. Dado que dichos modelos operan sobre estructuras matemáticas, requieren transformar el lenguaje natural en representaciones matriciales. Para lograr esta conversión, el texto se segmenta en dichas unidades mínimas, que pueden corresponder a caracteres individuales, fragmentos de texto o palabras completas. 
 
 \paragraph{Representaciones vectoriales}
 Constituyen vectores numéricos de dimensionalidad fija que codifican la semántica inherente a cada token. Por ejemplo, una dimensión específica podría especializarse en representar conceptos abstractos. En este contexto, la representación vectorial del token ``animal'' contendría un valor más elevado en dicha dimensión que la correspondiente al término ``gato'', reflejando su mayor grado de abstracción conceptual.
@@ -73,7 +73,7 @@ En pleno auge de los agentes LLM, surgen cada vez más bibliotecas y frameworks 
 Las principales funcionalidades proporcionadas son las siguientes: 
 \begin{itemize}
 \item {\textbf{Gestión de modelos:}} la ejecución de modelos de lenguaje requiere del dominio de estos, ya que cada uno posee tokenizadores (véase Anexo \ref{anexo:tokenizer}) específicos y esquemas propios de entrada y salida. Los frameworks ofrecen interfaces unificadas, facilitando el uso de diversos modelos sin necesidad de conocimientos técnicos excesivamente detallados.
-\item {\textbf{Interacción conversacional:}} la comunicación con los agentes se efectúa mediante un esquema conversacional, donde el modelo recibe un texto de entrada y genera una respuesta correspondiente. Las respuestas y entradas se concatenan secuencialmente para preservar el contexto de la conversación, cada consulta subsiguiente incorpora todos los intercambios precedentes.
+\item {\textbf{Interacción conversacional:}} la comunicación con los agentes se efectúa mediante un esquema conversacional, donde el modelo recibe un texto de entrada y genera una respuesta. Las respuestas y entradas se concatenan secuencialmente para preservar el contexto de la conversación, cada consulta subsiguiente incorpora todos los intercambios precedentes.
 \item {\textbf{Uso de herramientas externas:}} toda la complejidad de la interacción se abstrae en el framework, por lo que el desarrollador únicamente debe especificar la función que desea incorporar.
 \item {\textbf{Interacción entre agentes:}} los agentes pueden establecer comunicación entre sí, permitiendo la construcción de sistemas con mayor complejidad. Algunos frameworks establecen protocolos que definen las modalidades de comunicación entre los distintos agentes.
 \end{itemize}
@@ -108,7 +108,7 @@ La comunidad científica ha diseñado diversas arquitecturas de agentes para opt
 
 \subsection{Arquitectura RAG}
 
-Los modelos LLM poseen un conocimiento restringido a los datos con los que fueron entrenados. Para superar esta limitación, el enfoque RAG (Retrieval-Augmented Generation) complementa la generación del LLM mediante la recuperación de información relevante desde repositorios de conocimiento externos. La Figura \ref{fig:rag} ilustra un ejemplo de su funcionamiento.    
+Los modelos LLM poseen un conocimiento restringido a los datos con los que fueron entrenados. Para superar esta limitación, el enfoque RAG (\textit{Retrieval-Augmented Generation}) complementa la generación del LLM mediante la recuperación de información relevante desde repositorios de conocimiento externos. La Figura \ref{fig:rag} ilustra un ejemplo de su funcionamiento.    
 
 \begin{figure}[hbtp]
   \centering
@@ -151,7 +151,7 @@ Algunos módulos se inspiran en la estructura de la memoria humana \cite{zhong_m
   Entre estos mecanismos destaca el prompting de cadena de pensamiento (Chain of Thought) \cite{wei_chain--thought_2023}, que instruye al modelo para elaborar un razonamiento secuencial previo a su decisión final, permitiendo así descomponer problemas complejos paso a paso.
 Partiendo de este enfoque, estrategias avanzadas como la autoconsciencia \cite{liang_unleashing_2023} lo amplían mediante la generación de múltiples cadenas de razonamiento independientes y la posterior selección de la respuesta óptima entre ellas \cite{yao_tree_2023, wang_recmind_2024}. De manera complementaria, las técnicas de reflexión \cite{shinn_reflexion_2023, madaan_self-refine_2023, miao_selfcheck_2023} implementan un proceso iterativo donde el propio modelo evalúa y refina sus respuestas.
 
-Por otro lado, la estructuración de acciones constituye una metodología ampliamente adoptada en la planificación \cite{lin_swiftsage_2023, huang_language_2022, wang_describe_2023}. Esta técnica permite definir planes de alto nivel que posteriormente se desglosan en acciones específicas ejecutables por los agentes \cite{zhu_ghost_2023, song_llm-planner_2023, wang_voyager_2023, liu_odyssey_2025}. Adicionalmente, la definición de interdependencias entre estas acciones permite verificar la validez de los planes generados \cite{raman_planning_2022, liu_llmp_2023, dagan_dynamic_2024}.
+Por otro lado, la estructuración de acciones constituye una metodología ampliamente adoptada en la planificación \cite{lin_swiftsage_2023, huang_language_2022, wang_describe_2023}. Esta técnica permite definir planes de alto nivel que posteriormente se desglosan en acciones específicas ejecutables por los agentes \cite{zhu_ghost_2023, song_llm-planner_2023, wang_voyager_2023, liu_odyssey_2025}. 
 
 Los modelos razonadores como o1 de OpenAI o DeepSeek-R1 incorporan estas técnicas de forma nativa \cite{deepseek-ai_deepseek-r1_2025}. Estos han sido entrenados con datos que incluyen ejemplos de razonamiento y planificación, lo que les permite generar respuestas que siguen dichas estructuras.
 

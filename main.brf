@@ -15,8 +15,8 @@
 \backcite {zhu_retrieving_2021, gao_retrieval-augmented_2024}{{9}{2.4.1.1}{subsubsection.2.4.1.1}}
 \backcite {khattab_demonstrate-search-predict_2022, shao_enhancing_2023, qi-etal-2021-answering, zheng_take_2023, trivedi_interleaving_2023}{{9}{2.4.1.1}{subsubsection.2.4.1.1}}
 \backcite {wang_survey_2024}{{9}{2.4.2}{subsection.2.4.2}}
-\backcite {zhang_building_2023, fischer_reflective_2023, liang_unleashing_2023}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {zhao_expel_2024}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {zhang_building_2023, fischer_reflective_2023, liang_unleashing_2023}{{9}{2.4.2}{subsection.2.4.2}}
+\backcite {zhao_expel_2024}{{9}{2.4.2}{subsection.2.4.2}}
 \backcite {zhong_memorybank_2024}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {wang_survey_2024, park_generative_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {wei_chain--thought_2023}{{10}{2.4.2}{subsection.2.4.2}}
@@ -25,16 +25,15 @@
 \backcite {shinn_reflexion_2023, madaan_self-refine_2023, miao_selfcheck_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {lin_swiftsage_2023, huang_language_2022, wang_describe_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {zhu_ghost_2023, song_llm-planner_2023, wang_voyager_2023, liu_odyssey_2025}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {raman_planning_2022, liu_llmp_2023, dagan_dynamic_2024}{{10}{2.4.2}{subsection.2.4.2}}
-\backcite {deepseek-ai_deepseek-r1_2025}{{11}{2.4.2}{subsection.2.4.2}}
-\backcite {karpas_mrkl_2022, ge_openagi_2023}{{11}{2.4.2}{subsection.2.4.2}}
+\backcite {deepseek-ai_deepseek-r1_2025}{{10}{2.4.2}{subsection.2.4.2}}
+\backcite {karpas_mrkl_2022, ge_openagi_2023}{{10}{2.4.2}{subsection.2.4.2}}
 \backcite {zhuge_mindstorms_2025, du_improving_2024}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {qian_chatdev_2024}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {hong_metagpt_2024}{{11}{2.4.2}{subsection.2.4.2}}
 \backcite {jimenez_swe-bench_2023, liu_agentbench_2023, zhou_webarena_2023}{{11}{2.4.3}{subsection.2.4.3}}
 \backcite {qin_toolllm_2023}{{11}{2.4.3}{subsection.2.4.3}}
 \backcite {li_api-bank_2023, song_restgpt_2023}{{11}{2.4.3}{subsection.2.4.3}}
-\backcite {kalliamvakou_research_2022}{{12}{2.5}{section.2.5}}
+\backcite {kalliamvakou_research_2022}{{11}{2.5}{section.2.5}}
 \backcite {sourcegraph2024cody}{{12}{2.5}{section.2.5}}
 \backcite {acharya_devin_2025}{{12}{2.5}{section.2.5}}
 \backcite {gauthier_building_2023}{{12}{2.5}{section.2.5}}
