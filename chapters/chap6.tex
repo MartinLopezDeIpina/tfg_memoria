@@ -50,7 +50,7 @@ El Listado \ref{lst:spec_graph} ilustra la creación del grafo para los agentes 
       return graph_builder.compile()
 \end{lstlisting}
 
-Para acceder al estado de ejecución del agente ReAct tras finalizar abruptamente por el límite de mensajes, se utiliza el sistema de autoguardado de LangGraph. Mediante la clase \opus{AsyncPostgresSaver}, todos los estados de ejecución se almacenan en una colección de PostgreSQL y son accesibles mediante su identificador. 
+Para acceder al estado de ejecución del agente ReAct tras finalizar abruptamente por el límite de mensajes, se utiliza el sistema de autoguardado de LangGraph. Mediante la clase \opus{AsyncPostgresSaver}, todos los estados de ejecución se almacenan en una colección de PostgreSQL\footnote{PostgreSQL: \url{https://www.postgresql.org/}} y son accesibles mediante su identificador. 
 
 \subsection{Gestión de herramientas}
 Algunas herramientas proporcionadas por los servidores MCP resultan innecesarias o contraproducentes para determinados agentes. Para evitar incluir contenido innecesario en los prompts, se indica al instanciar un agente el nombre de las herramientas que se utilizarán, filtrando posteriormente las herramientas en el cliente.
@@ -152,13 +152,13 @@ Para indexar cada chunk, se ha utilizado una plantilla que considera: el código
 
 Para ejecutar el proceso de indexación de forma estructurada y asíncrona, se ha implementado un algoritmo basado en el patrón Pipeline\footnote{Patrón Pipeline: \url{https://medium.com/@bonnotguillaume/software-architecture-the-pipeline-design-pattern-from-zero-to-hero-b5c43d8a4e60}} que desacopla la iteración de las operaciones mediante tres niveles de ejecución:
 \begin{itemize}
-\item\textbf{PipelinePipelineStage:} Procesos iniciales a nivel de repositorio, incluyendo la generación del árbol de directorios mediante treelib\footnote{treelib: \url{https://pypi.org/project/treelib/}} y la creación de documentación API con RepoAgent.
-\item\textbf{FilePipelineStage:} Estructuración del procesamiento a nivel de fichero, permitiendo un seguimiento organizado.
-\item\textbf{ChunkPipelineStage:} Operaciones para cada chunk, abarcando la creación de documentación y su posterior indexación vectorial.
+\item\textbf{PipelinePipelineStage:} procesos iniciales a nivel de repositorio, incluyendo la generación del árbol de directorios mediante treelib\footnote{treelib: \url{https://pypi.org/project/treelib/}} y la creación de documentación API con RepoAgent.
+\item\textbf{FilePipelineStage:} estructuración del procesamiento a nivel de fichero, permitiendo un seguimiento organizado.
+\item\textbf{ChunkPipelineStage:} operaciones para cada chunk, abarcando la creación de documentación y su posterior indexación vectorial.
 \end{itemize}
 La ejecución sigue un flujo jerárquico donde primero se completan las operaciones a nivel de repositorio, seguidas por el procesamiento asíncrono de ficheros y finalmente la ejecución asíncrona de operaciones a nivel de chunk, manteniendo un orden secuencial dentro de cada nivel.
 
-\begin{lstlisting}[caption={\protect\opus{generate_extra_docs}: Ejecución de agente RepoAgent para crear la documentación API}, label={lst:repoagent}]
+\begin{lstlisting}[caption={\protect\opus{generate_extra_docs}: ejecución de agente RepoAgent para crear la documentación API}, label={lst:repoagent}]
   def generate_extra_docs(files_to_ignore: List[str], repo_path: str, extra_docs_path: str):
       try:
           files_to_ignore_str = ",".join(files_to_ignore)

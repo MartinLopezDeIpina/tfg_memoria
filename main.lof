@@ -22,7 +22,7 @@
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Agentes especialistas junto a sus respectivas fuentes de datos}}{45}{figure.6.1}%
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Grafo de ejecución de agentes especializados}}{46}{figure.6.2}%
 \contentsline {figure}{\numberline {6.3}{\ignorespaces Diagrama de funcionamiento del sistema de citas}}{48}{figure.6.3}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Flujo operativo del agente de código}}{49}{figure.6.4}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Flujo operativo del agente de código}}{50}{figure.6.4}%
 \contentsline {figure}{\numberline {6.5}{\ignorespaces Diagrama relacional de la base de datos con el código fuente del proyecto software}}{51}{figure.6.5}%
 \contentsline {figure}{\numberline {6.6}{\ignorespaces Algoritmo de chunking considerando definiciones de funciones y clases en el código fuente}}{52}{figure.6.6}%
 \contentsline {figure}{\numberline {6.7}{\ignorespaces Comparación de agente Confluence estándar y enfocado en el cacheo del prompt}}{55}{figure.6.7}%

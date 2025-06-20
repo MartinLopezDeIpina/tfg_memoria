@@ -79,7 +79,7 @@ Estos se alojan en componentes separados, ya que el protocolo SSE permite desaco
 \begin{itemize}
   \item \textbf{Servidor Confluence:} proporciona acceso de lectura al repositorio Confluence, utilizando el servidor MCP oficial de Atlassian\footnote{Repositorio de servidor MCP Atlassian: \url{https://github.com/sooperset/mcp-atlassian}}. El componente \opus{servidor_mcp_confluence} incorpora un script de lanzamiento \opus{launch_mcp_server_confluence.py} (detallado en el Listado \ref{lst:servconf}).
 
-    El script inicializa el servidor mediante el gestor de paquetes uv, implementando el paquete mcp-atlassian\footnote{Paquete mcp-atlassian: \url{https://pypi.org/project/mcp-atlassian/}}. Este paquete integra el SDK de MCP para crear un servidor ASGI que maneja herramientas conectadas a la API de Atlassian. Tras la extracción de variables de entorno desde \opus{.env}, se ejecuta el comando uvx en el sistema.
+    El script inicializa el servidor mediante el gestor de paquetes uv\footnote{uv: \url{https://astral.sh/blog/uv}}, implementando el paquete mcp-atlassian\footnote{Paquete mcp-atlassian: \url{https://pypi.org/project/mcp-atlassian/}}. Este paquete integra el SDK de MCP para crear un servidor web que maneja herramientas conectadas a la API de Atlassian. Tras la extracción de variables de entorno desde \opus{.env}, se ejecuta el comando uvx en el sistema.
     \begin{lstlisting}[caption={\protect\opus{launch_mcp_server_confluence.py}: ejecución de lanzamiento del servidor MCP Confluence},label={lst:servconf}]
     load_dotenv() 
     confluence_url = os.getenv('CONFLUENCE_URL')
@@ -102,7 +102,7 @@ Estos se alojan en componentes separados, ya que el protocolo SSE permite desaco
 
 \item\textbf{Servidor Código: }proporciona acceso de lectura al repositorio software, implementando herramientas para la consulta de su código fuente. Su desarrollo se ha realizado directamente mediante el SDK de MCP para Python\footnote{SDK de MCP para Python: \url{https://github.com/modelcontextprotocol/python-sdk}}, localizado en el fichero \opus{src/mcp_code_server.py} del componente \opus{servidor_mcp_bd_codigo}. La Sección \ref{sec:herramientas_codigo} detalla la implementación de dichas herramientas.
 
-  El sistema emplea la clase \texttt{FastMCP}, que integra internamente un servidor ASGI para gestionar el enrutamiento de las herramientas implementadas. Como se especifica en el Listado \ref{lst:mcpcod}, el procedimiento consta de la instanciación de la clase, la asociación de diversas herramientas mediante el decorador \opus{mcp.tool}, y la posterior ejecución del servidor. Una vez vinculadas las herramientas, se generan automáticamente las rutas \opus{call_tool} y \opus{get_tools}, facilitando su acceso automatizado desde el cliente MCP.
+  El sistema emplea la clase \texttt{FastMCP}, que integra internamente un servidor web para gestionar el enrutamiento de las herramientas implementadas. Como se especifica en el Listado \ref{lst:mcpcod}, el procedimiento consta de la instanciación de la clase, la asociación de diversas herramientas mediante el decorador \opus{mcp.tool}, y la posterior ejecución del servidor. Una vez vinculadas las herramientas, se generan automáticamente las rutas \opus{call_tool} y \opus{get_tools}, facilitando su acceso automatizado desde el cliente MCP.
 
 \begin{lstlisting}[caption={\protect\opus{mcp_code_server.py:} ejecución del servidor MCP con acceso al código fuente},label={lst:mcpcod}]
   mcp = FastMCP("code_server_id")

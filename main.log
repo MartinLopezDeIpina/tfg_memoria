@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  19 JUN 2025 10:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  20 JUN 2025 11:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1791,7 +1791,7 @@ Overfull \hbox (27.88548pt too wide) in paragraph at lines 85--86
 LaTeX Info: Redefining \. on input line 260.
 LaTeX Info: Redefining \% on input line 260.
  [32] (./chapters/chap5.tex
-<figures/react.png, id=1558, 2333.71875pt x 662.475pt>
+<figures/react.png, id=1555, 2333.71875pt x 662.475pt>
 File: figures/react.png Graphic file (type png)
 <use figures/react.png>
 Package pdftex.def Info: figures/react.png  used on input line 10.
@@ -1805,7 +1805,7 @@ Overfull \hbox (36.73087pt too wide) in paragraph at lines 10--11
 
 
 ]
-<figures/agentes.png, id=1564, 816.651pt x 739.3221pt>
+<figures/agentes.png, id=1561, 816.651pt x 739.3221pt>
 File: figures/agentes.png Graphic file (type png)
 <use figures/agentes.png>
 Package pdftex.def Info: figures/agentes.png  used on input line 23.
@@ -1820,7 +1820,7 @@ LaTeX Info: Redefining \% on input line 35.
 LaTeX Info: Redefining \. on input line 35.
 LaTeX Info: Redefining \% on input line 35.
  [35 <./figures/agentes.png>]
-<figures/design.png, id=1578, 2320.67pt x 524.96124pt>
+<figures/design.png, id=1575, 2320.67pt x 524.96124pt>
 File: figures/design.png Graphic file (type png)
 <use figures/design.png>
 Package pdftex.def Info: figures/design.png  used on input line 40.
@@ -1839,8 +1839,8 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 LaTeX Info: Redefining \. on input line 104.
 LaTeX Info: Redefining \% on input line 104.
  [38]
-LaTeX Info: Redefining \. on input line 140.
-LaTeX Info: Redefining \% on input line 140.
+LaTeX Info: Redefining \. on input line 139.
+LaTeX Info: Redefining \% on input line 139.
  [39]
 LaTeX Info: Redefining \. on input line 166.
 LaTeX Info: Redefining \% on input line 166.
@@ -1883,7 +1883,7 @@ LaTeX Info: Redefining \% on input line 34.
 LaTeX Info: Redefining \. on input line 64.
 LaTeX Info: Redefining \% on input line 64.
  [47]
-<figures/citations.png, id=1835, 2941.99126pt x 1196.47pt>
+<figures/citations.png, id=1838, 2941.99126pt x 1196.47pt>
 File: figures/citations.png Graphic file (type png)
 <use figures/citations.png>
 Package pdftex.def Info: figures/citations.png  used on input line 67.
@@ -1891,23 +1891,27 @@ Package pdftex.def Info: figures/citations.png  used on input line 67.
 LaTeX Info: Redefining \. on input line 87.
 LaTeX Info: Redefining \% on input line 87.
  [48 <./figures/citations.png>]
-<figures/agente_codigo.png, id=1854, 2904.8525pt x 1065.9825pt>
+<figures/agente_codigo.png, id=1857, 2904.8525pt x 1065.9825pt>
 File: figures/agente_codigo.png Graphic file (type png)
 <use figures/agente_codigo.png>
 Package pdftex.def Info: figures/agente_codigo.png  used on input line 98.
 (pdftex.def)             Requested size: 473.0077pt x 173.56981pt.
-LaTeX Info: Redefining \. on input line 104.
-LaTeX Info: Redefining \% on input line 104.
- [49 <./figures/agente_codigo.png>]
-LaTeX Info: Redefining \. on input line 126.
-LaTeX Info: Redefining \% on input line 126.
- [50]
-<figures/db.png, id=1885, 531.9875pt x 274.02374pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 108.
+LaTeX Info: Redefining \% on input line 108.
+[49]
+LaTeX Info: Redefining \. on input line 122.
+LaTeX Info: Redefining \% on input line 122.
+ [50 <./figures/agente_codigo.png>]
+<figures/db.png, id=1884, 531.9875pt x 274.02374pt>
 File: figures/db.png Graphic file (type png)
 <use figures/db.png>
 Package pdftex.def Info: figures/db.png  used on input line 131.
 (pdftex.def)             Requested size: 408.50307pt x 210.42192pt.
-<figures/chunks.png, id=1889, 4400.44pt x 1650.165pt>
+<figures/chunks.png, id=1888, 4400.44pt x 1650.165pt>
 File: figures/chunks.png Graphic file (type png)
 <use figures/chunks.png>
 Package pdftex.def Info: figures/chunks.png  used on input line 143.
@@ -1916,36 +1920,34 @@ Package pdftex.def Info: figures/chunks.png  used on input line 143.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Underfull \vbox (badness 1389) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
- [51 <./figures/db.png>]
-LaTeX Info: Redefining \. on input line 157.
-LaTeX Info: Redefining \% on input line 157.
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
+[51 <./figures/db.png>]
+LaTeX Info: Redefining \. on input line 156.
+LaTeX Info: Redefining \% on input line 156.
  [52 <./figures/chunks.png>]
-LaTeX Info: Redefining \. on input line 180.
-LaTeX Info: Redefining \% on input line 180.
+LaTeX Info: Redefining \. on input line 179.
+LaTeX Info: Redefining \% on input line 179.
  [53]
 Overfull \hbox (29.17943pt too wide) in paragraph at lines 203--204
 []\T1/LinuxLibertineT-TLF/b/n/10.95 (-20) Implementación es-tán-dar[] \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) En es-ta im-ple-men-ta-ción es-tán-dar, $\T1/zi4/m/n/10.95 prepare _ prompt()$ \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) uti-li-za $\T1/zi4/m/n/10.95 confluence _
  []
 
-<figures/confluences.png, id=1982, 2340.745pt x 923.45pt>
+LaTeX Info: Redefining \. on input line 206.
+LaTeX Info: Redefining \% on input line 206.
+[54]
+<figures/confluences.png, id=2005, 2340.745pt x 923.45pt>
 File: figures/confluences.png Graphic file (type png)
 <use figures/confluences.png>
 Package pdftex.def Info: figures/confluences.png  used on input line 209.
 (pdftex.def)             Requested size: 365.50655pt x 144.19006pt.
-LaTeX Info: Redefining \. on input line 212.
-LaTeX Info: Redefining \% on input line 212.
-[54]
+
 Overfull \hbox (3.44705pt too wide) in paragraph at lines 218--219
 []$\T1/zi4/m/n/10.95 get _ gitlab _ project _ commits(user _ name ,[] since ,[] until ,[] result _ limit) :$ \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) re-cu-pe-ra con-
  []
 
-LaTeX Info: Redefining \. on input line 230.
-LaTeX Info: Redefining \% on input line 230.
+LaTeX Info: Redefining \. on input line 227.
+LaTeX Info: Redefining \% on input line 227.
 [55 <./figures/confluences.png>])
 LaTeX Info: Redefining \. on input line 266.
 LaTeX Info: Redefining \% on input line 266.
@@ -1959,7 +1961,7 @@ LaTeX Info: Redefining \% on input line 41.
 LaTeX Info: Redefining \. on input line 79.
 LaTeX Info: Redefining \% on input line 79.
  [59]
-<figures/planner.png, id=2102, 1292.9103pt x 149.5989pt>
+<figures/planner.png, id=2105, 1292.9103pt x 149.5989pt>
 File: figures/planner.png Graphic file (type png)
 <use figures/planner.png>
 Package pdftex.def Info: figures/planner.png  used on input line 82.
@@ -1967,17 +1969,17 @@ Package pdftex.def Info: figures/planner.png  used on input line 82.
 LaTeX Info: Redefining \. on input line 99.
 LaTeX Info: Redefining \% on input line 99.
  [60 <./figures/planner.png (PNG copy)>]
-<figures/orch_1.png, id=2112, 1517.67pt x 1147.28625pt>
+<figures/orch_1.png, id=2115, 1517.67pt x 1147.28625pt>
 File: figures/orch_1.png Graphic file (type png)
 <use figures/orch_1.png>
 Package pdftex.def Info: figures/orch_1.png  used on input line 102.
 (pdftex.def)             Requested size: 258.00539pt x 195.03607pt.
-<figures/orch_2.png, id=2113, 1204.5pt x 1329.96875pt>
+<figures/orch_2.png, id=2116, 1204.5pt x 1329.96875pt>
 File: figures/orch_2.png Graphic file (type png)
 <use figures/orch_2.png>
 Package pdftex.def Info: figures/orch_2.png  used on input line 104.
 (pdftex.def)             Requested size: 215.0023pt x 237.39526pt.
-<figures/orch_3.png, id=2114, 1187.43625pt x 1137.24875pt>
+<figures/orch_3.png, id=2117, 1187.43625pt x 1137.24875pt>
 File: figures/orch_3.png Graphic file (type png)
 <use figures/orch_3.png>
 Package pdftex.def Info: figures/orch_3.png  used on input line 106.
@@ -2001,7 +2003,7 @@ Overfull \hbox (39.80113pt too wide) in paragraph at lines 44--45
 LaTeX Info: Redefining \. on input line 45.
 LaTeX Info: Redefining \% on input line 45.
 [66]
-<figures/memoria_1.png, id=2178, 2294.5725pt x 548.0475pt>
+<figures/memoria_1.png, id=2181, 2294.5725pt x 548.0475pt>
 File: figures/memoria_1.png Graphic file (type png)
 <use figures/memoria_1.png>
 Package pdftex.def Info: figures/memoria_1.png  used on input line 48.
@@ -2012,17 +2014,17 @@ Underfull \vbox (badness 2103) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 61.
 LaTeX Info: Redefining \% on input line 61.
  [67 <./figures/memoria_1.png>]
-<figures/memoria_2.png, id=2187, 3550.26375pt x 1107.13625pt>
+<figures/memoria_2.png, id=2190, 3550.26375pt x 1107.13625pt>
 File: figures/memoria_2.png Graphic file (type png)
 <use figures/memoria_2.png>
 Package pdftex.def Info: figures/memoria_2.png  used on input line 64.
 (pdftex.def)             Requested size: 537.50577pt x 167.61748pt.
-<figures/cluster_2.png, id=2191, 707.64375pt x 494.84875pt>
+<figures/cluster_2.png, id=2194, 707.64375pt x 494.84875pt>
 File: figures/cluster_2.png Graphic file (type png)
 <use figures/cluster_2.png>
 Package pdftex.def Info: figures/cluster_2.png  used on input line 79.
 (pdftex.def)             Requested size: 171.99922pt x 120.27628pt.
-<figures/codo.png, id=2192, 1152.305pt x 548.0475pt>
+<figures/codo.png, id=2195, 1152.305pt x 548.0475pt>
 File: figures/codo.png Graphic file (type png)
 <use figures/codo.png>
 Package pdftex.def Info: figures/codo.png  used on input line 82.
@@ -2055,7 +2057,7 @@ LaTeX Info: Redefining \% on input line 272.
 LaTeX Info: Redefining \. on input line 37.
 LaTeX Info: Redefining \% on input line 37.
  [74]
-<figures/evaluacion.png, id=2260, 2387.92125pt x 599.23875pt>
+<figures/evaluacion.png, id=2263, 2387.92125pt x 599.23875pt>
 File: figures/evaluacion.png Graphic file (type png)
 <use figures/evaluacion.png>
 Package pdftex.def Info: figures/evaluacion.png  used on input line 45.
@@ -2162,7 +2164,7 @@ LaTeX Info: Redefining \% on input line 36.
 LaTeX Info: Redefining \. on input line 78.
 LaTeX Info: Redefining \% on input line 78.
  [85]
-<figures/horas_real.pdf, id=2386, 647.41875pt x 577.15625pt>
+<figures/horas_real.pdf, id=2389, 647.41875pt x 577.15625pt>
 File: figures/horas_real.pdf Graphic file (type pdf)
 <use figures/horas_real.pdf>
 Package pdftex.def Info: figures/horas_real.pdf  used on input line 84.
@@ -2436,17 +2438,17 @@ Package rerunfilecheck Info: File `main.brf' has not changed.
 (rerunfilecheck)             Checksum: AB8C82B3155F0971050F0AF19D3FC40E;3848.
  ) 
 Here is how much of TeX's memory you used:
- 67701 strings out of 474222
- 1516533 string characters out of 5748733
+ 67702 strings out of 474222
+ 1516545 string characters out of 5748733
  2345565 words of memory out of 5000000
  87243 multiletter control sequences out of 15000+600000
  746271 words of font info for 527 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  142i,23n,148p,1601b,4115s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (149 pages, 7411601 bytes).
+Output written on main.pdf (149 pages, 7412632 bytes).
 PDF statistics:
- 3325 PDF objects out of 3580 (max. 8388607)
- 1125 named destinations out of 1200 (max. 500000)
+ 3329 PDF objects out of 3580 (max. 8388607)
+ 1126 named destinations out of 1200 (max. 500000)
  113111 words of extra memory for PDF output out of 128383 (max. 10000000)
 
