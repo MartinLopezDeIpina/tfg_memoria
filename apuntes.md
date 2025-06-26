@@ -1,0 +1,8 @@
+- poner desarrollo
+- contar lo del onboarding desde lks
+- en objetivos un poco más de mcp + un poco orquestació
+- llamar ia core tools caso de estudio en lugar de proyecto
+- explicar por qué es necesario generar -> por ley no puedo tener las docs de los clientes
+- explicar por qué necesario las citas -> necesario porque alucinan y miran las fuetnes
+- explicar que mcp emergente y gitlab y me he pegado
+- poner ejemplo de few shot para que se entienda mejor

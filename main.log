@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  20 JUN 2025 11:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.22)  21 JUN 2025 18:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1616,7 +1616,7 @@ LaTeX Info: Redefining \% on input line 36.
 LaTeX Info: Redefining \. on input line 51.
 LaTeX Info: Redefining \% on input line 51.
  [5]
-<figures/herramienta.png, id=1076, 2635.8475pt x 667.49374pt>
+<figures/herramienta.png, id=1075, 2635.8475pt x 667.49374pt>
 File: figures/herramienta.png Graphic file (type png)
 <use figures/herramienta.png>
 Package pdftex.def Info: figures/herramienta.png  used on input line 54.
@@ -1633,7 +1633,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 LaTeX Info: Redefining \. on input line 79.
 LaTeX Info: Redefining \% on input line 79.
 [6 <./figures/herramienta.png>]
-<figures/mcp.png, id=1094, 2789.42125pt x 954.56625pt>
+<figures/mcp.png, id=1093, 2789.42125pt x 954.56625pt>
 File: figures/mcp.png Graphic file (type png)
 <use figures/mcp.png>
 Package pdftex.def Info: figures/mcp.png  used on input line 91.
@@ -1641,7 +1641,7 @@ Package pdftex.def Info: figures/mcp.png  used on input line 91.
 LaTeX Info: Redefining \. on input line 100.
 LaTeX Info: Redefining \% on input line 100.
  [7 <./figures/mcp.png>]
-<figures/RAG.png, id=1107, 2063.71pt x 1339.0025pt>
+<figures/RAG.png, id=1106, 2063.71pt x 1339.0025pt>
 File: figures/RAG.png Graphic file (type png)
 <use figures/RAG.png>
 Package pdftex.def Info: figures/RAG.png  used on input line 115.
@@ -1649,14 +1649,14 @@ Package pdftex.def Info: figures/RAG.png  used on input line 115.
 LaTeX Info: Redefining \. on input line 125.
 LaTeX Info: Redefining \% on input line 125.
  [8]
-<figures/overlap.png, id=1126, 1242.6425pt x 797.98125pt>
+<figures/overlap.png, id=1125, 1242.6425pt x 797.98125pt>
 File: figures/overlap.png Graphic file (type png)
 <use figures/overlap.png>
 Package pdftex.def Info: figures/overlap.png  used on input line 134.
 (pdftex.def)             Requested size: 150.50424pt x 96.64247pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 9.0pt on input line 134.
-<figures/multihop.png, id=1127, 1403.2425pt x 694.595pt>
+<figures/multihop.png, id=1126, 1403.2425pt x 694.595pt>
 File: figures/multihop.png Graphic file (type png)
 <use figures/multihop.png>
 Package pdftex.def Info: figures/multihop.png  used on input line 134.
@@ -1688,7 +1688,7 @@ LaTeX Info: Redefining \% on input line 34.
  [14]
 
 pdfTeX warning: pdflatex (file ./figures/edt_mod.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/edt_mod.pdf, id=1270, 788.14452pt x 379.819pt>
+<figures/edt_mod.pdf, id=1269, 788.14452pt x 379.819pt>
 File: figures/edt_mod.pdf Graphic file (type pdf)
 <use figures/edt_mod.pdf>
 Package pdftex.def Info: figures/edt_mod.pdf  used on input line 44.
@@ -1713,7 +1713,7 @@ LaTeX Info: Redefining \% on input line 118.
  [17]
 
 pdfTeX warning: pdflatex (file ./figures/dep_mod.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/dep_mod.pdf, id=1318, 1220.56pt x 1370.11874pt>
+<figures/dep_mod.pdf, id=1317, 1220.56pt x 1370.11874pt>
 File: figures/dep_mod.pdf Graphic file (type pdf)
 <use figures/dep_mod.pdf>
 Package pdftex.def Info: figures/dep_mod.pdf  used on input line 147.
@@ -1744,7 +1744,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 270.
 LaTeX Info: Redefining \% on input line 270.
  [21]
-<figures/horas.pdf, id=1440, 591.3292pt x 565.27188pt>
+<figures/horas.pdf, id=1439, 591.3292pt x 565.27188pt>
 File: figures/horas.pdf Graphic file (type pdf)
 <use figures/horas.pdf>
 Package pdftex.def Info: figures/horas.pdf  used on input line 281.
@@ -1791,7 +1791,7 @@ Overfull \hbox (27.88548pt too wide) in paragraph at lines 85--86
 LaTeX Info: Redefining \. on input line 260.
 LaTeX Info: Redefining \% on input line 260.
  [32] (./chapters/chap5.tex
-<figures/react.png, id=1555, 2333.71875pt x 662.475pt>
+<figures/react.png, id=1554, 2333.71875pt x 662.475pt>
 File: figures/react.png Graphic file (type png)
 <use figures/react.png>
 Package pdftex.def Info: figures/react.png  used on input line 10.
@@ -1805,7 +1805,7 @@ Overfull \hbox (36.73087pt too wide) in paragraph at lines 10--11
 
 
 ]
-<figures/agentes.png, id=1561, 816.651pt x 739.3221pt>
+<figures/agentes.png, id=1560, 816.651pt x 739.3221pt>
 File: figures/agentes.png Graphic file (type png)
 <use figures/agentes.png>
 Package pdftex.def Info: figures/agentes.png  used on input line 23.
@@ -1820,7 +1820,7 @@ LaTeX Info: Redefining \% on input line 35.
 LaTeX Info: Redefining \. on input line 35.
 LaTeX Info: Redefining \% on input line 35.
  [35 <./figures/agentes.png>]
-<figures/design.png, id=1575, 2320.67pt x 524.96124pt>
+<figures/design.png, id=1574, 2320.67pt x 524.96124pt>
 File: figures/design.png Graphic file (type png)
 <use figures/design.png>
 Package pdftex.def Info: figures/design.png  used on input line 40.
@@ -2440,13 +2440,13 @@ Package rerunfilecheck Info: File `main.brf' has not changed.
 Here is how much of TeX's memory you used:
  67702 strings out of 474222
  1516545 string characters out of 5748733
- 2345565 words of memory out of 5000000
+ 2345651 words of memory out of 5000000
  87243 multiletter control sequences out of 15000+600000
  746271 words of font info for 527 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  142i,23n,148p,1601b,4115s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (149 pages, 7412632 bytes).
+Output written on main.pdf (149 pages, 7412743 bytes).
 PDF statistics:
  3329 PDF objects out of 3580 (max. 8388607)
  1126 named destinations out of 1200 (max. 500000)
